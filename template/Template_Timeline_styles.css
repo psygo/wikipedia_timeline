@@ -15,8 +15,9 @@
  *         div.wt-timeline__event             side by side, wrapping
  *
  * Parallel timelines (div.wt-timelines): several ol.wt-timeline side by side on
- * one row, wrapping when there is no room. Each child is a div.wt-timelines__col
- * (optional div.wt-timeline__heading, then the ol) and uses the compact layout.
+ * one row, wrapping when there is no room; add --grouped to align their dots.
+ * Each child is a div.wt-timelines__col (optional div.wt-timeline__heading, then
+ * the ol) and uses the compact layout.
  *
  * Wide layout:    [ date ] ---o--- [ events ]
  * Narrow layout:  o--- date / events, rail on the left
@@ -188,6 +189,78 @@
 		position: static;
 		width: auto;
 		text-align: left;
+	}
+}
+
+/*
+ * Grouped timelines (div.wt-timelines.wt-timelines--grouped): where CSS subgrid is
+ * available, every timeline in the group shares the group's rows, so the n-th item of each timeline sits on the same
+ * row and their dots line up horizontally. A timeline skips a row with an
+ * empty placeholder item (li.wt-timeline__item--gap). Each timeline can hold
+ * up to 20 items in this mode (21 rows: 1 heading + 20 items). Wrapping still
+ * works: a timeline that does not fit starts a new band of rows. Without
+ * subgrid support the timelines stay independent (the flex layout above).
+ */
+@supports ( grid-template-rows: subgrid ) {
+	.wt-timelines--grouped {
+		display: grid;
+		grid-template-columns: repeat( auto-fill, minmax( 18em, 1fr ) );
+		gap: 0 2em;
+	}
+
+	.wt-timelines--grouped > .wt-timelines__col,
+	.wt-timelines--grouped > .wt-timeline {
+		display: grid;
+		grid-row: span 21;
+		grid-template-rows: subgrid;
+		margin-bottom: 1em;
+	}
+
+	.wt-timelines--grouped > .wt-timelines__col > .wt-timeline {
+		grid-row: 2 / span 20;
+		display: grid;
+		grid-template-rows: subgrid;
+	}
+
+	.wt-timeline__heading {
+		margin-bottom: 0.6em;
+	}
+
+	/* The rail is drawn per item, so it stops at each timeline's last dot. */
+	.wt-timelines--grouped .wt-timeline::before {
+		display: none;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item::before {
+		z-index: 1;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item:not( :last-child )::after {
+		content: '';
+		position: absolute;
+		top: calc( 0.8em );
+		bottom: 0;
+		left: 4px;
+		width: 2px;
+		background: var( --border-color-subtle, #c8ccd1 );
+	}
+
+	/* Placeholder: no dot or content; the rail passes through once the timeline has started. */
+	.wt-timelines--grouped .wt-timeline__item--gap {
+		padding: 0;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item--gap::before {
+		display: none;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item--gap::after {
+		top: 0;
+		display: none;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item:not( .wt-timeline__item--gap ) ~ .wt-timeline__item--gap:not( :last-child )::after {
+		display: block;
 	}
 }
 

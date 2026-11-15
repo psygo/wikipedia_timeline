@@ -14,7 +14,7 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 
 + `prototype/`: standalone HTML and CSS.
   + `index.html`: viewer. Shows `article.html` in an iframe with draggable left/right handles (also ← → keys and width presets), so the media queries react to the frame width.
-  + `article.html`: mock Wikipedia article (Vector-like chrome, infobox, headings) with three example timelines: simple, several events per dot, and a row of parallel timelines.
+  + `article.html`: mock Wikipedia article (Vector-like chrome, infobox, headings) with three example timelines: simple, several events per dot, parallel timelines, and parallel and grouped timelines.
   + `alone.html`: the timeline alone.
   + `theme-toggle.js`: prototype-only button cycling system / light / dark (sets `data-theme`, remembered in localStorage). The template itself stays JS-free.
   + `timeline.css`: the real stylesheet, written to be portable to TemplateStyles (one root class `wt-timeline`,
@@ -23,8 +23,9 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
   + Markup is an `<ol>` of `<li>` items with a `<span>` for the date (`<time>` is not
     something I could confirm the wikitext sanitizer allows).
 + `prototype/images/huang-longshi.png`: photo of a Huang Longshi statue, supplied by the maintainer; source and licence still to be confirmed (see Next steps).
++ `userscript/Timeline-toolbar.js`: WikiEditor toolbar drop-down that inserts the four wikitext skeletons (install steps in the file header). Tested only against a mock of the WikiEditor API, not on a wiki.
 + `.github/workflows/pages.yml`: deploys `prototype/` to GitHub Pages on push to `main`.
-+ `template/`: `Template:Timeline`, `Timeline item`, `Timeline event`, `Timeline group`, docs, and a copy of the CSS for `Template:Timeline/styles.css`.
++ `template/`: `Template:Timeline`, `Timeline item`, `Timeline event`, `Timeline parallel`, `Timeline gap`, docs, and a copy of the CSS for `Template:Timeline/styles.css`.
   Keep `template/Template_Timeline_styles.css` identical to `prototype/timeline.css`.
 
 ## Behaviour
@@ -32,7 +33,8 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 + Design follows Vector: bold plain-text dates, Codex progressive blue dots, subtle grey rail, thumbnail-style image box.
 + 640 px and up: date column on the left, rail, then title, text and image.
 + Several events on one dot sit side by side and wrap (flex, 14 em minimum each).
-+ Parallel timelines (`wt-timelines`): several separate timelines, each with its own dates, rail and optional heading, share a row and wrap when there is no horizontal space. They always use the compact layout (date above events), because the 640 px breakpoint follows the window, not the column.
++ Parallel timelines (`wt-timelines`): several separate timelines, each with its own dates, rail and optional heading, share a row and wrap when there is no horizontal space. They are independent and always use the compact layout (date above events), because the 640 px breakpoint follows the window, not the column.
++ Parallel and grouped (`wt-timelines--grouped`): with CSS subgrid, the n-th item of every timeline shares a row, so dots line up horizontally; `wt-timeline__item--gap` placeholders skip rows. Max 20 items per timeline, no trailing gaps. Without subgrid it falls back to the independent layout. Whether the TemplateStyles sanitizer accepts `@supports` and `subgrid` is untested.
 + Under 640 px: one column, rail on the left, date above the title.
 + Dark mode follows the Codex tokens (the prototype fakes them with `prefers-color-scheme`).
 

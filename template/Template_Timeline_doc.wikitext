@@ -1,4 +1,4 @@
-Four templates: Timeline, Timeline item, Timeline event, Timeline group (names are placeholders; see Docs.md on renaming). Put the styles in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
+Five templates: Timeline, Timeline item, Timeline event, Timeline parallel, Timeline gap (names are placeholders; see Docs.md on renaming). Put the styles in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
 Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items or events: wikitext turns them into stray paragraphs inside the list.
 
 == Simple: one event per dot ==
@@ -21,11 +21,11 @@ Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items
 </pre>
 
 == Parallel timelines (several timelines on one row) ==
-Wrap timelines in <code>Timeline group</code>. Give each timeline a <code>title</code>. They share the row and wrap onto the next one when there is no horizontal space. Inside a group the timelines always use the compact layout (date above the events).
+Wrap timelines in <code>Timeline parallel</code> and give each a <code>title</code>. They share the row and wrap onto the next one when there is no horizontal space. Each keeps its own dates and rail; nothing lines up across them. Inside a row the timelines always use the compact layout (date above the events).
 <pre>
-{{Timeline group
+{{Timeline parallel
 |{{Timeline |title=Players
-|{{Timeline item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127.}}
+|{{Timeline item |date=1846 |title=The Ear-Reddening Game}}
 {{Timeline item |date=November 2019 |title=Lee Sedol retires}}
 }}
 {{Timeline |title=Programs
@@ -38,8 +38,26 @@ Wrap timelines in <code>Timeline group</code>. Give each timeline a <code>title<
 }}
 </pre>
 
+== Parallel and grouped timelines (dots aligned) ==
+Add <code>grouped=yes</code>. In browsers with CSS subgrid the n-th item of every timeline then sits on the same row, so dots line up horizontally. To skip a row in one timeline, put <code>{{Timeline gap}}</code> in its place. Rules: at most 20 items (including gaps) per timeline; do not end a timeline with gaps. Browsers without subgrid show the independent layout instead.
+<pre>
+{{Timeline parallel |grouped=yes
+|{{Timeline |title=Players
+|{{Timeline item |date=1846 |title=The Ear-Reddening Game}}
+{{Timeline gap}}
+{{Timeline item |date=March 2016 |title=Lee Sedol wins game 4}}
+}}
+{{Timeline |title=Programs
+|{{Timeline gap}}
+{{Timeline item |date=1968 |title=First Go program}}
+{{Timeline item |date=March 2016 |title=AlphaGo wins the match}}
+}}
+}}
+</pre>
+
 == Parameters ==
-; Timeline group: <code>1</code> timelines.
-; Timeline: <code>1</code> items; <code>title</code> (optional heading; use it inside a group).
+; Timeline parallel: <code>1</code> timelines; <code>grouped</code> (set to anything to align dots).
+; Timeline: <code>1</code> items; <code>title</code> (optional heading; use it inside a row).
 ; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>).
 ; Timeline event: same fields as the one-event shorthand.
+; Timeline gap: no parameters.

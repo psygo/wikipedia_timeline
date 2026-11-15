@@ -31,3 +31,10 @@ several events per dot and parallel timelines is in `template/Template_Timeline_
     |{{Timeline item |date=1612 |title=The Go academy |text=Text.}}
     {{Timeline item |date=March 2016 |title=AlphaGo defeats Lee Sedol}}
     }}
+
+## User script (optional)
+
+`userscript/Timeline-toolbar.js` adds a **Timeline** drop-down to the edit toolbar that inserts
+skeletons for the simple, multi-event, parallel and grouped timelines. Copy it to
+`User:<YourName>/Timeline-toolbar.js` and add `importScript( 'User:<YourName>/Timeline-toolbar.js' );`
+to `User:<YourName>/common.js`. Needs the WikiEditor toolbar. Untested on a live wiki.
