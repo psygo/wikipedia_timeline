@@ -30,6 +30,14 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 + Under 640 px: one column, rail on the left, date above the title.
 + Dark mode follows the Codex tokens (the prototype fakes them with `prefers-color-scheme`).
 
+## Checked locally (headless Chrome, prototype only)
+
++ Wide (1100 px) and narrow (375 px), light and dark: layout holds, dot aligned with the date line.
++ Contrast: Codex blue dots on the base background are fine in both themes; the rail is decorative.
++ Screen readers: dots and rail are CSS only; the `<ol>` conveys order.
++ Wikilinks and templates in `title` and `text` work, since they are plain wikitext.
++ Not checked: real Vector 2022, the mobile skin, TemplateStyles sanitizer, any browser other than Chrome.
+
 ## Next steps
 
 + Check the CSS against the TemplateStyles sanitizer on a test wiki.
