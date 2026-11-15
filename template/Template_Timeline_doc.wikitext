@@ -1,4 +1,4 @@
-Four templates (names are placeholders; see Docs.md on renaming). Put the styles in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
+Four templates: Timeline, Timeline item, Timeline event, Timeline group (names are placeholders; see Docs.md on renaming). Put the styles in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
 Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items or events: wikitext turns them into stray paragraphs inside the list.
 
 == Simple: one event per dot ==
@@ -20,23 +20,26 @@ Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items
 }}
 </pre>
 
-== Parallel timelines ==
-Give the container <code>track1</code>, <code>track2</code> ... (up to four). Each item then takes <code>tracks</code>, with one <code>Timeline track</code> per track, in the same order. A track with no content leaves a gap. Use the same labels as in the container.
+== Parallel timelines (several timelines on one row) ==
+Wrap timelines in <code>Timeline group</code>. Give each timeline a <code>title</code>. They share the row and wrap onto the next one when there is no horizontal space. Inside a group the timelines always use the compact layout (date above the events).
 <pre>
-{{Timeline |track1=Players |track2=Programs
-|{{Timeline item |date=1846 |tracks=
-{{Timeline track |label=Players |{{Timeline event |title=The Ear-Reddening Game}}}}
-{{Timeline track |label=Programs}}
+{{Timeline group
+|{{Timeline |title=Players
+|{{Timeline item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127.}}
+{{Timeline item |date=November 2019 |title=Lee Sedol retires}}
 }}
-{{Timeline item |date=March 2016 |tracks=
-{{Timeline track |label=Players |{{Timeline event |title=Lee Sedol wins game 4}}}}
-{{Timeline track |label=Programs |{{Timeline event |title=AlphaGo wins the match}}}}
+{{Timeline |title=Programs
+|{{Timeline item |date=1968 |title=First Go program}}
+{{Timeline item |date=2006 |events=
+{{Timeline event |title=Crazy Stone}}
+{{Timeline event |title=UCT}}
+}}
 }}
 }}
 </pre>
 
 == Parameters ==
-; Timeline: <code>1</code> items; <code>track1</code>–<code>track4</code> labels (optional, enables parallel mode).
-; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event); or <code>events</code> (several <code>Timeline event</code>); or <code>tracks</code> (parallel mode).
+; Timeline group: <code>1</code> timelines.
+; Timeline: <code>1</code> items; <code>title</code> (optional heading; use it inside a group).
+; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>).
 ; Timeline event: same fields as the one-event shorthand.
-; Timeline track: <code>label</code>; <code>1</code> events.

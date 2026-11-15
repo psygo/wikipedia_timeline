@@ -1,0 +1,3 @@
+<includeonly><templatestyles src="Template:Timeline/styles.css" /><div class="wt-timelines">{{{1|}}}</div></includeonly><noinclude>
+{{documentation}}
+</noinclude>

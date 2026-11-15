@@ -125,56 +125,76 @@ is narrow. Demo content; check dates before reuse.</p>
 	</li>
 </ol>
 
-<h3>Players and programs: parallel timelines</h3>
-<p>Two tracks share one date axis. A track with nothing to say on a date leaves a gap.
-Demo content; check dates before reuse.</p>
+<h3>Players, programs, organisations: parallel timelines</h3>
+<p>Separate timelines, each with its own dates and rail, share a row and wrap when there is
+no horizontal space. Resize the viewer to see them reflow. Demo content; check dates before reuse.</p>
 
-<ol class="wt-timeline wt-timeline--parallel">
-	<li class="wt-timeline__heads" aria-hidden="true"><span class="wt-timeline__head">Players</span><span class="wt-timeline__head">Programs</span></li>
-	<li class="wt-timeline__item">
-		<span class="wt-timeline__date">1846</span>
-		<div class="wt-timeline__cell"><span class="wt-timeline__track">Players</span><div class="wt-timeline__events"><div class="wt-timeline__event">
-			<span class="wt-timeline__title">The Ear-Reddening Game</span>
-			<div class="wt-timeline__text">Shusaku's move 127 stuns Gennan Inseki.</div>
-		</div></div></div>
-		<div class="wt-timeline__cell wt-timeline__cell--empty"><span class="wt-timeline__track">Programs</span></div>
-	</li>
-	<li class="wt-timeline__item">
-		<span class="wt-timeline__date">1968</span>
-		<div class="wt-timeline__cell wt-timeline__cell--empty"><span class="wt-timeline__track">Players</span></div>
-		<div class="wt-timeline__cell"><span class="wt-timeline__track">Programs</span><div class="wt-timeline__events"><div class="wt-timeline__event">
-			<span class="wt-timeline__title">First Go program</span>
-			<div class="wt-timeline__text">Albert Zobrist's program plays a full game.</div>
-		</div></div></div>
-	</li>
-	<li class="wt-timeline__item">
-		<span class="wt-timeline__date">2006</span>
-		<div class="wt-timeline__cell wt-timeline__cell--empty"><span class="wt-timeline__track">Players</span></div>
-		<div class="wt-timeline__cell"><span class="wt-timeline__track">Programs</span><div class="wt-timeline__events">
+<div class="wt-timelines">
+	<div class="wt-timelines__col">
+		<div class="wt-timeline__heading">Players</div>
+		<ol class="wt-timeline">
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">1846</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">The Ear-Reddening Game</span><div class="wt-timeline__text">Shusaku's move 127 stuns Gennan Inseki.</div></div>
+			</div>
+		</li>
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">March 2016</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">Lee Sedol wins game 4</span><div class="wt-timeline__text">His move 78 is the only human win in the match.</div></div>
+			</div>
+		</li>
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">November 2019</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">Lee Sedol retires</span><div class="wt-timeline__text">He cites the rise of AI as a reason.</div></div>
+			</div>
+		</li>
+		</ol>
+	</div>
+	<div class="wt-timelines__col">
+		<div class="wt-timeline__heading">Programs</div>
+		<ol class="wt-timeline">
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">1968</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">First Go program</span><div class="wt-timeline__text">Albert Zobrist's program plays a full game.</div></div>
+			</div>
+		</li>
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">2006</span>
+			<div class="wt-timeline__events">
 			<div class="wt-timeline__event"><span class="wt-timeline__title">Crazy Stone</span><div class="wt-timeline__text">Monte Carlo tree search arrives in Go.</div></div>
 			<div class="wt-timeline__event"><span class="wt-timeline__title">UCT</span><div class="wt-timeline__text">The UCT algorithm is published.</div></div>
-		</div></div>
-	</li>
-	<li class="wt-timeline__item">
-		<span class="wt-timeline__date">March 2016</span>
-		<div class="wt-timeline__cell"><span class="wt-timeline__track">Players</span><div class="wt-timeline__events"><div class="wt-timeline__event">
-			<span class="wt-timeline__title">Lee Sedol wins game 4</span>
-			<div class="wt-timeline__text">His move 78 is the only human win in the match.</div>
-		</div></div></div>
-		<div class="wt-timeline__cell"><span class="wt-timeline__track">Programs</span><div class="wt-timeline__events"><div class="wt-timeline__event">
-			<span class="wt-timeline__title">AlphaGo wins the match</span>
-			<div class="wt-timeline__text">Four games to one.</div>
-		</div></div></div>
-	</li>
-	<li class="wt-timeline__item">
-		<span class="wt-timeline__date">November 2019</span>
-		<div class="wt-timeline__cell"><span class="wt-timeline__track">Players</span><div class="wt-timeline__events"><div class="wt-timeline__event">
-			<span class="wt-timeline__title">Lee Sedol retires</span>
-			<div class="wt-timeline__text">He cites the rise of AI as a reason.</div>
-		</div></div></div>
-		<div class="wt-timeline__cell wt-timeline__cell--empty"><span class="wt-timeline__track">Programs</span></div>
-	</li>
-</ol>
+			</div>
+		</li>
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">March 2016</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">AlphaGo wins the match</span><div class="wt-timeline__text">Four games to one.</div></div>
+			</div>
+		</li>
+		</ol>
+	</div>
+	<div class="wt-timelines__col">
+		<div class="wt-timeline__heading">Organisations</div>
+		<ol class="wt-timeline">
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">1924</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">Nihon Ki-in</span><div class="wt-timeline__text">The Japanese Go association is founded in Tokyo.</div></div>
+			</div>
+		</li>
+		<li class="wt-timeline__item">
+			<span class="wt-timeline__date">1945</span>
+			<div class="wt-timeline__events">
+			<div class="wt-timeline__event"><span class="wt-timeline__title">Hanguk Kiwon</span><div class="wt-timeline__text">The Korea Baduk Association is founded.</div></div>
+			</div>
+		</li>
+		</ol>
+	</div>
+</div>
 
 <h2>See also</h2>
 <ul>

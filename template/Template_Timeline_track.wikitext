@@ -1,3 +1,0 @@
-<includeonly><div class="wt-timeline__cell{{#if:{{{1|}}}||&#32;wt-timeline__cell--empty}}"><span class="wt-timeline__track">{{{label|}}}</span>{{#if:{{{1|}}}|<div class="wt-timeline__events">{{{1}}}</div>}}</div></includeonly><noinclude>
-{{documentation}}
-</noinclude>
