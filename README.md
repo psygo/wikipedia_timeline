@@ -24,7 +24,8 @@ Needs TemplateStyles and ParserFunctions. Create these pages, pasting the files 
 | `Template:Timeline item`                                      | `Template_Timeline_item.wikitext` |
 | `Template:Timeline/styles.css` (content model: Sanitized CSS) | `Template_Timeline_styles.css`    |
 
-Then:
+Names are placeholders (`Template:Timeline` is already taken on English Wikipedia). Usage for one event per dot,
+several events per dot and parallel tracks is in `template/Template_Timeline_doc.wikitext`. For a quick start:
 
     {{Timeline
     |{{Timeline item |date=1612 |title=The Go academy |text=Text.}}

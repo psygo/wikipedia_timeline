@@ -14,7 +14,7 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 
 + `prototype/`: standalone HTML and CSS.
   + `index.html`: viewer. Shows `article.html` in an iframe with draggable left/right handles (also ← → keys and width presets), so the media queries react to the frame width.
-  + `article.html`: mock Wikipedia article (Vector-like chrome, infobox, headings) with the timeline in a section.
+  + `article.html`: mock Wikipedia article (Vector-like chrome, infobox, headings) with three example timelines: simple, several events per dot, and parallel tracks.
   + `alone.html`: the timeline alone.
   + `theme-toggle.js`: prototype-only button cycling system / light / dark (sets `data-theme`, remembered in localStorage). The template itself stays JS-free.
   + `timeline.css`: the real stylesheet, written to be portable to TemplateStyles (one root class `wt-timeline`,
@@ -24,13 +24,16 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
     something I could confirm the wikitext sanitizer allows).
 + `prototype/images/huang-longshi.png`: photo of a Huang Longshi statue, supplied by the maintainer; source and licence still to be confirmed (see Next steps).
 + `.github/workflows/pages.yml`: deploys `prototype/` to GitHub Pages on push to `main`.
-+ `template/`: `Template:Timeline`, `Template:Timeline item`, docs, and a copy of the CSS for `Template:Timeline/styles.css`.
++ `template/`: `Template:Timeline`, `Timeline item`, `Timeline event`, `Timeline track`, docs, and a copy of the CSS for `Template:Timeline/styles.css`.
   Keep `template/Template_Timeline_styles.css` identical to `prototype/timeline.css`.
 
 ## Behaviour
 
 + Design follows Vector: bold plain-text dates, Codex progressive blue dots, subtle grey rail, thumbnail-style image box.
 + 640 px and up: date column on the left, rail, then title, text and image.
++ Several events on one dot sit side by side and wrap (flex, 14 em minimum each).
++ Parallel timelines (`wt-timeline--parallel`): tracks share one date axis; each has its own rail; empty cells leave a gap.
+  Under 640 px the tracks stack under each date, each group labelled with its track name.
 + Under 640 px: one column, rail on the left, date above the title.
 + Dark mode follows the Codex tokens (the prototype fakes them with `prefers-color-scheme`).
 

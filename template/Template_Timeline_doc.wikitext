@@ -1,4 +1,7 @@
-== Usage ==
+Four templates (names are placeholders; see Docs.md on renaming). Put the styles in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
+Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items or events: wikitext turns them into stray paragraphs inside the list.
+
+== Simple: one event per dot ==
 <pre>
 {{Timeline
 |{{Timeline item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game.}}
@@ -7,7 +10,33 @@
 }}
 </pre>
 
-== Notes ==
-* Items are separated by newlines inside parameter 1; if an item text contains "=", it is fine because named params are used.
-* Styles live in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
-* Needs <code>#if</code> (ParserFunctions) on the host wiki.
+== Several events on one dot ==
+<pre>
+{{Timeline
+|{{Timeline item |date=2006 |events=
+{{Timeline event |title=Crazy Stone |text=Monte Carlo tree search arrives in Go.}}
+{{Timeline event |title=UCT |text=The UCT algorithm is published.}}
+}}
+}}
+</pre>
+
+== Parallel timelines ==
+Give the container <code>track1</code>, <code>track2</code> ... (up to four). Each item then takes <code>tracks</code>, with one <code>Timeline track</code> per track, in the same order. A track with no content leaves a gap. Use the same labels as in the container.
+<pre>
+{{Timeline |track1=Players |track2=Programs
+|{{Timeline item |date=1846 |tracks=
+{{Timeline track |label=Players |{{Timeline event |title=The Ear-Reddening Game}}}}
+{{Timeline track |label=Programs}}
+}}
+{{Timeline item |date=March 2016 |tracks=
+{{Timeline track |label=Players |{{Timeline event |title=Lee Sedol wins game 4}}}}
+{{Timeline track |label=Programs |{{Timeline event |title=AlphaGo wins the match}}}}
+}}
+}}
+</pre>
+
+== Parameters ==
+; Timeline: <code>1</code> items; <code>track1</code>–<code>track4</code> labels (optional, enables parallel mode).
+; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event); or <code>events</code> (several <code>Timeline event</code>); or <code>tracks</code> (parallel mode).
+; Timeline event: same fields as the one-event shorthand.
+; Timeline track: <code>label</code>; <code>1</code> events.

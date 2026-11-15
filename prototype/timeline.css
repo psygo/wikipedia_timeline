@@ -7,8 +7,22 @@
  * No custom properties are declared (only token lookups), to stay safe
  * with the sanitizer.
  *
- * Wide layout:  [ date ] ---o--- [ title, text, image ]
- * Narrow layout:  o--- date / title / text, rail on the left.
+ * Markup:
+ *   ol.wt-timeline
+ *     li.wt-timeline__item
+ *       span.wt-timeline__date
+ *       div.wt-timeline__events            one or more events per dot,
+ *         div.wt-timeline__event             side by side, wrapping
+ *
+ * Parallel tracks (ol.wt-timeline.wt-timeline--parallel): the shared date
+ * axis stays on the left and each item holds one cell per track instead:
+ *       div.wt-timeline__cell [--empty]
+ *         span.wt-timeline__track          track name (label on narrow screens,
+ *         div.wt-timeline__events            screen-reader only on wide ones)
+ *   An optional first li.wt-timeline__heads shows the track names on wide screens.
+ *
+ * Wide layout:    [ date ] ---o--- [ events ]      (parallel: one rail per track)
+ * Narrow layout:  o--- date / events, rail on the left
  */
 
 .wt-timeline {
@@ -55,15 +69,27 @@
 	box-shadow: 0 0 0 1px var( --color-progressive, #36c );
 }
 
-.wt-timeline__body {
-	margin: 0;
-}
-
 .wt-timeline__date {
 	display: block;
 	color: var( --color-base, #202122 );
 	font-weight: bold;
 	line-height: 1.6;
+}
+
+/* Events on the same dot sit side by side and wrap when space runs out. */
+.wt-timeline__events {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 1.5em;
+	margin: 0;
+	padding: 0;
+}
+
+.wt-timeline__event {
+	flex: 1 1 14em;
+	box-sizing: border-box;
+	min-width: 0;
+	max-width: 45em;
 }
 
 .wt-timeline__title {
@@ -74,7 +100,6 @@
 
 .wt-timeline__text {
 	margin-top: 0.15em;
-	max-width: 45em;
 }
 
 /* Same look as a Wikipedia thumbnail. */
@@ -99,6 +124,29 @@
 	border: 1px solid var( --border-color-subtle, #c8ccd1 );
 }
 
+/* Parallel tracks, narrow: stacked under the date, each with its label. */
+.wt-timeline__heads {
+	display: none;
+}
+
+.wt-timeline__cell {
+	margin-top: 0.25em;
+}
+
+.wt-timeline__cell--empty {
+	display: none;
+}
+
+.wt-timeline__track {
+	display: block;
+	margin-bottom: 0.15em;
+	color: var( --color-subtle, #54595d );
+	font-size: 88%;
+	font-weight: bold;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
 /* Wide: date column on the left, rail after it, content on the right. */
 @media ( min-width: 640px ) {
 	.wt-timeline::before {
@@ -120,6 +168,90 @@
 		left: 0;
 		width: 7.75em;
 		text-align: right;
+	}
+
+	/* Parallel: the shared date column, then one column (with its own rail) per track. */
+	.wt-timeline--parallel::before,
+	.wt-timeline--parallel .wt-timeline__item::before {
+		display: none;
+	}
+
+	.wt-timeline--parallel .wt-timeline__item {
+		display: grid;
+		grid-template-columns: 8.75em;
+		grid-auto-columns: minmax( 0, 1fr );
+		grid-auto-flow: column;
+		padding: 0;
+	}
+
+	.wt-timeline--parallel .wt-timeline__date {
+		position: static;
+		width: auto;
+		padding-right: 1em;
+	}
+
+	.wt-timeline__heads {
+		display: grid;
+		grid-auto-columns: minmax( 0, 1fr );
+		grid-auto-flow: column;
+		margin: 0 0 0.5em;
+		padding: 0 0 0 8.75em;
+	}
+
+	.wt-timeline__head {
+		margin-right: 1em;
+		padding: 0 0 0.2em 22px;
+		border-bottom: 1px solid var( --border-color-subtle, #c8ccd1 );
+		font-weight: bold;
+	}
+
+	.wt-timeline__cell,
+	.wt-timeline__cell--empty {
+		display: block;
+		position: relative;
+		margin: 0;
+		padding: 0 1em 1em 22px;
+	}
+
+	.wt-timeline__item:last-child .wt-timeline__cell {
+		padding-bottom: 0;
+	}
+
+	/* Each track's own rail, continuous even through empty cells. */
+	.wt-timeline__cell::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 4px;
+		width: 2px;
+		background: var( --border-color-subtle, #c8ccd1 );
+	}
+
+	/* Dots only where a track has an event. */
+	.wt-timeline__cell:not( .wt-timeline__cell--empty )::after {
+		content: '';
+		position: absolute;
+		top: calc( 0.8em - 5px );
+		left: 0;
+		box-sizing: border-box;
+		width: 10px;
+		height: 10px;
+		border: 2px solid var( --background-color-base, #fff );
+		border-radius: 50%;
+		background: var( --color-progressive, #36c );
+		box-shadow: 0 0 0 1px var( --color-progressive, #36c );
+	}
+
+	/* The track name stays available to screen readers. */
+	.wt-timeline__track {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect( 0, 0, 0, 0 );
+		white-space: nowrap;
 	}
 }
 
