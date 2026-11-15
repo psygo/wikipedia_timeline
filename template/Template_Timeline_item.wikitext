@@ -1,0 +1,3 @@
+<includeonly><li class="wt-timeline__item"><div class="wt-timeline__body"><span class="wt-timeline__date">{{{date}}}</span><span class="wt-timeline__title">{{{title|}}}</span>{{#if:{{{text|}}}|<div class="wt-timeline__text">{{{text}}}</div>}}{{#if:{{{image|}}}|<span class="wt-timeline__image">[[File:{{{image}}}|{{{imagesize|100x100px}}}|alt={{{imagealt|}}}]]{{#if:{{{caption|}}}|<br />{{{caption}}}}}</span>}}</div></li></includeonly><noinclude>
+{{documentation}}
+</noinclude>

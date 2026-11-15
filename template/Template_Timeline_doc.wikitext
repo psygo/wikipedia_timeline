@@ -1,0 +1,13 @@
+== Usage ==
+<pre>
+{{Timeline
+|{{Timeline item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game.}}
+{{Timeline item |date=c. 1651 |title=Huang Longshi |text=Born. |image=Huang Longshi.jpg |caption=Huang Longshi}}
+{{Timeline item |date=March 2016 |title=AlphaGo defeats Lee Sedol}}
+}}
+</pre>
+
+== Notes ==
+* Items are separated by newlines inside parameter 1; if an item text contains "=", it is fine because named params are used.
+* Styles live in <code>Template:Timeline/styles.css</code>, copied from <code>prototype/timeline.css</code>.
+* Needs <code>#if</code> (ParserFunctions) on the host wiki.
