@@ -42,5 +42,6 @@ to `User:<YourName>/common.js`. Needs the WikiEditor toolbar. Untested on a live
 ## Demo on a Wikipedia user subpage
 
 `python3 tools/make_sandbox.py <WikipediaUsername>` writes `sandbox/<username>/`: one file per wiki page,
-with all template names rewritten to subpages of `User:<username>/Timeline sandbox` and a demo page
-`User:<username>/Timeline demo`. Page titles are printed by the script; see Docs.md for the steps.
+with all template names rewritten to subpages of `User:<username>/Timeline sandbox`, a demo page
+`User:<username>/Timeline demo`, and the stylesheet at `Template:<username>/Timeline sandbox/styles.css`
+(created by page title; `Special:ChangeContentModel` is limited to admins and template editors). Page titles are printed by the script; see Docs.md for the steps.

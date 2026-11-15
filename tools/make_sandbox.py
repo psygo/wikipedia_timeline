@@ -6,7 +6,7 @@ Usage: python3 tools/make_sandbox.py <WikipediaUsername> [outdir]
 Writes one file per wiki page into sandbox/<username>/ (default), named
 after the page it belongs to. Template names are rewritten to subpages of
 User:<name>/Timeline sandbox, the TemplateStyles source points at the
-userspace stylesheet, and the {{documentation}} lines are dropped.
+stylesheet page in the Template namespace, and the {{documentation}} lines are dropped.
 """
 import pathlib, re, sys
 
@@ -23,7 +23,9 @@ PAGES = {  # repo file -> page title
     'Template_Timeline_parallel.wikitext': BASE + '/parallel',
     'Template_Timeline_gap.wikitext': BASE + '/gap',
 }
-STYLES = BASE + '/styles.css'
+# Sanitized-CSS pages are created by title in the Template namespace; on English
+# Wikipedia Special:ChangeContentModel is limited to admins and template editors.
+STYLES = f'Template:{user}/Timeline sandbox/styles.css'
 
 NAME = re.compile(r'\{\{Timeline( item| event| parallel| gap)?(?=[\s|}])')
 def rename(text):
@@ -35,7 +37,7 @@ def clean(text):
     return rename(text)
 
 def fname(title):
-    return title.replace('User:' + user + '/', '').replace('/', '__').replace(' ', '_')
+    return re.sub(r'^(User|Template):' + re.escape(user) + '/', '', title).replace('/', '__').replace(' ', '_')
 
 written = []
 for src, title in PAGES.items():
