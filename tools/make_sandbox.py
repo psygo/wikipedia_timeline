@@ -80,7 +80,7 @@ Independent timelines that share a row and wrap when there is no room. Narrow th
 }}}}
 
 == Parallel and grouped timelines ==
-The same two timelines, grouped: the dots line up horizontally (needs a browser with CSS subgrid).
+The same two timelines, grouped: the dots line up horizontally (at 640 px and wider; below that they fall back to the independent layout).
 
 {{{{{BASE}/parallel |grouped=yes
 |{{{{{BASE} |title=Players

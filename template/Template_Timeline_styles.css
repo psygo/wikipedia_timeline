@@ -15,7 +15,8 @@
  *         div.wt-timeline__event             side by side, wrapping
  *
  * Parallel timelines (div.wt-timelines): several ol.wt-timeline side by side on
- * one row, wrapping when there is no room; add --grouped to align their dots.
+ * one row, wrapping when there is no room; add --grouped to align their dots
+ * (at 640 px and wider; see the grouped section below).
  * Each child is a div.wt-timelines__col (optional div.wt-timeline__heading, then
  * the ol) and uses the compact layout.
  *
@@ -193,37 +194,33 @@
 }
 
 /*
- * Grouped timelines (div.wt-timelines.wt-timelines--grouped): where CSS subgrid is
- * available, every timeline in the group shares the group's rows, so the n-th item of each timeline sits on the same
- * row and their dots line up horizontally. A timeline skips a row with an
- * empty placeholder item (li.wt-timeline__item--gap). Each timeline can hold
- * up to 20 items in this mode (21 rows: 1 heading + 20 items). Wrapping still
- * works: a timeline that does not fit starts a new band of rows. Without
- * subgrid support the timelines stay independent (the flex layout above).
+ * Grouped timelines (div.wt-timelines.wt-timelines--grouped), window >= 640 px:
+ * the group becomes one flat grid (the timeline wrappers use display: contents).
+ * Each timeline's heading is pinned to row 1, which starts a new column; its
+ * items then flow down that column, so the n-th item of every timeline shares
+ * a row and their dots line up horizontally. A timeline skips a row with an
+ * empty placeholder item (li.wt-timeline__item--gap). Every timeline needs a
+ * heading and holds at most 20 items (21 rows: 1 heading + 20 items; extra
+ * items would spill into the next column). The columns share the width, so they do not wrap; under 640 px the
+ * group falls back to the independent, wrapping layout above.
+ * (No @supports or subgrid: the TemplateStyles sanitizer rejects them.)
  */
-@supports ( grid-template-rows: subgrid ) {
+@media ( min-width: 640px ) {
 	.wt-timelines--grouped {
 		display: grid;
-		grid-template-columns: repeat( auto-fill, minmax( 18em, 1fr ) );
+		grid-template-rows: repeat( 21, auto );
+		grid-auto-flow: column;
+		grid-auto-columns: minmax( 0, 1fr );
 		gap: 0 2em;
 	}
 
 	.wt-timelines--grouped > .wt-timelines__col,
-	.wt-timelines--grouped > .wt-timeline {
-		display: grid;
-		grid-row: span 21;
-		grid-template-rows: subgrid;
-		margin-bottom: 1em;
-	}
-
 	.wt-timelines--grouped > .wt-timelines__col > .wt-timeline {
-		grid-row: 2 / span 20;
-		display: grid;
-		grid-template-rows: subgrid;
+		display: contents;
 	}
 
-	.wt-timeline__heading {
-		margin-bottom: 0.6em;
+	.wt-timelines--grouped .wt-timeline__heading {
+		grid-row: 1;
 	}
 
 	/* The rail is drawn per item, so it stops at each timeline's last dot. */
@@ -238,7 +235,7 @@
 	.wt-timelines--grouped .wt-timeline__item:not( :last-child )::after {
 		content: '';
 		position: absolute;
-		top: calc( 0.8em );
+		top: 0.8em;
 		bottom: 0;
 		left: 4px;
 		width: 2px;

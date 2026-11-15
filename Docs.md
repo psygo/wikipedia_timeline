@@ -34,7 +34,7 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 + 640 px and up: date column on the left, rail, then title, text and image.
 + Several events on one dot sit side by side and wrap (flex, 14 em minimum each).
 + Parallel timelines (`wt-timelines`): several separate timelines, each with its own dates, rail and optional heading, share a row and wrap when there is no horizontal space. They are independent and always use the compact layout (date above events), because the 640 px breakpoint follows the window, not the column.
-+ Parallel and grouped (`wt-timelines--grouped`): with CSS subgrid, the n-th item of every timeline shares a row, so dots line up horizontally; `wt-timeline__item--gap` placeholders skip rows. Max 20 items per timeline, no trailing gaps. Without subgrid it falls back to the independent layout. Whether the TemplateStyles sanitizer accepts `@supports` and `subgrid` is untested.
++ Parallel and grouped (`wt-timelines--grouped`, window ≥ 640 px): the group is one flat grid (`display: contents` on the wrappers, 21 rows). Each heading sits in row 1 and starts a column, items flow down it, so the n-th item of every timeline shares a row and dots line up; `wt-timeline__item--gap` placeholders skip rows. Needs a heading per timeline, max 20 items, no trailing gaps. Columns share the width and do not wrap; under 640 px it falls back to the independent layout. First attempt used `@supports` + subgrid, which the TemplateStyles sanitizer rejects ("Invalid condition for @supports"), so it was removed.
 + Under 640 px: one column, rail on the left, date above the title.
 + Dark mode follows the Codex tokens (the prototype fakes them with `prefers-color-scheme`).
 

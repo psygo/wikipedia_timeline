@@ -39,7 +39,7 @@ Wrap timelines in <code>Timeline parallel</code> and give each a <code>title</co
 </pre>
 
 == Parallel and grouped timelines (dots aligned) ==
-Add <code>grouped=yes</code>. In browsers with CSS subgrid the n-th item of every timeline then sits on the same row, so dots line up horizontally. To skip a row in one timeline, put <code>{{Timeline gap}}</code> in its place. Rules: at most 20 items (including gaps) per timeline; do not end a timeline with gaps. Browsers without subgrid show the independent layout instead.
+Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timeline then sits on the same row, so dots line up horizontally. To skip a row in one timeline, put <code>{{Timeline gap}}</code> in its place. Rules: every timeline needs a <code>title</code>; at most 20 items (including gaps) per timeline; do not end a timeline with gaps. The columns share the width and do not wrap; below 640 px the timelines fall back to the independent, wrapping layout.
 <pre>
 {{Timeline parallel |grouped=yes
 |{{Timeline |title=Players
