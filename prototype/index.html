@@ -85,24 +85,33 @@
 	}
 
 	// Both edges move symmetrically, so the page stays centred under the cursor.
+	// Pointer capture keeps move/up events on the handle even if the pointer
+	// leaves the window; every exit path clears the "dragging" state, otherwise
+	// the iframe would stay inert (pointer-events: none) and could not scroll.
 	function drag( side ) {
 		return function ( e ) {
+			var el = e.currentTarget;
 			e.preventDefault();
 			var startX = e.clientX, startW = current();
+			try { el.setPointerCapture( e.pointerId ); } catch ( err ) {}
 			document.body.classList.add( 'dragging' );
 			function move( ev ) {
-				var dx = ev.clientX - startX;
-				set( startW + ( side === 'right' ? 2 : -2 ) * dx );
+				if ( ev.buttons === 0 ) { end(); return; } // button released unseen
+				set( startW + ( side === 'right' ? 2 : -2 ) * ( ev.clientX - startX ) );
 			}
-			function up() {
+			function end() {
 				document.body.classList.remove( 'dragging' );
-				window.removeEventListener( 'pointermove', move );
-				window.removeEventListener( 'pointerup', up );
-				window.removeEventListener( 'pointercancel', up );
+				el.removeEventListener( 'pointermove', move );
+				el.removeEventListener( 'pointerup', end );
+				el.removeEventListener( 'pointercancel', end );
+				el.removeEventListener( 'lostpointercapture', end );
+				window.removeEventListener( 'blur', end );
 			}
-			window.addEventListener( 'pointermove', move );
-			window.addEventListener( 'pointerup', up );
-			window.addEventListener( 'pointercancel', up );
+			el.addEventListener( 'pointermove', move );
+			el.addEventListener( 'pointerup', end );
+			el.addEventListener( 'pointercancel', end );
+			el.addEventListener( 'lostpointercapture', end );
+			window.addEventListener( 'blur', end );
 		};
 	}
 	function keys( side ) {
