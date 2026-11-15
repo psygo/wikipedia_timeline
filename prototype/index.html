@@ -5,36 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Timeline prototype</title>
 <link rel="stylesheet" href="timeline.css">
-<style>
-	/* Stand-in for Vector: Codex tokens, light and dark. */
-	:root {
-		--color-base: #202122;
-		--color-subtle: #54595d;
-		--color-destructive: #d33;
-		--border-color-base: #a2a9b1;
-		--background-color-base: #fff;
-		color-scheme: light dark;
-	}
-	@media ( prefers-color-scheme: dark ) {
-		:root {
-			--color-base: #eaecf0;
-			--color-subtle: #a2a9b1;
-			--color-destructive: #ff6e5e;
-			--border-color-base: #72777d;
-			--background-color-base: #101418;
-		}
-	}
-	body {
-		max-width: 60em;
-		margin: 0 auto;
-		padding: 1em;
-		background: var( --background-color-base );
-		color: var( --color-base );
-		font: 14px/1.6 sans-serif;
-	}
-</style>
+<link rel="stylesheet" href="vector-stub.css">
 </head>
 <body>
+<div class="page">
 <h1>History of Go</h1>
 
 <ol class="wt-timeline">
@@ -71,5 +45,6 @@
 		</div>
 	</li>
 </ol>
+</div>
 </body>
 </html>
