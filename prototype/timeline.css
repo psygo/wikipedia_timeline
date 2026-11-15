@@ -44,7 +44,7 @@
 .wt-timeline__item::before {
 	content: '';
 	position: absolute;
-	top: 0.35em;
+	top: calc( 0.8em - 5px );
 	left: 0;
 	box-sizing: border-box;
 	width: 10px;
