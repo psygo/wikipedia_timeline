@@ -38,3 +38,9 @@ several events per dot and parallel timelines is in `template/Template_Timeline_
 skeletons for the simple, multi-event, parallel and grouped timelines. Copy it to
 `User:<YourName>/Timeline-toolbar.js` and add `importScript( 'User:<YourName>/Timeline-toolbar.js' );`
 to `User:<YourName>/common.js`. Needs the WikiEditor toolbar. Untested on a live wiki.
+
+## Demo on a Wikipedia user subpage
+
+`python3 tools/make_sandbox.py <WikipediaUsername>` writes `sandbox/<username>/`: one file per wiki page,
+with all template names rewritten to subpages of `User:<username>/Timeline sandbox` and a demo page
+`User:<username>/Timeline demo`. Page titles are printed by the script; see Docs.md for the steps.

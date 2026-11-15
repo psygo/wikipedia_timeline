@@ -1,0 +1,2 @@
+<includeonly><li class="wt-timeline__item"><span class="wt-timeline__date">{{{date}}}</span><div class="wt-timeline__events">{{#if:{{{events|}}}|{{{events}}}|{{User:Fanaro009/Timeline sandbox/event |title={{{title|}}} |text={{{text|}}} |image={{{image|}}} |imagesize={{{imagesize|}}} |imagealt={{{imagealt|}}} |caption={{{caption|}}}}}}}</div></li></includeonly><noinclude>
+</noinclude>

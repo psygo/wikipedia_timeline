@@ -1,0 +1,271 @@
+/*
+ * Vertical event timeline, styled to sit inside a Wikipedia article.
+ *
+ * Written to be portable to TemplateStyles: plain selectors under one
+ * root class, no @import, no external urls. Colours come from Codex
+ * design tokens with fallbacks, so Vector's light and dark themes apply.
+ * No custom properties are declared (only token lookups), to stay safe
+ * with the sanitizer.
+ *
+ * Markup:
+ *   ol.wt-timeline
+ *     li.wt-timeline__item
+ *       span.wt-timeline__date
+ *       div.wt-timeline__events            one or more events per dot,
+ *         div.wt-timeline__event             side by side, wrapping
+ *
+ * Parallel timelines (div.wt-timelines): several ol.wt-timeline side by side on
+ * one row, wrapping when there is no room; add --grouped to align their dots.
+ * Each child is a div.wt-timelines__col (optional div.wt-timeline__heading, then
+ * the ol) and uses the compact layout.
+ *
+ * Wide layout:    [ date ] ---o--- [ events ]
+ * Narrow layout:  o--- date / events, rail on the left
+ */
+
+.wt-timeline {
+	position: relative;
+	margin: 0.5em 0 1em;
+	padding: 0;
+	list-style: none;
+}
+
+/* The vertical rail. */
+.wt-timeline::before {
+	content: '';
+	position: absolute;
+	top: 0.5em;
+	bottom: 0.5em;
+	left: 4px;
+	width: 2px;
+	background: var( --border-color-subtle, #c8ccd1 );
+}
+
+.wt-timeline__item {
+	position: relative;
+	margin: 0;
+	padding: 0 0 1em 22px;
+	list-style: none;
+}
+
+.wt-timeline__item:last-child {
+	padding-bottom: 0;
+}
+
+/* The dot. */
+.wt-timeline__item::before {
+	content: '';
+	position: absolute;
+	top: calc( 0.8em - 5px );
+	left: 0;
+	box-sizing: border-box;
+	width: 10px;
+	height: 10px;
+	border: 2px solid var( --background-color-base, #fff );
+	border-radius: 50%;
+	background: var( --color-progressive, #36c );
+	box-shadow: 0 0 0 1px var( --color-progressive, #36c );
+}
+
+.wt-timeline__date {
+	display: block;
+	color: var( --color-base, #202122 );
+	font-weight: bold;
+	line-height: 1.6;
+}
+
+/* Events on the same dot sit side by side and wrap when space runs out. */
+.wt-timeline__events {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 1.5em;
+	margin: 0;
+	padding: 0;
+}
+
+.wt-timeline__event {
+	flex: 1 1 14em;
+	box-sizing: border-box;
+	min-width: 0;
+	max-width: 45em;
+}
+
+.wt-timeline__title {
+	display: block;
+	color: var( --color-base, #202122 );
+	font-weight: bold;
+}
+
+.wt-timeline__text {
+	margin-top: 0.15em;
+}
+
+/* Same look as a Wikipedia thumbnail. */
+.wt-timeline__image {
+	display: inline-block;
+	box-sizing: border-box;
+	margin-top: 0.5em;
+	padding: 3px;
+	border: 1px solid var( --border-color-base, #a2a9b1 );
+	background: var( --background-color-interactive-subtle, #f8f9fa );
+	color: var( --color-base, #202122 );
+	font-size: 88%;
+	line-height: 1.4;
+	text-align: left;
+}
+
+.wt-timeline__image img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 0 3px;
+	border: 1px solid var( --border-color-subtle, #c8ccd1 );
+}
+
+/* Several timelines on one row: each keeps its own dates and rail; the row wraps
+   when there is no horizontal space. Optional heading above each rail. */
+.wt-timelines {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 2em;
+	margin: 0.5em 0 1em;
+}
+
+.wt-timelines__col {
+	flex: 1 1 18em;
+	min-width: 0;
+}
+
+.wt-timelines .wt-timeline {
+	margin: 0;
+}
+
+.wt-timeline__heading {
+	margin: 0 0 0.6em;
+	padding: 0 0 0.2em;
+	border-bottom: 1px solid var( --border-color-subtle, #c8ccd1 );
+	font-weight: bold;
+}
+
+/* Wide: date column on the left, rail after it, content on the right. */
+@media ( min-width: 640px ) {
+	.wt-timeline::before {
+		left: 8.75em;
+		margin-left: -1px;
+	}
+
+	.wt-timeline__item {
+		padding-left: 10.5em;
+	}
+
+	.wt-timeline__item::before {
+		left: calc( 8.75em - 5px );
+	}
+
+	.wt-timeline__date {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 7.75em;
+		text-align: right;
+	}
+
+	/* Inside a group the columns are narrow whatever the window width, so they
+	   keep the compact layout: rail on the left, date above the events. */
+	.wt-timelines .wt-timeline::before {
+		left: 4px;
+		margin-left: 0;
+	}
+
+	.wt-timelines .wt-timeline__item {
+		padding-left: 22px;
+	}
+
+	.wt-timelines .wt-timeline__item::before {
+		left: 0;
+	}
+
+	.wt-timelines .wt-timeline__date {
+		position: static;
+		width: auto;
+		text-align: left;
+	}
+}
+
+/*
+ * Grouped timelines (div.wt-timelines.wt-timelines--grouped): where CSS subgrid is
+ * available, every timeline in the group shares the group's rows, so the n-th item of each timeline sits on the same
+ * row and their dots line up horizontally. A timeline skips a row with an
+ * empty placeholder item (li.wt-timeline__item--gap). Each timeline can hold
+ * up to 20 items in this mode (21 rows: 1 heading + 20 items). Wrapping still
+ * works: a timeline that does not fit starts a new band of rows. Without
+ * subgrid support the timelines stay independent (the flex layout above).
+ */
+@supports ( grid-template-rows: subgrid ) {
+	.wt-timelines--grouped {
+		display: grid;
+		grid-template-columns: repeat( auto-fill, minmax( 18em, 1fr ) );
+		gap: 0 2em;
+	}
+
+	.wt-timelines--grouped > .wt-timelines__col,
+	.wt-timelines--grouped > .wt-timeline {
+		display: grid;
+		grid-row: span 21;
+		grid-template-rows: subgrid;
+		margin-bottom: 1em;
+	}
+
+	.wt-timelines--grouped > .wt-timelines__col > .wt-timeline {
+		grid-row: 2 / span 20;
+		display: grid;
+		grid-template-rows: subgrid;
+	}
+
+	.wt-timeline__heading {
+		margin-bottom: 0.6em;
+	}
+
+	/* The rail is drawn per item, so it stops at each timeline's last dot. */
+	.wt-timelines--grouped .wt-timeline::before {
+		display: none;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item::before {
+		z-index: 1;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item:not( :last-child )::after {
+		content: '';
+		position: absolute;
+		top: calc( 0.8em );
+		bottom: 0;
+		left: 4px;
+		width: 2px;
+		background: var( --border-color-subtle, #c8ccd1 );
+	}
+
+	/* Placeholder: no dot or content; the rail passes through once the timeline has started. */
+	.wt-timelines--grouped .wt-timeline__item--gap {
+		padding: 0;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item--gap::before {
+		display: none;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item--gap::after {
+		top: 0;
+		display: none;
+	}
+
+	.wt-timelines--grouped .wt-timeline__item:not( .wt-timeline__item--gap ) ~ .wt-timeline__item--gap:not( :last-child )::after {
+		display: block;
+	}
+}
+
+@media print {
+	.wt-timeline__item {
+		break-inside: avoid;
+	}
+}

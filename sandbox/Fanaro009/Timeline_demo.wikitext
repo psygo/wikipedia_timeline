@@ -1,0 +1,46 @@
+This is a demonstration of a proposed template for vertical timelines. It needs no JavaScript: it is wikitext plus TemplateStyles, and it follows the reader's light or dark theme. Source and a live prototype: https://github.com/psygo/wikipedia_timeline (prototype at https://psygo.github.io/wikipedia_timeline/). The sample content is only there to show the layout; check any dates before reusing them.
+
+== Simple timeline ==
+{{User:Fanaro009/Timeline sandbox
+|{{User:Fanaro009/Timeline sandbox/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
+{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
+{{User:Fanaro009/Timeline sandbox/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
+}}
+
+== Several events on one dot ==
+{{User:Fanaro009/Timeline sandbox
+|{{User:Fanaro009/Timeline sandbox/item |date=2006 |events=
+{{User:Fanaro009/Timeline sandbox/event |title=Crazy Stone |text=Monte Carlo tree search is applied to Go.}}
+{{User:Fanaro009/Timeline sandbox/event |title=UCT |text=The UCT algorithm is published.}}
+}}
+}}
+
+== Parallel timelines ==
+Independent timelines that share a row and wrap when there is no room. Narrow the window to see them wrap.
+
+{{User:Fanaro009/Timeline sandbox/parallel
+|{{User:Fanaro009/Timeline sandbox |title=Players
+|{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game}}
+{{User:Fanaro009/Timeline sandbox/item |date=March 2016 |title=Lee Sedol wins game 4}}
+}}
+{{User:Fanaro009/Timeline sandbox |title=Programs
+|{{User:Fanaro009/Timeline sandbox/item |date=1968 |title=First Go program}}
+{{User:Fanaro009/Timeline sandbox/item |date=March 2016 |title=AlphaGo wins the match}}
+}}
+}}
+
+== Parallel and grouped timelines ==
+The same two timelines, grouped: the dots line up horizontally (needs a browser with CSS subgrid).
+
+{{User:Fanaro009/Timeline sandbox/parallel |grouped=yes
+|{{User:Fanaro009/Timeline sandbox |title=Players
+|{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game}}
+{{User:Fanaro009/Timeline sandbox/gap}}
+{{User:Fanaro009/Timeline sandbox/item |date=March 2016 |title=Lee Sedol wins game 4}}
+}}
+{{User:Fanaro009/Timeline sandbox |title=Programs
+|{{User:Fanaro009/Timeline sandbox/gap}}
+{{User:Fanaro009/Timeline sandbox/item |date=1968 |title=First Go program}}
+{{User:Fanaro009/Timeline sandbox/item |date=March 2016 |title=AlphaGo wins the match}}
+}}
+}}
