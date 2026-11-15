@@ -1,0 +1,153 @@
+/*
+ * Vertical event timeline.
+ *
+ * Written to be portable to TemplateStyles: plain selectors under one
+ * root class, no @import, no external urls, colours from Codex design
+ * tokens (with fallbacks) so it follows Vector's light and dark themes.
+ */
+
+.wt-timeline {
+	--wt-line: var(--border-color-base, #a2a9b1);
+	--wt-dot: var(--color-base, #202122);
+	--wt-accent: var(--color-destructive, #d33);
+	--wt-subtle: var(--color-subtle, #54595d);
+	--wt-bg: var(--background-color-base, #fff);
+	--wt-rail: 28px;
+
+	position: relative;
+	margin: 1.5em 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* The vertical rail. */
+.wt-timeline::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: calc( var( --wt-rail ) / 2 - 1px );
+	width: 2px;
+	background: var( --wt-line );
+}
+
+.wt-timeline__item {
+	position: relative;
+	margin: 0 0 1.5em;
+	padding: 0 0 0 var( --wt-rail );
+	list-style: none;
+}
+
+.wt-timeline__item::before {
+	content: '';
+	position: absolute;
+	top: 0.35em;
+	left: calc( var( --wt-rail ) / 2 - 7px );
+	box-sizing: border-box;
+	width: 14px;
+	height: 14px;
+	border: 2px solid var( --wt-dot );
+	border-radius: 50%;
+	background: var( --wt-dot );
+}
+
+/* Alternate filled and hollow dots, like stones on a board. */
+.wt-timeline__item:nth-child( even )::before {
+	background: var( --wt-bg );
+}
+
+.wt-timeline__body {
+	margin-left: 0.75em;
+}
+
+.wt-timeline__date {
+	display: block;
+	color: var( --wt-accent );
+	font-size: 1.75em;
+	font-weight: bold;
+	line-height: 1.1;
+}
+
+.wt-timeline__title {
+	display: block;
+	margin-top: 0.15em;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.25;
+}
+
+.wt-timeline__text {
+	margin-top: 0.35em;
+	max-width: 36em;
+}
+
+.wt-timeline__image {
+	display: inline-block;
+	margin-top: 0.6em;
+	padding: 0.4em;
+	border: 1px solid var( --wt-line );
+	text-align: center;
+	font-size: 0.85em;
+	font-weight: bold;
+}
+
+.wt-timeline__image img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto 0.3em;
+}
+
+/* Wide screens: the rail moves to the centre, events alternate sides. */
+@media ( min-width: 720px ) {
+	.wt-timeline::before {
+		left: 50%;
+		margin-left: -1px;
+	}
+
+	.wt-timeline__item {
+		width: 50%;
+		box-sizing: border-box;
+		padding: 0 calc( var( --wt-rail ) + 0.5em ) 0 0;
+		text-align: right;
+	}
+
+	.wt-timeline__item::before {
+		left: auto;
+		right: -7px;
+	}
+
+	.wt-timeline__item:nth-child( even ) {
+		margin-left: 50%;
+		padding: 0 0 0 calc( var( --wt-rail ) + 0.5em );
+		text-align: left;
+	}
+
+	.wt-timeline__item:nth-child( even )::before {
+		left: -7px;
+		right: auto;
+	}
+
+	.wt-timeline__body {
+		margin: 0;
+	}
+
+	.wt-timeline__text {
+		margin-left: auto;
+	}
+
+	.wt-timeline__item:nth-child( even ) .wt-timeline__text {
+		margin-left: 0;
+	}
+
+	/* Alternate sides overlap a little, so the rail feels continuous. */
+	.wt-timeline__item + .wt-timeline__item {
+		margin-top: -2.5em;
+	}
+}
+
+@media print {
+	.wt-timeline__item {
+		break-inside: avoid;
+	}
+}
