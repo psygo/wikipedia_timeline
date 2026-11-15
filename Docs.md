@@ -13,13 +13,15 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 ## Layout
 
 + `prototype/`: standalone HTML and CSS.
-  + `article.html`: mock Wikipedia article (Vector-like chrome, infobox, headings) with the timeline in a section.
-  + `index.html`: the timeline alone.
+  + `index.html`: mock Wikipedia article (Vector-like chrome, infobox, headings) with the timeline in a section.
+  + `alone.html`: the timeline alone.
+  + `theme-toggle.js`: prototype-only button cycling system / light / dark (sets `data-theme`, remembered in localStorage). The template itself stays JS-free.
   + `timeline.css`: the real stylesheet, written to be portable to TemplateStyles (one root class `wt-timeline`,
     Codex tokens via `var(--token, fallback)` only, no custom properties declared, no `@import`, no external urls).
   + `vector-stub.css`: fake Vector chrome and Codex tokens (light and dark); prototype only.
   + Markup is an `<ol>` of `<li>` items with a `<span>` for the date (`<time>` is not
     something I could confirm the wikitext sanitizer allows).
++ `.github/workflows/pages.yml`: deploys `prototype/` to GitHub Pages on push to `main`.
 + `template/`: `Template:Timeline`, `Template:Timeline item`, docs, and a copy of the CSS for `Template:Timeline/styles.css`.
   Keep `template/Template_Timeline_styles.css` identical to `prototype/timeline.css`.
 

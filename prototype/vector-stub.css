@@ -14,7 +14,7 @@
 	color-scheme: light dark;
 }
 @media ( prefers-color-scheme: dark ) {
-	:root {
+	:root:not( [data-theme="light"] ) {
 		--color-base: #eaecf0;
 		--color-subtle: #a2a9b1;
 		--color-progressive: #6485d1;
@@ -23,7 +23,22 @@
 		--background-color-base: #101418;
 		--background-color-interactive-subtle: #1b1f23;
 		--background-color-neutral-subtle: #1b1f23;
+		color-scheme: dark;
 	}
+}
+:root[data-theme="dark"] {
+		--color-base: #eaecf0;
+		--color-subtle: #a2a9b1;
+		--color-progressive: #6485d1;
+		--border-color-base: #72777d;
+		--border-color-subtle: #54595d;
+		--background-color-base: #101418;
+		--background-color-interactive-subtle: #1b1f23;
+		--background-color-neutral-subtle: #1b1f23;
+		color-scheme: dark;
+}
+:root[data-theme="light"] {
+	color-scheme: light;
 }
 body {
 	margin: 0;
@@ -70,3 +85,19 @@ a:hover { text-decoration: underline; }
 	.page { padding: 1em; }
 	.infobox { float: none; width: auto; margin: 1em 0; }
 }
+
+.theme-toggle {
+	position: fixed;
+	top: 0.75em;
+	right: 0.75em;
+	z-index: 10;
+	padding: 0.35em 0.8em;
+	border: 1px solid var( --border-color-base );
+	border-radius: 2px;
+	background: var( --background-color-interactive-subtle );
+	color: var( --color-base );
+	font: inherit;
+	cursor: pointer;
+}
+.theme-toggle:hover { border-color: var( --color-progressive ); }
+.demo-nav { font-size: 0.85em; margin-bottom: 0.5em; }

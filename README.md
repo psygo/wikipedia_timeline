@@ -5,10 +5,11 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 
 ## Try the prototype
 
-    open prototype/article.html
+    open prototype/index.html
 
-`article.html` is a mock article with the timeline in a section; `index.html` shows it alone.
-Resize the window (breakpoint at 640 px) and switch the OS between light and dark.
+`index.html` is a mock article with the timeline in a section; `alone.html` shows it alone.
+Resize the window (breakpoint at 640 px) and use the Theme button (system / light / dark).
+The prototype is also published with GitHub Pages (see `.github/workflows/pages.yml`).
 
 ## Try the template (untested on a wiki)
 
