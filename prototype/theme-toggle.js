@@ -37,5 +37,19 @@
 	} );
 
 	apply();
-	document.body.appendChild( button );
+	// In the viewer, the button lives in the toolbar; the framed article has none
+	// (it follows through the storage event below).
+	var slot = document.querySelector( '[data-theme-slot]' );
+	if ( slot ) {
+		button.className = '';
+		slot.appendChild( button );
+	} else if ( window.self === window.top ) {
+		document.body.appendChild( button );
+	}
+	window.addEventListener( 'storage', function ( e ) {
+		if ( e.key === 'wt-theme' && modes.indexOf( e.newValue ) >= 0 ) {
+			mode = e.newValue;
+			apply();
+		}
+	} );
 }() );

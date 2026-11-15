@@ -9,8 +9,9 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 
     open prototype/index.html
 
-`index.html` is a mock article with the timeline in a section; `alone.html` shows it alone.
-Resize the window (breakpoint at 640 px) and use the Theme button (system / light / dark).
+`index.html` is a viewer: drag the handles on the left and right edges (or focus one and use the arrow keys)
+to change the page width, and use the Theme button (system / light / dark). The timeline switches layout at 640 px.
+`article.html` is the mock article itself; `alone.html` shows the timeline alone.
 The prototype is also published with GitHub Pages (see `.github/workflows/pages.yml`).
 
 ## Try the template (untested on a wiki)

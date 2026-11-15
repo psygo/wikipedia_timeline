@@ -3,78 +3,129 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>History of Go – prototype article</title>
+<title>Timeline prototype – viewer</title>
 <link rel="stylesheet" href="vector-stub.css">
-<link rel="stylesheet" href="timeline.css">
+<style>
+	/* Prototype viewer: the article sits in an iframe whose width you drag,
+	   so the timeline's media queries react to the frame, not the window. */
+	body { overflow-x: hidden; }
+	.bar {
+		display: flex; flex-wrap: wrap; gap: 0.5em 1em; align-items: center;
+		padding: 0.5em 1em; border-bottom: 1px solid var( --border-color-subtle );
+		background: var( --background-color-base ); font-size: 0.9em;
+	}
+	.bar output { font-variant-numeric: tabular-nums; min-width: 6em; }
+	.bar button {
+		padding: 0.2em 0.7em; border: 1px solid var( --border-color-base ); border-radius: 2px;
+		background: var( --background-color-interactive-subtle ); color: var( --color-base );
+		font: inherit; cursor: pointer;
+	}
+	.bar button:hover { border-color: var( --color-progressive ); }
+	.bar .spacer { flex: 1; }
+	.stage {
+		display: flex; justify-content: center; align-items: stretch;
+		padding: 1em 0; height: calc( 100vh - 4.5em ); min-height: 20em;
+	}
+	.frame-wrap { position: relative; flex: none; width: 1000px; max-width: 100%; }
+	iframe {
+		display: block; width: 100%; height: 100%;
+		border: 1px solid var( --border-color-base ); background: var( --background-color-base );
+	}
+	.dragging iframe { pointer-events: none; }
+	.dragging, .dragging * { cursor: ew-resize !important; user-select: none; }
+	.handle {
+		flex: none; width: 18px; margin: 0 4px; border-radius: 4px; cursor: ew-resize;
+		background: var( --background-color-interactive-subtle ); border: 1px solid var( --border-color-base );
+		display: flex; align-items: center; justify-content: center; touch-action: none;
+	}
+	.handle::before { content: ''; width: 4px; height: 36px; border-left: 1px solid var( --color-subtle ); border-right: 1px solid var( --color-subtle ); }
+	.handle:hover, .handle:focus-visible { border-color: var( --color-progressive ); outline: none; }
+	@media ( max-width: 480px ) { .handle { display: none; } }
+</style>
 </head>
 <body>
-<div class="page">
-<div class="demo-nav"><a href="alone.html">Timeline alone</a></div>
-<h1>History of Go</h1>
-<div class="tagline">From Wikipedia, the free encyclopedia <em>(prototype page, placeholder text)</em></div>
-
-<table class="infobox">
-	<tr><td colspan="2" class="title">Go</td></tr>
-	<tr><th>Genre</th><td>Abstract strategy game</td></tr>
-	<tr><th>Players</th><td>2</td></tr>
-	<tr><th>Origin</th><td>China</td></tr>
-</table>
-
-<p><b>Go</b> is an abstract strategy board game for two players. It was invented in China
-more than 2,500 years ago and is believed to be the oldest board game continuously played
-to the present day. This page is a mock-up used to judge how a vertical timeline looks
-inside an article; the prose is placeholder.</p>
-
-<p>The sections below are written in the usual article style, so that the timeline can be
-compared with ordinary headings, paragraphs and lists around it.</p>
-
-<h2>Early history</h2>
-<p>Placeholder paragraph about the early history of the game, the first written
-references, and its spread to Korea and Japan.</p>
-
-<h2>Timeline</h2>
-<p>Selected events in the history of the game.</p>
-
-<ol class="wt-timeline">
-	<li class="wt-timeline__item"><div class="wt-timeline__body">
-		<span class="wt-timeline__date">1612</span>
-		<span class="wt-timeline__title">The Go academy</span>
-		<div class="wt-timeline__text">The Tokugawa shogunate patronises the game and forms the houses of professional players; Honinbo Sansa is appointed head.</div>
-	</div></li>
-	<li class="wt-timeline__item"><div class="wt-timeline__body">
-		<span class="wt-timeline__date">c. 1651</span>
-		<span class="wt-timeline__title">Huang Longshi</span>
-		<div class="wt-timeline__text">Huang Longshi (c. 1650 – c. 1694), one of the strongest players in history, is born.</div>
-		<span class="wt-timeline__image">
-			<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='86' height='107'%3E%3Crect width='86' height='107' fill='%23a2a9b1'/%3E%3C/svg%3E" alt="" width="86" height="107">
-			Huang Longshi
-		</span>
-	</div></li>
-	<li class="wt-timeline__item"><div class="wt-timeline__body">
-		<span class="wt-timeline__date">1846</span>
-		<span class="wt-timeline__title">The Ear-Reddening Game</span>
-		<div class="wt-timeline__text">Shusaku's move 127 stuns Gennan Inseki, and becomes one of the best moves of all time.</div>
-	</div></li>
-	<li class="wt-timeline__item"><div class="wt-timeline__body">
-		<span class="wt-timeline__date">March 2016</span>
-		<span class="wt-timeline__title">AlphaGo defeats Lee Sedol</span>
-		<div class="wt-timeline__text">DeepMind's AlphaGo wins four games to one against Lee Sedol in Seoul.</div>
-	</div></li>
-</ol>
-
-<h2>Modern play</h2>
-<p>Placeholder paragraph about professional associations, rankings, and computer Go
-after 2016.</p>
-
-<h2>See also</h2>
-<ul>
-	<li><a href="#">Go variants</a></li>
-	<li><a href="#">Computer Go</a></li>
-</ul>
-
-<h2>References</h2>
-<ol class="refs"><li>Placeholder reference.</li></ol>
+<div class="bar">
+	<strong>Timeline prototype</strong>
+	<span>Drag the side handles, or focus one and use ← →.</span>
+	<output id="width" aria-live="polite"></output>
+	<button type="button" data-w="375">375</button>
+	<button type="button" data-w="640">640</button>
+	<button type="button" data-w="768">768</button>
+	<button type="button" data-w="1000">1000</button>
+	<button type="button" data-w="max">Max</button>
+	<span data-theme-slot></span>
+	<span class="spacer"></span>
+	<a href="alone.html">Timeline alone</a>
+	<a href="https://github.com/psygo/wikipedia_timeline">Source</a>
+</div>
+<div class="stage" id="stage">
+	<div class="handle" id="hl" role="separator" aria-orientation="vertical" aria-label="Narrow or widen the page (left edge)" tabindex="0"></div>
+	<div class="frame-wrap" id="wrap"><iframe src="article.html" title="Mock article with timeline"></iframe></div>
+	<div class="handle" id="hr" role="separator" aria-orientation="vertical" aria-label="Narrow or widen the page (right edge)" tabindex="0"></div>
 </div>
 <script src="theme-toggle.js"></script>
+<script>
+( function () {
+	var stage = document.getElementById( 'stage' );
+	var wrap = document.getElementById( 'wrap' );
+	var out = document.getElementById( 'width' );
+	var MIN = 280;
+
+	function maxWidth() {
+		return Math.max( MIN, stage.clientWidth - 2 * 26 );
+	}
+	function set( w ) {
+		w = Math.round( Math.min( maxWidth(), Math.max( MIN, w ) ) );
+		wrap.style.width = w + 'px';
+		out.textContent = 'Width: ' + w + ' px';
+		return w;
+	}
+	function current() {
+		return wrap.getBoundingClientRect().width;
+	}
+
+	// Both edges move symmetrically, so the page stays centred under the cursor.
+	function drag( side ) {
+		return function ( e ) {
+			e.preventDefault();
+			var startX = e.clientX, startW = current();
+			document.body.classList.add( 'dragging' );
+			function move( ev ) {
+				var dx = ev.clientX - startX;
+				set( startW + ( side === 'right' ? 2 : -2 ) * dx );
+			}
+			function up() {
+				document.body.classList.remove( 'dragging' );
+				window.removeEventListener( 'pointermove', move );
+				window.removeEventListener( 'pointerup', up );
+				window.removeEventListener( 'pointercancel', up );
+			}
+			window.addEventListener( 'pointermove', move );
+			window.addEventListener( 'pointerup', up );
+			window.addEventListener( 'pointercancel', up );
+		};
+	}
+	function keys( side ) {
+		return function ( e ) {
+			var step = e.shiftKey ? 50 : 10, d = 0;
+			if ( e.key === 'ArrowRight' ) { d = side === 'right' ? step : -step; }
+			if ( e.key === 'ArrowLeft' ) { d = side === 'right' ? -step : step; }
+			if ( d ) { e.preventDefault(); set( current() + 2 * d ); }
+		};
+	}
+	[ [ 'hl', 'left' ], [ 'hr', 'right' ] ].forEach( function ( p ) {
+		var el = document.getElementById( p[ 0 ] );
+		el.addEventListener( 'pointerdown', drag( p[ 1 ] ) );
+		el.addEventListener( 'keydown', keys( p[ 1 ] ) );
+	} );
+	Array.prototype.forEach.call( document.querySelectorAll( '[data-w]' ), function ( b ) {
+		b.addEventListener( 'click', function () {
+			set( b.dataset.w === 'max' ? 99999 : +b.dataset.w );
+		} );
+	} );
+	window.addEventListener( 'resize', function () { set( current() ); } );
+	set( Math.min( 1000, maxWidth() ) );
+}() );
+</script>
 </body>
 </html>
