@@ -93,6 +93,33 @@ A dense list with a solid bar, through <code>compact=yes</code>. A date can have
 {{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
 }}}}
 
+== Regular and compact, side by side ==
+The same events with titles only, in a parallel row.
+
+{{{{{BASE}/parallel
+|{{{{{BASE} |title=Regular
+|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game}}}}
+{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded}}}}
+{{{{{BASE}/item |date=2006 |events=
+{{{{{BASE}/event |title=Crazy Stone}}}}
+{{{{{BASE}/event |title=UCT}}}}
+}}}}
+{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
+{{{{{BASE}/item |date=2019 |title=Lee Sedol retires}}}}
+}}}}
+{{{{{BASE} |title=Compact |compact=yes
+|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game}}}}
+{{{{{BASE}/item |date=1847}}}}
+{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded}}}}
+{{{{{BASE}/item |date=2006 |events=
+{{{{{BASE}/event |title=Crazy Stone}}}}
+{{{{{BASE}/event |title=UCT}}}}
+}}}}
+{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
+{{{{{BASE}/item |date=2019 |title=Lee Sedol retires}}}}
+}}}}
+}}}}
+
 == Parallel timelines ==
 Independent timelines that share a row and wrap when there is no room. Narrow the window to see them wrap.
 
