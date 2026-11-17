@@ -9,6 +9,8 @@ User:<name>/Timeline sandbox, the TemplateStyles source points at the
 stylesheet page in the Template namespace, and the {{documentation}} lines are dropped.
 """
 import pathlib, re, sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import real_examples
 
 user = sys.argv[1]
 root = pathlib.Path(__file__).resolve().parent.parent
@@ -149,6 +151,19 @@ The same two timelines, grouped: the dots line up horizontally (at 640 px and wi
 {{{{{BASE}/item |date=March 2016 |title=AlphaGo wins the match}}}}
 }}}}
 }}}}
+'''
+_inv, _scr = real_examples.wikitext(BASE)
+demo += f'''
+== Examples from real articles ==
+The same two lists as they appear on English Wikipedia, rebuilt with this template. Text is adapted from [[Timeline of historic inventions]] (Paleolithic) and [[The Elder Scrolls]] (release timeline), both under CC BY-SA 4.0; references are left out here.
+
+=== Timeline of historic inventions ===
+{_inv}
+
+=== The Elder Scrolls release timeline ===
+Main series in bold; everything else in italics. Empty years are date-only rows.
+
+{_scr}
 '''
 DEMO = f'User:{user}/Timeline demo'
 (out / fname(DEMO)).with_suffix('.wikitext').write_text(demo)

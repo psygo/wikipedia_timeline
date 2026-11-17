@@ -172,6 +172,7 @@
 	}
 
 	.wt-timeline__item {
+		display: flow-root;
 		padding-left: 10.5em;
 	}
 
@@ -179,11 +180,12 @@
 		left: calc( 8.75em - 5px );
 	}
 
+	/* A float in the padding area (not absolute), so a date that wraps onto two
+	   lines still makes the item tall enough. */
 	.wt-timeline__date {
-		position: absolute;
-		top: 0;
-		left: 0;
+		float: left;
 		width: 7.75em;
+		margin-left: -10.5em;
 		text-align: right;
 	}
 
@@ -203,6 +205,8 @@
 	}
 
 	.wt-timelines .wt-timeline__date {
+		float: none;
+		margin-left: 0;
 		position: static;
 		width: auto;
 		text-align: left;
@@ -223,6 +227,8 @@
 	}
 
 	.wt-timeline--sub > .wt-timeline__item > .wt-timeline__date {
+		float: none;
+		margin-left: 0;
 		position: static;
 		width: auto;
 		text-align: left;
@@ -337,6 +343,7 @@
 	top: 0;
 	bottom: 1px;
 	left: 0;
+	margin-left: 0;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
