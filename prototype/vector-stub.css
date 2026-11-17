@@ -104,3 +104,25 @@ a:hover { text-decoration: underline; }
 }
 .theme-toggle:hover { border-color: var( --color-progressive ); }
 .demo-nav { font-size: 0.85em; margin-bottom: 0.5em; }
+
+/* Contents box, as on a classic (non-sidebar) Wikipedia article. */
+.toc {
+	display: table;
+	margin: 0.5em 0 1.2em;
+	padding: 7px 12px 8px 7px;
+	border: 1px solid var( --border-color-base, #a2a9b1 );
+	background: var( --background-color-interactive-subtle, #f8f9fa );
+	font-size: 95%;
+}
+.toc .toctitle h2 {
+	margin: 0;
+	padding: 0 0 0.2em;
+	border: 0;
+	font: bold 100% sans-serif;
+	text-align: center;
+}
+.toc ul { margin: 0; padding: 0; list-style: none; }
+.toc ul ul { margin-left: 2em; }
+.toc li { margin: 0.15em 0; }
+.toc .tocnumber { color: var( --color-subtle, #54595d ); }
+h2, h3, h4 { scroll-margin-top: 1em; }

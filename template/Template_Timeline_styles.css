@@ -322,9 +322,18 @@
 	display: none;
 }
 
+/* Only the dot and the title react to the pointer, not the whole row. Clicks on
+   them still reach the row, which is the toggler. */
 .wt-timeline__row {
-	cursor: pointer;
+	pointer-events: none;
 	user-select: none;
+}
+
+.wt-timeline__row::before,
+.wt-timeline__peek,
+.wt-timeline__section-title {
+	pointer-events: auto;
+	cursor: pointer;
 }
 
 .wt-timeline__row::before {
@@ -346,12 +355,32 @@
 	background: var( --background-color-base, #fff );
 }
 
-.wt-timeline__row:hover .wt-timeline__date {
+.wt-timeline__peek:hover {
 	color: var( --color-progressive, #36c );
 }
 
 .wt-timeline__peek {
 	display: none;
+}
+
+/* A single-event item keeps its title in the row, so the title is the toggler too:
+   shown as the first line of the event when open, after the date and a pipe when closed. */
+.wt-timeline__peek--title {
+	display: inline-block;
+	color: var( --color-base, #202122 );
+	font-weight: bold;
+}
+
+.wt-timeline__peek.wt-timeline__peek--title::before {
+	content: none;
+}
+
+.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title {
+	font-weight: normal;
+}
+
+.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title::before {
+	content: '|';
 }
 
 .wt-timeline__peek::before {
@@ -432,7 +461,7 @@
 	font-weight: bold;
 }
 
-.wt-timeline__row:hover .wt-timeline__section-title {
+.wt-timeline__section-title:hover {
 	color: var( --color-destructive, #d33 );
 }
 
@@ -445,6 +474,8 @@
 	position: relative;
 	padding: 0.5em 0 0.5em 1.5em;
 	background: var( --background-color-base, #fff );
+	/* Also hides the outer rail down to the step back, so no stub shows above it. */
+	box-shadow: 0 calc( 0.35em - 1px ) 0 0 var( --background-color-base, #fff );
 }
 
 .wt-timeline--section {
@@ -555,7 +586,6 @@
    everything, keep the bar, and make the row inert. */
 .wt-timeline--compact .wt-timeline__row {
 	display: contents;
-	cursor: default;
 }
 
 .wt-timeline--compact .wt-timeline__row::before,
@@ -563,13 +593,23 @@
 	display: none;
 }
 
+/* ...except the title of a one-event item, which stays where it always was. */
+.wt-timeline--compact .wt-timeline__peek.wt-timeline__peek--title,
+.wt-timeline--compact .wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title {
+	display: block;
+	cursor: default;
+	pointer-events: none;
+	font-weight: bold;
+}
+
+.wt-timeline--compact .wt-timeline__peek--title::before,
+.wt-timeline--compact .wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title::before {
+	content: none;
+}
+
 .wt-timeline--compact .wt-timeline__body,
 .wt-timeline--compact .wt-timeline__body.mw-collapsed {
 	display: block;
-}
-
-.wt-timeline--compact .wt-timeline__row:hover .wt-timeline__date {
-	color: var( --color-base, #202122 );
 }
 
 /* The bar: one segment per item, a hairline apart. */

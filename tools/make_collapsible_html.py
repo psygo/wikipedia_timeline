@@ -46,8 +46,26 @@ def convert(s):
         pos = e
     return ''.join(out)
 
+def retitle(s):
+    """One-event collapsible items keep their title in the row (so it is the toggler)."""
+    starts = [m.start() for m in re.finditer(r'<li class="wt-timeline__item wt-timeline__item--collapsible">', s)]
+    for st in reversed(starts):
+        e = end_of(s, st)
+        li = s[st:e]
+        head = re.split(r'<ol class="wt-timeline wt-timeline--sub"', li)[0]
+        if 'wt-timeline__peek--title' in head or head.count('class="wt-timeline__event"') != 1:
+            continue
+        m = re.search(r'\s*<span class="wt-timeline__title">(.*?)</span>', head, re.S)
+        if not m:
+            continue
+        title = m.group(1)
+        new = head.replace(m.group(0), '', 1)
+        new = re.sub(r'<span class="wt-timeline__peek">.*?</span>', '<span class="wt-timeline__peek wt-timeline__peek--title">%s</span>' % title, new, count=1, flags=re.S)
+        s = s[:st] + new + li[len(head):] + s[e:]
+    return s
+
 for f in sys.argv[1:]:
     s = open(f).read()
     n[0] = max([int(x) for x in re.findall(r'mw-customtoggle-wt(\d+)', s)] or [0])
-    open(f, 'w').write(convert(s))
+    open(f, 'w').write(retitle(convert(s)))
     print(f, n[0], 'items converted so far')
