@@ -339,6 +339,7 @@
 .wt-timeline__row::before {
 	content: '';
 	position: absolute;
+	z-index: 2;
 	top: calc( 0.8em - 5px );
 	left: 0;
 	box-sizing: border-box;
@@ -498,7 +499,7 @@
 .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after {
 	content: '';
 	position: absolute;
-	top: calc( 0.8em + 5px );
+	top: calc( 0.8em + 6px );
 	bottom: -0.25em;
 	left: 4px;
 	width: 2px;
