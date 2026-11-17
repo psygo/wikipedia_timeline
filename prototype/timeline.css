@@ -528,8 +528,8 @@
  * Connectors. While a section is open, the line does not stop at the body (which hides
  * the outer rail): it leaves the red dot, curves across to the inner rail, runs down the
  * inner dots, and curves back to the outer rail just above the next dot. Four small
- * boxes make the two S-bends (corner radius 6px, line 2px); the rails stop where the
- * corners start. Values below are for the compact layout (rail 4px from the left edge);
+ * boxes make the two S-bends (corner radius 6px, line 2px); each corner box has 2px of straight
+ * line past its curve, overlapping the rail it meets, so no seam shows between them. Values below are for the compact layout (rail 4px from the left edge);
  * the wide layout (rail 8.75em from it) follows in the media query. The inner rail is
  * 1.5em to the right of the outer one.
  *   A  row::after          outer rail down from the dot, round corner, across
@@ -557,7 +557,7 @@
 	left: 1.5em;
 	box-sizing: border-box;
 	width: 6px;
-	height: 6px;
+	height: 8px;
 	border-top: 2px solid var( --border-color-subtle, #c8ccd1 );
 	border-right: 2px solid var( --border-color-subtle, #c8ccd1 );
 	border-top-right-radius: 6px;
@@ -570,7 +570,7 @@
 	left: 0;
 	box-sizing: border-box;
 	width: 6px;
-	height: 6px;
+	height: 8px;
 	border-right: 2px solid var( --border-color-subtle, #c8ccd1 );
 	border-bottom: 2px solid var( --border-color-subtle, #c8ccd1 );
 	border-bottom-right-radius: 6px;
@@ -579,11 +579,11 @@
 .wt-timeline__item--section > .wt-timeline__body::after {
 	content: '';
 	position: absolute;
-	bottom: calc( -0.35em - 5px );
+	bottom: calc( -0.35em - 7px );
 	left: 4px;
 	box-sizing: border-box;
 	width: calc( 1.5em - 4px );
-	height: 6px;
+	height: 8px;
 	border-top: 2px solid var( --border-color-subtle, #c8ccd1 );
 	border-left: 2px solid var( --border-color-subtle, #c8ccd1 );
 	border-top-left-radius: 6px;
