@@ -140,12 +140,15 @@ The same two lists as they appear on English Wikipedia, rebuilt with this templa
 
 === Timeline of historic inventions ===
 {{User:Fanaro009/Timeline sandbox
+|{{User:Fanaro009/Timeline sandbox/section |title=3.3 Mya – 1 Mya
 |{{User:Fanaro009/Timeline sandbox/item |date=3.3 Mya – 2.6 Mya |title=[[Stone tools]] |text=Found in modern-day [[Kenya]] are older and only found on the archetype road. Ancient stone tools from [[Ethiopia]] ([[Oldowan]]) were hand-crafted by [[Australopithecus]] or related people.}}
 {{User:Fanaro009/Timeline sandbox/item |date=1.76 Mya |title=Advanced ([[Acheulean]]) stone tools |text=In [[Kenya]] by ''[[Homo erectus]]''.}}
 {{User:Fanaro009/Timeline sandbox/item |date=1.75 Mya – 150 kya |title=[[Origin of language]] |text=Varying estimates.}}
 {{User:Fanaro009/Timeline sandbox/item |date=1.5 Mya |title=[[Control of fire]] |text=Earliest likely, by ''[[Homo erectus]]''.}}
 {{User:Fanaro009/Timeline sandbox/item |date=1.5 Mya |title=[[Bone tools]] |text=In Africa by ''[[Homo erectus]]'' and/or ''[[Paranthropus boisei]]''.}}
-{{User:Fanaro009/Timeline sandbox/item |date=1 Mya – 780 kya |title=[[Cooking]] |text=In the Middle East by [[Homo erectus]].}}
+}}
+{{User:Fanaro009/Timeline sandbox/section |title=1 Mya and later
+|{{User:Fanaro009/Timeline sandbox/item |date=1 Mya – 780 kya |title=[[Cooking]] |text=In the Middle East by [[Homo erectus]].}}
 {{User:Fanaro009/Timeline sandbox/item |date=900 kya – 40 kya |title=[[Rafts]]}}
 {{User:Fanaro009/Timeline sandbox/item |date=500 kya |title=[[Hafting]] |text=In South Africa by ''[[Homo heidelbergensis]]''.}}
 {{User:Fanaro009/Timeline sandbox/item |date=500 kya – 450 kya |title=[[Woodworking]] construction |text=In Zambia by ''[[Homo heidelbergensis]]''. (The [[oldest known surviving buildings]] are made from stone and date back no more than 9,500 years.)}}
@@ -154,6 +157,7 @@ The same two lists as they appear on English Wikipedia, rebuilt with this templa
 {{User:Fanaro009/Timeline sandbox/item |date=400 kya |title=[[Pigments]] |text=In Zambia by ''[[Homo heidelbergensis]]''.}}
 {{User:Fanaro009/Timeline sandbox/item |date=337 kya – 300 kya |title=[[Schöningen spears]] |text=In [[Germany]], likely by ''[[Homo heidelbergensis]]'' or early Neanderthals.}}
 {{User:Fanaro009/Timeline sandbox/item |date=320 kya |title=[[Trade]] |text=Long-distance (up to 50 miles) [[transportation]] of resources (e.g. [[obsidian]]), use of pigments, and possible making of projectile points in Kenya.}}
+}}
 }}
 
 === The Elder Scrolls release timeline ===

@@ -21,6 +21,9 @@ INVENTIONS = [
 ]
 
 # The Elder Scrolls, "Release timeline": (year, main series entries, other entries)
+# Sections of the list above: (title, index of its first entry)
+INVENTION_SECTIONS = [('3.3 Mya – 1 Mya', 0), ('1 Mya and later', 5)]
+
 SCROLLS = [
  ('1994', ['Arena'], []), ('1995', [], []), ('1996', ['II: Daggerfall'], []),
  ('1997', [], ['Battlespire']), ('1998', [], ['Adventures: Redguard']), ('1999–2001', [], []),
@@ -53,8 +56,12 @@ def wikitext(base):
     o.append("}}")
     scrolls = "\n".join(o)
     o = ["{{%s" % base]
-    for i, (d, t, x) in enumerate(INVENTIONS):
-        body = "{{%s/item |date=%s |title=%s%s}}" % (base, d, t, (" |text=" + x) if x else "")
-        o.append(("|" if i == 0 else "") + body)
+    bounds = [s for _, s in INVENTION_SECTIONS] + [len(INVENTIONS)]
+    for k, (title, start) in enumerate(INVENTION_SECTIONS):
+        o.append(("|" if k == 0 else "") + "{{%s/section |title=%s" % (base, title))
+        for n, (d, ti, x) in enumerate(INVENTIONS[start:bounds[k + 1]]):
+            body = "{{%s/item |date=%s |title=%s%s}}" % (base, d, ti, (" |text=" + x) if x else "")
+            o.append(("|" if n == 0 else "") + body)
+        o.append("}}")
     o.append("}}")
     return "\n".join(o), scrolls
