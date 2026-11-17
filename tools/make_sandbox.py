@@ -24,12 +24,13 @@ PAGES = {  # repo file -> page title
     'Template_Timeline_event.wikitext': BASE + '/event',
     'Template_Timeline_parallel.wikitext': BASE + '/parallel',
     'Template_Timeline_gap.wikitext': BASE + '/gap',
+    'Template_Timeline_section.wikitext': BASE + '/section',
 }
 # Sanitized-CSS pages are created by title in the Template namespace; on English
 # Wikipedia Special:ChangeContentModel is limited to admins and template editors.
 STYLES = f'Template:{user}/Timeline sandbox/styles.css'
 
-NAME = re.compile(r'\{\{Timeline( item| event| parallel| gap)?(?=[\s|}])')
+NAME = re.compile(r'\{\{Timeline( item| event| parallel| gap| section)?(?=[\s|}])')
 def rename(text):
     return NAME.sub(lambda m: '{{' + BASE + (('/' + m.group(1).strip()) if m.group(1) else ''), text)
 
@@ -133,6 +134,28 @@ Every item is collapsible by default: click a dot or date to hide the item, and 
 {{{{{BASE}/event |title=UCT |text=The UCT algorithm is published.}}}}
 }}}}
 {{{{{BASE}/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}
+}}}}
+
+== Timeline sections ==
+A red dot marks a section. Click it to collapse everything inside. Sections can contain sections, to any depth; each level is indented a little.
+
+{{{{{BASE}
+|{{{{{BASE}/section |title=Early history
+|{{{{{BASE}/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}}}
+{{{{{BASE}/section |title=Edo period
+|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}}}
+}}}}
+}}}}
+{{{{{BASE}/section |title=Modern play
+|{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded |text=The Japanese Go association is founded in Tokyo.}}}}
+{{{{{BASE}/section |title=Computer Go
+|{{{{{BASE}/item |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}}}
+{{{{{BASE}/section |title=Deep learning
+|{{{{{BASE}/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}
+{{{{{BASE}/item |date=2017 |title=AlphaGo Zero |text=A version trained without human games is described in ''Nature''.}}}}
+}}}}
+}}}}
+}}}}
 }}}}
 
 == Parallel timelines ==

@@ -29,6 +29,10 @@
  *     div.wt-timeline__row.mw-customtoggle-ID      date + peek (title shown when collapsed)
  *     div.wt-timeline__body.mw-collapsible#mw-customcollapsible-ID   events and nested timeline
  *
+ * Section (opt-in by using the section template): li.wt-timeline__item--section holds a
+ * row with a red dot and a title, and a collapsible body with an indented ol.wt-timeline--section.
+ * Sections can sit inside sections to any depth.
+ *
  * Compact variant: ol.wt-timeline.wt-timeline--compact is a dense list, one row per
  * date, with a solid bar instead of a rail and dots (like the Elder Scrolls
  * release timeline). Items may have no events (a date only).
@@ -389,6 +393,67 @@
 		margin-left: 0;
 		width: auto;
 		text-align: left;
+	}
+}
+
+/*
+ * Timeline sections: a red dot and a title on the rail; clicking it collapses the
+ * whole inner timeline, which is indented. The body has the page background so the
+ * outer rail does not run through the inner timeline, and sections nest freely.
+ */
+.wt-timeline__item--section {
+	padding: 0 0 1em;
+}
+
+.wt-timeline__item--section:last-child {
+	padding-bottom: 0;
+}
+
+.wt-timeline__item--section::before {
+	display: none;
+}
+
+.wt-timeline__item--section > .wt-timeline__row {
+	padding-left: 22px;
+	line-height: 1.6;
+}
+
+.wt-timeline__item--section > .wt-timeline__row::before {
+	background: var( --color-destructive, #d33 );
+	box-shadow: 0 0 0 1px var( --color-destructive, #d33 );
+}
+
+.wt-timeline__item--section > .wt-timeline__row.mw-collapsible-toggle-collapsed::before {
+	background: var( --background-color-base, #fff );
+}
+
+.wt-timeline__section-title {
+	color: var( --color-base, #202122 );
+	font-weight: bold;
+}
+
+.wt-timeline__row:hover .wt-timeline__section-title {
+	color: var( --color-destructive, #d33 );
+}
+
+.wt-timeline__item--section > .wt-timeline__body {
+	position: relative;
+	padding: 0.5em 0 0 1.5em;
+	background: var( --background-color-base, #fff );
+}
+
+.wt-timeline--section {
+	margin: 0;
+}
+
+@media ( min-width: 640px ) {
+	.wt-timeline__item--section > .wt-timeline__row {
+		padding-left: 10.5em;
+	}
+
+	.wt-timelines .wt-timeline__item--section > .wt-timeline__row,
+	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__row {
+		padding-left: 22px;
 	}
 }
 

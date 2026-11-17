@@ -22,7 +22,8 @@
 		item: 'Timeline item',
 		event: 'Timeline event',
 		parallel: 'Timeline parallel',
-		gap: 'Timeline gap'
+		gap: 'Timeline gap',
+		section: 'Timeline section'
 	};
 
 	function t( key, args ) {
@@ -43,6 +44,16 @@
 			'|{{' + NAMES.item + ' |date=Year |events=\n' +
 			'{{' + NAMES.event + ' |title=First event |text=Text.}}\n' +
 			'{{' + NAMES.event + ' |title=Second event |text=Text.}}\n' +
+			'}}\n' +
+			'}}\n',
+
+		section:
+			'{{' + NAMES.timeline + '\n' +
+			'|{{' + NAMES.section + ' |title=Section\n' +
+			'|{{' + NAMES.item + ' |date=Year |title=Title |text=Text.}}\n' +
+			'{{' + NAMES.section + ' |title=Nested section\n' +
+			'|{{' + NAMES.item + ' |date=Year |title=Title |text=Text.}}\n' +
+			'}}\n' +
 			'}}\n' +
 			'}}\n',
 
@@ -89,6 +100,7 @@
 					list: {
 						'timeline-simple': entry( 'Simple timeline', SNIPPETS.simple ),
 						'timeline-multi': entry( 'Several events on one dot', SNIPPETS.multi ),
+						'timeline-section': entry( 'Sections (nestable)', SNIPPETS.section ),
 						'timeline-parallel': entry( 'Parallel timelines', SNIPPETS.parallel ),
 						'timeline-grouped': entry( 'Parallel and grouped (aligned dots)', SNIPPETS.grouped )
 					}

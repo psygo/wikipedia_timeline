@@ -6,6 +6,7 @@
 	--color-base: #202122;
 	--color-subtle: #54595d;
 	--color-progressive: #36c;
+	--color-destructive: #d73333;
 	--border-color-base: #a2a9b1;
 	--border-color-subtle: #c8ccd1;
 	--background-color-base: #fff;
@@ -18,6 +19,7 @@
 		--color-base: #eaecf0;
 		--color-subtle: #a2a9b1;
 		--color-progressive: #6485d1;
+		--color-destructive: #f54739;
 		--border-color-base: #72777d;
 		--border-color-subtle: #54595d;
 		--background-color-base: #101418;
@@ -30,6 +32,7 @@
 		--color-base: #eaecf0;
 		--color-subtle: #a2a9b1;
 		--color-progressive: #6485d1;
+		--color-destructive: #f54739;
 		--border-color-base: #72777d;
 		--border-color-subtle: #54595d;
 		--background-color-base: #101418;
