@@ -1,5 +1,5 @@
 /*
- * Timeline: double-click the top dot to collapse or expand all items.
+ * Timeline: double-click any dot to collapse or expand every item of that timeline.
  *
  * Optional user script (or gadget). The collapsible items themselves need no script:
  * they use MediaWiki's built-in collapsible module. This only adds the shortcut.
@@ -8,23 +8,23 @@
  * User:<YourName>/common.js:
  *     importScript( 'User:<YourName>/Timeline-collapse-all.js' );
  *
- * Behaviour: on a timeline whose first item is collapsible, a double-click on its
- * date row collapses every collapsible item of that timeline, or expands them all if
- * none is open. (The two clicks of the double-click first toggle that one item twice,
- * which changes nothing.)
+ * Behaviour: a double-click on an item's date row (the dot or the date) collapses every
+ * collapsible item of that timeline (nested timelines included), or expands them all if
+ * none is open. The two clicks of the double-click first toggle that one item twice,
+ * which changes nothing. Compact timelines are left alone.
  */
 ( function () {
 	'use strict';
 	var ROW = '.wt-timeline__row';
 
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
-		$content.find( '.wt-timeline' ).each( function () {
-			var $list = $( this );
-			var $first = $list.children( '.wt-timeline__item' ).first().children( ROW );
-			if ( !$first.length || $first.data( 'wtCollapseAll' ) ) {
+		$content.find( ROW ).each( function () {
+			var $row = $( this );
+			var $list = $row.closest( '.wt-timeline' );
+			if ( !$list.length || $list.hasClass( 'wt-timeline--compact' ) || $row.data( 'wtCollapseAll' ) ) {
 				return;
 			}
-			$first.data( 'wtCollapseAll', true ).on( 'dblclick', function ( e ) {
+			$row.data( 'wtCollapseAll', true ).on( 'dblclick', function ( e ) {
 				e.preventDefault();
 				var $rows = $list.find( ROW );
 				var anyOpen = $rows.filter( '.mw-collapsible-toggle-expanded' ).length > 0;

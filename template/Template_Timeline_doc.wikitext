@@ -26,7 +26,7 @@ Every item that has content is collapsible. Clicking its dot or date hides its c
 * <code>collapsible=no</code>: not collapsible.
 * <code>summary=</code>: the text after the pipe for an item with several events (a one-event item uses its <code>title</code>).
 * <code>id=</code>: only needed if two items on the same page share the same date and title; the id is otherwise made from the date and title.
-An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on the top dot to collapse or expand the whole timeline. The compact variant ignores collapsing and always shows everything.
+An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on any dot to collapse or expand the whole timeline. The compact variant ignores collapsing and always shows everything.
 <pre>
 {{Timeline
 |{{Timeline item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}

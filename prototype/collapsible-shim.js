@@ -37,14 +37,14 @@
 	} );
 
 	/*
-	 * Double-click the top dot (first item of a timeline): collapse every collapsible
-	 * item of that timeline, or expand them all if all are already collapsed. Not part
-	 * of MediaWiki; on a wiki this is userscript/Timeline-collapse-all.js.
+	 * Double-click any dot: collapse every collapsible item of that timeline (its own
+	 * list and any nested ones), or expand them all if none is open. Not part of
+	 * MediaWiki; on a wiki this is userscript/Timeline-collapse-all.js.
 	 */
-	document.querySelectorAll( '.wt-timeline' ).forEach( function ( list ) {
-		var first = list.querySelector( ':scope > .wt-timeline__item:first-child > .wt-timeline__row' );
-		if ( !first ) { return; }
-		first.addEventListener( 'dblclick', function ( e ) {
+	document.querySelectorAll( '.wt-timeline__row' ).forEach( function ( row ) {
+		var list = row.closest( '.wt-timeline' );
+		if ( !list || list.classList.contains( 'wt-timeline--compact' ) ) { return; }
+		row.addEventListener( 'dblclick', function ( e ) {
 			e.preventDefault();
 			var rows = list.querySelectorAll( '.wt-timeline__row' );
 			var anyOpen = Array.prototype.some.call( rows, function ( r ) {
