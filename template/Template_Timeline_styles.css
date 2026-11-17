@@ -436,14 +436,70 @@
 	color: var( --color-destructive, #d33 );
 }
 
+.wt-timeline__item--section > .wt-timeline__row {
+	position: relative;
+	z-index: 1;
+}
+
 .wt-timeline__item--section > .wt-timeline__body {
 	position: relative;
-	padding: 0.5em 0 0 1.5em;
+	padding: 0.5em 0 0.5em 1.5em;
 	background: var( --background-color-base, #fff );
 }
 
 .wt-timeline--section {
 	margin: 0;
+}
+
+/* The inner rail runs a little past its first and last dot, to meet the connectors. */
+.wt-timeline--section::before {
+	top: -0.25em;
+	bottom: -0.25em;
+}
+
+/*
+ * Connectors. While a section is open, the line does not stop at the body (which hides
+ * the outer rail): it leaves the red dot, steps across to the inner rail, runs down the
+ * inner dots, and steps back to the outer rail to reach the next dot. Offsets are the
+ * outer rail (x) relative to the section; 3px is the compact layout, the wide layout
+ * follows in the media query.
+ */
+.wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after {
+	content: '';
+	position: absolute;
+	top: calc( 0.8em + 5px );
+	bottom: -0.25em;
+	left: 3px;
+	width: 2px;
+	background: var( --border-color-subtle, #c8ccd1 );
+}
+
+.wt-timeline__item--section > .wt-timeline__body::before {
+	content: '';
+	position: absolute;
+	top: calc( 0.25em - 1px );
+	left: 3px;
+	width: calc( 1.5em + 2px );
+	height: 2px;
+	background: var( --border-color-subtle, #c8ccd1 );
+}
+
+.wt-timeline__item--section > .wt-timeline__body::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 3px;
+	box-sizing: border-box;
+	width: calc( 1.5em + 2px );
+	height: calc( 0.25em + 1px );
+	border-top: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-left: 2px solid var( --border-color-subtle, #c8ccd1 );
+}
+
+/* Nothing follows the last top-level section, so there is nothing to step back to
+   (a last section inside another section still steps back, to its parent's rail). */
+.wt-timeline:not( .wt-timeline--section ) > .wt-timeline__item--section:last-child > .wt-timeline__body::after {
+	display: none;
 }
 
 @media ( min-width: 640px ) {
@@ -454,6 +510,21 @@
 	.wt-timelines .wt-timeline__item--section > .wt-timeline__row,
 	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__row {
 		padding-left: 22px;
+	}
+
+	.wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
+	.wt-timeline__item--section > .wt-timeline__body::before,
+	.wt-timeline__item--section > .wt-timeline__body::after {
+		left: calc( 8.75em - 1px );
+	}
+
+	.wt-timelines .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
+	.wt-timelines .wt-timeline__item--section > .wt-timeline__body::before,
+	.wt-timelines .wt-timeline__item--section > .wt-timeline__body::after,
+	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
+	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__body::before,
+	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__body::after {
+		left: 3px;
 	}
 }
 
