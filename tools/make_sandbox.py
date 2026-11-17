@@ -122,6 +122,19 @@ The same events with titles only, in a parallel row.
 }}}}
 }}}}
 
+== Collapsible items ==
+Click a dot or date to hide an item; its title then follows the date after a pipe. This uses MediaWiki's built-in collapsible feature, so it needs no script from the template. Add <code>collapsed=yes</code> to start collapsed.
+
+{{{{{BASE}
+|{{{{{BASE}/item |date=1612 |collapsible=gcA |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}}}
+{{{{{BASE}/item |date=1846 |collapsible=gcB |collapsed=yes |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}}}
+{{{{{BASE}/item |date=2006 |collapsible=gcC |summary=Crazy Stone and UCT |events=
+{{{{{BASE}/event |title=Crazy Stone |text=Monte Carlo tree search arrives in Go.}}}}
+{{{{{BASE}/event |title=UCT |text=The UCT algorithm is published.}}}}
+}}}}
+{{{{{BASE}/item |date=March 2016 |collapsible=gcD |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}
+}}}}
+
 == Parallel timelines ==
 Independent timelines that share a row and wrap when there is no room. Narrow the window to see them wrap.
 

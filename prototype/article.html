@@ -269,6 +269,49 @@ CC BY-SA 4.0; references left out. Links here are inert.</p>
 	<li class="wt-timeline__item"><span class="wt-timeline__date">TBA</span><div class="wt-timeline__events"><div class="wt-timeline__event"><span class="wt-timeline__title"><i><a href="#">VI: Sentinel</a></i></span></div></div></li>
 </ol>
 
+<h3>Collapsible items</h3>
+<p>Click a dot or its date to hide that item; its title then joins the date row after a pipe.
+Double-click the top dot to collapse or expand everything. Demo content; check dates before reuse.</p>
+
+<ol class="wt-timeline">
+	<li class="wt-timeline__item wt-timeline__item--collapsible">
+		<div class="wt-timeline__row mw-customtoggle-gcA"><span class="wt-timeline__date">1612</span><span class="wt-timeline__peek">The Go academy</span></div>
+		<div class="wt-timeline__body mw-collapsible" id="mw-customcollapsible-gcA">
+			<div class="wt-timeline__events"><div class="wt-timeline__event">
+				<span class="wt-timeline__title">The Go academy</span>
+				<div class="wt-timeline__text">The Tokugawa shogunate patronises the game and forms the houses of professional players.</div>
+			</div></div>
+		</div>
+	</li>
+	<li class="wt-timeline__item wt-timeline__item--collapsible">
+		<div class="wt-timeline__row mw-customtoggle-gcB"><span class="wt-timeline__date">1846</span><span class="wt-timeline__peek">The Ear-Reddening Game</span></div>
+		<div class="wt-timeline__body mw-collapsible mw-collapsed" id="mw-customcollapsible-gcB">
+			<div class="wt-timeline__events"><div class="wt-timeline__event">
+				<span class="wt-timeline__title">The Ear-Reddening Game</span>
+				<div class="wt-timeline__text">Shusaku&rsquo;s move 127 stuns Gennan Inseki.</div>
+			</div></div>
+		</div>
+	</li>
+	<li class="wt-timeline__item wt-timeline__item--collapsible">
+		<div class="wt-timeline__row mw-customtoggle-gcC"><span class="wt-timeline__date">March 2016</span><span class="wt-timeline__peek">AlphaGo defeats Lee Sedol</span></div>
+		<div class="wt-timeline__body mw-collapsible" id="mw-customcollapsible-gcC">
+			<div class="wt-timeline__events"><div class="wt-timeline__event">
+				<span class="wt-timeline__title">AlphaGo defeats Lee Sedol</span>
+				<div class="wt-timeline__text">AlphaGo wins four games to one in Seoul.</div>
+			</div></div>
+		</div>
+	</li>
+	<li class="wt-timeline__item wt-timeline__item--collapsible">
+		<div class="wt-timeline__row mw-customtoggle-gcD"><span class="wt-timeline__date">2017</span><span class="wt-timeline__peek">Ke Jie</span></div>
+		<div class="wt-timeline__body mw-collapsible mw-collapsed" id="mw-customcollapsible-gcD">
+			<div class="wt-timeline__events"><div class="wt-timeline__event">
+				<span class="wt-timeline__title">Ke Jie</span>
+				<div class="wt-timeline__text">AlphaGo beats the world number one, three games to none.</div>
+			</div></div>
+		</div>
+	</li>
+</ol>
+
 <h3>Players, programs, organisations: parallel timelines</h3>
 <p>Separate timelines share a row and wrap when there is no horizontal space. Each keeps its own
 dates and rail, and they are independent: nothing lines up across them. Demo content; check dates
@@ -432,5 +475,6 @@ viewer to see it switch.</p>
 <ol class="refs"><li>Placeholder reference.</li></ol>
 </div>
 <script src="theme-toggle.js"></script>
+<script src="collapsible-shim.js"></script>
 </body>
 </html>

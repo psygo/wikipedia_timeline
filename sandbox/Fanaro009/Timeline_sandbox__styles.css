@@ -23,6 +23,12 @@
  * Nested timeline: an ol.wt-timeline.wt-timeline--sub inside an li, after its
  * events; it is indented under the parent's events and uses the compact layout.
  *
+ * Collapsible item (opt-in per item): the dot and date row become a toggler for the
+ * item's body, using MediaWiki's own collapsible module (no script of ours):
+ *   li.wt-timeline__item.wt-timeline__item--collapsible
+ *     div.wt-timeline__row.mw-customtoggle-ID      date + peek (title shown when collapsed)
+ *     div.wt-timeline__body.mw-collapsible#mw-customcollapsible-ID   events and nested timeline
+ *
  * Compact variant: ol.wt-timeline.wt-timeline--compact is a dense list, one row per
  * date, with a solid bar instead of a rail and dots (like the Elder Scrolls
  * release timeline). Items may have no events (a date only).
@@ -300,6 +306,89 @@
 
 	.wt-timelines--grouped .wt-timeline__item:not( .wt-timeline__item--gap ) ~ .wt-timeline__item--gap:not( :last-child )::after {
 		display: block;
+	}
+}
+
+/*
+ * Collapsible items. The toggler is the date row (it also carries the dot);
+ * MediaWiki adds mw-collapsible-toggle-collapsed to it and mw-collapsed to the body.
+ * When collapsed, the date moves inline and the title follows it after a pipe.
+ */
+.wt-timeline__item--collapsible::before {
+	display: none;
+}
+
+.wt-timeline__row {
+	cursor: pointer;
+	user-select: none;
+}
+
+.wt-timeline__row::before {
+	content: '';
+	position: absolute;
+	top: calc( 0.8em - 5px );
+	left: 0;
+	box-sizing: border-box;
+	width: 10px;
+	height: 10px;
+	border: 2px solid var( --background-color-base, #fff );
+	border-radius: 50%;
+	background: var( --color-progressive, #36c );
+	box-shadow: 0 0 0 1px var( --color-progressive, #36c );
+}
+
+/* Hollow dot when collapsed. */
+.wt-timeline__row.mw-collapsible-toggle-collapsed::before {
+	background: var( --background-color-base, #fff );
+}
+
+.wt-timeline__row:hover .wt-timeline__date {
+	color: var( --color-progressive, #36c );
+}
+
+.wt-timeline__peek {
+	display: none;
+}
+
+.wt-timeline__peek::before {
+	content: '|';
+	margin: 0 0.4em;
+	color: var( --color-subtle, #54595d );
+}
+
+.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek {
+	display: inline;
+}
+
+.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__date {
+	display: inline;
+	float: none;
+	position: static;
+	width: auto;
+	margin-left: 0;
+	text-align: left;
+}
+
+.wt-timeline__body.mw-collapsed {
+	display: none;
+}
+
+@media ( min-width: 640px ) {
+	/* Collapsible items: the dot sits on the row, so it has to move here too. */
+	.wt-timeline__row::before {
+		left: calc( 8.75em - 5px );
+	}
+
+	.wt-timelines .wt-timeline__row::before,
+	.wt-timeline--sub > .wt-timeline__item > .wt-timeline__row::before {
+		left: 0;
+	}
+
+	.wt-timeline--sub > .wt-timeline__item > .wt-timeline__row > .wt-timeline__date {
+		float: none;
+		margin-left: 0;
+		width: auto;
+		text-align: left;
 	}
 }
 
