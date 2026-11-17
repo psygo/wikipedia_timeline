@@ -402,7 +402,7 @@
  * outer rail does not run through the inner timeline, and sections nest freely.
  */
 .wt-timeline__item--section {
-	padding: 0 0 1em;
+	padding: 0 0 0.6em;
 }
 
 .wt-timeline__item--section:last-child {
@@ -454,13 +454,13 @@
 /* The inner rail runs a little past its first and last dot, to meet the connectors. */
 .wt-timeline--section::before {
 	top: -0.25em;
-	bottom: -0.25em;
+	bottom: -0.85em;
 }
 
 /*
  * Connectors. While a section is open, the line does not stop at the body (which hides
  * the outer rail): it leaves the red dot, steps across to the inner rail, runs down the
- * inner dots, and steps back to the outer rail to reach the next dot. Offsets are the
+ * inner dots, and steps back to the outer rail just above the next dot. Offsets are the
  * outer rail (x) relative to the section; 4px is the compact layout, the wide layout
  * follows in the media query.
  */
@@ -487,7 +487,7 @@
 .wt-timeline__item--section > .wt-timeline__body::after {
 	content: '';
 	position: absolute;
-	bottom: 0;
+	bottom: -0.6em;
 	left: 4px;
 	width: calc( 1.5em + 2px );
 	height: calc( 0.25em + 1px );
