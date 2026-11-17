@@ -441,7 +441,7 @@
 }
 
 .wt-timeline--section > .wt-timeline__item--last::after {
-	bottom: -0.85em;
+	bottom: -1.35em;
 }
 
 @media ( min-width: 640px ) {
@@ -507,10 +507,10 @@
 
 .wt-timeline__item--section > .wt-timeline__body {
 	position: relative;
-	padding: 0.5em 0 0.5em 1.5em;
+	padding: 0.75em 0 1em 1.5em;
 	background: var( --background-color-base, #fff );
-	/* Also hides the outer rail down to the step back, so no stub shows above it. */
-	box-shadow: 0 calc( 0.35em - 1px ) 0 0 var( --background-color-base, #fff );
+	/* Also hides the outer rail down to where the step back has curved, so no stub shows. */
+	box-shadow: 0 calc( 0.35em + 5px ) 0 0 var( --background-color-base, #fff );
 }
 
 .wt-timeline--section {
@@ -519,53 +519,79 @@
 
 /* The inner rail runs a little past its first and last dot, to meet the connectors. */
 .wt-timeline--section::before {
-	top: -0.25em;
-	bottom: -0.85em;
+	top: calc( -0.25em + 5px );
+	bottom: calc( -1.35em + 5px );
 }
 
 /*
  * Connectors. While a section is open, the line does not stop at the body (which hides
- * the outer rail): it leaves the red dot, steps across to the inner rail, runs down the
- * inner dots, and steps back to the outer rail just above the next dot. Offsets are the
- * outer rail (x) relative to the section; 4px is the compact layout, the wide layout
- * follows in the media query.
+ * the outer rail): it leaves the red dot, curves across to the inner rail, runs down the
+ * inner dots, and curves back to the outer rail just above the next dot. Four small
+ * boxes make the two S-bends (corner radius 6px, line 2px); the rails stop where the
+ * corners start. Values below are for the compact layout (rail 4px from the left edge);
+ * the wide layout (rail 8.75em from it) follows in the media query. The inner rail is
+ * 1.5em to the right of the outer one.
+ *   A  row::after          outer rail down from the dot, round corner, across
+ *   B  body::before        across, round corner, down onto the inner rail
+ *   C  inner list ::after  inner rail, round corner, across to the left
+ *   D  body::after         across, round corner, down onto the outer rail
  */
 .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after {
 	content: '';
 	position: absolute;
 	top: calc( 0.8em + 6px );
-	bottom: -0.25em;
+	bottom: calc( -0.5em - 1px );
 	left: 4px;
-	width: 2px;
-	background: var( --border-color-subtle, #c8ccd1 );
+	box-sizing: border-box;
+	width: calc( 1.5em - 4px );
+	border-bottom: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-left: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-bottom-left-radius: 6px;
 }
 
 .wt-timeline__item--section > .wt-timeline__body::before {
 	content: '';
 	position: absolute;
-	top: calc( 0.25em - 1px );
-	left: 4px;
-	width: calc( 1.5em + 2px );
-	height: 2px;
-	background: var( --border-color-subtle, #c8ccd1 );
+	top: calc( 0.5em - 1px );
+	left: 1.5em;
+	box-sizing: border-box;
+	width: 6px;
+	height: 6px;
+	border-top: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-right: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-top-right-radius: 6px;
+}
+
+.wt-timeline--section::after {
+	content: '';
+	position: absolute;
+	bottom: calc( -1.35em - 1px );
+	left: 0;
+	box-sizing: border-box;
+	width: 6px;
+	height: 6px;
+	border-right: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-bottom: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-bottom-right-radius: 6px;
 }
 
 .wt-timeline__item--section > .wt-timeline__body::after {
 	content: '';
 	position: absolute;
-	bottom: -0.6em;
+	bottom: calc( -0.35em - 5px );
 	left: 4px;
-	width: calc( 1.5em + 2px );
-	height: calc( 0.25em + 1px );
-	/* Gradients, not borders, so the lines snap to pixels exactly like the rails. */
-	background:
-		linear-gradient( var( --border-color-subtle, #c8ccd1 ), var( --border-color-subtle, #c8ccd1 ) ) top / 100% 2px no-repeat,
-		linear-gradient( var( --border-color-subtle, #c8ccd1 ), var( --border-color-subtle, #c8ccd1 ) ) left / 2px 100% no-repeat;
+	box-sizing: border-box;
+	width: calc( 1.5em - 4px );
+	height: 6px;
+	border-top: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-left: 2px solid var( --border-color-subtle, #c8ccd1 );
+	border-top-left-radius: 6px;
 }
 
 /* Nothing follows the last top-level section, so there is nothing to step back to
    (a last section inside another section still steps back, to its parent's rail). */
-.wt-timeline:not( .wt-timeline--section ) > .wt-timeline__item--section:last-child > .wt-timeline__body::after {
+.wt-timeline:not( .wt-timeline--section ) > .wt-timeline__item--section:last-child > .wt-timeline__body::after,
+.wt-timeline:not( .wt-timeline--section ) > .wt-timeline__item--section:last-child > .wt-timeline__body > .wt-timeline--section::after {
 	display: none;
 }
 
@@ -580,18 +606,33 @@
 	}
 
 	.wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
-	.wt-timeline__item--section > .wt-timeline__body::before,
 	.wt-timeline__item--section > .wt-timeline__body::after {
 		left: calc( 8.75em - 1px );
 	}
 
+	.wt-timeline__item--section > .wt-timeline__body::before {
+		left: calc( 10.25em - 5px );
+	}
+
+	.wt-timeline--section::after {
+		left: calc( 8.75em - 5px );
+	}
+
 	.wt-timelines .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
-	.wt-timelines .wt-timeline__item--section > .wt-timeline__body::before,
 	.wt-timelines .wt-timeline__item--section > .wt-timeline__body::after,
 	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
-	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__body::before,
 	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__body::after {
 		left: 4px;
+	}
+
+	.wt-timelines .wt-timeline__item--section > .wt-timeline__body::before,
+	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__body::before {
+		left: 1.5em;
+	}
+
+	.wt-timelines .wt-timeline--section::after,
+	.wt-timeline--sub .wt-timeline--section::after {
+		left: 0;
 	}
 }
 
