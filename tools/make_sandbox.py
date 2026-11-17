@@ -140,13 +140,13 @@ Every item is collapsible by default: click a dot or date to hide the item, and 
 A red dot marks a section. Click it to collapse everything inside. Sections can contain sections, to any depth; each level is indented a little.
 
 {{{{{BASE}
-|{{{{{BASE}/section |title=Early history
+|{{{{{BASE}/section |title=Origins
 |{{{{{BASE}/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}}}
 {{{{{BASE}/section |title=Edo period
 |{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}}}
 }}}}
 }}}}
-{{{{{BASE}/section |title=Modern play
+{{{{{BASE}/section |title=Modern era
 |{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded |text=The Japanese Go association is founded in Tokyo.}}}}
 {{{{{BASE}/section |title=Computer Go
 |{{{{{BASE}/item |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}}}

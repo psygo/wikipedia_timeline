@@ -65,6 +65,23 @@
 </div>
 <script src="theme-toggle.js"></script>
 <script>
+// Keep the address bar in step with the framed article: a link such as
+// index.html#Edo_period opens the article at that anchor, and following a contents
+// link or clicking a timeline section updates this page's URL.
+( function () {
+	var frame = document.querySelector( 'iframe' );
+	if ( location.hash ) { frame.src = 'article.html' + location.hash; }
+	window.addEventListener( 'message', function ( e ) {
+		if ( e.source === frame.contentWindow && e.data && typeof e.data.wtHash === 'string' ) {
+			history.replaceState( null, '', location.pathname + location.search + e.data.wtHash );
+		}
+	} );
+	window.addEventListener( 'hashchange', function () {
+		frame.contentWindow.postMessage( { wtGoto: location.hash }, '*' );
+	} );
+}() );
+</script>
+<script>
 ( function () {
 	var stage = document.getElementById( 'stage' );
 	var wrap = document.getElementById( 'wrap' );
