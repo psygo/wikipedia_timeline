@@ -113,7 +113,7 @@ Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timelin
 == Parameters ==
 ; Timeline parallel: <code>1</code> timelines; <code>grouped</code> (set to anything to align dots).
 ; Timeline: <code>1</code> items; <code>compact</code> (set to anything for the dense variant); <code>title</code> (optional heading; use it inside a row).
-; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>); optional <code>sub</code> (nested <code>Timeline item</code>s); optional <code>collapsed</code>, <code>collapsible=no</code>, <code>summary</code>, <code>id</code>.
+; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>); optional <code>sub</code> (nested <code>Timeline item</code>s); optional <code>collapsed</code>, <code>collapsible=no</code>, <code>summary</code>, <code>id</code>, <code>last</code> (set to anything on the final item: the line ends at its dot).
 ; Timeline event: same fields as the one-event shorthand.
 ; Timeline gap: no parameters.
 ; Timeline section: <code>title</code>, <code>1</code> (items and sections), <code>collapsed</code>, <code>id</code>.

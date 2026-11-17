@@ -156,7 +156,7 @@ The same two lists as they appear on English Wikipedia, rebuilt with this templa
 {{User:Fanaro009/Timeline sandbox/item |date=400 kya |title=[[Hide and leather]] |text=Clothing, footwear and shelter.}}
 {{User:Fanaro009/Timeline sandbox/item |date=400 kya |title=[[Pigments]] |text=In Zambia by ''[[Homo heidelbergensis]]''.}}
 {{User:Fanaro009/Timeline sandbox/item |date=337 kya – 300 kya |title=[[Schöningen spears]] |text=In [[Germany]], likely by ''[[Homo heidelbergensis]]'' or early Neanderthals.}}
-{{User:Fanaro009/Timeline sandbox/item |date=320 kya |title=[[Trade]] |text=Long-distance (up to 50 miles) [[transportation]] of resources (e.g. [[obsidian]]), use of pigments, and possible making of projectile points in Kenya.}}
+{{User:Fanaro009/Timeline sandbox/item |date=320 kya |last=yes |title=[[Trade]] |text=Long-distance (up to 50 miles) [[transportation]] of resources (e.g. [[obsidian]]), use of pigments, and possible making of projectile points in Kenya.}}
 }}
 }}
 

@@ -427,6 +427,40 @@
 }
 
 /*
+ * Last item (item parameter last=yes): the line ends at its dot. A page-coloured strip
+ * hides the rail below the dot. Put it on the final item of a timeline.
+ */
+.wt-timeline__item--last::after {
+	content: '';
+	position: absolute;
+	top: calc( 0.8em + 6px );
+	bottom: 0;
+	left: 3px;
+	width: 4px;
+	background: var( --background-color-base, #fff );
+}
+
+.wt-timeline--section > .wt-timeline__item--last::after {
+	bottom: -0.85em;
+}
+
+@media ( min-width: 640px ) {
+	.wt-timeline__item--last::after {
+		left: calc( 8.75em - 2px );
+	}
+
+	.wt-timelines .wt-timeline__item--last::after,
+	.wt-timeline--sub > .wt-timeline__item--last::after {
+		left: 3px;
+	}
+}
+
+/* In grouped timelines ::after already draws each item's own rail, which simply stops here. */
+.wt-timelines--grouped .wt-timeline__item--last::after {
+	display: none;
+}
+
+/*
  * Timeline sections: a red dot and a title on the rail; clicking it collapses the
  * whole inner timeline, which is indented. The body has the page background so the
  * outer rail does not run through the inner timeline, and sections nest freely.
@@ -611,6 +645,11 @@
 .wt-timeline--compact .wt-timeline__body,
 .wt-timeline--compact .wt-timeline__body.mw-collapsed {
 	display: block;
+}
+
+/* The bar has no rail to end. */
+.wt-timeline--compact > .wt-timeline__item--last::after {
+	display: none;
 }
 
 /* The bar: one segment per item, a hairline apart. */

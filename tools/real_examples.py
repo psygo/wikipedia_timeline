@@ -60,7 +60,8 @@ def wikitext(base):
     for k, (title, start) in enumerate(INVENTION_SECTIONS):
         o.append(("|" if k == 0 else "") + "{{%s/section |title=%s" % (base, title))
         for n, (d, ti, x) in enumerate(INVENTIONS[start:bounds[k + 1]]):
-            body = "{{%s/item |date=%s |title=%s%s}}" % (base, d, ti, (" |text=" + x) if x else "")
+            last = (start + n == len(INVENTIONS) - 1)
+            body = "{{%s/item |date=%s%s |title=%s%s}}" % (base, d, " |last=yes" if last else "", ti, (" |text=" + x) if x else "")
             o.append(("|" if n == 0 else "") + body)
         o.append("}}")
     o.append("}}")
