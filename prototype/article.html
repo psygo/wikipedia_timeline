@@ -125,6 +125,56 @@ is narrow. Demo content; check dates before reuse.</p>
 	</li>
 </ol>
 
+<h3>Nested timelines</h3>
+<p>An item can hold its own timeline, indented under it; these can nest further. Demo content; check dates before reuse.</p>
+
+<ol class="wt-timeline">
+	<li class="wt-timeline__item">
+		<span class="wt-timeline__date">1960s&ndash;1990s</span>
+		<div class="wt-timeline__events"><div class="wt-timeline__event">
+			<span class="wt-timeline__title">Hand-written programs</span>
+			<div class="wt-timeline__text">Engines encode Go knowledge by hand.</div>
+		</div></div>
+		<ol class="wt-timeline wt-timeline--sub">
+			<li class="wt-timeline__item">
+				<span class="wt-timeline__date">1968</span>
+				<div class="wt-timeline__events"><div class="wt-timeline__event">
+					<span class="wt-timeline__title">First Go program</span>
+					<div class="wt-timeline__text">Albert Zobrist writes a program able to play a full game.</div>
+				</div></div>
+			</li>
+			<li class="wt-timeline__item">
+				<span class="wt-timeline__date">1990s</span>
+				<div class="wt-timeline__events"><div class="wt-timeline__event">
+					<span class="wt-timeline__title">Neural networks meet Go</span>
+					<div class="wt-timeline__text">Learning-based programs appear.</div>
+				</div></div>
+				<ol class="wt-timeline wt-timeline--sub">
+					<li class="wt-timeline__item">
+						<span class="wt-timeline__date">1994</span>
+						<div class="wt-timeline__events"><div class="wt-timeline__event">
+							<span class="wt-timeline__title">NeuroGo</span>
+						</div></div>
+					</li>
+					<li class="wt-timeline__item">
+						<span class="wt-timeline__date">1996</span>
+						<div class="wt-timeline__events"><div class="wt-timeline__event">
+							<span class="wt-timeline__title">Golem</span>
+						</div></div>
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</li>
+	<li class="wt-timeline__item">
+		<span class="wt-timeline__date">2016</span>
+		<div class="wt-timeline__events"><div class="wt-timeline__event">
+			<span class="wt-timeline__title">AlphaGo defeats Lee Sedol</span>
+			<div class="wt-timeline__text">AlphaGo wins four games to one in Seoul.</div>
+		</div></div>
+	</li>
+</ol>
+
 <h3>Players, programs, organisations: parallel timelines</h3>
 <p>Separate timelines share a row and wrap when there is no horizontal space. Each keeps its own
 dates and rail, and they are independent: nothing lines up across them. Demo content; check dates

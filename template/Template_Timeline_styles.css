@@ -20,6 +20,9 @@
  * Each child is a div.wt-timelines__col (optional div.wt-timeline__heading, then
  * the ol) and uses the compact layout.
  *
+ * Nested timeline: an ol.wt-timeline.wt-timeline--sub inside an li, after its
+ * events; it is indented under the parent's events and uses the compact layout.
+ *
  * Wide layout:    [ date ] ---o--- [ events ]
  * Narrow layout:  o--- date / events, rail on the left
  */
@@ -148,6 +151,15 @@
 	font-weight: bold;
 }
 
+/* Nested timeline: sits under the parent's events, indented by the parent's padding. */
+.wt-timeline--sub {
+	margin: 0.75em 0 0;
+}
+
+.wt-timeline--sub > .wt-timeline__item > .wt-timeline__date {
+	font-weight: normal;
+}
+
 /* Wide: date column on the left, rail after it, content on the right. */
 @media ( min-width: 640px ) {
 	.wt-timeline::before {
@@ -187,6 +199,26 @@
 	}
 
 	.wt-timelines .wt-timeline__date {
+		position: static;
+		width: auto;
+		text-align: left;
+	}
+
+	/* Same compact layout for a nested timeline (also wherever it appears). */
+	.wt-timeline--sub::before {
+		left: 4px;
+		margin-left: 0;
+	}
+
+	.wt-timeline--sub > .wt-timeline__item {
+		padding-left: 22px;
+	}
+
+	.wt-timeline--sub > .wt-timeline__item::before {
+		left: 0;
+	}
+
+	.wt-timeline--sub > .wt-timeline__item > .wt-timeline__date {
 		position: static;
 		width: auto;
 		text-align: left;

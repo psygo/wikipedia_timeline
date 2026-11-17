@@ -65,6 +65,20 @@ demo = f'''This is a demonstration of a proposed template for vertical timelines
 }}}}
 }}}}
 
+== Nested timelines ==
+An item can hold its own timeline, indented under it, through the <code>sub</code> parameter.
+
+{{{{{BASE}
+|{{{{{BASE}/item |date=1960s–1990s |title=Hand-written programs |text=Engines encode Go knowledge by hand. |sub=
+{{{{{BASE}/item |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}}}
+{{{{{BASE}/item |date=1990s |title=Neural networks meet Go |text=Learning-based programs appear. |sub=
+{{{{{BASE}/item |date=1994 |title=NeuroGo}}}}
+{{{{{BASE}/item |date=1996 |title=Golem}}}}
+}}}}
+}}}}
+{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}
+}}}}
+
 == Parallel timelines ==
 Independent timelines that share a row and wrap when there is no room. Narrow the window to see them wrap.
 
