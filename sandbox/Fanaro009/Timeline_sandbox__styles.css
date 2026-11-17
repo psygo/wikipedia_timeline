@@ -465,8 +465,9 @@
  * whole inner timeline, which is indented. The body has the page background so the
  * outer rail does not run through the inner timeline, and sections nest freely.
  */
+/* 0.9em makes the line above a red dot as long as the one below it (measured). */
 .wt-timeline__item--section {
-	padding: 0 0 0.6em;
+	padding: 0 0 0.9em;
 }
 
 .wt-timeline__item--section:last-child {
