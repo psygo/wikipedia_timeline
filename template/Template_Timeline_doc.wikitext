@@ -20,6 +20,19 @@ Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items
 }}
 </pre>
 
+== Compact variant ==
+Add <code>compact=yes</code> for a dense list: one row per date, a solid bar instead of a rail with dots. Good for long release or year-by-year lists. An item may have no events (only a <code>date</code>), which gives an empty bar segment. Not meant for use inside <code>Timeline parallel</code>.
+<pre>
+{{Timeline |compact=yes
+|{{Timeline item |date=1994 |title=Arena}}
+{{Timeline item |date=1995}}
+{{Timeline item |date=2002 |events=
+{{Timeline event |title=Morrowind}}
+{{Timeline event |title=Tribunal}}
+}}
+}}
+</pre>
+
 == Nested timelines ==
 Give an item a <code>sub</code> parameter holding more <code>Timeline item</code>s. They appear indented under that item, with their own rail, and can nest further. Do not indent the wikitext lines with spaces (that makes a preformatted block); the indentation is in the rendering.
 <pre>
@@ -69,7 +82,7 @@ Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timelin
 
 == Parameters ==
 ; Timeline parallel: <code>1</code> timelines; <code>grouped</code> (set to anything to align dots).
-; Timeline: <code>1</code> items; <code>title</code> (optional heading; use it inside a row).
+; Timeline: <code>1</code> items; <code>compact</code> (set to anything for the dense variant); <code>title</code> (optional heading; use it inside a row).
 ; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>); optional <code>sub</code> (nested <code>Timeline item</code>s).
 ; Timeline event: same fields as the one-event shorthand.
 ; Timeline gap: no parameters.

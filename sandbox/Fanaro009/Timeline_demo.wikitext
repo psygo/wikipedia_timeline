@@ -29,6 +29,20 @@ An item can hold its own timeline, indented under it, through the <code>sub</cod
 {{User:Fanaro009/Timeline sandbox/item |date=2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
 }}
 
+== Compact variant ==
+A dense list with a solid bar, through <code>compact=yes</code>. A date can have no events.
+
+{{User:Fanaro009/Timeline sandbox |compact=yes
+|{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game}}
+{{User:Fanaro009/Timeline sandbox/item |date=1847}}
+{{User:Fanaro009/Timeline sandbox/item |date=1924 |title=Nihon Ki-in founded}}
+{{User:Fanaro009/Timeline sandbox/item |date=2006 |events=
+{{User:Fanaro009/Timeline sandbox/event |title=Crazy Stone}}
+{{User:Fanaro009/Timeline sandbox/event |title=UCT}}
+}}
+{{User:Fanaro009/Timeline sandbox/item |date=2016 |title=AlphaGo defeats Lee Sedol}}
+}}
+
 == Parallel timelines ==
 Independent timelines that share a row and wrap when there is no room. Narrow the window to see them wrap.
 

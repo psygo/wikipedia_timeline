@@ -79,6 +79,20 @@ An item can hold its own timeline, indented under it, through the <code>sub</cod
 {{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}
 }}}}
 
+== Compact variant ==
+A dense list with a solid bar, through <code>compact=yes</code>. A date can have no events.
+
+{{{{{BASE} |compact=yes
+|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game}}}}
+{{{{{BASE}/item |date=1847}}}}
+{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded}}}}
+{{{{{BASE}/item |date=2006 |events=
+{{{{{BASE}/event |title=Crazy Stone}}}}
+{{{{{BASE}/event |title=UCT}}}}
+}}}}
+{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
+}}}}
+
 == Parallel timelines ==
 Independent timelines that share a row and wrap when there is no room. Narrow the window to see them wrap.
 
