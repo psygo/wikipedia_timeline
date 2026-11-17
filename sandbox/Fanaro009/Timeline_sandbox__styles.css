@@ -414,8 +414,30 @@
 	padding: 0 0 0 9.5em;
 }
 
+/* Items are collapsible by default, but the compact variant is a flat list: show
+   everything, keep the bar, and make the row inert. */
+.wt-timeline--compact .wt-timeline__row {
+	display: contents;
+	cursor: default;
+}
+
+.wt-timeline--compact .wt-timeline__row::before,
+.wt-timeline--compact .wt-timeline__peek {
+	display: none;
+}
+
+.wt-timeline--compact .wt-timeline__body,
+.wt-timeline--compact .wt-timeline__body.mw-collapsed {
+	display: block;
+}
+
+.wt-timeline--compact .wt-timeline__row:hover .wt-timeline__date {
+	color: var( --color-base, #202122 );
+}
+
 /* The bar: one segment per item, a hairline apart. */
 .wt-timeline--compact > .wt-timeline__item::before {
+	display: block;
 	top: 0;
 	bottom: 1px;
 	left: 7em;
@@ -427,6 +449,7 @@
 	box-shadow: none;
 }
 
+.wt-timeline--compact .wt-timeline__row .wt-timeline__date,
 .wt-timeline--compact > .wt-timeline__item > .wt-timeline__date {
 	position: absolute;
 	top: 0;

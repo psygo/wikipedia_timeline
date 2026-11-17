@@ -20,12 +20,17 @@ Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items
 }}
 </pre>
 
-== Collapsible items ==
-Give an item <code>collapsible=</code> followed by a short id (letters and digits, unique on the page). Clicking its dot or date then hides its content, and the title moves to the date row after a pipe: <code>1846 | The Ear-Reddening Game</code>. Add <code>collapsed=yes</code> to start collapsed. For an item with several events, give <code>summary=</code> as the text after the pipe. This uses MediaWiki's built-in collapsible feature (the same as navboxes), so the template adds no script, but the toggle needs the reader's browser to run it; without JavaScript the item simply stays open. An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on the top dot to collapse or expand every item. Not for use with the compact variant.
+== Collapsible items (default) ==
+Every item that has content is collapsible. Clicking its dot or date hides its content, and the title moves to the date row after a pipe: <code>1846 | The Ear-Reddening Game</code>. This uses MediaWiki's built-in collapsible feature (the same as navboxes), so the template adds no script of its own, but the toggle needs the reader's browser to run it; without JavaScript the item simply stays open.
+* <code>collapsed=yes</code>: start collapsed.
+* <code>collapsible=no</code>: not collapsible.
+* <code>summary=</code>: the text after the pipe for an item with several events (a one-event item uses its <code>title</code>).
+* <code>id=</code>: only needed if two items on the same page share the same date and title; the id is otherwise made from the date and title.
+An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on the top dot to collapse or expand the whole timeline. The compact variant ignores collapsing and always shows everything.
 <pre>
 {{Timeline
-|{{Timeline item |date=1846 |collapsible=ear |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
-{{Timeline item |date=2006 |collapsible=ucts |collapsed=yes |summary=Crazy Stone and UCT |events=
+|{{Timeline item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
+{{Timeline item |date=2006 |collapsed=yes |summary=Crazy Stone and UCT |events=
 {{Timeline event |title=Crazy Stone |text=Monte Carlo tree search arrives in Go.}}
 {{Timeline event |title=UCT |text=The UCT algorithm is published.}}
 }}
@@ -95,6 +100,6 @@ Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timelin
 == Parameters ==
 ; Timeline parallel: <code>1</code> timelines; <code>grouped</code> (set to anything to align dots).
 ; Timeline: <code>1</code> items; <code>compact</code> (set to anything for the dense variant); <code>title</code> (optional heading; use it inside a row).
-; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>); optional <code>sub</code> (nested <code>Timeline item</code>s); optional <code>collapsible</code> (id), <code>collapsed</code>, <code>summary</code>.
+; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>); optional <code>sub</code> (nested <code>Timeline item</code>s); optional <code>collapsed</code>, <code>collapsible=no</code>, <code>summary</code>, <code>id</code>.
 ; Timeline event: same fields as the one-event shorthand.
 ; Timeline gap: no parameters.
