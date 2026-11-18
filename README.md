@@ -5,6 +5,11 @@
 A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 (no MediaWiki extension, no JavaScript). See [Docs.md](Docs.md) for design notes and next steps.
 
+## References
+
+- [Wikipedia Proposal](<https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(proposals)#Timeline_Visual_Component%3E>)
+- [Go | Hall of Fame](https://go-hall-of-fame.vercel.app)
+
 ## Try the prototype
 
     open prototype/index.html
