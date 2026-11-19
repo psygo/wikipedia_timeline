@@ -318,17 +318,17 @@
 	display: none;
 }
 
-/* Only the dot and the title react to the pointer, not the whole row. Clicks on
-   them still reach the row, which is the toggler. */
-.wt-timeline__row {
-	pointer-events: none;
+/* Only the dot and the title show a pointer, not the whole row (the row itself is the
+   toggler, so a click anywhere on it still works; TemplateStyles does not allow turning off pointer events).
+   The doubled class beats MediaWiki's own cursor rule for togglers. */
+.wt-timeline__row.wt-timeline__row {
+	cursor: default;
 	user-select: none;
 }
 
 .wt-timeline__row::before,
 .wt-timeline__peek,
 .wt-timeline__section-title {
-	pointer-events: auto;
 	cursor: pointer;
 }
 
