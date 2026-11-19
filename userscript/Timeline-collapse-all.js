@@ -12,7 +12,7 @@
  * Behaviour: a double-click on an item's date row (the dot or the date) collapses every
  * collapsible item of that timeline (nested timelines included), or expands them all if
  * none is open. The two clicks of the double-click first toggle that one item twice,
- * which changes nothing. Compact timelines are left alone.
+ * which changes nothing.
  */
 ( function () {
 	'use strict';
@@ -39,7 +39,7 @@
 		$content.find( ROW ).each( function () {
 			var $row = $( this );
 			var $list = $row.closest( '.wt-timeline' );
-			if ( !$list.length || $list.hasClass( 'wt-timeline--compact' ) || $row.data( 'wtCollapseAll' ) ) {
+			if ( !$list.length || $row.data( 'wtCollapseAll' ) ) {
 				return;
 			}
 			$row.data( 'wtCollapseAll', true ).on( 'dblclick', function ( e ) {

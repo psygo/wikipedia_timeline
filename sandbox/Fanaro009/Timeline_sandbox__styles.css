@@ -33,10 +33,6 @@
  * row with a red dot and a title, and a collapsible body with an indented ol.wt-timeline--section.
  * Sections can sit inside sections to any depth.
  *
- * Compact variant: ol.wt-timeline.wt-timeline--compact is a dense list, one row per
- * date, with a solid bar instead of a rail and dots (like the Elder Scrolls
- * release timeline). Items may have no events (a date only).
- *
  * Wide layout:    [ date ] ---o--- [ events ]
  * Narrow layout:  o--- date / events, rail on the left
  */
@@ -635,106 +631,6 @@
 	.wt-timeline--sub .wt-timeline--section::after {
 		left: 0;
 	}
-}
-
-/*
- * Compact variant. Last in the file so that it wins over the layout rules above
- * at every width; the date column and bar are narrow enough for phones.
- */
-.wt-timeline--compact {
-	margin: 0.5em 0 1em;
-}
-
-.wt-timeline--compact::before {
-	display: none;
-}
-
-.wt-timeline--compact > .wt-timeline__item {
-	min-height: 1.6em;
-	padding: 0 0 0 9.5em;
-	line-height: 1.6;
-}
-
-.wt-timeline--compact > .wt-timeline__item:last-child {
-	padding: 0 0 0 9.5em;
-}
-
-/* Items are collapsible by default, but the compact variant is a flat list: show
-   everything, keep the bar, and make the row inert. */
-.wt-timeline--compact .wt-timeline__row {
-	display: contents;
-}
-
-.wt-timeline--compact .wt-timeline__row::before,
-.wt-timeline--compact .wt-timeline__peek {
-	display: none;
-}
-
-/* ...except the title of a one-event item, which stays where it always was. */
-.wt-timeline--compact .wt-timeline__peek.wt-timeline__peek--title,
-.wt-timeline--compact .wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title {
-	display: block;
-	cursor: default;
-	pointer-events: none;
-	font-weight: bold;
-}
-
-.wt-timeline--compact .wt-timeline__peek--title::before,
-.wt-timeline--compact .wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title::before {
-	content: none;
-}
-
-.wt-timeline--compact .wt-timeline__body,
-.wt-timeline--compact .wt-timeline__body.mw-collapsed {
-	display: block;
-}
-
-/* The bar has no rail to end. */
-.wt-timeline--compact > .wt-timeline__item--last::after {
-	display: none;
-}
-
-/* The bar: one segment per item, a hairline apart. */
-.wt-timeline--compact > .wt-timeline__item::before {
-	display: block;
-	top: 0;
-	bottom: 1px;
-	left: 7em;
-	width: 2em;
-	height: auto;
-	border: 0;
-	border-radius: 0;
-	background: var( --color-progressive, #36c );
-	box-shadow: none;
-}
-
-.wt-timeline--compact .wt-timeline__row .wt-timeline__date,
-.wt-timeline--compact > .wt-timeline__item > .wt-timeline__date {
-	position: absolute;
-	top: 0;
-	bottom: 1px;
-	left: 0;
-	margin-left: 0;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	width: 6.5em;
-	font-weight: normal;
-	text-align: right;
-}
-
-.wt-timeline--compact .wt-timeline__events {
-	display: block;
-}
-
-.wt-timeline--compact .wt-timeline__event {
-	max-width: none;
-}
-
-.wt-timeline--compact .wt-timeline__text {
-	display: inline;
-	margin: 0 0 0 0.4em;
-	color: var( --color-subtle, #54595d );
 }
 
 @media print {

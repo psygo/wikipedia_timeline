@@ -29,47 +29,6 @@ An item can hold its own timeline, indented under it, through the <code>sub</cod
 {{User:Fanaro009/Timeline sandbox/item |date=2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
 }}
 
-== Compact variant ==
-A dense list with a solid bar, through <code>compact=yes</code>. A date can have no events.
-
-{{User:Fanaro009/Timeline sandbox |compact=yes
-|{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game}}
-{{User:Fanaro009/Timeline sandbox/item |date=1847}}
-{{User:Fanaro009/Timeline sandbox/item |date=1924 |title=Nihon Ki-in founded}}
-{{User:Fanaro009/Timeline sandbox/item |date=2006 |events=
-{{User:Fanaro009/Timeline sandbox/event |title=Crazy Stone}}
-{{User:Fanaro009/Timeline sandbox/event |title=UCT}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2016 |title=AlphaGo defeats Lee Sedol}}
-}}
-
-== Regular and compact, side by side ==
-The same events with titles only, in a parallel row.
-
-{{User:Fanaro009/Timeline sandbox/parallel
-|{{User:Fanaro009/Timeline sandbox |title=Regular
-|{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game}}
-{{User:Fanaro009/Timeline sandbox/item |date=1924 |title=Nihon Ki-in founded}}
-{{User:Fanaro009/Timeline sandbox/item |date=2006 |events=
-{{User:Fanaro009/Timeline sandbox/event |title=Crazy Stone}}
-{{User:Fanaro009/Timeline sandbox/event |title=UCT}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2016 |title=AlphaGo defeats Lee Sedol}}
-{{User:Fanaro009/Timeline sandbox/item |date=2019 |title=Lee Sedol retires}}
-}}
-{{User:Fanaro009/Timeline sandbox |title=Compact |compact=yes
-|{{User:Fanaro009/Timeline sandbox/item |date=1846 |title=The Ear-Reddening Game}}
-{{User:Fanaro009/Timeline sandbox/item |date=1847}}
-{{User:Fanaro009/Timeline sandbox/item |date=1924 |title=Nihon Ki-in founded}}
-{{User:Fanaro009/Timeline sandbox/item |date=2006 |events=
-{{User:Fanaro009/Timeline sandbox/event |title=Crazy Stone}}
-{{User:Fanaro009/Timeline sandbox/event |title=UCT}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2016 |title=AlphaGo defeats Lee Sedol}}
-{{User:Fanaro009/Timeline sandbox/item |date=2019 |title=Lee Sedol retires}}
-}}
-}}
-
 == Collapsible items ==
 Every item is collapsible by default: click a dot or date to hide the item, and its title follows the date after a pipe. This uses MediaWiki's built-in collapsible feature, so the template needs no script. Add <code>collapsed=yes</code> to start collapsed, <code>collapsible=no</code> to switch it off for an item, and <code>summary=</code> to say what shows after the pipe for an item with several events.
 
@@ -136,7 +95,7 @@ The same two timelines, grouped: the dots line up horizontally (at 640 px and wi
 }}
 
 == Examples from real articles ==
-The same two lists as they appear on English Wikipedia, rebuilt with this template. Text is adapted from [[Timeline of historic inventions]] (Paleolithic) and [[The Elder Scrolls]] (release timeline), both under CC BY-SA 4.0; references are left out here.
+The same list as it appears on English Wikipedia, rebuilt with this template. Text is adapted from [[Timeline of historic inventions]] (Paleolithic), under CC BY-SA 4.0; references are left out here.
 
 === Timeline of historic inventions ===
 {{User:Fanaro009/Timeline sandbox
@@ -160,66 +119,3 @@ The same two lists as they appear on English Wikipedia, rebuilt with this templa
 }}
 }}
 
-=== The Elder Scrolls release timeline ===
-Main series in bold; everything else in italics. Empty years are date-only rows.
-
-{{User:Fanaro009/Timeline sandbox |compact=yes
-|{{User:Fanaro009/Timeline sandbox/item |date=1994 |title=''Arena''}}
-{{User:Fanaro009/Timeline sandbox/item |date=1995}}
-{{User:Fanaro009/Timeline sandbox/item |date=1996 |title=''II: Daggerfall''}}
-{{User:Fanaro009/Timeline sandbox/item |date=1997 |text=''Battlespire''}}
-{{User:Fanaro009/Timeline sandbox/item |date=1998 |text=''Adventures: Redguard''}}
-{{User:Fanaro009/Timeline sandbox/item |date=1999–2001}}
-{{User:Fanaro009/Timeline sandbox/item |date=2002 |events=
-{{User:Fanaro009/Timeline sandbox/event |title=''III: Morrowind''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''III: Tribunal''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2003 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''III: Bloodmoon''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''Travels: Stormhold''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2004 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''Travels: Dawnstar''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''Travels: Shadowkey''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2005}}
-{{User:Fanaro009/Timeline sandbox/item |date=2006 |events=
-{{User:Fanaro009/Timeline sandbox/event |title=''IV: Oblivion''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''IV: Knights of the Nine''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2007 |text=''IV: Shivering Isles''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2008–2010}}
-{{User:Fanaro009/Timeline sandbox/item |date=2011 |title=''V: Skyrim''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2012 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''V: Dawnguard''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''V: Hearthfire''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''V: Dragonborn''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2013}}
-{{User:Fanaro009/Timeline sandbox/item |date=2014 |text=''Online''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2015}}
-{{User:Fanaro009/Timeline sandbox/item |date=2016 |text=''V: Special Edition''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2017 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''Legends''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''V VR''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''Online Morrowind''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2018 |text=''Online Summerset''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2019 |text=''Online Elsweyr''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2020 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''Blades''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''Online Greymoor''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2021 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''Online Blackwood''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''V Anniversary''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2022 |text=''Online High Isle''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2023 |text=''Online Necrom''}}
-{{User:Fanaro009/Timeline sandbox/item |date=2024 |events=
-{{User:Fanaro009/Timeline sandbox/event |text=''Online Gold Road''}}
-{{User:Fanaro009/Timeline sandbox/event |text=''Castles''}}
-}}
-{{User:Fanaro009/Timeline sandbox/item |date=2025 |text=''IV: Oblivion Remastered''}}
-{{User:Fanaro009/Timeline sandbox/item |date=TBA |title=''VI: Sentinel''}}
-}}

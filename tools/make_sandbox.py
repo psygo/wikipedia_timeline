@@ -82,47 +82,6 @@ An item can hold its own timeline, indented under it, through the <code>sub</cod
 {{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}
 }}}}
 
-== Compact variant ==
-A dense list with a solid bar, through <code>compact=yes</code>. A date can have no events.
-
-{{{{{BASE} |compact=yes
-|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game}}}}
-{{{{{BASE}/item |date=1847}}}}
-{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded}}}}
-{{{{{BASE}/item |date=2006 |events=
-{{{{{BASE}/event |title=Crazy Stone}}}}
-{{{{{BASE}/event |title=UCT}}}}
-}}}}
-{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
-}}}}
-
-== Regular and compact, side by side ==
-The same events with titles only, in a parallel row.
-
-{{{{{BASE}/parallel
-|{{{{{BASE} |title=Regular
-|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game}}}}
-{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded}}}}
-{{{{{BASE}/item |date=2006 |events=
-{{{{{BASE}/event |title=Crazy Stone}}}}
-{{{{{BASE}/event |title=UCT}}}}
-}}}}
-{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
-{{{{{BASE}/item |date=2019 |title=Lee Sedol retires}}}}
-}}}}
-{{{{{BASE} |title=Compact |compact=yes
-|{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game}}}}
-{{{{{BASE}/item |date=1847}}}}
-{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded}}}}
-{{{{{BASE}/item |date=2006 |events=
-{{{{{BASE}/event |title=Crazy Stone}}}}
-{{{{{BASE}/event |title=UCT}}}}
-}}}}
-{{{{{BASE}/item |date=2016 |title=AlphaGo defeats Lee Sedol}}}}
-{{{{{BASE}/item |date=2019 |title=Lee Sedol retires}}}}
-}}}}
-}}}}
-
 == Collapsible items ==
 Every item is collapsible by default: click a dot or date to hide the item, and its title follows the date after a pipe. This uses MediaWiki's built-in collapsible feature, so the template needs no script. Add <code>collapsed=yes</code> to start collapsed, <code>collapsible=no</code> to switch it off for an item, and <code>summary=</code> to say what shows after the pipe for an item with several events.
 
@@ -188,18 +147,14 @@ The same two timelines, grouped: the dots line up horizontally (at 640 px and wi
 }}}}
 }}}}
 '''
-_inv, _scr = real_examples.wikitext(BASE)
+_inv = real_examples.wikitext(BASE)
 demo += f'''
 == Examples from real articles ==
-The same two lists as they appear on English Wikipedia, rebuilt with this template. Text is adapted from [[Timeline of historic inventions]] (Paleolithic) and [[The Elder Scrolls]] (release timeline), both under CC BY-SA 4.0; references are left out here.
+The same list as it appears on English Wikipedia, rebuilt with this template. Text is adapted from [[Timeline of historic inventions]] (Paleolithic), under CC BY-SA 4.0; references are left out here.
 
 === Timeline of historic inventions ===
 {_inv}
 
-=== The Elder Scrolls release timeline ===
-Main series in bold; everything else in italics. Empty years are date-only rows.
-
-{_scr}
 '''
 DEMO = f'User:{user}/Timeline demo'
 (out / fname(DEMO)).with_suffix('.wikitext').write_text(demo)

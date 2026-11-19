@@ -51,7 +51,7 @@
 	 */
 	document.querySelectorAll( '.wt-timeline__row' ).forEach( function ( row ) {
 		var list = row.closest( '.wt-timeline' );
-		if ( !list || list.classList.contains( 'wt-timeline--compact' ) ) { return; }
+		if ( !list ) { return; }
 		row.addEventListener( 'dblclick', function ( e ) {
 			e.preventDefault();
 			var rows = list.querySelectorAll( '.wt-timeline__row' );

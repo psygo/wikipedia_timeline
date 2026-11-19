@@ -26,7 +26,7 @@ Every item that has content is collapsible. Clicking its dot or date hides its c
 * <code>collapsible=no</code>: not collapsible.
 * <code>summary=</code>: the text after the pipe for an item with several events (a one-event item uses its <code>title</code>).
 * <code>id=</code>: only needed if two items on the same page share the same date and title; the id is otherwise made from the date and title.
-An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on any dot to collapse or expand the whole timeline. The compact variant ignores collapsing and always shows everything.
+An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on any dot to collapse or expand the whole timeline.
 <pre>
 {{Timeline
 |{{Timeline item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
@@ -38,7 +38,7 @@ An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-cl
 </pre>
 
 == Sections (nestable) ==
-<code>Timeline section</code> goes among the items of a <code>Timeline</code> (or of another section). It shows a red dot and a <code>title</code>; its content, which is a list of items and more sections, is indented, and clicking the red dot collapses all of it. Sections nest to any depth. Add <code>collapsed=yes</code> to start collapsed; <code>id=</code> only if two sections on a page share a title. Not for use in the compact variant.
+<code>Timeline section</code> goes among the items of a <code>Timeline</code> (or of another section). It shows a red dot and a <code>title</code>; its content, which is a list of items and more sections, is indented, and clicking the red dot collapses all of it. Sections nest to any depth. Add <code>collapsed=yes</code> to start collapsed; <code>id=</code> only if two sections on a page share a title.
 <pre>
 {{Timeline
 |{{Timeline section |title=Early history
@@ -46,19 +46,6 @@ An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-cl
 {{Timeline section |title=Edo period
 |{{Timeline item |date=1846 |title=The Ear-Reddening Game}}
 }}
-}}
-}}
-</pre>
-
-== Compact variant ==
-Add <code>compact=yes</code> for a dense list: one row per date, a solid bar instead of a rail with dots. Good for long release or year-by-year lists. An item may have no events (only a <code>date</code>), which gives an empty bar segment. Not meant for use inside <code>Timeline parallel</code>.
-<pre>
-{{Timeline |compact=yes
-|{{Timeline item |date=1994 |title=Arena}}
-{{Timeline item |date=1995}}
-{{Timeline item |date=2002 |events=
-{{Timeline event |title=Morrowind}}
-{{Timeline event |title=Tribunal}}
 }}
 }}
 </pre>
@@ -76,7 +63,7 @@ Give an item a <code>sub</code> parameter holding more <code>Timeline item</code
 </pre>
 
 == Parallel timelines (several timelines on one row) ==
-Wrap timelines in <code>Timeline parallel</code> and give each a <code>title</code>. They share the row and wrap onto the next one when there is no horizontal space. Each keeps its own dates and rail; nothing lines up across them. Inside a row the timelines always use the compact layout (date above the events).
+Wrap timelines in <code>Timeline parallel</code> and give each a <code>title</code>. They share the row and wrap onto the next one when there is no horizontal space. Each keeps its own dates and rail; nothing lines up across them. Inside a row the timelines always use the narrow layout (date above the events).
 <pre>
 {{Timeline parallel
 |{{Timeline |title=Players
@@ -112,7 +99,7 @@ Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timelin
 
 == Parameters ==
 ; Timeline parallel: <code>1</code> timelines; <code>grouped</code> (set to anything to align dots).
-; Timeline: <code>1</code> items; <code>compact</code> (set to anything for the dense variant); <code>title</code> (optional heading; use it inside a row).
+; Timeline: <code>1</code> items; <code>title</code> (optional heading; use it inside a row).
 ; Timeline item: <code>date</code>; either <code>title</code>, <code>text</code>, <code>image</code>, <code>imagesize</code>, <code>imagealt</code>, <code>caption</code> (one event) or <code>events</code> (several <code>Timeline event</code>); optional <code>sub</code> (nested <code>Timeline item</code>s); optional <code>collapsed</code>, <code>collapsible=no</code>, <code>summary</code>, <code>id</code>, <code>last</code> (set to anything on the final item: the line ends at its dot).
 ; Timeline event: same fields as the one-event shorthand.
 ; Timeline gap: no parameters.
