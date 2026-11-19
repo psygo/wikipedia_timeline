@@ -61,3 +61,5 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
   + Newlines between items inside `{{TimelineRail}}` may inject stray `<p>`/`<br>` in the `<ol>`; if so, put items on one line or switch to a Lua module.
 + Check Vector 2022 dark mode and the mobile skin, plus print.
 + Discuss at the Village pump and WikiProject Templates; file a Phabricator task.
+
++ Collapsing mechanism (corrected): the `li` is the collapsible (`mw-collapsible`, `id=mw-customcollapsible-ID`, gets `mw-collapsed`), the row is the custom toggler (`mw-customtoggle-ID`, no state class is ever added to it), the body is `mw-collapsible-content`. `mediawiki.makeCollapsible.styles` sets `content: none !important` on `::before` of `.mw-collapsible[id^=mw-customcollapsible]`, so never use `::before` on the collapsible itself. Validate the stylesheet before pasting with the parse API (`contentmodel=sanitized-css`, `prop=parsewarningshtml`); `:has()` and `pointer-events` are rejected.

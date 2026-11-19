@@ -23,7 +23,7 @@
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		$content.find( '.wt-timeline__item--section > ' + ROW ).each( function () {
 			var $row = $( this );
-			var id = $row.parent().attr( 'id' );
+			var id = $row.attr( 'id' );
 			if ( !id || $row.data( 'wtAnchor' ) ) {
 				return;
 			}
@@ -44,13 +44,14 @@
 			}
 			$row.data( 'wtCollapseAll', true ).on( 'dblclick', function ( e ) {
 				e.preventDefault();
-				var $rows = $list.find( ROW );
-				var anyOpen = $rows.filter( '.mw-collapsible-toggle-expanded' ).length > 0;
-				$rows.each( function () {
-					var open = $( this ).hasClass( 'mw-collapsible-toggle-expanded' );
+				// The collapsibles are the items (class mw-collapsible); the rows toggle them.
+				var $items = $list.find( '.wt-timeline__item.mw-collapsible' );
+				var anyOpen = $items.not( '.mw-collapsed' ).length > 0;
+				$items.each( function () {
+					var open = !$( this ).hasClass( 'mw-collapsed' );
 					if ( open === anyOpen ) {
 						// What the real module does when the toggler is clicked.
-						$( this ).trigger( 'click' );
+						$( this ).children( ROW ).trigger( 'click' );
 					}
 				} );
 			} );

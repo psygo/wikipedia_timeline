@@ -4,22 +4,21 @@
  * loaded automatically for pages that use the class mw-collapsible), so nothing
  * from this file goes into the template.
  *
- * Contract, copied from the real module:
- *   element.mw-collapsible#mw-customcollapsible-XXX   what collapses
- *   any element .mw-customtoggle-XXX                  what toggles it
- * Collapsing sets .mw-collapsed on the collapsible and hidden on it; the toggler
- * gets .mw-collapsible-toggle-collapsed / -expanded, aria-expanded and tabindex 0.
+ * Contract, copied from the real module (read from its source on en.wikipedia):
+ *   element.mw-collapsible#mw-customcollapsible-XXX   what collapses (the timeline item)
+ *   its child .mw-collapsible-content                 what is hidden (the body)
+ *   any element .mw-customtoggle-XXX                  what toggles it (the date row)
+ * Collapsing sets .mw-collapsed on the collapsible and the hidden attribute on the content.
+ * A custom toggler gets NO state class and no aria change: only tabindex 0.
  * Clicking a link inside a toggler follows the link and does not toggle.
  */
 ( function () {
 	var togglers = new Map(); // collapsible element -> its toggler
 
-	function toggle( toggler, target, collapse ) {
+	function toggle( target, collapse ) {
 		target.classList.toggle( 'mw-collapsed', collapse );
-		target.hidden = collapse;
-		toggler.classList.toggle( 'mw-collapsible-toggle-collapsed', collapse );
-		toggler.classList.toggle( 'mw-collapsible-toggle-expanded', !collapse );
-		toggler.setAttribute( 'aria-expanded', collapse ? 'false' : 'true' );
+		var content = target.querySelector( ':scope > .mw-collapsible-content' ) || target;
+		content.hidden = collapse;
 	}
 	document.querySelectorAll( '.mw-collapsible[id^="mw-customcollapsible-"]' ).forEach( function ( target ) {
 		var cls = target.id.replace( 'mw-customcollapsible-', 'mw-customtoggle-' );
@@ -31,16 +30,15 @@
 				if ( e.type === 'keydown' && e.key !== 'Enter' && e.key !== ' ' ) { return; }
 				if ( e.type === 'click' && e.target.closest( 'a[href]' ) ) { return; }
 				e.preventDefault();
-				toggle( toggler, target, !target.classList.contains( 'mw-collapsed' ) );
+				toggle( target, !target.classList.contains( 'mw-collapsed' ) );
 				// A real click on a section puts its anchor in the URL (bulk toggles do not).
-				var li = toggler.parentElement;
-				if ( li && li.classList.contains( 'wt-timeline__item--section' ) && li.id && ( e.detail > 0 || e.type === 'keydown' ) ) {
-					setHash( li.id );
+				if ( target.classList.contains( 'wt-timeline__item--section' ) && toggler.id && ( e.detail > 0 || e.type === 'keydown' ) ) {
+					setHash( toggler.id );
 				}
 			};
 			toggler.addEventListener( 'click', act );
 			toggler.addEventListener( 'keydown', act );
-			toggle( toggler, target, target.classList.contains( 'mw-collapsed' ) );
+			toggle( target, target.classList.contains( 'mw-collapsed' ) );
 		} );
 	} );
 
@@ -54,13 +52,13 @@
 		if ( !list ) { return; }
 		row.addEventListener( 'dblclick', function ( e ) {
 			e.preventDefault();
-			var rows = list.querySelectorAll( '.wt-timeline__row' );
-			var anyOpen = Array.prototype.some.call( rows, function ( r ) {
-				return r.classList.contains( 'mw-collapsible-toggle-expanded' );
+			var items = list.querySelectorAll( '.wt-timeline__item.mw-collapsible' );
+			var anyOpen = Array.prototype.some.call( items, function ( i ) {
+				return !i.classList.contains( 'mw-collapsed' );
 			} );
-			rows.forEach( function ( r ) {
-				var open = r.classList.contains( 'mw-collapsible-toggle-expanded' );
-				if ( open === anyOpen ) { r.click(); }
+			items.forEach( function ( i ) {
+				var open = !i.classList.contains( 'mw-collapsed' );
+				if ( open === anyOpen ) { toggle( i, anyOpen ); }
 			} );
 		} );
 	} );
@@ -87,14 +85,12 @@
 		try { id = decodeURIComponent( hash.replace( /^#/, '' ) ); } catch ( e ) { return; }
 		var el = id && document.getElementById( id );
 		if ( !el ) { return; }
+		// Like the real module: open every collapsed parent of the target (a section's own
+		// row sits inside its collapsible, so the section opens too).
 		for ( var n = el; n; n = n.parentElement ) {
 			if ( n.classList.contains( 'mw-collapsed' ) && togglers.has( n ) ) {
-				toggle( togglers.get( n ), n, false );
+				toggle( n, false );
 			}
-		}
-		if ( el.classList.contains( 'wt-timeline__item--section' ) ) {
-			var body = el.querySelector( ':scope > .mw-collapsible' );
-			if ( body && togglers.has( body ) ) { toggle( togglers.get( body ), body, false ); }
 		}
 		el.scrollIntoView();
 	}

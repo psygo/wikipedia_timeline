@@ -26,8 +26,9 @@
  * Collapsible item (opt-in per item): the dot and date row become a toggler for the
  * item's body, using MediaWiki's own collapsible module (no script of ours):
  *   li.wt-timeline__item.wt-timeline__item--collapsible
+ *     li.wt-timeline__item.mw-collapsible#mw-customcollapsible-ID   the collapsible (gets mw-collapsed)
  *     div.wt-timeline__row.mw-customtoggle-ID      date + peek (title shown when collapsed)
- *     div.wt-timeline__body.mw-collapsible#mw-customcollapsible-ID   events and nested timeline
+ *     div.wt-timeline__body.mw-collapsible-content events and nested timeline (hidden by the module)
  *
  * Section (opt-in by using the section template): li.wt-timeline__item--section holds a
  * row with a red dot and a title, and a collapsible body with an indented ol.wt-timeline--section.
@@ -311,7 +312,7 @@
 
 /*
  * Collapsible items. The toggler is the date row (it also carries the dot);
- * MediaWiki adds mw-collapsible-toggle-collapsed to it and mw-collapsed to the body.
+ * MediaWiki adds mw-collapsed to the item (the collapsible) and hides its body.
  * When collapsed, the date moves inline and the title follows it after a pipe.
  */
 .wt-timeline__item--collapsible::before {
@@ -348,7 +349,7 @@
 }
 
 /* Hollow dot when collapsed. */
-.wt-timeline__row.mw-collapsible-toggle-collapsed::before {
+.wt-timeline__item.mw-collapsed > .wt-timeline__row::before {
 	background: var( --background-color-base, #fff );
 }
 
@@ -372,11 +373,11 @@
 	content: none;
 }
 
-.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title {
+.wt-timeline__item.mw-collapsed > .wt-timeline__row .wt-timeline__peek--title {
 	font-weight: normal;
 }
 
-.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek--title::before {
+.wt-timeline__item.mw-collapsed > .wt-timeline__row .wt-timeline__peek--title::before {
 	content: '|';
 }
 
@@ -386,11 +387,11 @@
 	color: var( --color-subtle, #54595d );
 }
 
-.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__peek {
+.wt-timeline__item.mw-collapsed > .wt-timeline__row .wt-timeline__peek {
 	display: inline;
 }
 
-.wt-timeline__row.mw-collapsible-toggle-collapsed .wt-timeline__date {
+.wt-timeline__item.mw-collapsed > .wt-timeline__row .wt-timeline__date {
 	display: inline;
 	float: none;
 	position: static;
@@ -399,7 +400,7 @@
 	text-align: left;
 }
 
-.wt-timeline__body.mw-collapsed {
+.wt-timeline__item.mw-collapsed > .wt-timeline__body {
 	display: none;
 }
 
@@ -484,7 +485,7 @@
 	box-shadow: 0 0 0 1px var( --color-destructive, #d33 );
 }
 
-.wt-timeline__item--section > .wt-timeline__row.mw-collapsible-toggle-collapsed::before {
+.wt-timeline__item--section.mw-collapsed > .wt-timeline__row::before {
 	background: var( --background-color-base, #fff );
 }
 
@@ -533,7 +534,7 @@
  *   C  inner list ::after  inner rail, round corner, across to the left
  *   D  body::after         across, round corner, down onto the outer rail
  */
-.wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after {
+.wt-timeline__item--section:not( .mw-collapsed ) > .wt-timeline__row::after {
 	content: '';
 	position: absolute;
 	top: calc( 0.8em + 6px );
@@ -602,7 +603,7 @@
 		padding-left: 22px;
 	}
 
-	.wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
+	.wt-timeline__item--section:not( .mw-collapsed ) > .wt-timeline__row::after,
 	.wt-timeline__item--section > .wt-timeline__body::after {
 		left: calc( 8.75em - 1px );
 	}
@@ -615,9 +616,9 @@
 		left: calc( 8.75em - 5px );
 	}
 
-	.wt-timelines .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
+	.wt-timelines .wt-timeline__item--section:not( .mw-collapsed ) > .wt-timeline__row::after,
 	.wt-timelines .wt-timeline__item--section > .wt-timeline__body::after,
-	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__row:not( .mw-collapsible-toggle-collapsed )::after,
+	.wt-timeline--sub .wt-timeline__item--section:not( .mw-collapsed ) > .wt-timeline__row::after,
 	.wt-timeline--sub .wt-timeline__item--section > .wt-timeline__body::after {
 		left: 4px;
 	}

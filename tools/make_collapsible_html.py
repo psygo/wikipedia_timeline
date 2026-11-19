@@ -39,16 +39,16 @@ def convert(s):
             titles = re.findall(r'<span class="wt-timeline__title">(.*?)</span>', head, re.S)
             peek = ', '.join(t.strip() for t in titles if t.strip())
             out.append(
-                '<li class="wt-timeline__item wt-timeline__item--collapsible">'
+                '<li class="wt-timeline__item wt-timeline__item--collapsible mw-collapsible" id="mw-customcollapsible-%s">'
                 '\n\t\t<div class="wt-timeline__row mw-customtoggle-%s"><span class="wt-timeline__date">%s</span><span class="wt-timeline__peek">%s</span></div>'
-                '\n\t\t<div class="wt-timeline__body mw-collapsible" id="mw-customcollapsible-%s">%s</div>\n\t</li>'
-                % (ident, d.group(1), peek, ident, convert(rest)))
+                '\n\t\t<div class="wt-timeline__body mw-collapsible-content">%s</div>\n\t</li>'
+                % (ident, ident, d.group(1), peek, convert(rest)))
         pos = e
     return ''.join(out)
 
 def retitle(s):
     """One-event collapsible items keep their title in the row (so it is the toggler)."""
-    starts = [m.start() for m in re.finditer(r'<li class="wt-timeline__item wt-timeline__item--collapsible">', s)]
+    starts = [m.start() for m in re.finditer(r'<li class="wt-timeline__item wt-timeline__item--collapsible mw-collapsible"', s)]
     for st in reversed(starts):
         e = end_of(s, st)
         li = s[st:e]
