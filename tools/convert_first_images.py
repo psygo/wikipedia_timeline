@@ -4,7 +4,7 @@
 Usage: python3 tools/convert_first_images.py [out.wikitext]
 
 Fetches the current wikitext of the article from English Wikipedia, turns its table
-(image | date | craft or mission | event) into {{TimelineRail}} items, and keeps the
+(image | date | craft or mission | event) into {{TimelineRail}}: one section per craft or mission, with one item per row, and keeps the
 lead, See also, Notes and References as they are. Output goes to
 drafts/Timeline_of_first_images_of_Earth_from_space.wikitext by default.
 
@@ -91,44 +91,40 @@ def parse_media(cell):
     extra = ['[[File:%s|200px]]' % f for f in files if f != image]
     return image, extra
 
-items = []   # [date, craft, [events]]
+sections = []   # [craft, [ (date, text, image) ... ]]  one section per run of rows with the same craft
 for img, date, craft, event in table_rows:
     refs = ''.join(REF.findall(date))
     date = one_line(REF.sub('', date)) or '?'
-    craft = one_line(craft)
+    craft = one_line(REF.sub('', craft))
     image, extra = parse_media(img)
     text = one_line(event)
     for e in extra:
         text += '<br />' + e
     text += refs                      # refs the date cell carried
-    ev = {'image': image, 'text': text}
-    if items and items[-1][0] == date and items[-1][1] == craft:
-        items[-1][2].append(ev)
-    else:
-        items.append([date, craft, [ev]])
+    if not sections or sections[-1][0] != craft:
+        sections.append([craft, []])
+    sections[-1][1].append((date, text, image))
 
-def esc(s):
-    return s.replace('\n', ' ')
+def plain(title):
+    """Section id: the visible words of the craft name, safe for use in a class and an id."""
+    t = re.sub(r'\[\[(?:[^\]|]*\|)?([^\]]*)\]\]', r'\1', title)
+    return re.sub(r'[^A-Za-z0-9]+', '_', t).strip('_') or 'section'
 
-lines = []
-for n, (date, craft, evs) in enumerate(items, 1):
-    iid = 'img%d' % n
-    pre = '|' if n == 1 else ''
-    if len(evs) == 1:
-        e = evs[0]
-        p = '{{%s/item |id=%s |date=%s |title=%s |text=%s' % (BASE, iid, date, craft, e['text'])
-        if e['image']:
-            p += ' |image=%s |imagesize=200px' % e['image']
-        lines.append(pre + p + '}}')
-    else:
-        lines.append(pre + '{{%s/item |id=%s |date=%s |title=%s |events=' % (BASE, iid, date, craft))
-        for k, e in enumerate(evs):
-            q = '{{%s/event ' % BASE + ('|title=%s ' % craft if k == 0 else '') + '|text=%s' % e['text']
-            if e['image']:
-                q += ' |image=%s |imagesize=200px' % e['image']
-            lines.append(q + '}}')
-        lines.append('}}')
-timeline = '{{%s\n%s\n}}' % (BASE, '\n'.join(lines))
+used, blocks = set(), []
+for craft, rows_ in sections:
+    sid, k = plain(craft), 1
+    while sid in used:
+        k += 1; sid = '%s_%d' % (plain(craft), k)
+    used.add(sid)
+    out_items = []
+    for n, (date, text, image) in enumerate(rows_):
+        p = '{{%s/item |date=%s |collapsible=no |text=%s' % (BASE, date, text)
+        if image:
+            p += ' |image=%s |imagesize=200px' % image
+        out_items.append(('|' if n == 0 else '') + p + '}}')
+    blocks.append('{{%s/section |id=%s |title=%s\n%s\n}}' % (BASE, sid, craft, '\n'.join(out_items)))
+timeline = '{{%s\n|%s\n}}' % (BASE, '\n'.join(blocks))
+items = sections
 
 # ---------------------------------------------------------------- the rest of the page
 head = re.sub(r'\{\{(?:short description|Use \w+ dates)[^\n]*\n?', '', head, flags=re.I).strip()
@@ -142,4 +138,4 @@ page = (
 )
 out.parent.mkdir(exist_ok=True)
 out.write_text(page)
-print('%d table rows -> %d timeline items; wrote %s (%d bytes)' % (len(table_rows), len(items), out, len(page)))
+print('%d table rows -> %d sections; wrote %s (%d bytes)' % (len(table_rows), len(sections), out, len(page)))
