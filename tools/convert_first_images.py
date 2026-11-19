@@ -88,7 +88,8 @@ def one_line(s):
 def parse_media(cell):
     files = [f.strip() for f in FILE.findall(cell)]
     image = next((f for f in files if not re.search(r'\.(ogg|oga|ogv|webm|mp3|wav)$', f, re.I)), '')
-    extra = ['[[File:%s|200px]]' % f for f in files if f != image]
+    # Videos and audio get the same frame as the image (the template's image box).
+    extra = ['<span class="wt-timeline__image">[[File:%s|200px]]</span>' % f for f in files if f != image]
     return image, extra
 
 sections = []   # [craft, [ (date, text, image) ... ]]  one section per run of rows with the same craft
@@ -97,10 +98,9 @@ for img, date, craft, event in table_rows:
     date = one_line(REF.sub('', date)) or '?'
     craft = one_line(REF.sub('', craft))
     image, extra = parse_media(img)
-    text = one_line(event)
-    for e in extra:
-        text += '<br />' + e
-    text += refs                      # refs the date cell carried
+    text = one_line(event) + refs     # refs the date cell carried
+    if extra:                         # framed media start on their own line, like the image
+        text += '<br />' + ' '.join(extra)
     if not sections or sections[-1][0] != craft:
         sections.append([craft, []])
     sections[-1][1].append((date, text, image))
