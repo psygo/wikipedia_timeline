@@ -1,2 +1,0 @@
-<includeonly><li class="wt-timeline__item wt-timeline__item--gap" aria-hidden="true"></li></includeonly><noinclude>
-</noinclude>

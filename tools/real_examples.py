@@ -1,4 +1,4 @@
-"""Data for the 'examples from real articles' section (used by make_sandbox.py and
+"""Data for the 'examples from real articles' section (used by build.py and
 for the prototype article). Content is transcribed from English Wikipedia
 (CC BY-SA 4.0); attribution is in the section text. Markup: [[X]] link, ''x'' italic."""
 

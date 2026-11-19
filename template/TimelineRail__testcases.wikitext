@@ -81,11 +81,11 @@ Every item is collapsible by default: click a dot or date to hide the item, and 
 }}
 
 == Timeline sections ==
-A red dot marks a section. Click it to collapse everything inside. Sections can contain sections, to any depth; each level is indented a little.
+A red dot marks a section. Click it to collapse everything inside. Sections can contain sections, to any depth; each level is indented a little. On a wide window the section title goes in the date column, like a date. A section can also carry text, and an image, beside its dot.
 
 <syntaxhighlight lang="wikitext">
 {{TimelineRail
-|{{TimelineRail/section |title=Origins
+|{{TimelineRail/section |title=Origins |text=How the game spread from China to Korea and Japan.
 |{{TimelineRail/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
 {{TimelineRail/section |title=Edo period
 |{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
@@ -93,7 +93,7 @@ A red dot marks a section. Click it to collapse everything inside. Sections can 
 }}
 {{TimelineRail/section |title=Modern era
 |{{TimelineRail/item |date=1924 |title=Nihon Ki-in founded |text=The Japanese Go association is founded in Tokyo.}}
-{{TimelineRail/section |title=Computer Go
+{{TimelineRail/section |title=Computer Go |text=Programs from the first hand-written engines to learning systems.
 |{{TimelineRail/item |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}
 {{TimelineRail/section |title=Deep learning
 |{{TimelineRail/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
@@ -104,7 +104,7 @@ A red dot marks a section. Click it to collapse everything inside. Sections can 
 }}
 </syntaxhighlight>
 {{TimelineRail
-|{{TimelineRail/section |title=Origins
+|{{TimelineRail/section |title=Origins |text=How the game spread from China to Korea and Japan.
 |{{TimelineRail/item |id=ex4 |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
 {{TimelineRail/section |title=Edo period
 |{{TimelineRail/item |id=ex5 |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
@@ -112,7 +112,7 @@ A red dot marks a section. Click it to collapse everything inside. Sections can 
 }}
 {{TimelineRail/section |title=Modern era
 |{{TimelineRail/item |date=1924 |title=Nihon Ki-in founded |text=The Japanese Go association is founded in Tokyo.}}
-{{TimelineRail/section |title=Computer Go
+{{TimelineRail/section |title=Computer Go |text=Programs from the first hand-written engines to learning systems.
 |{{TimelineRail/item |id=ex6 |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}
 {{TimelineRail/section |title=Deep learning
 |{{TimelineRail/item |id=ex7 |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}

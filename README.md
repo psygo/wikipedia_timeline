@@ -21,24 +21,24 @@ The prototype is also published with GitHub Pages (see `.github/workflows/pages.
 
 ## Try the template (untested on a wiki)
 
-Needs TemplateStyles and ParserFunctions. The templates are the `TimelineRail` family. `python3 tools/make_sandbox.py --release`
-writes paste-ready files into `release/`, one per page:
+Needs TemplateStyles and ParserFunctions. The templates are the `TimelineRail` family. `template/` holds one
+paste-ready file per wiki page:
 
-| Page                                                              | File                                |
-| ----------------------------------------------------------------- | ----------------------------------- |
-| `Template:TimelineRail/styles.css` (content model: Sanitized CSS) | `TimelineRail__styles.css`          |
-| `Template:TimelineRail/event`                                     | `TimelineRail__event.wikitext`      |
-| `Template:TimelineRail/gap`                                       | `TimelineRail__gap.wikitext`        |
-| `Template:TimelineRail/item`                                      | `TimelineRail__item.wikitext`       |
-| `Template:TimelineRail/section`                                   | `TimelineRail__section.wikitext`    |
-| `Template:TimelineRail/parallel`                                  | `TimelineRail__parallel.wikitext`   |
-| `Template:TimelineRail`                                           | `TimelineRail.wikitext`             |
-| `Template:TimelineRail/doc`                                       | `TimelineRail__doc.wikitext`        |
-| `Template:TimelineRail/testcases`                                 | `TimelineRail__testcases.wikitext`  |
+| Page                                                              | File                                       | Edit by hand?                 |
+| ----------------------------------------------------------------- | ------------------------------------------ | ----------------------------- |
+| `Template:TimelineRail/styles.css` (content model: Sanitized CSS) | `template/TimelineRail__styles.css`        | no: copy of `prototype/timeline.css` |
+| `Template:TimelineRail/event`                                     | `template/TimelineRail__event.wikitext`    | yes                           |
+| `Template:TimelineRail/gap`                                       | `template/TimelineRail__gap.wikitext`      | yes                           |
+| `Template:TimelineRail/item`                                      | `template/TimelineRail__item.wikitext`     | yes                           |
+| `Template:TimelineRail/section`                                   | `template/TimelineRail__section.wikitext`  | yes                           |
+| `Template:TimelineRail/parallel`                                  | `template/TimelineRail__parallel.wikitext` | yes                           |
+| `Template:TimelineRail`                                           | `template/TimelineRail.wikitext`           | yes                           |
+| `Template:TimelineRail/doc`                                       | `template/TimelineRail__doc.wikitext`      | no: from `tools/doc_source.wikitext` |
+| `Template:TimelineRail/testcases`                                 | `template/TimelineRail__testcases.wikitext`| no: demo text in `tools/build.py` |
 
-The sources are in `template/` (`Template_TimelineRail*.wikitext`, `Template_TimelineRail_styles.css`); `release/` is generated.
+After changing the stylesheet, the doc or the demo, run `python3 tools/build.py` to regenerate the three generated files.
 Usage for one event per dot, several events per dot, nested timelines, collapsible items, sections and parallel timelines is in
-`template/Template_TimelineRail_doc.wikitext`. For a quick start:
+`tools/doc_source.wikitext` (what becomes the `/doc` page). For a quick start:
 
     {{TimelineRail
     |{{TimelineRail/item |date=1612 |title=The Go academy |text=Text.}}
@@ -54,7 +54,7 @@ to `User:<YourName>/common.js`. Needs the WikiEditor toolbar. Untested on a live
 
 ## Demo on a Wikipedia user subpage
 
-`python3 tools/make_sandbox.py <WikipediaUsername>` writes `sandbox/<username>/`: one file per wiki page,
+`python3 tools/build.py --sandbox <WikipediaUsername>` writes `sandbox/<username>/` (not tracked): one file per wiki page,
 with all template names rewritten to subpages of `User:<username>/Timeline sandbox`, a demo page
 `User:<username>/Timeline demo`, and the stylesheet at `Template:<username>/Timeline sandbox/styles.css`
-(created by page title; `Special:ChangeContentModel` is limited to admins and template editors). Page titles are printed by the script; see Docs.md for the steps.
+(created by page title; `Special:ChangeContentModel` is limited to admins and template editors).

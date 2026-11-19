@@ -1,36 +1,38 @@
 #!/usr/bin/env python3
-"""Build a ready-to-paste userspace sandbox from template/.
+"""Build the generated files in template/, or a userspace copy.
 
-Usage: python3 tools/make_sandbox.py <WikipediaUsername> [outdir]
-       python3 tools/make_sandbox.py --release [outdir]    (Template-space files, into release/)
+Usage: python3 tools/build.py                    regenerate template/TimelineRail__{styles.css,doc,testcases}
+       python3 tools/build.py --sandbox <User>   sandbox/<User>/: everything renamed under
+                                                 User:<User>/Timeline sandbox (not tracked)
 
-Writes one file per wiki page into sandbox/<username>/ (default), named
-after the page it belongs to. Template names are rewritten to subpages of
-User:<name>/Timeline sandbox, the TemplateStyles source points at the
-stylesheet page in the Template namespace, and the {{documentation}} lines are dropped.
+template/ holds the files to paste into Template:TimelineRail and its subpages. The six
+template pages (TimelineRail, __item, __event, __parallel, __gap, __section) are edited
+by hand there. The stylesheet is copied from prototype/timeline.css, the doc page is
+tools/doc_source.wikitext with highlighted, rendered examples, and the testcases page is
+the demo text in this file; never edit those three in template/.
 """
 import pathlib, re, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import real_examples
 
-RELEASE = sys.argv[1] == '--release'
-user = 'release' if RELEASE else sys.argv[1]
+RELEASE = len(sys.argv) < 2
+if not RELEASE and (sys.argv[1] != '--sandbox' or len(sys.argv) < 3):
+    sys.exit(__doc__)
+user = 'release' if RELEASE else sys.argv[2]
 root = pathlib.Path(__file__).resolve().parent.parent
-out = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else root / ('release' if RELEASE else 'sandbox' / pathlib.Path(user))
+out = root / 'template' if RELEASE else root / 'sandbox' / user
 out.mkdir(parents=True, exist_ok=True)
 
-# In release mode the pages are the real ones: Template:TimelineRail and its subpages.
+# Release: the real pages, Template:TimelineRail and its subpages.
 BASE = 'TimelineRail' if RELEASE else f'User:{user}/Timeline sandbox'
-PAGES = {  # repo file -> page title
-    'Template_TimelineRail.wikitext': BASE,
-    'Template_TimelineRail_item.wikitext': BASE + '/item',
-    'Template_TimelineRail_event.wikitext': BASE + '/event',
-    'Template_TimelineRail_parallel.wikitext': BASE + '/parallel',
-    'Template_TimelineRail_gap.wikitext': BASE + '/gap',
-    'Template_TimelineRail_section.wikitext': BASE + '/section',
+PAGES = {  # file in template/ -> page title
+    'TimelineRail.wikitext': BASE,
+    'TimelineRail__item.wikitext': BASE + '/item',
+    'TimelineRail__event.wikitext': BASE + '/event',
+    'TimelineRail__parallel.wikitext': BASE + '/parallel',
+    'TimelineRail__gap.wikitext': BASE + '/gap',
+    'TimelineRail__section.wikitext': BASE + '/section',
 }
-if RELEASE:
-    PAGES['Template_TimelineRail_doc.wikitext'] = BASE + '/doc'
 
 # Sanitized-CSS pages are created by title in the Template namespace; on English
 # Wikipedia Special:ChangeContentModel is limited to admins and template editors.
@@ -107,14 +109,18 @@ def fname(title):
     return re.sub(r'^(?:User|Template):(?:' + re.escape(user) + '/)?', '', title).replace('/', '__').replace(' ', '_')
 
 written = []
-for src, title in PAGES.items():
-    body = clean((root / 'template' / src).read_text())
-    if RELEASE and src.endswith('_doc.wikitext'):
-        body = dedupe_ids(doc_examples(body))
-    path = out / (fname(title) + '.wikitext')
-    path.write_text(body); written.append((title, path.name))
+if RELEASE:
+    # The hand-edited template pages are already in template/; only the doc is generated here.
+    doc = dedupe_ids(doc_examples((root / 'tools' / 'doc_source.wikitext').read_text()))
+    (out / 'TimelineRail__doc.wikitext').write_text(doc)
+    written.append(('Template:TimelineRail/doc', 'TimelineRail__doc.wikitext'))
+else:
+    for src, title in PAGES.items():
+        body = clean((root / 'template' / src).read_text())
+        path = out / (fname(title) + '.wikitext')
+        path.write_text(body); written.append((title, path.name))
 
-css = (root / 'template' / 'Template_TimelineRail_styles.css').read_text()
+css = (root / 'prototype' / 'timeline.css').read_text()
 (out / (fname(STYLES))).write_text(css); written.append((STYLES, fname(STYLES)))
 
 INTRO_LINKS = '' if RELEASE else ' Source and a live prototype: https://github.com/psygo/wikipedia_timeline (prototype at https://psygo.github.io/wikipedia_timeline/).'
@@ -163,10 +169,10 @@ Every item is collapsible by default: click a dot or date to hide the item, and 
 }}}}
 
 == Timeline sections ==
-A red dot marks a section. Click it to collapse everything inside. Sections can contain sections, to any depth; each level is indented a little.
+A red dot marks a section. Click it to collapse everything inside. Sections can contain sections, to any depth; each level is indented a little. On a wide window the section title goes in the date column, like a date. A section can also carry text, and an image, beside its dot.
 
 {{{{{BASE}
-|{{{{{BASE}/section |title=Origins
+|{{{{{BASE}/section |title=Origins |text=How the game spread from China to Korea and Japan.
 |{{{{{BASE}/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}}}
 {{{{{BASE}/section |title=Edo period
 |{{{{{BASE}/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}}}
@@ -174,7 +180,7 @@ A red dot marks a section. Click it to collapse everything inside. Sections can 
 }}}}
 {{{{{BASE}/section |title=Modern era
 |{{{{{BASE}/item |date=1924 |title=Nihon Ki-in founded |text=The Japanese Go association is founded in Tokyo.}}}}
-{{{{{BASE}/section |title=Computer Go
+{{{{{BASE}/section |title=Computer Go |text=Programs from the first hand-written engines to learning systems.
 |{{{{{BASE}/item |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}}}
 {{{{{BASE}/section |title=Deep learning
 |{{{{{BASE}/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}}}

@@ -1,2 +1,0 @@
-<includeonly><templatestyles src="Template:Fanaro009/Timeline sandbox/styles.css" />{{#if:{{{title|}}}|<div class="wt-timelines__col"><div class="wt-timeline__heading">{{{title}}}</div>}}<ol class="wt-timeline">{{{1|}}}</ol>{{#if:{{{title|}}}|</div>}}</includeonly><noinclude>
-</noinclude>
