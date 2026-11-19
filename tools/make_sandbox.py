@@ -58,7 +58,7 @@ def dedupe_ids(text):
                    re.sub(r'\{\{[^{}\n]*?/item \|date=([^|}\n]*)[^\n]*', one, p) for p in parts)
 
 def demo_examples(text):
-    """Show every demo example as highlighted source above its rendering ({{Markupv}}).
+    """Show every demo example as highlighted source followed by its rendering. (No {{Markupv}}: its shaded cell has a different background from the page, which shows through the section boxes.)
     Top-level template calls are found by counting braces; the long real-article
     example at the end is left as a plain rendering."""
     cut = text.index('== Examples from real articles ==')
@@ -80,7 +80,7 @@ def demo_examples(text):
     res, pos = [], 0
     for a, b, code in out:
         res.append(head[pos:a])
-        res.append('{{Markupv\n|m=<syntaxhighlight lang="wikitext">\n' + code + '\n</syntaxhighlight>\n|r=\n' + code + '\n}}')
+        res.append('<syntaxhighlight lang="wikitext">\n' + code + '\n</syntaxhighlight>\n' + code)
         pos = b
     res.append(head[pos:])
     return ''.join(res) + tail
@@ -93,7 +93,7 @@ def doc_examples(text):
         hl = '<syntaxhighlight lang="wikitext">\n' + code + '\n</syntaxhighlight>'
         if 'image=' in code:
             return hl
-        return '{{Markupv\n|m=' + hl + '\n|r=\n' + code + '\n}}'
+        return hl + '\n' + code
     return '{{Documentation subpage}}\n' + re.sub(r'<pre>\n(.*?)\n</pre>', one, text, flags=re.S)
 
 def clean(text):

@@ -12,8 +12,7 @@ Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items
 </syntaxhighlight>
 
 == Several events on one dot ==
-{{Markupv
-|m=<syntaxhighlight lang="wikitext">
+<syntaxhighlight lang="wikitext">
 {{TimelineRail
 |{{TimelineRail/item |date=2006 |events=
 {{TimelineRail/event |title=Crazy Stone |text=Monte Carlo tree search arrives in Go.}}
@@ -21,12 +20,10 @@ Needs <code>#if</code> (ParserFunctions). Do not leave blank lines between items
 }}
 }}
 </syntaxhighlight>
-|r=
 {{TimelineRail
 |{{TimelineRail/item |date=2006 |events=
 {{TimelineRail/event |title=Crazy Stone |text=Monte Carlo tree search arrives in Go.}}
 {{TimelineRail/event |title=UCT |text=The UCT algorithm is published.}}
-}}
 }}
 }}
 
@@ -37,8 +34,7 @@ Every item that has content is collapsible. Clicking its dot or date hides its c
 * <code>summary=</code>: the text after the pipe for an item with several events (a one-event item uses its <code>title</code>).
 * <code>id=</code>: only needed if two items on the same page share the same date and title; the id is otherwise made from the date and title.
 An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-click on any dot to collapse or expand the whole timeline.
-{{Markupv
-|m=<syntaxhighlight lang="wikitext">
+<syntaxhighlight lang="wikitext">
 {{TimelineRail
 |{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
 {{TimelineRail/item |date=2006 |collapsed=yes |summary=Crazy Stone and UCT |events=
@@ -47,7 +43,6 @@ An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-cl
 }}
 }}
 </syntaxhighlight>
-|r=
 {{TimelineRail
 |{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
 {{TimelineRail/item |date=2006 |collapsed=yes |summary=Crazy Stone and UCT |events=
@@ -55,12 +50,10 @@ An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-cl
 {{TimelineRail/event |title=UCT |text=The UCT algorithm is published.}}
 }}
 }}
-}}
 
 == Sections (nestable) ==
 <code>TimelineRail/section</code> goes among the items of a <code>TimelineRail</code> (or of another section). It shows a red dot and a <code>title</code>; its content, which is a list of items and more sections, is indented, and clicking the red dot collapses all of it. Sections nest to any depth. Add <code>collapsed=yes</code> to start collapsed; <code>id=</code> only if two sections on a page share a title.
-{{Markupv
-|m=<syntaxhighlight lang="wikitext">
+<syntaxhighlight lang="wikitext">
 {{TimelineRail
 |{{TimelineRail/section |title=Early history
 |{{TimelineRail/item |date=1612 |title=The Go academy}}
@@ -70,7 +63,6 @@ An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-cl
 }}
 }}
 </syntaxhighlight>
-|r=
 {{TimelineRail
 |{{TimelineRail/section |title=Early history
 |{{TimelineRail/item |date=1612 |title=The Go academy}}
@@ -79,12 +71,10 @@ An optional user script, <code>Timeline-collapse-all.js</code>, adds a double-cl
 }}
 }}
 }}
-}}
 
 == Nested timelines ==
 Give an item a <code>sub</code> parameter holding more <code>TimelineRail/item</code>s. They appear indented under that item, with their own rail, and can nest further. Do not indent the wikitext lines with spaces (that makes a preformatted block); the indentation is in the rendering.
-{{Markupv
-|m=<syntaxhighlight lang="wikitext">
+<syntaxhighlight lang="wikitext">
 {{TimelineRail
 |{{TimelineRail/item |date=1990s |title=Neural networks meet Go |sub=
 {{TimelineRail/item |date=1994 |title=NeuroGo}}
@@ -93,7 +83,6 @@ Give an item a <code>sub</code> parameter holding more <code>TimelineRail/item</
 {{TimelineRail/item |date=2016 |title=AlphaGo}}
 }}
 </syntaxhighlight>
-|r=
 {{TimelineRail
 |{{TimelineRail/item |date=1990s |title=Neural networks meet Go |sub=
 {{TimelineRail/item |date=1994 |title=NeuroGo}}
@@ -101,12 +90,10 @@ Give an item a <code>sub</code> parameter holding more <code>TimelineRail/item</
 }}
 {{TimelineRail/item |date=2016 |title=AlphaGo}}
 }}
-}}
 
 == Parallel timelines (several timelines on one row) ==
 Wrap timelines in <code>TimelineRail/parallel</code> and give each a <code>title</code>. They share the row and wrap onto the next one when there is no horizontal space. Each keeps its own dates and rail; nothing lines up across them. Inside a row the timelines always use the narrow layout (date above the events).
-{{Markupv
-|m=<syntaxhighlight lang="wikitext">
+<syntaxhighlight lang="wikitext">
 {{TimelineRail/parallel
 |{{TimelineRail |title=Players
 |{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game}}
@@ -121,7 +108,6 @@ Wrap timelines in <code>TimelineRail/parallel</code> and give each a <code>title
 }}
 }}
 </syntaxhighlight>
-|r=
 {{TimelineRail/parallel
 |{{TimelineRail |title=Players
 |{{TimelineRail/item |id=ex2 |date=1846 |title=The Ear-Reddening Game}}
@@ -135,12 +121,10 @@ Wrap timelines in <code>TimelineRail/parallel</code> and give each a <code>title
 }}
 }}
 }}
-}}
 
 == Parallel and grouped timelines (dots aligned) ==
 Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timeline then sits on the same row, so dots line up horizontally. To skip a row in one timeline, put <code>{{TimelineRail/gap}}</code> in its place. Rules: every timeline needs a <code>title</code>; at most 20 items (including gaps) per timeline; do not end a timeline with gaps. The columns share the width and do not wrap; below 640 px the timelines fall back to the independent, wrapping layout.
-{{Markupv
-|m=<syntaxhighlight lang="wikitext">
+<syntaxhighlight lang="wikitext">
 {{TimelineRail/parallel |grouped=yes
 |{{TimelineRail |title=Players
 |{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game}}
@@ -154,7 +138,6 @@ Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timelin
 }}
 }}
 </syntaxhighlight>
-|r=
 {{TimelineRail/parallel |grouped=yes
 |{{TimelineRail |title=Players
 |{{TimelineRail/item |id=ex4 |date=1846 |title=The Ear-Reddening Game}}
@@ -165,7 +148,6 @@ Add <code>grouped=yes</code>. At 640 px and wider the n-th item of every timelin
 |{{TimelineRail/gap}}
 {{TimelineRail/item |id=ex5 |date=1968 |title=First Go program}}
 {{TimelineRail/item |date=March 2016 |title=AlphaGo wins the match}}
-}}
 }}
 }}
 
