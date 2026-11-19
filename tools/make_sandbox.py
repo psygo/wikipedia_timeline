@@ -57,6 +57,34 @@ def dedupe_ids(text):
     return ''.join(p if p.startswith('<syntaxhighlight') else
                    re.sub(r'\{\{[^{}\n]*?/item \|date=([^|}\n]*)[^\n]*', one, p) for p in parts)
 
+def demo_examples(text):
+    """Show every demo example as highlighted source above its rendering ({{Markupv}}).
+    Top-level template calls are found by counting braces; the long real-article
+    example at the end is left as a plain rendering."""
+    cut = text.index('== Examples from real articles ==')
+    head, tail = text[:cut], text[cut:]
+    out, i, depth, start = [], 0, 0, None
+    while i < len(head):
+        two = head[i:i + 2]
+        if two == '{{':
+            if depth == 0 and (i == 0 or head[i - 1] == '\n'):
+                start = i
+            depth += 1; i += 2
+        elif two == '}}':
+            depth -= 1; i += 2
+            if depth == 0 and start is not None:
+                code = head[start:i]
+                out.append((start, i, code)); start = None
+        else:
+            i += 1
+    res, pos = [], 0
+    for a, b, code in out:
+        res.append(head[pos:a])
+        res.append('{{Markupv\n|m=<syntaxhighlight lang="wikitext">\n' + code + '\n</syntaxhighlight>\n|r=\n' + code + '\n}}')
+        pos = b
+    res.append(head[pos:])
+    return ''.join(res) + tail
+
 def doc_examples(text):
     """Release doc: syntax-highlighted source, with the rendered result next to it ({{Markup}}).
     An example that needs a file on the wiki (image=) gets the highlighted source only."""
@@ -65,7 +93,7 @@ def doc_examples(text):
         hl = '<syntaxhighlight lang="wikitext">\n' + code + '\n</syntaxhighlight>'
         if 'image=' in code:
             return hl
-        return '{{Markup|' + hl + '|\n' + code + '\n}}'
+        return '{{Markupv\n|m=' + hl + '\n|r=\n' + code + '\n}}'
     return '{{Documentation subpage}}\n' + re.sub(r'<pre>\n(.*?)\n</pre>', one, text, flags=re.S)
 
 def clean(text):
@@ -196,7 +224,7 @@ The same list as it appears on English Wikipedia, rebuilt with this template. Te
 
 '''
 DEMO = 'Template:TimelineRail/testcases' if RELEASE else f'User:{user}/Timeline demo'
-(out / fname(DEMO)).with_suffix('.wikitext').write_text(dedupe_ids(demo))
+(out / fname(DEMO)).with_suffix('.wikitext').write_text(dedupe_ids(demo_examples(demo)))
 written.append((DEMO, fname(DEMO) + '.wikitext'))
 
 print(f'Wrote {len(written)} files to {out}\n')

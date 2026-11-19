@@ -1,2 +1,2 @@
-<includeonly><templatestyles src="Template:Fanaro009/Timeline sandbox/styles.css" /><div class="wt-timelines{{#if:{{{grouped|}}}| wt-timelines--grouped}}">{{{1|}}}</div></includeonly><noinclude>
+<includeonly><templatestyles src="Template:Fanaro009/Timeline sandbox/styles.css" /><div class="wt-timelines{{#if:{{{grouped|}}}|&#32;wt-timelines--grouped}}">{{{1|}}}</div></includeonly><noinclude>
 </noinclude>

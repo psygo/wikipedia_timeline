@@ -1,3 +1,3 @@
-<includeonly><templatestyles src="Template:TimelineRail/styles.css" /><div class="wt-timelines{{#if:{{{grouped|}}}| wt-timelines--grouped}}">{{{1|}}}</div></includeonly><noinclude>
+<includeonly><templatestyles src="Template:TimelineRail/styles.css" /><div class="wt-timelines{{#if:{{{grouped|}}}|&#32;wt-timelines--grouped}}">{{{1|}}}</div></includeonly><noinclude>
 {{documentation|Template:TimelineRail/doc}}
 </noinclude>
