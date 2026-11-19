@@ -159,6 +159,38 @@ def used_id(title, used):
     used.add(sid)
     return sid
 
+
+BANNED = re.compile(r'archive\.(?:today|is|ph|li|vn|md|fo)/', re.I)
+ARCHIVE_PARAMS = re.compile(r'^\s*(archive-?url|archive-?date|url-?status|dead-?url)\s*=', re.I)
+
+def drop_banned_archives(text):
+    """English Wikipedia's edit filter refuses any edit that adds an archive.today link, even one copied
+    from an existing citation. Remove the archive-url (and the parameters that depend on it) from such
+    citations; the citation keeps its original url."""
+    out, i, n = '', 0, 0
+    for m in re.finditer(r'\{\{\s*cite', text, re.I):
+        j = m.start()
+        if j < i:
+            continue                      # inside a block already handled
+        depth, k = 0, j
+        while k < len(text):
+            two = text[k:k + 2]
+            if two == '{{': depth += 1; k += 2
+            elif two == '}}':
+                depth -= 1; k += 2
+                if depth == 0: break
+            else: k += 1
+        block = text[j:k]
+        if BANNED.search(block):
+            parts = split_args(block[2:-2])
+            keep = [parts[0]] + [q for q in parts[1:] if not ARCHIVE_PARAMS.match(q)]
+            block = '{{' + '|'.join(keep) + '}}'
+            n += 1
+        out += text[i:j] + block
+        i = k
+    out += text[i:]
+    return out, n
+
 ids = set()
 stats = {'items': 0, 'images': 0, 'sections': 0, 'undated': 0, 'n': 0}
 
@@ -248,9 +280,11 @@ page = (
     + '\n\n'.join(pieces) + '\n\n'
     + re.sub(r'\[\[Category:', '[[:Category:', rest_of_page) + '\n'
 )
+page, dropped = drop_banned_archives(page)
 out.parent.mkdir(exist_ok=True)
 out.write_text(page)
 print('%d sections, %d items (%d with a picture) -> %s (%d bytes)' % (stats['sections'], stats['items'], stats['images'], out, len(page)))
+print('archive.today links removed from %d citations' % dropped)
 if anomalies:
     print('items without a recognised date (%d):' % len(anomalies))
     for a in anomalies:
