@@ -1,4 +1,4 @@
-This is a demonstration of a proposed template for vertical timelines. It needs no JavaScript: it is wikitext plus TemplateStyles, and it follows the reader's light or dark theme. Source and a live prototype: https://github.com/psygo/wikipedia_timeline (prototype at https://psygo.github.io/wikipedia_timeline/). The sample content is only there to show the layout; check any dates before reusing them.
+This is a demonstration of a proposed template for vertical timelines. It needs no JavaScript: it is wikitext plus TemplateStyles, and it follows the reader's light or dark theme. The sample content is only there to show the layout; check any dates before reusing them.
 
 == Simple timeline ==
 {{TimelineRail
@@ -33,13 +33,13 @@ An item can hold its own timeline, indented under it, through the <code>sub</cod
 Every item is collapsible by default: click a dot or date to hide the item, and its title follows the date after a pipe. This uses MediaWiki's built-in collapsible feature, so the template needs no script. Add <code>collapsed=yes</code> to start collapsed, <code>collapsible=no</code> to switch it off for an item, and <code>summary=</code> to say what shows after the pipe for an item with several events.
 
 {{TimelineRail
-|{{TimelineRail/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
-{{TimelineRail/item |date=1846 |collapsed=yes |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
+|{{TimelineRail/item |id=ex1 |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
+{{TimelineRail/item |id=ex2 |date=1846 |collapsed=yes |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
 {{TimelineRail/item |date=2006 |summary=Crazy Stone and UCT |events=
 {{TimelineRail/event |title=Crazy Stone |text=Monte Carlo tree search arrives in Go.}}
 {{TimelineRail/event |title=UCT |text=The UCT algorithm is published.}}
 }}
-{{TimelineRail/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
+{{TimelineRail/item |id=ex3 |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
 }}
 
 == Timeline sections ==
@@ -47,17 +47,17 @@ A red dot marks a section. Click it to collapse everything inside. Sections can 
 
 {{TimelineRail
 |{{TimelineRail/section |title=Origins
-|{{TimelineRail/item |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
+|{{TimelineRail/item |id=ex4 |date=1612 |title=The Go academy |text=The Tokugawa shogunate patronises the game and forms the houses of professional players.}}
 {{TimelineRail/section |title=Edo period
-|{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
+|{{TimelineRail/item |id=ex5 |date=1846 |title=The Ear-Reddening Game |text=Shusaku's move 127 stuns Gennan Inseki.}}
 }}
 }}
 {{TimelineRail/section |title=Modern era
 |{{TimelineRail/item |date=1924 |title=Nihon Ki-in founded |text=The Japanese Go association is founded in Tokyo.}}
 {{TimelineRail/section |title=Computer Go
-|{{TimelineRail/item |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}
+|{{TimelineRail/item |id=ex6 |date=1968 |title=First Go program |text=Albert Zobrist writes a program able to play a full game.}}
 {{TimelineRail/section |title=Deep learning
-|{{TimelineRail/item |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
+|{{TimelineRail/item |id=ex7 |date=March 2016 |title=AlphaGo defeats Lee Sedol |text=AlphaGo wins four games to one in Seoul.}}
 {{TimelineRail/item |date=2017 |title=AlphaGo Zero |text=A version trained without human games is described in ''Nature''.}}
 }}
 }}
@@ -69,11 +69,11 @@ Independent timelines that share a row and wrap when there is no room. Narrow th
 
 {{TimelineRail/parallel
 |{{TimelineRail |title=Players
-|{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game}}
+|{{TimelineRail/item |id=ex8 |date=1846 |title=The Ear-Reddening Game}}
 {{TimelineRail/item |date=March 2016 |title=Lee Sedol wins game 4}}
 }}
 {{TimelineRail |title=Programs
-|{{TimelineRail/item |date=1968 |title=First Go program}}
+|{{TimelineRail/item |id=ex9 |date=1968 |title=First Go program}}
 {{TimelineRail/item |date=March 2016 |title=AlphaGo wins the match}}
 }}
 }}
@@ -83,14 +83,14 @@ The same two timelines, grouped: the dots line up horizontally (at 640 px and wi
 
 {{TimelineRail/parallel |grouped=yes
 |{{TimelineRail |title=Players
-|{{TimelineRail/item |date=1846 |title=The Ear-Reddening Game}}
+|{{TimelineRail/item |id=ex10 |date=1846 |title=The Ear-Reddening Game}}
 {{TimelineRail/gap}}
-{{TimelineRail/item |date=March 2016 |title=Lee Sedol wins game 4}}
+{{TimelineRail/item |id=ex11 |date=March 2016 |title=Lee Sedol wins game 4}}
 }}
 {{TimelineRail |title=Programs
 |{{TimelineRail/gap}}
-{{TimelineRail/item |date=1968 |title=First Go program}}
-{{TimelineRail/item |date=March 2016 |title=AlphaGo wins the match}}
+{{TimelineRail/item |id=ex12 |date=1968 |title=First Go program}}
+{{TimelineRail/item |id=ex13 |date=March 2016 |title=AlphaGo wins the match}}
 }}
 }}
 

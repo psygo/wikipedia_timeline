@@ -40,6 +40,34 @@ NAME = re.compile(r'\{\{TimelineRail(/item|/event|/parallel|/gap|/section)?(?=[\
 def rename(text):
     return NAME.sub(lambda m: '{{' + BASE + (m.group(1) or ''), text)
 
+def dedupe_ids(text):
+    """Toggle ids come from date + title, so repeats on one page would toggle each other.
+    Give every repeated item an explicit id= (only the demo and doc pages repeat examples)."""
+    seen, n = {}, [0]
+    def one(m):
+        line = m.group(0)
+        t = re.search(r'\|(?:title|summary)=([^|}]*)', line)
+        key = (m.group(1).strip(), t.group(1).strip() if t else '')
+        seen[key] = seen.get(key, 0) + 1
+        if seen[key] == 1 or '|id=' in line:
+            return line
+        n[0] += 1
+        return line.replace('/item ', '/item |id=ex%d ' % n[0], 1)
+    parts = re.split(r'(<syntaxhighlight.*?</syntaxhighlight>)', text, flags=re.S)  # shown source stays as written
+    return ''.join(p if p.startswith('<syntaxhighlight') else
+                   re.sub(r'\{\{[^{}\n]*?/item \|date=([^|}\n]*)[^\n]*', one, p) for p in parts)
+
+def doc_examples(text):
+    """Release doc: syntax-highlighted source, with the rendered result next to it ({{Markup}}).
+    An example that needs a file on the wiki (image=) gets the highlighted source only."""
+    def one(m):
+        code = m.group(1)
+        hl = '<syntaxhighlight lang="wikitext">\n' + code + '\n</syntaxhighlight>'
+        if 'image=' in code:
+            return hl
+        return '{{Markup|' + hl + '|\n' + code + '\n}}'
+    return '{{Documentation subpage}}\n' + re.sub(r'<pre>\n(.*?)\n</pre>', one, text, flags=re.S)
+
 def clean(text):
     if RELEASE:
         return text
@@ -53,13 +81,16 @@ def fname(title):
 written = []
 for src, title in PAGES.items():
     body = clean((root / 'template' / src).read_text())
+    if RELEASE and src.endswith('_doc.wikitext'):
+        body = dedupe_ids(doc_examples(body))
     path = out / (fname(title) + '.wikitext')
     path.write_text(body); written.append((title, path.name))
 
 css = (root / 'template' / 'Template_TimelineRail_styles.css').read_text()
 (out / (fname(STYLES))).write_text(css); written.append((STYLES, fname(STYLES)))
 
-demo = f'''This is a demonstration of a proposed template for vertical timelines. It needs no JavaScript: it is wikitext plus TemplateStyles, and it follows the reader's light or dark theme. Source and a live prototype: https://github.com/psygo/wikipedia_timeline (prototype at https://psygo.github.io/wikipedia_timeline/). The sample content is only there to show the layout; check any dates before reusing them.
+INTRO_LINKS = '' if RELEASE else ' Source and a live prototype: https://github.com/psygo/wikipedia_timeline (prototype at https://psygo.github.io/wikipedia_timeline/).'
+demo = f'''This is a demonstration of a proposed template for vertical timelines. It needs no JavaScript: it is wikitext plus TemplateStyles, and it follows the reader's light or dark theme.{INTRO_LINKS} The sample content is only there to show the layout; check any dates before reusing them.
 
 == Simple timeline ==
 {{{{{BASE}
@@ -165,7 +196,7 @@ The same list as it appears on English Wikipedia, rebuilt with this template. Te
 
 '''
 DEMO = 'Template:TimelineRail/testcases' if RELEASE else f'User:{user}/Timeline demo'
-(out / fname(DEMO)).with_suffix('.wikitext').write_text(demo)
+(out / fname(DEMO)).with_suffix('.wikitext').write_text(dedupe_ids(demo))
 written.append((DEMO, fname(DEMO) + '.wikitext'))
 
 print(f'Wrote {len(written)} files to {out}\n')
