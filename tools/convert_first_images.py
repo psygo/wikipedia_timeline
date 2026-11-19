@@ -86,10 +86,18 @@ def one_line(s):
     return re.sub(r'\s*\n\s*', ' ', s).strip()
 
 def parse_media(cell):
+    """Split the image cell: the first picture (a template parameter), other files (framed like
+    the picture), and whatever else the cell holds ({{external media}}, {{Image requested
+    inline}}, "See article"), which is kept as the article has it."""
     files = [f.strip() for f in FILE.findall(cell)]
     image = next((f for f in files if not re.search(r'\.(ogg|oga|ogv|webm|mp3|wav)$', f, re.I)), '')
     # Videos and audio get the same frame as the image (the template's image box).
     extra = ['<span class="wt-timeline__image">[[File:%s|200px]]</span>' % f for f in files if f != image]
+    rest = re.sub(r'<br\s*/?>', ' ', FILE.sub('', cell))
+    rest = re.sub(r'float\s*=\s*(left|right)', 'float = none', rest)   # no floating inside the text
+    rest = one_line(rest)
+    if rest:
+        extra.append(rest)
     return image, extra
 
 sections = []   # [craft, [ (date, text, image) ... ]]  one section per run of rows with the same craft
@@ -127,7 +135,7 @@ timeline = '{{%s\n|%s\n}}' % (BASE, '\n'.join(blocks))
 items = sections
 
 # ---------------------------------------------------------------- the rest of the page
-head = re.sub(r'\{\{(?:short description|Use \w+ dates)[^\n]*\n?', '', head, flags=re.I).strip()
+head = head.strip()   # keeps {{short description}} and {{Use mdy dates}}: the dates in the citations depend on it
 tail = re.sub(r'\[\[Category:', '[[:Category:', tail)
 page = (
     '{{User sandbox}}\n'
