@@ -45,6 +45,13 @@ Usage for one event per dot, several events per dot, nested timelines, collapsib
     {{TimelineRail/item |date=March 2016 |title=AlphaGo defeats Lee Sedol}}
     }}
 
+## Other packagings
+
+The same stylesheet, class names and behaviour, outside Wikipedia (the stylesheet is copied from `prototype/timeline.css` by `python3 tools/sync_css.py`, which `tools/build.py` also runs):
+
+* [web-component/](web-component/) is a `<timeline-rail>` custom element, no dependencies, no build step.
+* [react/](react/) is a set of React components (Vite library build, TypeScript types).
+
 ## User script (optional)
 
 `userscript/Timeline-toolbar.js` adds a **Timeline** drop-down to the edit toolbar that inserts

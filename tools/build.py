@@ -236,3 +236,7 @@ written.append((DEMO, fname(DEMO) + '.wikitext'))
 print(f'Wrote {len(written)} files to {out}\n')
 for title, f in written:
     print(f'  {f:45s} -> {title}')
+
+# The same stylesheet feeds the web component and the React component.
+import subprocess
+subprocess.run([sys.executable, str(root / 'tools' / 'sync_css.py')], check=True)

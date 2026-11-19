@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lt;timeline-rail&gt; demo</title>
+<link rel="stylesheet" href="../src/theme.css">
+<style>
+	main { max-width: 56em; margin: 0 auto; padding: 1em; }
+	h2 { border-bottom: 1px solid var(--border-color-subtle); }
+</style>
+<script type="module" src="../src/timeline-rail.js"></script>
+</head>
+<body>
+<main>
+<h1>&lt;timeline-rail&gt;</h1>
+
+<h2>Items</h2>
+<timeline-rail>
+	<timeline-item date="1612" title="The Go academy">The Tokugawa shogunate patronises the game and forms the houses of professional players.</timeline-item>
+	<timeline-item date="1846" title="The Ear-Reddening Game">Shusaku's move 127 stuns Gennan Inseki; see <a href="https://en.wikipedia.org/wiki/Honinb%C5%8D_Shusaku">Honinbō Shūsaku</a>.</timeline-item>
+	<timeline-item date="March 2016" title="AlphaGo defeats Lee Sedol" image="../../prototype/images/huang-longshi.png" image-width="120" caption="A picture, with a caption">AlphaGo wins four games to one in Seoul.</timeline-item>
+	<timeline-item date="2017" collapsible="false">Not collapsible: no title and always open.</timeline-item>
+	<timeline-item date="2020" title="With a sub timeline" collapsed>
+		Parent text.
+		<timeline-item date="Spring" title="First">Sub item one.</timeline-item>
+		<timeline-item date="Autumn" title="Second">Sub item two.</timeline-item>
+	</timeline-item>
+</timeline-rail>
+
+<h2>Sections</h2>
+<timeline-rail>
+	<timeline-section title="Lower Paleolithic" id="lower" text="Each section is collapsible; double-click a section dot to keep only it open.">
+		<timeline-item date="3.3 mya" title="Stone tools">Oldest known stone tools.</timeline-item>
+		<timeline-item date="1.8 mya" title="Hand axe">Acheulean hand axes.</timeline-item>
+	</timeline-section>
+	<timeline-section title="Middle Paleolithic" id="middle" collapsed>
+		<timeline-item date="400 kya" title="Fire">Controlled use of fire.</timeline-item>
+		<timeline-section title="A section inside a section">
+			<timeline-item date="300 kya" title="Spears">Wooden spears.</timeline-item>
+		</timeline-section>
+	</timeline-section>
+</timeline-rail>
+<p><a href="#middle">Link to #middle</a> (opens that section).</p>
+
+<h2>Side by side, grouped</h2>
+<timeline-rail grouped>
+	<timeline-column title="Players">
+		<timeline-item date="1846" title="Shusaku">Plays move 127.</timeline-item>
+		<timeline-gap></timeline-gap>
+		<timeline-item date="1998" title="Lee Sedol">Becomes a professional.</timeline-item>
+	</timeline-column>
+	<timeline-column title="Programs">
+		<timeline-gap></timeline-gap>
+		<timeline-item date="2016" title="AlphaGo">Beats Lee Sedol.</timeline-item>
+		<timeline-item date="2017" title="AlphaGo Zero">Learns from self-play.</timeline-item>
+	</timeline-column>
+</timeline-rail>
+</main>
+</body>
+</html>

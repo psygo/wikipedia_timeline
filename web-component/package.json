@@ -1,0 +1,17 @@
+{
+  "name": "timeline-rail-element",
+  "version": "0.1.0",
+  "description": "TimelineRail as a web component: <timeline-rail>, a vertical, collapsible timeline.",
+  "type": "module",
+  "main": "src/timeline-rail.js",
+  "exports": {
+    ".": "./src/timeline-rail.js",
+    "./theme.css": "./src/theme.css"
+  },
+  "files": ["src"],
+  "scripts": {
+    "sync": "python3 ../tools/sync_css.py",
+    "start": "python3 -m http.server 8080 --directory .."
+  },
+  "license": "CC-BY-SA-4.0"
+}
