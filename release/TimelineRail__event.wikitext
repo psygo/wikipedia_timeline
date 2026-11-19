@@ -1,3 +1,3 @@
 <includeonly><div class="wt-timeline__event"><span class="wt-timeline__title">{{{title|}}}</span>{{#if:{{{text|}}}|<div class="wt-timeline__text">{{{text}}}</div>}}{{#if:{{{image|}}}|<span class="wt-timeline__image">[[File:{{{image}}}|{{#if:{{{imagesize|}}}|{{{imagesize}}}|100x100px}}|alt={{{imagealt|}}}]]{{#if:{{{caption|}}}|<br />{{{caption}}}}}</span>}}</div></includeonly><noinclude>
-{{documentation}}
+{{documentation|Template:TimelineRail/doc}}
 </noinclude>

@@ -1,0 +1,3 @@
+<includeonly><templatestyles src="Template:TimelineRail/styles.css" />{{#if:{{{title|}}}|<div class="wt-timelines__col"><div class="wt-timeline__heading">{{{title}}}</div>}}<ol class="wt-timeline">{{{1|}}}</ol>{{#if:{{{title|}}}|</div>}}</includeonly><noinclude>
+{{documentation|Template:TimelineRail/doc}}
+</noinclude>

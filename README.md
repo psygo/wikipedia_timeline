@@ -21,20 +21,28 @@ The prototype is also published with GitHub Pages (see `.github/workflows/pages.
 
 ## Try the template (untested on a wiki)
 
-Needs TemplateStyles and ParserFunctions. Create these pages, pasting the files from `template/`:
+Needs TemplateStyles and ParserFunctions. The templates are the `TimelineRail` family. `python3 tools/make_sandbox.py --release`
+writes paste-ready files into `release/`, one per page:
 
-| Page                                                          | File                              |
-| ------------------------------------------------------------- | --------------------------------- |
-| `Template:Timeline`                                           | `Template_Timeline.wikitext`      |
-| `Template:Timeline item`                                      | `Template_Timeline_item.wikitext` |
-| `Template:Timeline/styles.css` (content model: Sanitized CSS) | `Template_Timeline_styles.css`    |
+| Page                                                              | File                                |
+| ----------------------------------------------------------------- | ----------------------------------- |
+| `Template:TimelineRail/styles.css` (content model: Sanitized CSS) | `TimelineRail__styles.css`          |
+| `Template:TimelineRail/event`                                     | `TimelineRail__event.wikitext`      |
+| `Template:TimelineRail/gap`                                       | `TimelineRail__gap.wikitext`        |
+| `Template:TimelineRail/item`                                      | `TimelineRail__item.wikitext`       |
+| `Template:TimelineRail/section`                                   | `TimelineRail__section.wikitext`    |
+| `Template:TimelineRail/parallel`                                  | `TimelineRail__parallel.wikitext`   |
+| `Template:TimelineRail`                                           | `TimelineRail.wikitext`             |
+| `Template:TimelineRail/doc`                                       | `TimelineRail__doc.wikitext`        |
+| `Template:TimelineRail/testcases`                                 | `TimelineRail__testcases.wikitext`  |
 
-Names are placeholders (`Template:Timeline` is already taken on English Wikipedia). Usage for one event per dot,
-several events per dot, nested timelines, collapsible items, sections and parallel timelines is in `template/Template_Timeline_doc.wikitext`. For a quick start:
+The sources are in `template/` (`Template_TimelineRail*.wikitext`, `Template_TimelineRail_styles.css`); `release/` is generated.
+Usage for one event per dot, several events per dot, nested timelines, collapsible items, sections and parallel timelines is in
+`template/Template_TimelineRail_doc.wikitext`. For a quick start:
 
-    {{Timeline
-    |{{Timeline item |date=1612 |title=The Go academy |text=Text.}}
-    {{Timeline item |date=March 2016 |title=AlphaGo defeats Lee Sedol}}
+    {{TimelineRail
+    |{{TimelineRail/item |date=1612 |title=The Go academy |text=Text.}}
+    {{TimelineRail/item |date=March 2016 |title=AlphaGo defeats Lee Sedol}}
     }}
 
 ## User script (optional)

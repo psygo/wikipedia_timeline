@@ -2,6 +2,7 @@
 """Build a ready-to-paste userspace sandbox from template/.
 
 Usage: python3 tools/make_sandbox.py <WikipediaUsername> [outdir]
+       python3 tools/make_sandbox.py --release [outdir]    (Template-space files, into release/)
 
 Writes one file per wiki page into sandbox/<username>/ (default), named
 after the page it belongs to. Template names are rewritten to subpages of
@@ -12,35 +13,42 @@ import pathlib, re, sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import real_examples
 
-user = sys.argv[1]
+RELEASE = sys.argv[1] == '--release'
+user = 'release' if RELEASE else sys.argv[1]
 root = pathlib.Path(__file__).resolve().parent.parent
-out = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else root / 'sandbox' / user
+out = pathlib.Path(sys.argv[2]) if len(sys.argv) > 2 else root / ('release' if RELEASE else 'sandbox' / pathlib.Path(user))
 out.mkdir(parents=True, exist_ok=True)
 
-BASE = f'User:{user}/Timeline sandbox'
+# In release mode the pages are the real ones: Template:TimelineRail and its subpages.
+BASE = 'TimelineRail' if RELEASE else f'User:{user}/Timeline sandbox'
 PAGES = {  # repo file -> page title
-    'Template_Timeline.wikitext': BASE,
-    'Template_Timeline_item.wikitext': BASE + '/item',
-    'Template_Timeline_event.wikitext': BASE + '/event',
-    'Template_Timeline_parallel.wikitext': BASE + '/parallel',
-    'Template_Timeline_gap.wikitext': BASE + '/gap',
-    'Template_Timeline_section.wikitext': BASE + '/section',
+    'Template_TimelineRail.wikitext': BASE,
+    'Template_TimelineRail_item.wikitext': BASE + '/item',
+    'Template_TimelineRail_event.wikitext': BASE + '/event',
+    'Template_TimelineRail_parallel.wikitext': BASE + '/parallel',
+    'Template_TimelineRail_gap.wikitext': BASE + '/gap',
+    'Template_TimelineRail_section.wikitext': BASE + '/section',
 }
+if RELEASE:
+    PAGES['Template_TimelineRail_doc.wikitext'] = BASE + '/doc'
+
 # Sanitized-CSS pages are created by title in the Template namespace; on English
 # Wikipedia Special:ChangeContentModel is limited to admins and template editors.
-STYLES = f'Template:{user}/Timeline sandbox/styles.css'
+STYLES = 'Template:TimelineRail/styles.css' if RELEASE else f'Template:{user}/Timeline sandbox/styles.css'
 
-NAME = re.compile(r'\{\{Timeline( item| event| parallel| gap| section)?(?=[\s|}])')
+NAME = re.compile(r'\{\{TimelineRail(/item|/event|/parallel|/gap|/section)?(?=[\s|}])')
 def rename(text):
-    return NAME.sub(lambda m: '{{' + BASE + (('/' + m.group(1).strip()) if m.group(1) else ''), text)
+    return NAME.sub(lambda m: '{{' + BASE + (m.group(1) or ''), text)
 
 def clean(text):
-    text = text.replace('Template:Timeline/styles.css', STYLES)
-    text = re.sub(r'\n?\{\{documentation\}\}\n?', '\n', text)
+    if RELEASE:
+        return text
+    text = text.replace('Template:TimelineRail/styles.css', STYLES)
+    text = re.sub(r'\n?\{\{documentation[^}]*\}\}\n?', '\n', text)
     return rename(text)
 
 def fname(title):
-    return re.sub(r'^(User|Template):' + re.escape(user) + '/', '', title).replace('/', '__').replace(' ', '_')
+    return re.sub(r'^(?:User|Template):(?:' + re.escape(user) + '/)?', '', title).replace('/', '__').replace(' ', '_')
 
 written = []
 for src, title in PAGES.items():
@@ -48,7 +56,7 @@ for src, title in PAGES.items():
     path = out / (fname(title) + '.wikitext')
     path.write_text(body); written.append((title, path.name))
 
-css = (root / 'template' / 'Template_Timeline_styles.css').read_text()
+css = (root / 'template' / 'Template_TimelineRail_styles.css').read_text()
 (out / (fname(STYLES))).write_text(css); written.append((STYLES, fname(STYLES)))
 
 demo = f'''This is a demonstration of a proposed template for vertical timelines. It needs no JavaScript: it is wikitext plus TemplateStyles, and it follows the reader's light or dark theme. Source and a live prototype: https://github.com/psygo/wikipedia_timeline (prototype at https://psygo.github.io/wikipedia_timeline/). The sample content is only there to show the layout; check any dates before reusing them.
@@ -156,7 +164,7 @@ The same list as it appears on English Wikipedia, rebuilt with this template. Te
 {_inv}
 
 '''
-DEMO = f'User:{user}/Timeline demo'
+DEMO = 'Template:TimelineRail/testcases' if RELEASE else f'User:{user}/Timeline demo'
 (out / fname(DEMO)).with_suffix('.wikitext').write_text(demo)
 written.append((DEMO, fname(DEMO) + '.wikitext'))
 

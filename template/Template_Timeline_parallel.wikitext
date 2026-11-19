@@ -1,3 +1,0 @@
-<includeonly><templatestyles src="Template:Timeline/styles.css" /><div class="wt-timelines{{#if:{{{grouped|}}}| wt-timelines--grouped}}">{{{1|}}}</div></includeonly><noinclude>
-{{documentation}}
-</noinclude>

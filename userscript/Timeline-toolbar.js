@@ -11,19 +11,19 @@
  *
  *     importScript( 'User:<YourName>/Timeline-toolbar.js' );
  *
- * The template names below are placeholders; change them here if the
- * templates end up with other names.
+ * The template names below are the real ones (Template:TimelineRail and its
+ * subpages); the skeletons it inserts use them.
  */
 ( function () {
 	'use strict';
 
 	var NAMES = {
-		timeline: 'Timeline',
-		item: 'Timeline item',
-		event: 'Timeline event',
-		parallel: 'Timeline parallel',
-		gap: 'Timeline gap',
-		section: 'Timeline section'
+		timeline: 'TimelineRail',
+		item: 'TimelineRail/item',
+		event: 'TimelineRail/event',
+		parallel: 'TimelineRail/parallel',
+		gap: 'TimelineRail/gap',
+		section: 'TimelineRail/section'
 	};
 
 	function t( key, args ) {
