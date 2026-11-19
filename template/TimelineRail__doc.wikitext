@@ -86,6 +86,8 @@ With text beside the dot:
 }}
 }}
 
+An item with only a date and text is collapsible as well: click its dot or its date. Closed, it shows only the date. Give such items an <code>id=</code> (letters and digits, unique on the page), because the id is made from the date and title otherwise.
+
 == Nested timelines ==
 Give an item a <code>sub</code> parameter holding more <code>TimelineRail/item</code>s. They appear indented under that item, with their own rail, and can nest further. Do not indent the wikitext lines with spaces (that makes a preformatted block); the indentation is in the rendering.
 <syntaxhighlight lang="wikitext">

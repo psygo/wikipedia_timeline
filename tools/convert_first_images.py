@@ -118,7 +118,7 @@ def plain(title):
     t = re.sub(r'\[\[(?:[^\]|]*\|)?([^\]]*)\]\]', r'\1', title)
     return re.sub(r'[^A-Za-z0-9]+', '_', t).strip('_') or 'section'
 
-used, blocks = set(), []
+used, blocks, counter = set(), [], 0
 for craft, rows_ in sections:
     sid, k = plain(craft), 1
     while sid in used:
@@ -126,7 +126,10 @@ for craft, rows_ in sections:
     used.add(sid)
     out_items = []
     for n, (date, text, image) in enumerate(rows_):
-        p = '{{%s/item |date=%s |collapsible=no |text=%s' % (BASE, date, text)
+        counter += 1
+        # No title: the section already names the craft. The item is still collapsible (dot or
+        # date); closed, it shows its date. Toggle ids must be unique and plain, so give one.
+        p = '{{%s/item |id=img%d |date=%s |text=%s' % (BASE, counter, date, text)
         if image:
             p += ' |image=%s |imagesize=200px' % image
         out_items.append(('|' if n == 0 else '') + p + '}}')

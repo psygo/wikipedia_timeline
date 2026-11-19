@@ -11,7 +11,8 @@
  *
  * Behaviour: a double-click on an item's date row (the dot or the date) collapses every
  * collapsible item of that timeline (nested timelines included), or expands them all if
- * none is open. The two clicks of the double-click first toggle that one item twice,
+ * none is open. A double-click on a section's dot keeps that section open and closes the
+ * other sections of its list, or opens them all if they are all closed. The two clicks of the double-click first toggle that one item twice,
  * which changes nothing.
  */
 ( function () {
@@ -44,6 +45,22 @@
 			}
 			$row.data( 'wtCollapseAll', true ).on( 'dblclick', function ( e ) {
 				e.preventDefault();
+				var $self = $row.parent();
+				if ( $self.hasClass( 'wt-timeline__item--section' ) ) {
+					// A section dot: keep this section open and close the other sections of its
+					// list; if they are all closed already, open them all.
+					var $others = $self.siblings( '.wt-timeline__item--section' );
+					var someOpen = $others.not( '.mw-collapsed' ).length > 0;
+					$others.each( function () {
+						if ( $( this ).hasClass( 'mw-collapsed' ) === !someOpen ) {
+							$( this ).children( ROW ).trigger( 'click' );
+						}
+					} );
+					if ( $self.hasClass( 'mw-collapsed' ) ) {
+						$row.trigger( 'click' );
+					}
+					return;
+				}
 				// The collapsibles are the items (class mw-collapsible); the rows toggle them.
 				var $items = $list.find( '.wt-timeline__item.mw-collapsible' );
 				var anyOpen = $items.not( '.mw-collapsed' ).length > 0;

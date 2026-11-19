@@ -43,8 +43,10 @@
 	} );
 
 	/*
-	 * Double-click any dot: collapse every collapsible item of that timeline (its own
-	 * list and any nested ones), or expand them all if none is open. Not part of
+	 * Double-click an item's dot: collapse every collapsible item of that timeline (its own
+	 * list and any nested ones), or expand them all if none is open. Double-click a
+	 * section's dot: close the other sections of its list and keep this one open (or open
+	 * them all when they are all closed). Not part of
 	 * MediaWiki; on a wiki this is userscript/Timeline-collapse-all.js.
 	 */
 	document.querySelectorAll( '.wt-timeline__row' ).forEach( function ( row ) {
@@ -52,6 +54,18 @@
 		if ( !list ) { return; }
 		row.addEventListener( 'dblclick', function ( e ) {
 			e.preventDefault();
+			var self = row.parentElement;
+			if ( self.classList.contains( 'wt-timeline__item--section' ) ) {
+				// A section dot: keep this section open and close the other sections of its
+				// list; if they are all closed already, open them all.
+				var others = Array.prototype.filter.call( list.children, function ( c ) {
+					return c !== self && c.classList.contains( 'wt-timeline__item--section' );
+				} );
+				var someOpen = others.some( function ( c ) { return !c.classList.contains( 'mw-collapsed' ); } );
+				others.forEach( function ( c ) { toggle( c, someOpen ); } );
+				toggle( self, false );
+				return;
+			}
 			var items = list.querySelectorAll( '.wt-timeline__item.mw-collapsible' );
 			var anyOpen = Array.prototype.some.call( items, function ( i ) {
 				return !i.classList.contains( 'mw-collapsed' );

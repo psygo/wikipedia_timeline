@@ -381,6 +381,13 @@
 	content: '|';
 }
 
+/* An item without a title is still collapsible (the dot and the date toggle it): its empty
+   title takes no room and no dangling pipe shows when it is closed. */
+.wt-timeline__peek--title:empty,
+.wt-timeline__item.mw-collapsed > .wt-timeline__row .wt-timeline__peek--title:empty {
+	display: none;
+}
+
 .wt-timeline__peek::before {
 	content: '|';
 	margin: 0 0.4em;
