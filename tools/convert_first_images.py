@@ -142,7 +142,7 @@ page = (
     "<!-- Draft showing how [[Template:%s]] could present the table of [[%s]]. "
     'The text is copied from that article; see its history for attribution. '
     'The original table is not changed. -->\n\n' % (BASE, ARTICLE)
-    + head + '\n\n== Timeline ==\n' + timeline + '\n' + tail
+    + head + '\n\n== Timeline ==\nEach section on the following timeline refers to a craft or a mission.\n\n' + timeline + '\n' + tail
 )
 out.parent.mkdir(exist_ok=True)
 out.write_text(page)
