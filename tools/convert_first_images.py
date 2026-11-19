@@ -1,0 +1,145 @@
+#!/usr/bin/env python3
+"""Draft: "Timeline of first images of Earth from space" rebuilt with TimelineRail.
+
+Usage: python3 tools/convert_first_images.py [out.wikitext]
+
+Fetches the current wikitext of the article from English Wikipedia, turns its table
+(image | date | craft or mission | event) into {{TimelineRail}} items, and keeps the
+lead, See also, Notes and References as they are. Output goes to
+drafts/Timeline_of_first_images_of_Earth_from_space.wikitext by default.
+
+The text is copied from Wikipedia (CC BY-SA 4.0): when you save the draft, say so in the
+edit summary (see the message printed at the end).
+"""
+import pathlib, re, subprocess, sys, urllib.parse
+
+ARTICLE = 'Timeline of first images of Earth from space'
+root = pathlib.Path(__file__).resolve().parent.parent
+out = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else root / 'drafts' / (ARTICLE.replace(' ', '_') + '.wikitext')
+BASE = 'TimelineRail'
+
+url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
+wt = subprocess.run(['curl', '-s', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+if '{|' not in wt:
+    sys.exit('Could not fetch the article wikitext')
+
+head, rest = wt.split('{|', 1)
+table, tail = rest.split('\n|}', 1)
+head = head.rsplit('== Timeline ==', 1)[0]
+
+# ---------------------------------------------------------------- table -> rows -> cells
+def depth_open(buf):
+    """True while a {{template}} or <ref> is still open in buf."""
+    if buf.count('{{') > buf.count('}}'):
+        return True
+    opens = len(re.findall(r'<ref(?:\s[^>]*[^/>])?>', buf))
+    return opens > len(re.findall(r'</ref>', buf))
+
+rows, cur, cells, buf = [], None, None, None
+for line in table.split('\n')[1:]:          # first line holds the table attributes
+    in_cell = buf is not None and depth_open(buf)
+    if not in_cell and line.startswith('|-'):
+        if buf is not None:
+            cells.append(buf)
+        if cells:
+            rows.append(cells)
+        cells, buf = [], None
+    elif not in_cell and line.startswith('!'):
+        continue                            # header row
+    elif not in_cell and line.startswith('|'):
+        if buf is not None:
+            cells.append(buf)
+        buf = line[1:]
+        if cells is None:
+            cells = []
+    elif buf is not None:
+        buf += '\n' + line
+if buf is not None:
+    cells.append(buf)
+if cells:
+    rows.append(cells)
+
+# Rows that skip columns because of rowspan: expand them to 4 columns.
+carry, pending, table_rows = [None] * 4, [0] * 4, []
+for r in rows:
+    it, full = iter(r), []
+    for c in range(4):
+        if pending[c] > 0:
+            full.append(carry[c]); pending[c] -= 1
+            continue
+        raw = next(it, '')
+        m = re.match(r'\s*rowspan="?(\d+)"?[^|]*\|(?!\|)(.*)', raw, re.S)
+        span = 1
+        if m:
+            span, raw = int(m.group(1)), m.group(2)
+        raw = raw.strip()
+        full.append(raw)
+        if span > 1:
+            carry[c], pending[c] = raw, span - 1
+    table_rows.append(full)
+
+# ---------------------------------------------------------------- cells -> items
+REF = re.compile(r'<ref(?:\s[^>]*)?/>|<ref(?:\s[^>]*)?>.*?</ref>', re.S)
+FILE = re.compile(r'\[\[(?:File|Image):([^|\]]+)(?:\|[^\]]*)?\]\]')
+
+def one_line(s):
+    return re.sub(r'\s*\n\s*', ' ', s).strip()
+
+def parse_media(cell):
+    files = [f.strip() for f in FILE.findall(cell)]
+    image = next((f for f in files if not re.search(r'\.(ogg|oga|ogv|webm|mp3|wav)$', f, re.I)), '')
+    extra = ['[[File:%s|200px]]' % f for f in files if f != image]
+    return image, extra
+
+items = []   # [date, craft, [events]]
+for img, date, craft, event in table_rows:
+    refs = ''.join(REF.findall(date))
+    date = one_line(REF.sub('', date)) or '?'
+    craft = one_line(craft)
+    image, extra = parse_media(img)
+    text = one_line(event)
+    for e in extra:
+        text += '<br />' + e
+    text += refs                      # refs the date cell carried
+    ev = {'image': image, 'text': text}
+    if items and items[-1][0] == date and items[-1][1] == craft:
+        items[-1][2].append(ev)
+    else:
+        items.append([date, craft, [ev]])
+
+def esc(s):
+    return s.replace('\n', ' ')
+
+lines = []
+for n, (date, craft, evs) in enumerate(items, 1):
+    iid = 'img%d' % n
+    pre = '|' if n == 1 else ''
+    if len(evs) == 1:
+        e = evs[0]
+        p = '{{%s/item |id=%s |date=%s |title=%s |text=%s' % (BASE, iid, date, craft, e['text'])
+        if e['image']:
+            p += ' |image=%s |imagesize=200px' % e['image']
+        lines.append(pre + p + '}}')
+    else:
+        lines.append(pre + '{{%s/item |id=%s |date=%s |title=%s |events=' % (BASE, iid, date, craft))
+        for k, e in enumerate(evs):
+            q = '{{%s/event ' % BASE + ('|title=%s ' % craft if k == 0 else '') + '|text=%s' % e['text']
+            if e['image']:
+                q += ' |image=%s |imagesize=200px' % e['image']
+            lines.append(q + '}}')
+        lines.append('}}')
+timeline = '{{%s\n%s\n}}' % (BASE, '\n'.join(lines))
+
+# ---------------------------------------------------------------- the rest of the page
+head = re.sub(r'\{\{(?:short description|Use \w+ dates)[^\n]*\n?', '', head, flags=re.I).strip()
+tail = re.sub(r'\[\[Category:', '[[:Category:', tail)
+page = (
+    '{{User sandbox}}\n'
+    "<!-- Draft showing how [[Template:%s]] could present the table of [[%s]]. "
+    'The text is copied from that article; see its history for attribution. '
+    'The original table is not changed. -->\n\n' % (BASE, ARTICLE)
+    + head + '\n\n== Timeline ==\n' + timeline + '\n' + tail
+)
+out.parent.mkdir(exist_ok=True)
+out.write_text(page)
+print('%d table rows -> %d timeline items; wrote %s (%d bytes)' % (len(table_rows), len(items), out, len(page)))
