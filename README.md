@@ -51,6 +51,7 @@ The same stylesheet, class names and behaviour, outside Wikipedia (the styleshee
 
 * [web-component/](web-component/) is a `<timeline-rail>` custom element, no dependencies, no build step.
 * [react/](react/) is a set of React components (Vite library build, TypeScript types).
+* [lua/](lua/) is `Module:TimelineRail`, a Scribunto module that writes the same markup (with an `outline` entry point that avoids the post-expand size problem); locally tested only.
 
 ## User script (optional)
 

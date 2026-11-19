@@ -1,0 +1,3 @@
+<includeonly>{{#invoke:TimelineRail|outline}}</includeonly><noinclude>
+{{documentation|Template:TimelineRail/doc}}
+</noinclude>

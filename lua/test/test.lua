@@ -1,0 +1,172 @@
+-- Run: luajit lua/test/test.lua   (from the project root)
+package.path = 'lua/test/?.lua;' .. package.path
+require( 'mw_mock' )
+local chunk = assert( loadfile( 'lua/Module_TimelineRail.lua' ) )
+local p = chunk()
+
+local failures, count = 0, 0
+local function check( name, ok, detail )
+	count = count + 1
+	if not ok then failures = failures + 1; print( 'FAIL ' .. name .. ( detail and ( '\n  ' .. detail ) or '' ) ) end
+end
+local function eq( name, got, want )
+	check( name, got == want, 'got:  ' .. tostring( got ) .. '\n  want: ' .. tostring( want ) )
+end
+local function has( name, s, needle )
+	check( name, s:find( needle, 1, true ) ~= nil, 'missing ' .. needle .. ' in ' .. s )
+end
+
+-- Tags must balance (the output is HTML; an unclosed one would swallow the rest of the article).
+local VOID = { br = true, img = true }
+local function balanced( html )
+	local stack = {}
+	for slash, tag in html:gmatch( '<(/?)([%w]+)[^>]*>' ) do
+		tag = tag:lower()
+		if not VOID[ tag ] and tag ~= 'templatestyles' then
+			local selfClose = false
+			if slash == '' then stack[ #stack + 1 ] = tag
+			else
+				if stack[ #stack ] ~= tag then return false, 'closing ' .. tag .. ' while ' .. tostring( stack[ #stack ] ) .. ' is open' end
+				stack[ #stack ] = nil
+			end
+		end
+	end
+	return #stack == 0, 'unclosed: ' .. table.concat( stack, ',' )
+end
+local function wellFormed( name, html )
+	local ok, why = balanced( html )
+	check( name .. ' balanced', ok, why )
+end
+
+-- ---------------------------------------------------------------- item
+local item = p.item( mw.frame( {}, { date = '1612', title = 'The Go academy', text = 'Text.' } ) )
+eq( 'item', item,
+	'<li class="wt-timeline__item wt-timeline__item--collapsible mw-collapsible" id="mw-customcollapsible-1612_The_Go_academy">'
+	.. '<div class="wt-timeline__row mw-customtoggle-1612_The_Go_academy"><span class="wt-timeline__date">1612</span>'
+	.. '<span class="wt-timeline__peek wt-timeline__peek--title">The Go academy</span></div>'
+	.. '<div class="wt-timeline__body mw-collapsible-content"><div class="wt-timeline__events">'
+	.. '<div class="wt-timeline__event"><span class="wt-timeline__title"></span><div class="wt-timeline__text">Text.</div></div>'
+	.. '</div></div></li>' )
+wellFormed( 'item', item )
+
+local plain = p.item( mw.frame( {}, { date = '2017', collapsible = 'no', title = 'T', text = 'x', last = 'yes' } ) )
+has( 'non-collapsible has no row', plain, '<li class="wt-timeline__item wt-timeline__item--last"><span class="wt-timeline__date">2017</span>' )
+has( 'non-collapsible shows title in event', plain, '<span class="wt-timeline__title">T</span>' )
+check( 'non-collapsible has no toggler', not plain:find( 'mw-customtoggle', 1, true ) )
+
+local dateOnly = p.item( mw.frame( {}, { date = '1999' } ) )
+check( 'date-only item is not collapsible', not dateOnly:find( 'mw-collapsible', 1, true ) )
+
+local coll = p.item( mw.frame( {}, { date = '2006', collapsed = 'yes', summary = 'Two', id = 'e2006', events = '<div class="wt-timeline__event">E</div>' } ) )
+has( 'collapsed class', coll, 'mw-collapsible mw-collapsed" id="mw-customcollapsible-e2006"' )
+has( 'events peek uses summary', coll, '<span class="wt-timeline__peek">Two</span>' )
+
+local img = p.item( mw.frame( {}, { date = '1', title = 'T', image = 'A b.jpg', caption = 'Cap', imagealt = 'alt' } ) )
+has( 'image', img, '<span class="wt-timeline__image">[[File:A b.jpg|100x100px|alt=alt]]<br />Cap</span>' )
+
+local sub = p.item( mw.frame( {}, { date = '1', title = 'T', sub = '<li>s</li>' } ) )
+has( 'sub timeline', sub, '<ol class="wt-timeline wt-timeline--sub"><li>s</li></ol>' )
+wellFormed( 'sub', sub )
+
+-- arguments given on the invoke itself work too, and the parent's win
+local viaInvoke = p.item( mw.frame( { date = '1', title = 'A' }, { title = 'B' } ) )
+has( 'parent args override', viaInvoke, '>B</span></div>' )
+
+-- ---------------------------------------------------------------- section, rail, parallel, gap
+local sec = p.section( mw.frame( {}, { title = 'Edo period', text = 'Intro', collapsed = 'yes', [ 1 ] = '<li>x</li>' } ) )
+has( 'section collapsible id', sec, 'class="wt-timeline__item wt-timeline__item--section mw-collapsible mw-collapsed" id="mw-customcollapsible-section_Edo_period"' )
+has( 'section row id', sec, 'class="wt-timeline__row mw-customtoggle-section_Edo_period" id="Edo_period"' )
+has( 'section extra', sec, '<div class="wt-timeline__section-extra"><div class="wt-timeline__event"><span class="wt-timeline__title"></span><div class="wt-timeline__text">Intro</div></div></div>' )
+has( 'section body', sec, '<ol class="wt-timeline wt-timeline--section"><li>x</li></ol>' )
+wellFormed( 'section', sec )
+
+eq( 'rail', p.rail( mw.frame( {}, { [ 1 ] = '<li>a</li>' } ) ),
+	'<templatestyles src="Template:TimelineRail/styles.css" /><ol class="wt-timeline"><li>a</li></ol>' )
+has( 'rail column', p.rail( mw.frame( {}, { [ 1 ] = '', title = 'Players' } ) ),
+	'<div class="wt-timelines__col"><div class="wt-timeline__heading">Players</div><ol class="wt-timeline"></ol></div>' )
+has( 'parallel grouped', p.parallel( mw.frame( {}, { [ 1 ] = 'X', grouped = 'yes' } ) ), '<div class="wt-timelines wt-timelines--grouped">X</div>' )
+eq( 'gap', p.gap(), '<li class="wt-timeline__item wt-timeline__item--gap" aria-hidden="true"></li>' )
+
+-- ---------------------------------------------------------------- outline: parsing
+local tree = p.parseOutline( [==[
+== Lower Paleolithic ==
+Intro line one
+intro line two
+* '''3.3 mya''': Oldest stone tools. <ref>r</ref>
+continued text
+** a sub-point
+** another
+[[File:Hand axe.jpg|thumb|upright|A hand axe]]
+* 1.8 mya ;; Hand axe ;; Acheulean.
+=== Inner ===
+* 400 kya ;; Fire
+== Middle ==
+* '''Date''' x
+]==] )
+eq( 'two top sections', #tree.children, 2 )
+local lower = tree.children[ 1 ]
+eq( 'section title', lower.title, 'Lower Paleolithic' )
+eq( 'intro joined', table.concat( lower.intro, ' ' ), 'Intro line one intro line two' )
+eq( 'lower has 2 items + 1 section', #lower.children, 3 )
+local i1 = lower.children[ 1 ]
+eq( 'bold date', i1.date, '3.3 mya' )
+eq( 'text + continuation', table.concat( i1.text, ' ' ), 'Oldest stone tools. <ref>r</ref> continued text' )
+eq( 'sub-bullets', #i1.subs, 2 )
+local i2 = lower.children[ 2 ]
+eq( 'image attaches to next item', i2.image, 'Hand axe.jpg' )
+eq( 'image caption', i2.caption, 'A hand axe' )
+eq( 'titled item', i2.title, 'Hand axe' )
+eq( 'titled item text', i2.text[ 1 ], 'Acheulean.' )
+local inner = lower.children[ 3 ]
+eq( 'nested section', inner.title, 'Inner' )
+eq( 'nested item title only', inner.children[ 1 ].title, 'Fire' )
+eq( 'sibling section pops the stack', tree.children[ 2 ].title, 'Middle' )
+
+-- ---------------------------------------------------------------- outline: rendering
+local html = p.outline( mw.frame( {}, { text = [[
+== A ==
+* '''1''' one
+* '''2''' two
+== B ==
+* '''3''' three
+=== B inside ===
+* '''4''' four
+]] } ) )
+wellFormed( 'outline', html )
+local n = 0
+for _ in html:gmatch( 'wt%-timeline__item%-%-section mw%-collapsible' ) do n = n + 1 end
+eq( 'three sections', n, 3 )
+local items = 0
+for _ in html:gmatch( 'wt%-timeline__item%-%-collapsible' ) do items = items + 1 end
+eq( 'four items', items, 4 )
+has( 'styles first', html, '<templatestyles src="Template:TimelineRail/styles.css" />' )
+
+-- ids are unique, also between two outlines on the page
+local html2 = p.outline( mw.frame( {}, { text = "== A ==\n* '''1''' one\n" } ) )
+local ids, dup = {}, false
+for id in ( html .. html2 ):gmatch( ' id="([^"]+)"' ) do
+	if ids[ id ] then dup = true; print( '  duplicate id ' .. id ) end
+	ids[ id ] = true
+end
+check( 'ids unique across outlines', not dup )
+local toggles = {}
+for id in ( html .. html2 ):gmatch( 'mw%-customcollapsible%-([^"]+)"' ) do
+	local t = html .. html2
+	check( 'toggler exists for ' .. id, t:find( 'mw-customtoggle-' .. id .. '"', 1, true ) ~= nil )
+end
+
+local collapsedHtml = p.outline( mw.frame( {}, { text = "== A ==\n* '''1''' one\n", collapsed = 'all' } ) )
+local c = 0
+for _ in collapsedHtml:gmatch( 'mw%-collapsed' ) do c = c + 1 end
+eq( 'collapsed=all', c, 2 )
+
+local withSubs = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n** b\n" } ) )
+has( 'sub-bullets become a list', withSubs, 'one <ul><li>a</li><li>b</li></ul>' )
+wellFormed( 'subs', withSubs )
+
+-- the text is passed through untouched: links, refs, templates
+local rich = p.outline( mw.frame( {}, { text = "* '''c. 1651''': [[Huang Longshi|Huang]] is born.<ref name=\"a\">x</ref>\n" } ) )
+has( 'wikilink preserved', rich, '[[Huang Longshi|Huang]] is born.<ref name="a">x</ref>' )
+
+print( string.format( '%d checks, %d failed', count, failures ) )
+os.exit( failures == 0 and 0 or 1 )

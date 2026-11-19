@@ -1,0 +1,62 @@
+'''Module:TimelineRail''' draws a vertical, collapsible timeline. It generates the same markup as the template family {{tl|TimelineRail}} and uses the same stylesheet, <code>Template:TimelineRail/styles.css</code> (loaded with [[mw:Extension:TemplateStyles|TemplateStyles]]), so the look is the same; only the way the HTML is produced changes. It needs no ParserFunctions.
+
+== Entry points ==
+Normally the module is used through the templates that call it:
+{| class="wikitable"
+! Template !! Function !! What it makes
+|-
+| {{tl|TimelineRail}} || <code>rail</code> || a timeline; <code>|1=</code> holds items and sections; <code>|title=</code> makes it a column
+|-
+| {{tl|TimelineRail/item}} || <code>item</code> || one dot: <code>date</code>, <code>title</code>, <code>text</code>, <code>image</code>, <code>caption</code>, <code>collapsed</code>, <code>collapsible=no</code>, <code>events</code>, <code>sub</code>, <code>id</code>, <code>last</code>
+|-
+| {{tl|TimelineRail/section}} || <code>section</code> || a titled, collapsible group, nestable; <code>title</code>, <code>text</code>, <code>image</code>, <code>collapsed</code>, <code>id</code>, and the content in <code>|1=</code>
+|-
+| {{tl|TimelineRail/event}} || <code>event</code> || one event, for an item with <code>events=</code>
+|-
+| {{tl|TimelineRail/parallel}} || <code>parallel</code> || timelines side by side; <code>grouped=yes</code> aligns their dots
+|-
+| {{tl|TimelineRail/gap}} || <code>gap</code> || an empty slot in a grouped column
+|-
+| {{tl|TimelineRail/outline}} || <code>outline</code> || a whole timeline from one text (below)
+|}
+The first six take the same parameters as the original templates, so the two families can be swapped.
+
+== Outline: one text, one timeline ==
+Item-by-item templates repeat each item's text in every template that wraps it, and a long timeline then exceeds the [[Wikipedia:Template limits|post-expand include size limit]]. <code>outline</code> receives the whole timeline once and builds it once.
+<syntaxhighlight lang="wikitext">
+{{TimelineRail/outline
+|text=
+== Lower Paleolithic ==
+The first tools. This line is the section's introduction.
+* '''3.3 mya''' Oldest known stone tools.
+* '''1.8 mya''' Acheulean hand axes. <ref>...</ref>
+** a sub-point, shown as a list
+[[File:Hand axe.jpg|thumb|A hand axe]]
+* 400 kya ;; Fire ;; Controlled use of fire.
+=== A section inside it ===
+* '''300 kya''' Wooden spears.
+== Middle Paleolithic ==
+* '''160 kya''' Homo sapiens.
+}}
+</syntaxhighlight>
+{| class="wikitable"
+! Line !! Meaning
+|-
+| <code>== Title ==</code> || a section; <code>===</code> inside it makes a section inside the section, and so on
+|-
+| plain lines after a heading || the section's introduction, beside its dot
+|-
+| <code>* '''date''' text</code> || an item: bold date (the usual bullet-list style of articles), then the text
+|-
+| <code>* date ;; title ;; text</code> || an item with a title; the text may be left out
+|-
+| <code>**</code> lines || a list inside the item's text
+|-
+| a line with no marker || continues the line above
+|-
+| <code>[[File:…]]</code> alone on a line || the picture of the next item
+|}
+Parameters: <code>text</code> (or <code>|1=</code>); <code>collapsed=sections</code>, <code>items</code> or <code>all</code> to start closed; <code>title</code> to make it a column of a parallel group. Use <code>|text=</code> when the text contains <code>=</code>; wrap a literal pipe in <code>{{tl|!}}</code>.
+
+== See also ==
+* [[Template:TimelineRail]], the template family this module replaces
