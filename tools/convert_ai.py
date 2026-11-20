@@ -120,24 +120,16 @@ def table_items(table_text):
 def wrap(n, lines, original=None):
     return invoke(MODULE, 'ai%d' % n, '\n'.join(lines), original=original, original_as='table')
 
-lead_images = []     # pictures that stood inside the timeline: they go to the article's introduction instead
-
 def intro_lines(text):
-    """What stands between a subsection heading and its table: notices and hatnotes. A picture is not kept
-    here (beside the timeline's rows it is small and badly placed): it moves to the introduction, larger."""
+    """What stands between a subsection heading and its table: notices, hatnotes, pictures."""
     out = []
     for l in text.split('\n'):
         l = l.strip()
         if not l:
             continue
         if re.match(r'\[\[(File|Image):', l, re.I):
-            l = re.sub(r'\|\s*(center|centre|none|left)\s*(?=\||\])', '|right', l)
-            if not re.search(r'\|\s*(upright|\d+px)', l):
-                l = re.sub(r'\|\s*thumb(nail)?\s*(?=\|)', '|thumb|upright=1.8', l, count=1)
-            lead_images.append(l)
-            continue
-        if l == '{{clear}}' and lead_images:
-            continue
+            l = re.sub(r'\|\s*center\s*(?=\||\])', '|none', l)   # left-aligned, as the text beside it
+            l = '{{clear}}' + l       # a bare picture line would be taken for the picture of the next item
         out.append(l)
     return out
 
@@ -176,9 +168,6 @@ for i, m in enumerate(l2):
         lines += table_items(t.group(0))
     n += 1
     page += wrap(n, lines, block[subs[0].start():]) + '\n\n'
-if lead_images:      # after the picture that opens the article
-    m = re.search(r'^\[\[(File|Image):.*$', page, re.M | re.I)
-    page = page[:m.end()] + ''.join('\n' + l for l in lead_images) + page[m.end():]
 page = re.sub(r'\[\[Category:', '[[:Category:', page)
 page = ('{{User sandbox}}\n'
         "<!-- Draft showing how [[Module:%s]] could present the tables of [[%s]]. The text is copied from that "
