@@ -185,7 +185,7 @@
 
 	.wt-timeline__item {
 		display: flow-root;
-		padding-left: 10.5em;
+		padding-left: 9.75em;
 	}
 
 	.wt-timeline__item::before {
@@ -197,7 +197,7 @@
 	.wt-timeline__date {
 		float: left;
 		width: 7.75em;
-		margin-left: -10.5em;
+		margin-left: -9.75em;
 		text-align: right;
 	}
 
@@ -620,7 +620,7 @@
 @media ( min-width: 640px ) {
 	.wt-timeline__item--section > .wt-timeline__row {
 		display: flow-root;
-		padding-left: 10.5em;
+		padding-left: 9.75em;
 	}
 
 	/* Like a date: the title goes in the left column, right-aligned, and the optional
@@ -628,7 +628,7 @@
 	.wt-timeline__section-title {
 		float: left;
 		width: 7.75em;
-		margin-left: -10.5em;
+		margin-left: -9.75em;
 		text-align: right;
 	}
 
