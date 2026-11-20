@@ -49,7 +49,9 @@ local function getArgs( frame )
 	return args
 end
 
+-- Anchors are made from the visible words: [[a|b]] -> b, [[a]] -> a, no ''' or ''.
 local function anchor( s )
+	s = s:gsub( '%[%[[^%]|]*|([^%]]*)%]%]', '%1' ):gsub( '%[%[([^%]]*)%]%]', '%1' ):gsub( "'+", '' )
 	return mw.uri.anchorEncode( s )
 end
 
@@ -108,7 +110,7 @@ end
 
 -- section: { title, id, collapsed, text, image, imagesize, imagealt, caption, body (rendered children) }
 local function renderSection( sec )
-	local id = sec.id or anchor( 'section_' .. ( sec.title or '' ) )
+	local id = sec.toggleId or sec.id or anchor( 'section_' .. ( sec.title or '' ) )
 	local rowId = sec.id or anchor( sec.title or '' )
 	local extra = ''
 	if sec.text or sec.image then
@@ -248,7 +250,7 @@ function p.parseOutline( text )
 	for line in ( text .. '\n' ):gmatch( '(.-)\r?\n' ) do
 		local l = trim( line )
 		if not l then
-			cur = nil
+			-- a blank line (or a template that expands over several lines) does not end the text above
 		elseif l:match( '^=+.-=+$' ) and not l:match( '^=+$' ) then
 			local eq, title = l:match( '^(=+)%s*(.-)%s*=+$' )
 			local level = #eq
@@ -287,8 +289,9 @@ function p.parseOutline( text )
 	return root
 end
 
-local used = {}      -- anchors already given to a section on this page
-local uid = 0        -- one per outline on the page, so generated ids never repeat
+local used = {}      -- anchors already given to a section (within this module instance)
+local uid = 0        -- counts outlines; NOTE: Scribunto may load the module afresh for every #invoke,
+                     -- so this alone does not keep ids unique on a page: give each outline an |id=
 
 local function buildOutline( node, opts, prefix, counter )
 	local out = {}
@@ -300,7 +303,7 @@ local function buildOutline( node, opts, prefix, counter )
 			while used[ rowId ] do k = k + 1; rowId = base .. '_' .. k end
 			used[ rowId ] = true
 			out[ #out + 1 ] = renderSection( {
-				title = ch.title, id = rowId, collapsed = opts.collapseSections,
+				title = ch.title, id = rowId, toggleId = prefix .. '_s' .. counter.s, collapsed = opts.collapseSections,
 				text = trim( table.concat( ch.intro, ' ' ) ),
 				body = buildOutline( ch, opts, prefix, counter ),
 			} )
@@ -332,7 +335,7 @@ function p.outline( frame )
 		collapseSections = collapsed == 'sections' or collapsed == 'all',
 		collapseItems = collapsed == 'items' or collapsed == 'all',
 	}
-	local body = buildOutline( tree, opts, 'tl' .. uid, { s = 0, i = 0 } )
+	local body = buildOutline( tree, opts, a.id or ( 'tl' .. uid ), { s = 0, i = 0 } )
 	return styles( frame ) .. renderRail( body, a.title )
 end
 

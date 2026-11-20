@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Draft: "Timeline of historic inventions" rebuilt with TimelineRail.
 
-Usage: python3 tools/convert_inventions.py [out.wikitext [level-2 heading ...]]
+Usage: python3 tools/convert_inventions.py [--outline [--module=NAME]] [out.wikitext [level-2 heading ...]]
+
+With --outline the timelines are written for the Lua module (one {{#invoke:NAME|outline|text=...}} per
+run of sections; the whole article can be converted that way). NAME is TimelineRail/sandbox until the
+module is live as Module:TimelineRail. Without it, the template family is used.
 
 Fetches the current wikitext of the article from English Wikipedia. The headings that
 only hold other headings (Paleolithic, Classical antiquity and medieval era, ...) stay headings;
@@ -20,7 +24,11 @@ import pathlib, re, subprocess, sys, urllib.parse
 
 ARTICLE = 'Timeline of historic inventions'
 root = pathlib.Path(__file__).resolve().parent.parent
-out = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else root / 'drafts' / (ARTICLE.replace(' ', '_') + '.wikitext')
+FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+OUTLINE = '--outline' in FLAGS
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
+out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 
 url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
@@ -234,6 +242,48 @@ def section_wikitext(sec):
         prose = ' |text=' + '\n\n'.join(sec.prose)
     return '{{%s/section |id=%s |title=%s%s\n|%s\n}}' % (BASE, sid, sec.title, prose, '\n'.join(parts))
 
+def bare_pipes(text):
+    """Count | outside [[ ]], {{ }} and <ref>: inside {{#invoke:...|text=...}} each one would end the
+    argument, and everything after it would be lost."""
+    text = re.sub(r'<ref(?:\s[^>]*[^/>])?>.*?</ref>', '', text, flags=re.S)
+    depth = n = 0
+    for two in re.findall(r'\[\[|\{\{|\]\]|\}\}|\|', text):
+        if two in ('[[', '{{'): depth += 1
+        elif two in (']]', '}}'): depth -= 1
+        elif depth == 0: n += 1
+    return n
+
+def outline_item(bullet, subs, file_line):
+    date, text = date_and_text(bullet)
+    if not date:
+        stats['undated'] += 1
+        anomalies.append(text[:90])
+    stats['n'] += 1
+    stats['items'] += 1
+    lines = []
+    if file_line:
+        lines.append(file_line)
+        stats['images'] += 1
+    lines.append(("* '''%s''' %s" % (date, text)) if date else ('* ;; ;; ' + text))
+    lines += ['** ' + one_line(x) for x in subs]
+    for l in lines:
+        if bare_pipes(l):
+            anomalies.append('bare | in outline line: ' + l[:80])
+    return '\n'.join(lines)
+
+def outline_section(sec):
+    stats['sections'] += 1
+    lines = ['== %s ==' % sec.title]
+    if sec.prose:
+        lines.append('\n'.join(sec.prose))
+    pending = None
+    for e in sec.entries:
+        if e[0] == 'file':
+            pending = e[1]
+        else:
+            lines.append(outline_item(e[1], e[2], pending)); pending = None
+    return '\n'.join(lines)
+
 def emit(sec, pieces):
     """Headings that only hold other headings stay real headings; the runs of leaf headings
     under one parent become one TimelineRail whose sections are those leaves. (Nesting the
@@ -248,7 +298,11 @@ def emit(sec, pieces):
     run = []
     def close():
         if run:
-            pieces.append('{{%s\n|%s\n}}' % (BASE, '\n'.join(section_wikitext(c) for c in run)))
+            if OUTLINE:
+                stats['outlines'] = stats.get('outlines', 0) + 1
+                pieces.append('{{#invoke:%s|outline |id=inv%d\n|text=\n%s\n}}' % (MODULE, stats['outlines'], '\n'.join(outline_section(c) for c in run)))
+            else:
+                pieces.append('{{%s\n|%s\n}}' % (BASE, '\n'.join(section_wikitext(c) for c in run)))
             run.clear()
     for c in sec.children:
         if c.children:
@@ -258,7 +312,7 @@ def emit(sec, pieces):
             run.append(c)
     close()
 
-CONVERT = [a for a in sys.argv[2:]] or ['Paleolithic', 'Agricultural and proto-agricultural eras']
+CONVERT = ARGS[1:] or ([t.title for t in root_secs] if OUTLINE else ['Paleolithic', 'Agricultural and proto-agricultural eras'])
 raw_lines = '\n'.join(body)
 def original_part(title):
     """The level-2 section exactly as in the article."""

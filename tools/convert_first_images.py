@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Draft: "Timeline of first images of Earth from space" rebuilt with TimelineRail.
 
-Usage: python3 tools/convert_first_images.py [out.wikitext]
+Usage: python3 tools/convert_first_images.py [--outline [--module=NAME]] [out.wikitext]
+
+With --outline the timeline is written for the Lua module: one {{#invoke:NAME|outline|text=...}}
+(NAME is TimelineRail/sandbox until Module:TimelineRail is live) instead of the template family.
 
 Fetches the current wikitext of the article from English Wikipedia, turns its table
 (image | date | craft or mission | event) into {{TimelineRail}}: one section per craft or mission, with one item per row, and keeps the
@@ -15,7 +18,11 @@ import pathlib, re, subprocess, sys, urllib.parse
 
 ARTICLE = 'Timeline of first images of Earth from space'
 root = pathlib.Path(__file__).resolve().parent.parent
-out = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else root / 'drafts' / (ARTICLE.replace(' ', '_') + '.wikitext')
+FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
+ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
+OUTLINE = '--outline' in FLAGS
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
+out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 
 url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
@@ -85,6 +92,17 @@ FILE = re.compile(r'\[\[(?:File|Image):([^|\]]+)(?:\|[^\]]*)?\]\]')
 def one_line(s):
     return re.sub(r'\s*\n\s*', ' ', s).strip()
 
+def bare_pipes(text):
+    """Count | outside [[ ]], {{ }} and <ref>: inside {{#invoke:...|text=...}} each one would end the
+    argument, and everything after it would be lost."""
+    text = re.sub(r'<ref(?:\s[^>]*[^/>])?>.*?</ref>', '', text, flags=re.S)
+    depth = n = 0
+    for two in re.findall(r'\[\[|\{\{|\]\]|\}\}|\|', text):
+        if two in ('[[', '{{'): depth += 1
+        elif two in (']]', '}}'): depth -= 1
+        elif depth == 0: n += 1
+    return n
+
 def parse_media(cell):
     """Split the image cell: the first picture (a template parameter), other files (framed like
     the picture), and whatever else the cell holds ({{external media}}, {{Image requested
@@ -95,7 +113,7 @@ def parse_media(cell):
     extra = ['<span class="wt-timeline__image">[[File:%s|200px]]</span>' % f for f in files if f != image]
     rest = re.sub(r'<br\s*/?>', ' ', FILE.sub('', cell))
     rest = re.sub(r'float\s*=\s*(left|right)', 'float = none', rest)   # no floating inside the text
-    rest = one_line(rest)
+    rest = re.sub(r'\s*\|\s*$', '', one_line(rest))   # the article has a stray | after a template; harmless in a table, fatal in an argument
     if rest:
         extra.append(rest)
     return image, extra
@@ -135,6 +153,18 @@ for craft, rows_ in sections:
         out_items.append(('|' if n == 0 else '') + p + '}}')
     blocks.append('{{%s/section |id=%s |title=%s\n%s\n}}' % (BASE, sid, craft, '\n'.join(out_items)))
 timeline = '{{%s\n|%s\n}}' % (BASE, '\n'.join(blocks))
+if OUTLINE:
+    lines = []
+    for craft, rows_ in sections:
+        lines.append('== %s ==' % craft)
+        for date, text, image in rows_:
+            if image:
+                lines.append('[[File:%s|200px]]' % image)
+            lines.append("* '''%s''' %s" % (date, text))
+    stray = [l[:70] for l in lines if bare_pipes(l)]
+    if stray:
+        print('WARNING: a bare | would cut the text off in these lines:', *stray, sep='\n  ')
+    timeline = '{{#invoke:%s|outline |id=img\n|text=\n%s\n}}' % (MODULE, '\n'.join(lines))
 items = sections
 
 # ---------------------------------------------------------------- the rest of the page
@@ -142,9 +172,9 @@ head = head.strip()   # keeps {{short description}} and {{Use mdy dates}}: the d
 tail = re.sub(r'\[\[Category:', '[[:Category:', tail)
 page = (
     '{{User sandbox}}\n'
-    "<!-- Draft showing how [[Template:%s]] could present the table of [[%s]]. "
+    "<!-- Draft showing how [[%s]] could present the table of [[%s]]. "
     'The text is copied from that article; see its history for attribution. '
-    'The original table is not changed. -->\n\n' % (BASE, ARTICLE)
+    'The original table is not changed. -->\n\n' % (('Module:' + MODULE.split('/')[0]) if OUTLINE else ('Template:' + BASE), ARTICLE)
     + head + '\n\n== Timeline ==\nEach section on the following timeline refers to a craft or a mission.\n\n' + timeline + '\n' + tail
 )
 out.parent.mkdir(exist_ok=True)

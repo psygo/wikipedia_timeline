@@ -141,6 +141,16 @@ for _ in html:gmatch( 'wt%-timeline__item%-%-collapsible' ) do items = items + 1
 eq( 'four items', items, 4 )
 has( 'styles first', html, '<templatestyles src="Template:TimelineRail/styles.css" />' )
 
+-- an |id= prefix makes the generated ids independent of module state
+local withId = p.outline( mw.frame( {}, { id = 'inv7', text = "== Zed ==\n* '''1''' one\n" } ) )
+has( 'id prefix on items', withId, 'id="mw-customcollapsible-inv7_i1"' )
+has( 'id prefix on sections', withId, 'id="mw-customcollapsible-inv7_s1"' )
+has( 'row id stays the anchor', withId, 'id="Zed"' )
+
+-- section anchors come from the visible words of a title with links
+local linked = p.outline( mw.frame( {}, { id = 'k', text = "== [[V-2 rocket|V-2]] and [[Moon]] ==\n* '''1''' one\n" } ) )
+has( 'anchor from a linked title', linked, 'id="V-2_and_Moon"' )
+
 -- ids are unique, also between two outlines on the page
 local html2 = p.outline( mw.frame( {}, { text = "== A ==\n* '''1''' one\n" } ) )
 local ids, dup = {}, false

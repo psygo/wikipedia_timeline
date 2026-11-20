@@ -56,7 +56,7 @@ The first tools. This line is the section's introduction.
 |-
 | <code>[[File:…]]</code> alone on a line || the picture of the next item
 |}
-Parameters: <code>text</code> (or <code>|1=</code>); <code>collapsed=sections</code>, <code>items</code> or <code>all</code> to start closed; <code>title</code> to make it a column of a parallel group. Use <code>|text=</code> when the text contains <code>=</code>; wrap a literal pipe in <code>{{tl|!}}</code>.
+Parameters: <code>text</code> (or <code>|1=</code>); <code>id</code>, a short prefix for the ids of the items and sections (<code>id=inv2</code> gives <code>inv2_i1</code>, <code>inv2_s1</code>, ...); '''give each outline on a page a different <code>id</code>''' when there is more than one, or their toggles will clash; <code>collapsed=sections</code>, <code>items</code> or <code>all</code> to start closed; <code>title</code> to make it a column of a parallel group. Use <code>|text=</code> when the text contains <code>=</code>; wrap a literal pipe in <code>{{tl|!}}</code>.
 
 == See also ==
 * [[Template:TimelineRail]], the template family this module replaces

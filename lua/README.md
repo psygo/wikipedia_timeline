@@ -19,8 +19,7 @@ lua/
 * **Size.** The templates pass each item's text through `item` → `section` → `TimelineRail`, and the post-expand
   include size counts it at every level (about 3× the text, which is why the whole *Timeline of historic inventions*
   does not fit). `{{TimelineRail/outline|text=…}}` takes the whole timeline once and builds it once.
-  This is expected to help a lot, but it has **not been measured on a wiki**, because a module has to be saved
-  before the parser can run it.
+  Measured on the live parser: see the table below.
 * **Readability.** The markup is built in one place, in Lua, instead of `#if` chains with `&#32;` workarounds.
 * **Testing.** `luajit lua/test/test.lua` runs 50+ checks locally (HTML shape, balanced tags, unique ids, outline parsing).
 
@@ -50,6 +49,24 @@ To try the module without touching the existing templates, create the module and
 space (e.g. `Module:TimelineRail/sandbox` and templates that `#invoke:TimelineRail/sandbox`). To replace the
 template family, paste the other `lua/template/*.wikitext` files over the existing pages; the stylesheet
 page stays as it is. A wrapper whose name matches an existing template needs no change to articles.
+
+## Drafts made with it
+
+`python3 tools/convert_first_images.py --outline` and `python3 tools/convert_inventions.py --outline` write
+`drafts/*__lua.wikitext`: the *Timeline of first images of Earth from space* (36 sections, 46 items) and the whole
+*Timeline of historic inventions* (53 sections, 543 items), each section a `== heading ==` of one
+`{{#invoke:TimelineRail/sandbox|outline |id=...}}` (change `--module=TimelineRail` once the module is live).
+Checked against the live parser with `Module:TimelineRail/sandbox`:
+
+| Draft | Post-expand include size (limit 2,097,152) | Content check |
+|---|---|---|
+| Earth, templates | 504,268 | |
+| Earth, outline | 316,376 | all 82 rows (sections, dates, text, pictures) equal to the template version |
+| Inventions, templates, 231 items | 1,882,259 | |
+| Inventions, outline, 543 items | 1,448,598 | all 543 bullets equal to the original article's |
+
+Give every outline on a page its own `|id=`: Scribunto does not keep module state between `#invoke` calls, so the
+generated ids would otherwise repeat.
 
 ## Limits
 
