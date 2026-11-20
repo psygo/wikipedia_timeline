@@ -129,6 +129,8 @@ def intro_lines(text):
             continue
         if re.match(r'\[\[(File|Image):', l, re.I):
             l = re.sub(r'\|\s*center\s*(?=\||\])', '|none', l)   # left-aligned, as the text beside it
+            if not re.search(r'\|\s*(upright|\d+px)', l):          # larger than the default thumbnail
+                l = re.sub(r'\|\s*thumb(nail)?\s*(?=\|)', '|thumb|upright=1.8', l, count=1)
             l = '{{clear}}' + l       # a bare picture line would be taken for the picture of the next item
         out.append(l)
     return out
