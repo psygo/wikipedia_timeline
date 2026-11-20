@@ -25,10 +25,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      # prototype/web-component is a symlink to ../web-component (the views demo); copy it as real files
-      - run: mkdir _site && cp -rL prototype/. _site/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: prototype
       - id: deployment
         uses: actions/deploy-pages@v4

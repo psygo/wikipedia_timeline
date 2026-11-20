@@ -19,13 +19,14 @@ import pathlib, re, subprocess, sys, urllib.parse
 ARTICLE = 'Timeline of first images of Earth from space'
 root = pathlib.Path(__file__).resolve().parent.parent
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
+from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 OUTLINE = '--outline' in FLAGS
 MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 
-url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
+url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote('Timeline of First Images of Earth from Space'.replace(' ', '_'))   # the article was moved; the old title is a redirect
 wt = subprocess.run(['curl', '-s', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
 if '{|' not in wt:
     sys.exit('Could not fetch the article wikitext')
@@ -164,7 +165,7 @@ if OUTLINE:
     stray = [l[:70] for l in lines if bare_pipes(l)]
     if stray:
         print('WARNING: a bare | would cut the text off in these lines:', *stray, sep='\n  ')
-    timeline = '{{#invoke:%s|outline |id=img\n|text=\n%s\n}}' % (MODULE, '\n'.join(lines))
+    timeline = invoke(MODULE, 'img', '\n'.join(lines))
 items = sections
 
 # ---------------------------------------------------------------- the rest of the page

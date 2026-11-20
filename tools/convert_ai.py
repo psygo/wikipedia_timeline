@@ -19,6 +19,7 @@ import pathlib, re, subprocess, sys, urllib.parse
 ARTICLE = 'Timeline of artificial intelligence'
 root = pathlib.Path(__file__).resolve().parent.parent
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
+from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + '__lua.wikitext')
@@ -117,7 +118,7 @@ def table_items(table_text):
     return items
 
 def wrap(n, lines):
-    return '{{#invoke:%s|outline |id=ai%d\n|text=\n%s\n}}' % (MODULE, n, '\n'.join(lines))
+    return invoke(MODULE, 'ai%d' % n, '\n'.join(lines))
 
 def intro_lines(text):
     """What stands between a subsection heading and its table: notices, hatnotes, pictures."""

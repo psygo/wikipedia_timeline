@@ -50,6 +50,50 @@ space (e.g. `Module:TimelineRail/sandbox` and templates that `#invoke:TimelineRa
 template family, paste the other `lua/template/*.wikitext` files over the existing pages; the stylesheet
 page stays as it is. A wrapper whose name matches an existing template needs no change to articles.
 
+## Switching views: separate modules
+
+`Module:TimelineRail` only draws timelines. Showing the same data as a list or a table, and the **View**
+button that switches between them, are other components. Each works alone.
+
+| Module | What it does | Paste from |
+|---|---|---|
+| `Module:ViewSwitcher` | `{{#invoke:ViewSwitcher|switch ...}}`: wraps several views, each any wikitext or the output of any module function, in one box | `lua/Module_ViewSwitcher.lua` |
+| `Module:ViewSwitcher/styles.css` | the button and menu (passes the TemplateStyles sanitizer) | `lua/ViewSwitcher__styles.css` |
+| the button itself | the script that builds the dropdown (MediaWiki:Gadget-ViewSwitcher.js, or your common.js to try it) | `userscript/ViewSwitcher.js` |
+| `Module:OutlineList` (optional) | `{{#invoke:OutlineList|list \|text=...}}`: the outline as a plain bulleted list | `lua/Module_OutlineList.lua` |
+| `Module:OutlineTable` (optional) | `{{#invoke:OutlineTable|table \|text=...}}`: the outline as a `wikitable` | `lua/Module_OutlineTable.lua` |
+
+**The list and table modules are optional.** They add no styling: they write a plain `<ul>` and a
+`class="wikitable"`, the default Wikipedia elements. All they do is write them from the same outline, so the
+data is typed once and the three views cannot drift apart. Without them, give the switcher views you wrote
+yourself (`|label2=List |view2=* ...`, `|label3=Table |view3={| class="wikitable" ...`); that repeats the data
+in the page source.
+
+```
+{{#invoke:ViewSwitcher|switch
+|views=Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=inv1
+|text=
+== 3.3 Mya - 1 Mya ==
+* '''3.3 Mya''' Stone tools ...
+}}
+```
+
+`Label=Module.function` pairs; every other argument goes to every function. Views you write yourself:
+`|label1=Photos |view1=... |label2=Map |view2=...`, and `|default=2` picks the view shown first.
+Without the script the reader sees the first view only. The list and table read the outline with
+`Module:TimelineRail`'s `parseOutline`. To try it in sandboxes, name every module `.../sandbox` and add
+`|parser=TimelineRail/sandbox`. The converters write this call with `--switcher` (or
+`--switcher=ViewSwitcher/sandbox`); the Earth draft is
+`drafts/Timeline_of_first_images_of_Earth_from_space__lua_views.wikitext`.
+
+Wikipedia already has `{{Switcher}}` (Module:Switcher plus the default-on `Gadget-switcher.js`, radio
+buttons); it is made for swapping images in infoboxes, so this is a separate, dropdown-style module.
+Each view is written out in the page, so mind the post-expand size: the Earth outline in three views is
+about 175 kB; the 543-item inventions article in three views would likely pass the 2 MB limit and need splitting.
+
+Tests: `luajit lua/test/test_switcher.lua`.
+
 ## Drafts made with it
 
 `python3 tools/convert_first_images.py --outline` and `python3 tools/convert_inventions.py --outline` write

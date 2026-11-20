@@ -4,5 +4,7 @@
   - Lua Modules are much more efficient than Wikipedia Templates.
 - [x] Turn this project into a Web Component. (`web-component/`)
 - [x] Turn this project into a React component. (`react/`)
-- [x] The Extra Step: a view button (dropdown, top right) to switch between the timeline, a bulleted list and a table, plus custom views. (Web component only: `web-component/`; not yet in React, Lua or the template.)
-- [x] Add a before and after to the demo. (`web-component/demo/views.html`, linked from the viewer; built with the list view.)
+- [x] The Extra Step: switching between views is not part of the timeline. It is separate components (Lua modules `ViewSwitcher`, `OutlineList`, `OutlineTable`, and the script `userscript/ViewSwitcher.js`), see `lua/README.md`; the timeline stays only a timeline.
+- [ ] Not tried on a wiki yet: the three modules and the script.
+- [ ] Add a before and after to the demo, now with the separate components. (The web component has no views any more.)
+- [ ] Web component / React: the same split (a separate `<view-switcher>`, list and table components), if wanted.

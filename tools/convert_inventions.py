@@ -25,6 +25,7 @@ import pathlib, re, subprocess, sys, urllib.parse
 ARTICLE = 'Timeline of historic inventions'
 root = pathlib.Path(__file__).resolve().parent.parent
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
+from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 OUTLINE = '--outline' in FLAGS
 MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
@@ -300,7 +301,7 @@ def emit(sec, pieces):
         if run:
             if OUTLINE:
                 stats['outlines'] = stats.get('outlines', 0) + 1
-                pieces.append('{{#invoke:%s|outline |id=inv%d\n|text=\n%s\n}}' % (MODULE, stats['outlines'], '\n'.join(outline_section(c) for c in run)))
+                pieces.append(invoke(MODULE, 'inv%d' % stats['outlines'], '\n'.join(outline_section(c) for c in run)))
             else:
                 pieces.append('{{%s\n|%s\n}}' % (BASE, '\n'.join(section_wikitext(c) for c in run)))
             run.clear()

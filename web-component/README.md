@@ -32,32 +32,6 @@ Open `demo/index.html` through a local server (modules do not load from `file://
   expand every item of that timeline; double-click a section's dot to keep it open and close
   its sibling sections. A `timeline-toggle` event bubbles with `{ id, open }`. `rail.toggle(id, open)` and
   `rail.reveal(id)` work from script, and the rail opens the item or section named by `location.hash`.
-* **Views.** A **View** dropdown at the top right switches the same data between `timeline`, `list` (a plain
-  bulleted list, like Wikipedia today) and `table`. Attributes on `<timeline-rail>`: `view="list"` (the view
-  to start in; also set when the reader chooses), `views="timeline,table"` (which views to offer, in order),
-  `switcher="false"` (no button), `table-columns="date, text"` (columns of the table: `date`, `title`, `text`,
-  `image`; by default those that have data). The button is hidden when only one view is offered. Script:
-  `rail.view`, `rail.views`, and a `timeline-view` event with `{ view }`. Open and closed items are kept across views.
-  `demo/views.html` shows it, with a before (list) and after (timeline) side by side.
-* **Your own views.** A view is `{ label, render( model, ctx ) }`; `render` returns a DOM node.
-  `rail.addView( id, def )` adds it to one rail, `TimelineRail.registerView( id, def )` to every rail
-  (and replaces a built-in one of the same id, so you can also redo the list or the table).
-
-  ```js
-  rail.addView( 'cards', { label: 'Cards', render( model, { h, flatten } ) {
-      const box = h( 'div' );
-      for ( const { node } of flatten( model.columns[ 0 ].nodes ) ) {
-          box.append( h( 'p', '', null, node.date + ': ' + node.title ), node.content() );
-      }
-      return box;
-  } } );
-  ```
-
-  `model.columns` is `[ { title, nodes } ]` (one column, no title, unless the rail has `<timeline-column>`s).
-  A node is `{ kind: 'item' | 'section', id, date, title, summary, text, content(), image, events, children }`
-  (`text` is plain, `content()` a fresh fragment with its links, `image` is `{ src, alt, width, caption }`,
-  `events` are the events on one dot, `children` the sub items or the items of a section).
-  `ctx` is `{ h( tag, class, attrs, ...kids ), flatten( nodes ) → [ { node, depth, parent } ], rail }`.
 * **Theming.** Colours are CSS custom properties (`--color-progressive`, `--color-base`, ...) with light
   fallbacks; they pass through the shadow root, so set them on any ancestor. `src/theme.css` has Wikipedia's
   light and dark values.

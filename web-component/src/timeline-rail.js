@@ -24,23 +24,16 @@
  * <timeline-column>   title. Several of them as children of the rail place timelines side by side;
  *                     add the grouped attribute on the rail to align their dots.
  *
- * Views: a button at the top right switches the same data between a timeline, a bulleted list and
- * a table. view="list" starts in another view, views="timeline,table" limits the menu, switcher="false"
- * hides the button. TimelineRail.registerView(id, { label, render(model, ctx) }) adds views for every
- * rail, rail.addView(id, def) for one; see views.js for the model a view receives.
- *
  * Interaction: click or Enter on a row toggles it; double-click an item's dot to collapse or expand
  * every item of that timeline; double-click a section's dot to keep it open and close its sibling
  * sections. The "timeline-toggle" event bubbles with { id, open }. The rail also opens the
  * item or section named by location.hash.
  */
 import baseCss from './timeline.css.js';
-import { builtinViews, viewsCss } from './views.js';
 
 // Links inside the shadow root do not see the page's link colour; use the same token.
-const css = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); }\n' + viewsCss;
+const css = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); }\n';
 
-const registry = new Map( Object.entries( builtinViews ) );
 const DATA_TAGS = ['timeline-item', 'timeline-section', 'timeline-gap', 'timeline-column', 'timeline-event'];
 let sheet = null;
 if ( typeof CSSStyleSheet !== 'undefined' && 'replaceSync' in CSSStyleSheet.prototype ) {
@@ -60,11 +53,8 @@ const blank = ( n ) => n.nodeType === 8 || ( n.nodeType === 3 && !n.textContent.
 const bool = ( el, name ) => el.hasAttribute( name ) && el.getAttribute( name ) !== 'false';
 
 export class TimelineRail extends HTMLElement {
-	#root; #open = new Map(); #pending = false; #mo; #own = new Map(); #menuOpen = false; #refocus = false;
-	static get observedAttributes() { return [ 'grouped', 'view', 'views', 'switcher' ]; }
-
-	/** Add a view to every rail: def = { label, render( model, ctx ) returning a Node }. */
-	static registerView( id, def ) { registry.set( id, def ); }
+	#root; #open = new Map(); #pending = false; #mo;
+	static get observedAttributes() { return [ 'grouped' ]; }
 
 	constructor() {
 		super();
@@ -77,14 +67,12 @@ export class TimelineRail extends HTMLElement {
 	connectedCallback() {
 		this.#mo.observe( this, { childList: true, subtree: true, characterData: true, attributes: true } );
 		window.addEventListener( 'hashchange', this.#hash );
-		document.addEventListener( 'click', this.#outside );
 		this.#render();
 		this.#hash();
 	}
 	disconnectedCallback() {
 		this.#mo.disconnect();
 		window.removeEventListener( 'hashchange', this.#hash );
-		document.removeEventListener( 'click', this.#outside );
 	}
 	attributeChangedCallback() { this.#schedule(); }
 	#schedule() {
@@ -94,13 +82,6 @@ export class TimelineRail extends HTMLElement {
 	}
 
 	// ------------------------------------------------------------------ public API
-	/** The id of the view being shown. Setting it switches the view. */
-	get view() { return this.#current(); }
-	set view( id ) { this.setAttribute( 'view', id ); }
-	/** The views on offer, in menu order: [ { id, label } ]. */
-	get views() { return this.#available().map( ( [ id, d ] ) => ( { id, label: d.label || id } ) ); }
-	/** Add a view to this rail only. */
-	addView( id, def ) { this.#own.set( id, def ); this.#schedule(); }
 	/** Open (or close) the item or section with this id; with open=true its parents open too. */
 	toggle( id, open ) {
 		const li = this.#root.querySelector( `[data-key="${ CSS.escape( id ) }"]` );
@@ -117,69 +98,6 @@ export class TimelineRail extends HTMLElement {
 		}
 		el.scrollIntoView();
 		return true;
-	}
-
-	// ------------------------------------------------------------------ views
-	#available() {
-		const all = new Map( [ ...registry, ...this.#own ] );
-		const ids = ( this.getAttribute( 'views' ) || '' ).split( /[\s,]+/ ).filter( Boolean );
-		return ( ids.length ? ids : [ ...all.keys() ] ).filter( ( id ) => all.has( id ) ).map( ( id ) => [ id, all.get( id ) ] );
-	}
-	#current() {
-		const list = this.#available();
-		const want = this.getAttribute( 'view' );
-		return list.some( ( [ id ] ) => id === want ) ? want : ( list.length ? list[ 0 ][ 0 ] : 'timeline' );
-	}
-	#choose( id ) {
-		this.#menuOpen = false;
-		if ( id !== this.#current() ) {
-			this.setAttribute( 'view', id );
-			this.dispatchEvent( new CustomEvent( 'timeline-view', { bubbles: true, detail: { view: id } } ) );
-		} else { this.#render(); }
-	}
-	#outside = ( e ) => {
-		if ( this.#menuOpen && !e.composedPath().includes( this ) ) { this.#menuOpen = false; this.#render(); }
-	};
-	#bar( views, current ) {
-		const label = ( views.find( ( [ id ] ) => id === current ) || [ , {} ] )[ 1 ].label || current;
-		const button = h( 'button', 'wt-viewmenu__button', { type: 'button', 'aria-haspopup': 'menu', 'aria-expanded': String( this.#menuOpen ) }, 'View: ' + label );
-		const list = h( 'div', 'wt-viewmenu__list', { role: 'menu', 'aria-label': 'View' } );
-		list.hidden = !this.#menuOpen;
-		for ( const [ id, def ] of views ) {
-			list.append( h( 'button', 'wt-viewmenu__item', { type: 'button', role: 'menuitemradio', 'aria-checked': String( id === current ), 'data-view': id, tabindex: '-1' }, def.label || id ) );
-		}
-		const items = () => [ ...list.querySelectorAll( '.wt-viewmenu__item' ) ];
-		const toggle = ( open, focusItem ) => {
-			this.#menuOpen = open; list.hidden = !open; button.setAttribute( 'aria-expanded', String( open ) );
-			if ( open ) { ( items().find( ( b ) => b.getAttribute( 'aria-checked' ) === 'true' ) || items()[ 0 ] ).focus(); }
-			else if ( focusItem ) { button.focus(); }
-		};
-		button.addEventListener( 'click', () => toggle( !this.#menuOpen ) );
-		button.addEventListener( 'keydown', ( e ) => { if ( e.key === 'ArrowDown' ) { e.preventDefault(); toggle( true ); } } );
-		list.addEventListener( 'click', ( e ) => {
-			const b = e.target.closest( '.wt-viewmenu__item' );
-			if ( b ) { this.#refocus = true; this.#choose( b.dataset.view ); }
-		} );
-		list.addEventListener( 'keydown', ( e ) => {
-			const all = items(), at = all.indexOf( this.#root.activeElement );
-			const go = { ArrowDown: ( at + 1 ) % all.length, ArrowUp: ( at - 1 + all.length ) % all.length, Home: 0, End: all.length - 1 }[ e.key ];
-			if ( go !== undefined ) { e.preventDefault(); all[ go ].focus(); }
-			else if ( e.key === 'Escape' || e.key === 'Tab' ) { toggle( false, e.key === 'Escape' ); }
-		} );
-		return h( 'div', 'wt-viewbar', null, h( 'div', 'wt-viewmenu', null, button, list ) );
-	}
-	/** The data of a list of read nodes, in the shape the views get (see views.js). */
-	#model( nodes ) {
-		const part = ( ev ) => ( {
-			title: ev.title, text: ev.text || ev.nodes.map( ( n ) => n.textContent ).join( '' ).replace( /\s+/g, ' ' ).trim(),
-			image: ev.image ? { src: ev.image, alt: ev.alt, width: ev.width, caption: ev.caption } : null,
-			content: () => { const f = document.createDocumentFragment(); if ( ev.text ) { f.append( ev.text ); } f.append( ...ev.nodes.map( ( n ) => n.cloneNode( true ) ) ); return f; },
-		} );
-		return nodes.filter( ( n ) => n.kind !== 'gap' ).map( ( n ) => ( {
-			kind: n.kind, id: n.id, key: n.key, date: n.date, summary: n.summary,
-			...part( n.ev ), title: n.title,
-			events: n.events.map( part ), children: this.#model( n.children ),
-		} ) );
 	}
 
 	// ------------------------------------------------------------------ reading the children
@@ -274,23 +192,8 @@ export class TimelineRail extends HTMLElement {
 	}
 	#render() {
 		const columns = [ ...this.children ].filter( ( c ) => isTag( c, 'timeline-column' ) );
-		const views = this.#available(), current = this.#current();
-		const bar = views.length > 1 && this.getAttribute( 'switcher' ) !== 'false' ? this.#bar( views, current ) : null;
-		const def = views.find( ( [ id ] ) => id === current );
-		const custom = def && def[ 1 ].render;
 		let tree;
-		if ( custom ) {
-			const model = { columns: columns.length
-				? columns.map( ( c, i ) => ( { title: c.getAttribute( 'title' ) || '', nodes: this.#model( this.#readList( c, 'c' + i ) ) } ) )
-				: [ { title: '', nodes: this.#model( this.#readList( this, 'r' ) ) } ] };
-			const flatten = ( nodes, depth = 0, parent = null, out = [] ) => {
-				for ( const n of nodes ) { out.push( { node: n, depth, parent } ); flatten( n.children, depth + 1, n, out ); }
-				return out;
-			};
-			try { tree = custom( model, { h, flatten, rail: this } ); }
-			catch ( err ) { console.error( '<timeline-rail> view "' + current + '" failed', err ); tree = h( 'p', '', null, 'This view could not be drawn.' ); }
-			tree.dataset.view = current;
-		} else if ( columns.length ) {
+		if ( columns.length ) {
 			tree = h( 'div', 'wt-timelines' + ( bool( this, 'grouped' ) ? ' wt-timelines--grouped' : '' ) );
 			columns.forEach( ( c, i ) => {
 				const col = h( 'div', 'wt-timelines__col' );
@@ -301,17 +204,11 @@ export class TimelineRail extends HTMLElement {
 		} else {
 			tree = this.#list( this.#readList( this, 'r' ), 'wt-timeline' );
 		}
-		const hadFocus = this.#root.activeElement && this.#root.activeElement.closest && this.#root.activeElement.closest( '.wt-viewmenu' );
 		[ ...this.#root.children ].forEach( ( n ) => { if ( n.localName !== 'style' ) { n.remove(); } } );
-		if ( bar ) { this.#root.append( bar ); }
 		this.#root.append( tree );
-		if ( this.#refocus ) { this.#refocus = false; const b = this.#root.querySelector( '.wt-viewmenu__button' ); if ( b ) { b.focus(); } }
-		else if ( hadFocus && this.#menuOpen ) { this.#root.querySelector( '.wt-viewmenu__item[aria-checked="true"]' ).focus(); }
-		if ( !custom ) {
-			tree.addEventListener( 'click', ( e ) => this.#onRow( e ) );
-			tree.addEventListener( 'keydown', ( e ) => this.#onRow( e ) );
-			tree.addEventListener( 'dblclick', ( e ) => this.#onDouble( e ) );
-		}
+		tree.addEventListener( 'click', ( e ) => this.#onRow( e ) );
+		tree.addEventListener( 'keydown', ( e ) => this.#onRow( e ) );
+		tree.addEventListener( 'dblclick', ( e ) => this.#onDouble( e ) );
 	}
 
 	// ------------------------------------------------------------------ state and interaction

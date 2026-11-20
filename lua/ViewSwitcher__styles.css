@@ -1,0 +1,94 @@
+/* Module:ViewSwitcher/styles.css
+   Without the script (ViewSwitcher.js) only the default view shows. The script adds
+   .viewswitcher--js, builds the button and menu, and shows one view at a time with [hidden]. */
+.viewswitcher:not( .viewswitcher--js ) > .viewswitcher__view:not( .viewswitcher__view--default ) {
+	display: none;
+}
+
+.viewswitcher__bar {
+	display: flex;
+	justify-content: flex-end;
+	margin: 0 0 0.6em;
+}
+
+.viewswitcher__menu {
+	position: relative;
+}
+
+.viewswitcher__button {
+	font: inherit;
+	font-size: 0.875em;
+	color: var( --color-base, #202122 );
+	cursor: pointer;
+	padding: 0.3em 0.75em;
+	border: 1px solid var( --border-color-base, #a2a9b1 );
+	border-radius: 2px;
+	background: var( --background-color-interactive-subtle, #f8f9fa );
+}
+
+.viewswitcher__button:hover,
+.viewswitcher__button[ aria-expanded="true" ] {
+	border: 1px solid var( --color-progressive, #36c );
+}
+
+.viewswitcher__button::after {
+	content: '';
+	display: inline-block;
+	margin-left: 0.55em;
+	vertical-align: 0.1em;
+	border: 0.3em solid transparent;
+	border-top-color: currentColor;
+	border-bottom-width: 0;
+}
+
+.viewswitcher__button:focus,
+.viewswitcher__item:focus {
+	outline: 2px solid var( --color-progressive, #36c );
+	outline-offset: 1px;
+}
+
+.viewswitcher__list {
+	position: absolute;
+	right: 0;
+	z-index: 5;
+	min-width: 100%;
+	margin: 2px 0 0;
+	padding: 0.25em 0;
+	border: 1px solid var( --border-color-base, #a2a9b1 );
+	border-radius: 2px;
+	background: var( --background-color-base, #fff );
+	box-shadow: 0 2px 6px rgba( 0, 0, 0, 0.2 );
+}
+
+.viewswitcher__list[ hidden ] {
+	display: none;
+}
+
+.viewswitcher__item {
+	display: block;
+	width: 100%;
+	padding: 0.35em 1.8em 0.35em 1em;
+	border: 0;
+	background: none;
+	font: inherit;
+	font-size: 0.875em;
+	text-align: left;
+	white-space: nowrap;
+	cursor: pointer;
+	color: var( --color-base, #202122 );
+}
+
+.viewswitcher__item:hover {
+	background: var( --background-color-interactive-subtle, #f8f9fa );
+}
+
+.viewswitcher__item[ aria-checked="true" ] {
+	font-weight: bold;
+	color: var( --color-progressive, #36c );
+}
+
+.viewswitcher__item[ aria-checked="true" ]::after {
+	content: '\2713';
+	float: right;
+	margin-right: -1.3em;
+}
