@@ -335,7 +335,11 @@ function p.outline( frame )
 		collapseSections = collapsed == 'sections' or collapsed == 'all',
 		collapseItems = collapsed == 'items' or collapsed == 'all',
 	}
-	local body = buildOutline( tree, opts, a.id or ( 'tl' .. uid ), { s = 0, i = 0 } )
+	-- Without |id=, the prefix comes from the text itself: two different outlines on a page never
+	-- share it (Scribunto does not keep a counter between #invoke calls).
+	local h = 5381
+	for i = 1, #text do h = ( h * 33 + text:byte( i ) ) % 4294967296 end
+	local body = buildOutline( tree, opts, a.id or string.format( 'tl%x', h ), { s = 0, i = 0 } )
 	return styles( frame ) .. renderRail( body, a.title )
 end
 

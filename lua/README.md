@@ -65,8 +65,9 @@ Checked against the live parser with `Module:TimelineRail/sandbox`:
 | Inventions, templates, 231 items | 1,882,259 | |
 | Inventions, outline, 543 items | 1,448,598 | all 543 bullets equal to the original article's |
 
-Give every outline on a page its own `|id=`: Scribunto does not keep module state between `#invoke` calls, so the
-generated ids would otherwise repeat.
+Scribunto does not keep module state between `#invoke` calls, so the generated ids cannot come from a counter: they come from
+`|id=` if given, otherwise from a hash of the outline's text (two different outlines never share a prefix). With an old module
+that repeated ids, MediaWiki cannot match togglers to their items and shows a `[hide]` link on each item instead of using the dot.
 
 ## Limits
 

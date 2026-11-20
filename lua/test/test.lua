@@ -147,6 +147,11 @@ has( 'id prefix on items', withId, 'id="mw-customcollapsible-inv7_i1"' )
 has( 'id prefix on sections', withId, 'id="mw-customcollapsible-inv7_s1"' )
 has( 'row id stays the anchor', withId, 'id="Zed"' )
 
+-- without |id=, different texts get different prefixes and equal texts the same one
+local function firstId( text ) return p.outline( mw.frame( {}, { text = text } ) ):match( 'mw%-collapsible" id="mw%-customcollapsible%-([^"]+)"' ) end
+check( 'default prefix differs per text', firstId( "* '''1''' a\n" ) ~= firstId( "* '''1''' b\n" ) )
+eq( 'default prefix is stable', firstId( "* '''1''' a\n" ), firstId( "* '''1''' a\n" ) )
+
 -- section anchors come from the visible words of a title with links
 local linked = p.outline( mw.frame( {}, { id = 'k', text = "== [[V-2 rocket|V-2]] and [[Moon]] ==\n* '''1''' one\n" } ) )
 has( 'anchor from a linked title', linked, 'id="V-2_and_Moon"' )
