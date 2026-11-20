@@ -115,6 +115,11 @@
 	margin-top: 0.15em;
 }
 
+/* No title above it: the text starts at the top, level with the date and the dot. */
+.wt-timeline__title:empty + .wt-timeline__text {
+	margin-top: 0;
+}
+
 /* Same look as a Wikipedia thumbnail. */
 .wt-timeline__image {
 	display: inline-block;
