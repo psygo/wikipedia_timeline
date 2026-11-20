@@ -66,6 +66,26 @@ The same stylesheet, class names and behaviour, outside Wikipedia (the styleshee
 - [react/](react/) is a set of React components (Vite library build, TypeScript types), with `ViewSwitcher`, `OutlineList` and `OutlineTable` as separate components.
 - [lua/](lua/) is `Module:TimelineRail`, a Scribunto module that writes the same markup (with an `outline` entry point that avoids the post-expand size problem); locally tested only.
 
+## Wikipedia pages
+
+Every page the project creates on a wiki, with the file to paste into it. Name a module `.../sandbox` to try it first (the converters
+write drafts for the sandbox names); `lua/README.md` has the step by step, and the draft pages are in `drafts/`.
+
+| Page (edit link) | Paste from | What it is | Sandbox copy? |
+|---|---|---|---|
+| [Module:TimelineRail](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail&action=edit) | `lua/Module_TimelineRail.lua` | The timeline: `item`, `section`, `event`, `gap`, `rail`, `parallel`, and `outline` (one outline text becomes a whole timeline). | yes |
+| [Module:TimelineRail/doc](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail/doc&action=edit) | `lua/Module_TimelineRail__doc.wikitext` | Its documentation. | - |
+| [Module:ViewSwitcher](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher&action=edit) | `lua/Module_ViewSwitcher.lua` | `{{#invoke:ViewSwitcher|switch ...}}`: several views of one content in a box; `*` or `default=` marks the default view; `@arg` shows an argument as it is; footnotes kept in the default view only. | yes |
+| [Module:ViewSwitcher/styles.css](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher/styles.css&action=edit) | `lua/ViewSwitcher__styles.css` | The button and menu of the switcher (TemplateStyles). | no (the module names this page) |
+| [Module:OutlineList](https://en.wikipedia.org/w/index.php?title=Module:OutlineList&action=edit) | `lua/Module_OutlineList.lua` | The outline as a plain bulleted list (a view for the switcher, or alone). | yes |
+| [Module:OutlineTable](https://en.wikipedia.org/w/index.php?title=Module:OutlineTable&action=edit) | `lua/Module_OutlineTable.lua` | The outline as a `wikitable` (a view for the switcher, or alone). | yes |
+| [Template:TimelineRail/styles.css](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/styles.css&action=edit) | `template/TimelineRail__styles.css` | The look of the timeline (TemplateStyles); shared by the template and the module. | no |
+| [Template:TimelineRail](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail&action=edit), `/item`, `/section`, `/event`, `/gap`, `/parallel`, `/outline` | `lua/template/TimelineRail*.wikitext` (7 files) | One-line `{{#invoke:TimelineRail|...}}` wrappers, so articles keep the template names. Same page names as the pure-template family in `template/`: use one family or the other. | no |
+| [MediaWiki:Gadget-ViewSwitcher.js](https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadget-ViewSwitcher.js&action=edit) | `userscript/ViewSwitcher.js` | The View button. For one account: `User:<name>/common.js`. | no (interface administrators) |
+| [MediaWiki:Gadgets-definition](https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadgets-definition&action=edit) | (one line: `* ViewSwitcher[default]\|ViewSwitcher.js`) | Switches the gadget on for everyone. | no (interface administrators) |
+
+The test page `lua/Module_TimelineRail__test.wikitext` goes on any user subpage (it calls the sandbox module).
+
 ## User script (optional)
 
 `userscript/Timeline-toolbar.js` adds a **Timeline** drop-down to the edit toolbar that inserts
