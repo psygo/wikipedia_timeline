@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>&lt;timeline-rail&gt; views: before and after</title>
+<link rel="stylesheet" href="../src/theme.css">
+<style>
+	main { max-width: 58em; margin: 0 auto; padding: 1em; line-height: 1.5; }
+	h2 { border-bottom: 1px solid var(--border-color-subtle); margin-top: 1.6em; }
+	.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; align-items: start; }
+	.compare h3 { margin: 0.2em 0; }
+	@media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+	.note { color: var(--color-subtle); font-size: 0.9em; }
+</style>
+<script type="module" src="../src/timeline-rail.js"></script>
+</head>
+<body>
+<main>
+<h1>&lt;timeline-rail&gt;: one set of data, several views</h1>
+<p>Use the <b>View</b> button at the top right of a timeline to switch between the timeline, a plain bulleted list
+(how the data looks on Wikipedia today) and a table. The data below is written once, as <code>&lt;timeline-item&gt;</code>
+elements; every view is drawn from it. Text adapted from <i>Timeline of historic inventions</i> (CC BY-SA 4.0).</p>
+
+<h2>Before and after</h2>
+<p class="note">Same data twice: on the left the list a reader gets today, on the right the timeline.</p>
+<div class="compare">
+	<div><h3>Before: list</h3>
+	<timeline-rail id="before" view="list" switcher="false"></timeline-rail></div>
+	<div><h3>After: timeline</h3>
+	<timeline-rail id="after" switcher="false"></timeline-rail></div>
+</div>
+
+<h2>With the view button</h2>
+<timeline-rail id="menu">
+		<timeline-section title="3.3 Mya – 1 Mya">
+			<timeline-item date="3.3 Mya – 2.6 Mya" title="Stone tools">Found in modern-day <a href="https://en.wikipedia.org/wiki/Kenya">Kenya</a> are older and only found on the archetype road. Ancient stone tools from <a href="https://en.wikipedia.org/wiki/Ethiopia">Ethiopia</a> (<a href="https://en.wikipedia.org/wiki/Oldowan">Oldowan</a>) were hand-crafted by <a href="https://en.wikipedia.org/wiki/Australopithecus">Australopithecus</a> or related people.</timeline-item>
+			<timeline-item date="1.76 Mya" title="Advanced (Acheulean) stone tools">In <a href="https://en.wikipedia.org/wiki/Kenya">Kenya</a> by <i><a href="https://en.wikipedia.org/wiki/Homo_erectus">Homo erectus</a></i>.</timeline-item>
+			<timeline-item date="1.75 Mya – 150 kya" title="Origin of language">Varying estimates.</timeline-item>
+			<timeline-item date="1.5 Mya" title="Control of fire">Earliest likely, by <i><a href="https://en.wikipedia.org/wiki/Homo_erectus">Homo erectus</a></i>.</timeline-item>
+			<timeline-item date="1.5 Mya" title="Bone tools">In Africa by <i><a href="https://en.wikipedia.org/wiki/Homo_erectus">Homo erectus</a></i> and/or <i><a href="https://en.wikipedia.org/wiki/Paranthropus_boisei">Paranthropus boisei</a></i>.</timeline-item>
+		</timeline-section>
+		<timeline-section title="1 Mya and later">
+			<timeline-item date="1 Mya – 780 kya" title="Cooking">In the Middle East by <a href="https://en.wikipedia.org/wiki/Homo_erectus">Homo erectus</a>.</timeline-item>
+			<timeline-item date="900 kya – 40 kya" title="Rafts"></timeline-item>
+			<timeline-item date="500 kya" title="Hafting">In South Africa by <i><a href="https://en.wikipedia.org/wiki/Homo_heidelbergensis">Homo heidelbergensis</a></i>.</timeline-item>
+			<timeline-item date="500 kya – 450 kya" title="Woodworking construction">In Zambia by <i><a href="https://en.wikipedia.org/wiki/Homo_heidelbergensis">Homo heidelbergensis</a></i>. (The <a href="https://en.wikipedia.org/wiki/oldest_known_surviving_buildings">oldest known surviving buildings</a> are made from stone and date back no more than 9,500 years.)</timeline-item>
+			<timeline-item date="420 kya – 200 kya" title="Food storage">In the form of uncracked bones saved for their marrow in <a href="https://en.wikipedia.org/wiki/Qesem_cave">Qesem cave</a>, <a href="https://en.wikipedia.org/wiki/Israel">Israel</a>.</timeline-item>
+			<timeline-item date="400 kya" title="Hide and leather">Clothing, footwear and shelter.</timeline-item>
+			<timeline-item date="400 kya" title="Pigments">In Zambia by <i><a href="https://en.wikipedia.org/wiki/Homo_heidelbergensis">Homo heidelbergensis</a></i>.</timeline-item>
+			<timeline-item date="337 kya – 300 kya" title="Schöningen spears">In <a href="https://en.wikipedia.org/wiki/Germany">Germany</a>, likely by <i><a href="https://en.wikipedia.org/wiki/Homo_heidelbergensis">Homo heidelbergensis</a></i> or early Neanderthals.</timeline-item>
+			<timeline-item date="320 kya" title="Trade">Long-distance (up to 50 miles) <a href="https://en.wikipedia.org/wiki/transportation">transportation</a> of resources (e.g. <a href="https://en.wikipedia.org/wiki/obsidian">obsidian</a>), use of pigments, and possible making of projectile points in Kenya.</timeline-item>
+		</timeline-section>
+</timeline-rail>
+
+<h2>Several kinds of data: images, sub items, events on one dot</h2>
+<timeline-rail id="rich" view="table">
+	<timeline-item date="1612" title="The Go academy">The Tokugawa shogunate patronises the game and forms the houses of professional players.</timeline-item>
+	<timeline-item date="March 2016" title="AlphaGo defeats Lee Sedol" image="images/huang-longshi.png" image-width="120" caption="A picture, with a caption">AlphaGo wins four games to one in <a href="https://en.wikipedia.org/wiki/Seoul">Seoul</a>.</timeline-item>
+	<timeline-item date="2020" title="With a sub timeline">
+		Parent text.
+		<timeline-item date="Spring" title="First">Sub item one.</timeline-item>
+		<timeline-item date="Autumn" title="Second">Sub item two.</timeline-item>
+	</timeline-item>
+	<timeline-item date="2017">
+		<timeline-event title="AlphaGo Master">Wins 60 straight online games.</timeline-event>
+		<timeline-event title="Future of Go Summit">AlphaGo beats Ke Jie in three games.</timeline-event>
+	</timeline-item>
+</timeline-rail>
+
+<h2>Your own views</h2>
+<p>A view is a label and a function from the data to a DOM node. This rail has a "Cards" view and a "Years only" view
+added with <code>rail.addView()</code>; <code>TimelineRail.registerView()</code> adds one to every rail on the page.
+The table here also uses <code>table-columns="date, text"</code>.</p>
+<timeline-rail id="custom" table-columns="date, text" views="timeline,table,cards,years">
+	<timeline-item date="1846" title="The Ear-Reddening Game">Shusaku's move 127 stuns Gennan Inseki.</timeline-item>
+	<timeline-item date="1998" title="Lee Sedol turns professional">He is twelve years old.</timeline-item>
+	<timeline-item date="2016" title="AlphaGo">Beats Lee Sedol four games to one.</timeline-item>
+	<timeline-item date="2017" title="AlphaGo Zero">Learns from self-play, without human games.</timeline-item>
+</timeline-rail>
+</main>
+
+<script type="module">
+	import { TimelineRail } from '../src/timeline-rail.js';
+
+	// Before and after: the same children in two rails.
+	const source = document.getElementById( 'menu' ).innerHTML;
+	document.getElementById( 'before' ).innerHTML = source;
+	document.getElementById( 'after' ).innerHTML = source;
+
+	const custom = document.getElementById( 'custom' );
+	custom.addView( 'cards', {
+		label: 'Cards',
+		render( model, { h, flatten } ) {
+			const grid = h( 'div', '', { style: 'display:grid;grid-template-columns:repeat(auto-fill,minmax(12em,1fr));gap:0.8em' } );
+			for ( const { node } of flatten( model.columns[ 0 ].nodes ) ) {
+				grid.append( h( 'div', '', { style: 'border:1px solid var(--border-color-base,#a2a9b1);border-radius:4px;padding:0.6em 0.8em' },
+					h( 'div', '', { style: 'font-size:1.6em;font-weight:bold;color:var(--color-progressive,#36c)' }, node.date ),
+					h( 'div', '', { style: 'font-weight:bold' }, node.title ), node.content() ) );
+			}
+			return grid;
+		},
+	} );
+	custom.addView( 'years', {
+		label: 'Years only',
+		render: ( model, { h, flatten } ) => h( 'p', '', null, flatten( model.columns[ 0 ].nodes ).map( ( r ) => r.node.date ).join( ' \u00B7 ' ) ),
+	} );
+	custom.addEventListener( 'timeline-view', ( e ) => console.log( 'view changed to', e.detail.view ) );
+</script>
+</body>
+</html>
