@@ -127,6 +127,7 @@ def intro_lines(text):
         if not l:
             continue
         if re.match(r'\[\[(File|Image):', l, re.I):
+            l = re.sub(r'\|\s*center\s*(?=\||\])', '|none', l)   # left-aligned, as the text beside it
             l = '{{clear}}' + l       # a bare picture line would be taken for the picture of the next item
         out.append(l)
     return out
