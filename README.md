@@ -7,6 +7,8 @@ A vertical event timeline for Wikipedia, built as a template plus TemplateStyles
 
 Tables are still a great of way of displaying timelines, especially when we have multi-column data. The `TimelineRail` component here seems to be better whenever each event contains a lot of text and multi-type data.
 
+![Timeline of Historic Inventions](/docs/historic_inventions_demo.png)
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/screenshot-dark.png">
   <img alt="The timeline in a mock Wikipedia article: sections with red dots, dated events with blue dots, a picture, in the light theme" src="docs/screenshot-light.png">

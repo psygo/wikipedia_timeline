@@ -4,9 +4,12 @@
 Usage: python3 tools/convert_ai.py [--module=NAME] [out.wikitext]
 
 Fetches the current wikitext of the article from English Wikipedia. Every two-column table (date |
-development) becomes one {{#invoke:NAME|outline|text=...}} timeline with one item per row; a date
-shared by several rows (rowspan) is repeated on each item. Headings, the lead, the pictures and
-everything outside the tables (See also, Notes, References, Sources, ...) stay exactly as they are.
+development) becomes timeline items, one per row; a date shared by several rows (rowspan) is repeated
+on each item. A level-2 heading that only holds level-3 headings (20th century: 1901-1950, 1950s, ...)
+stays a heading, and its subsections become the sections of one {{#invoke:NAME|outline|text=...}}
+(the notices and pictures between a subsection heading and its table become the section's text).
+A level-2 heading with a table of its own just gets the timeline. The lead, See also, Notes,
+References and Sources stay exactly as they are.
 NAME is TimelineRail/sandbox until Module:TimelineRail is live.
 
 The text is copied from Wikipedia (CC BY-SA 4.0): say so in the edit summary.
@@ -73,8 +76,8 @@ def parse_table(body):
         rows.append(cells)
     return rows
 
-def table_to_outline(table_text, n):
-    rows = parse_table(table_text)
+def table_items(table_text):
+    rows = parse_table(re.sub(r'\n\|\}\s*$', '', table_text))
     carry, pending = [None, None], [0, 0]
     items = []
     for cells in rows:
@@ -111,18 +114,58 @@ def table_to_outline(table_text, n):
             if re.match(r"\* '''[^']*''' *[*=#;:]|\* '''[^']*''' *\[\[(File|Image):", l, re.I):
                 warnings.append('text starts like wiki syntax: ' + l[:80])
     stats['tables'] += 1
-    return '{{#invoke:%s|outline |id=ai%d\n|text=\n%s\n}}' % (MODULE, n, '\n'.join(items))
+    return items
 
-# ---------------------------------------------------------------- replace each table
-page, pos, n = '', 0, 0
-for m in re.finditer(r'^\{\|', wt, re.M):
-    if m.start() < pos:
+def wrap(n, lines):
+    return '{{#invoke:%s|outline |id=ai%d\n|text=\n%s\n}}' % (MODULE, n, '\n'.join(lines))
+
+def intro_lines(text):
+    """What stands between a subsection heading and its table: notices, hatnotes, pictures."""
+    out = []
+    for l in text.split('\n'):
+        l = l.strip()
+        if not l:
+            continue
+        if re.match(r'\[\[(File|Image):', l, re.I):
+            l = '{{clear}}' + l       # a bare picture line would be taken for the picture of the next item
+        out.append(l)
+    return out
+
+# ---------------------------------------------------------------- headings and tables
+TABLE = re.compile(r'^\{\|.*?\n\|\}', re.S | re.M)
+L2 = re.compile(r'^==[^=].*?==[ \t]*$', re.M)
+l2 = list(L2.finditer(wt))
+page, pos, n = wt[:l2[0].start()], l2[0].start(), 0
+for i, m in enumerate(l2):
+    end = l2[i + 1].start() if i + 1 < len(l2) else len(wt)
+    block = wt[m.start():end]
+    pos = end
+    subs = list(re.finditer(r'^===[^=].*?===[ \t]*$', block, re.M))
+    tables = list(TABLE.finditer(block))
+    if not tables:
+        page += block                                    # See also, Notes, References, ...
         continue
-    end = wt.index('\n|}', m.start())
+    if not subs:
+        n += 1
+        t = tables[0]
+        page += block[:t.start()] + wrap(n, table_items(t.group(0))) + block[t.end():]
+        continue
+    # a heading that holds decades: the decades become sections of one timeline
+    page += block[:subs[0].start()]
+    lines = []
+    for j, sm in enumerate(subs):
+        sub_end = subs[j + 1].start() if j + 1 < len(subs) else len(block)
+        sub = block[sm.start():sub_end]
+        t = TABLE.search(sub)
+        title = re.sub(r'^=+\s*|\s*=+\s*$', '', sm.group(0))
+        before, after = sub[len(sm.group(0)):t.start()], sub[t.end():]
+        if after.strip():
+            warnings.append('text after the table of ' + title + ': ' + after.strip()[:60])
+        lines.append('== %s ==' % title)
+        lines += intro_lines(before)
+        lines += table_items(t.group(0))
     n += 1
-    page += wt[pos:m.start()] + table_to_outline(wt[m.start():end], n)
-    pos = end + 3
-page += wt[pos:]
+    page += wrap(n, lines) + '\n\n'
 page = re.sub(r'\[\[Category:', '[[:Category:', page)
 page = ('{{User sandbox}}\n'
         "<!-- Draft showing how [[Module:%s]] could present the tables of [[%s]]. The text is copied from that "

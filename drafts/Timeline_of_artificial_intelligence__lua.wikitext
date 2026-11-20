@@ -55,11 +55,10 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 }}
 
 ==20th century==
-===1901–1950===
-{{More citations needed section|date=February 2018}}
-
 {{#invoke:TimelineRail/sandbox|outline |id=ai3
 |text=
+== 1901–1950 ==
+{{More citations needed section|date=February 2018}}
 * '''1910-1913''' [[Bertrand Russell]] and [[Alfred North Whitehead]] published ''[[Principia Mathematica]],'' which showed that all of elementary mathematics could be reduced to mechanical reasoning in [[formal logic]].{{sfn|Linsky|Irvine|2022|p=2}}
 * '''1912-1914''' [[Leonardo Torres Quevedo]] built an automaton for chess endgames, [[El Ajedrecista]]. He was called "the 20th century's first AI pioneer".{{sfn|Schmidhuber|2022}} In his ''Essays on Automatics'' (1914), Torres published theories about thinking and automata and introduced the idea of [[floating-point arithmetic]].<ref>{{Harvnb|McCorduck|2004|pp=59–60}}</ref><ref name=RANDELL>{{cite web|url=http://www.cs.ncl.ac.uk/publications/articles/papers/398.pdf |title=From Analytical Engine to Electronic Digital Computer: The Contributions of Ludgate, Torres, and Bush |last1=Randell |first1=Brian |author-link1=Brian Randell |access-date=9 September 2013 |archive-url=https://web.archive.org/web/20130921055055/http://www.cs.ncl.ac.uk/publications/articles/papers/398.pdf |archive-date=21 September 2013 }}</ref>
 * '''1923''' [[Karel Čapek]]'s play ''[[R.U.R.]] (Rossum's Universal Robots)'' opened in London. This is the first use of the word "[[robot]]" in English.<ref>{{Harvnb|McCorduck|2004|p=25}}</ref>
@@ -78,11 +77,7 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''1948''' [[Alan Turing]] produces the "Intelligent Machinery" report, regarded as the first manifesto of Artificial Intelligence. It introduces many concepts, including the logic-based approach to problem-solving, that intellectual activity consists mainly of various kinds of search, and a discussion of machine learning in which he anticipates the [[Connectionism]] AI approach.<ref name="turing">{{Cite book |last= Copeland|first= J (Ed.)|title= The Essential Turing: the ideas that gave birth to the computer age|location= Oxford|publisher= Clarendon Press|year=2004|isbn=0-19-825079-7}}</ref>
 * '''1948''' [[John von Neumann]] (quoted by [[Edwin Thompson Jaynes]]) in response to a comment at a lecture that it was impossible for a machine (at least ones created by humans) to think: "You insist that there is something a machine cannot do. If you will tell me ''precisely'' what it is that a machine cannot do, then I can always make a machine which will do just that!". Von Neumann was presumably alluding to the [[Church–Turing thesis]], which states that any effective procedure can be simulated by a (generalized) computer.
 * '''1949''' [[Donald O. Hebb]] develops [[Hebbian theory]], a possible algorithm for learning in [[neural networks]].{{sfn|Russell|Norvig|2021|p=17}}
-}}
-
-===1950s===
-{{#invoke:TimelineRail/sandbox|outline |id=ai4
-|text=
+== 1950s ==
 * '''1950''' [[Alan Turing]] published "[[Computing Machinery and Intelligence]]", which proposes the [[Turing test]] as a measure of machine intelligence and answered all of the most common objections to the proposal "machines can think".<ref>{{Harvtxt|Crevier| 1993|pp=22–25}}; {{Harvtxt|Russell|Norvig|2021|pp=18–19}}</ref>
 * '''1950''' [[Claude Shannon]] published a detailed analysis of [[chess]] playing as [[search algorithm|search]].{{sfn|Russell|Norvig|2021|p=155}}
 * '''1950''' [[Isaac Asimov]] published his [[Three Laws of Robotics]].{{sfn|Russell|Norvig|2021|p=1007}}
@@ -96,13 +91,8 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''1959''' The [[General Problem Solver]] (GPS) was created by Newell, Shaw and Simon while at CMU.{{sfn|Russell|Norvig|2021|p=19}}
 * '''1959''' [[John McCarthy (computer scientist)|John McCarthy]] and [[Marvin Minsky]] founded the [[MIT Computer Science and Artificial Intelligence Laboratory|MIT AI Lab]].{{sfn|Russell|Norvig|2021|p=19}}
 * '''Late 1950s, early 1960s''' [[Margaret Masterman]] and colleagues at [[University of Cambridge]] design [[lexical semantics|semantic net]]s for [[machine translation]].{{citation needed|reason=notability, undue weight|date=August 2023}}<!-- especially as to notability. Semantic nets were proposed earlier and developed later. Is this undue weight?-->
-}}
-
-===1960s===
+== 1960s ==
 {{More citations needed section|date=March 2007}}
-
-{{#invoke:TimelineRail/sandbox|outline |id=ai5
-|text=
 * '''1960s''' [[Ray Solomonoff]] lays the foundations of a [[mathematical theory]] of AI, introducing universal [[Bayesian method]]s for inductive inference and prediction.
 * '''1960''' "[[Man–Computer Symbiosis]]" by J.C.R. Licklider.
 * '''1961''' [[James Robert Slagle|James Slagle]] (PhD dissertation, MIT) wrote (in Lisp) the first symbolic [[integral|integration]] program, SAINT, which solved [[calculus]] problems at the college-freshman level.
@@ -133,13 +123,8 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''1969''' First International Joint Conference on Artificial Intelligence ([[IJCAI]]) held at Stanford.
 * '''1969''' Marvin Minsky and [[Seymour Papert]] publish [[Perceptrons (book)|''Perceptrons'']]s, demonstrating previously unrecognized limits of this feed-forward two-layered structure. This book is considered by some to mark the beginning of the [[AI winter]] of the 1970s, a failure of confidence and funding for AI. However, by the time the book came out, methods for training [[multilayer perceptrons]] by [[deep learning]] were already known ([[Alexey Ivakhnenko]] and Valentin Lapa, 1965; [[Shun'ichi Amari]], 1967).{{sfn|Schmidhuber|2022}} Significant progress in the field continued (see below).
 * '''1969''' McCarthy and Hayes start the discussion about the [[frame problem]] with their essay "Some Philosophical Problems from the Standpoint of Artificial Intelligence".
-}}
-
-===1970s===
+== 1970s ==
 {{More citations needed section|date=March 2007}}
-
-{{#invoke:TimelineRail/sandbox|outline |id=ai6
-|text=
 * '''Early 1970s''' Jane Robinson and Don Walker established an influential [[Natural Language Processing]] group at SRI.<ref>{{Cite journal |url=https://direct.mit.edu/coli/article/41/4/723/1509/Jane-J-Robinson |access-date=23 January 2024 |journal=Computational Linguistics|doi=10.1162/COLI_a_00235 |title=Jane J. Robinson |date=2015 |last1=Grosz |first1=Barbara J. |last2=Hajicova |first2=Eva |last3=Joshi |first3=Aravind |volume=41 |issue=4 |pages=723–726 |doi-access=free }}</ref>
 * '''1970''' [[Seppo Linnainmaa]] publishes the reverse mode of [[automatic differentiation]]. This method became later known as [[backpropagation]], and is heavily used to train [[artificial neural networks]].<ref>Linnainmaa, Seppo (1970). ''Algoritmin kumulatiivinen pyöristysvirhe yksittäisten pyöristysvirheiden Taylor-kehitelmänä'' [''The representation of the cumulative rounding error of an algorithm as a Taylor expansion of the local rounding errors''] (PDF) (Thesis) (in Finnish). pp. 6–7.</ref>
 * '''1970''' Jaime Carbonell (Sr.) developed SCHOLAR, an interactive program for [[computer-assisted instruction]] based on semantic nets as the representation of knowledge.
@@ -172,13 +157,8 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''1979''' BKG, a backgammon program written by [[Hans Berliner]] at [[Carnegie Mellon University|CMU]], defeats the reigning world champion (in part via luck).
 * '''1979''' Drew McDermott and Jon Doyle at [[MIT]], and John McCarthy at Stanford, begin publishing work on [[non-monotonic logic]]s and formal aspects of truth maintenance.
 * '''Late 1970s''' Stanford's SUMEX-AIM resource, headed by Ed Feigenbaum and Joshua Lederberg, demonstrates the power of the ARPAnet for scientific collaboration.
-}}
-
-===1980s===
+== 1980s ==
 {{More citations needed section|date=March 2007}}
-
-{{#invoke:TimelineRail/sandbox|outline |id=ai7
-|text=
 * '''1980s''' [[Lisp machine]]s developed and marketed. First [[expert system]] shells and commercial applications.
 * '''1980''' First National Conference of the [[American Association for Artificial Intelligence]] (AAAI) held at Stanford.
 * '''1981''' [[Danny Hillis]] designs the connection machine, which utilizes [[parallel computing]] to bring new power to AI, and to computation in general. (Later founds [[Thinking Machines Corporation]])
@@ -195,13 +175,8 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''1987''' Commercial launch of generation 2.0 of Alacrity by Alacritous Inc./Allstar Advice Inc. Toronto, the first commercial strategic and managerial advisory system. The system was based upon a forward-chaining, self-developed expert system with 3,000 rules about the evolution of markets and competitive strategies and co-authored by Alistair Davidson and Mary Chung, founders of the firm with the underlying engine developed by Paul Tarvydas. The Alacrity system also included a small financial expert system that interpreted financial statements and models.<ref>{{cite journal|url=http://www.emeraldinsight.com/journals.htm?articleid=1696959&show=pdf|title=EmeraldInsight|journal=Planning Review |date=June 1989 |volume=17 |issue=6 |pages=22–27 |doi=10.1108/eb054275 |access-date=15 March 2015|archive-date=2 February 2014|archive-url=https://web.archive.org/web/20140202112925/http://www.emeraldinsight.com/journals.htm?articleid=1696959&show=pdf|url-status=live |last1=Cook |first1=Donald A. |last2=Sterling |first2=John W. }}</ref>
 * '''1989''' The development of [[metal–oxide–semiconductor]] (MOS) [[Very-large-scale integration]] (VLSI), in the form of [[CMOS|complementary MOS]] (CMOS) technology, enabled the development of practical [[Neural network (machine learning)|artificial neural network]] (ANN) technology in the 1980s. A landmark publication in the field was the 1989 book ''Analog VLSI Implementation of Neural Systems'' by Carver A. Mead and Mohammed Ismail.<ref name="Mead">{{cite book|url=http://fennetic.net/irc/Christopher%20R.%20Carroll%20Carver%20Mead%20Mohammed%20Ismail%20Analog%20VLSI%20Implementation%20of%20Neural%20Systems.pdf|title=Analog VLSI Implementation of Neural Systems|date=8 May 1989|publisher=[[Kluwer Academic Publishers]]|isbn=978-1-4613-1639-8|last1=Mead|first1=Carver A.|last2=Ismail|first2=Mohammed|series=The Kluwer International Series in Engineering and Computer Science|volume=80|location=Norwell, MA|doi=10.1007/978-1-4613-1639-8|access-date=24 January 2020|archive-date=6 November 2019|archive-url=https://web.archive.org/web/20191106154442/http://fennetic.net/irc/Christopher%20R.%20Carroll%20Carver%20Mead%20Mohammed%20Ismail%20Analog%20VLSI%20Implementation%20of%20Neural%20Systems.pdf|url-status=live}}</ref>
 * '''1989''' Dean Pomerleau at CMU created ALVINN (An Autonomous Land Vehicle in a Neural Network), which was used in the [[Navlab]] program.
-}}
-
-===1990s===
+== 1990s ==
 {{More citations needed section|date=March 2007}}
-
-{{#invoke:TimelineRail/sandbox|outline |id=ai8
-|text=
 * '''1990s''' Major advances in all areas of AI, with significant demonstrations in machine learning, [[computer assisted instruction|intelligent tutoring]], case-based reasoning, multi-agent planning, [[scheduling (computing)|scheduling]], uncertain reasoning, [[data mining]], natural language understanding and translation, vision, [[virtual reality]], games, and other topics.
 * '''Early 1990s''' [[TD-Gammon]], a [[backgammon]] program written by Gerry Tesauro, demonstrates that [[reinforcement]] (learning) is powerful enough to create a championship-level game-playing program by competing favorably with world-class players.
 * '''1991''' [[Dynamic Analysis and Replanning Tool|DART]] scheduling application deployed in the first [[Gulf War]] paid back [[DARPA]]'s investment of 30 years in AI research.<ref>[https://doi.ieeecomputersociety.org/10.1109/MIS.2002.1005635 DART: Revolutionizing Logistics Planning]</ref>
@@ -232,11 +207,10 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 }}
 
 ==21st century==
-===2000s===
-{{More citations needed section|date=March 2007}}
-
-{{#invoke:TimelineRail/sandbox|outline |id=ai9
+{{#invoke:TimelineRail/sandbox|outline |id=ai4
 |text=
+== 2000s ==
+{{More citations needed section|date=March 2007}}
 * '''2000''' Interactive robopets ("[[smart toy]]s") become commercially available, realizing the vision of the 18th-century novelty toy makers.
 * '''2000''' The [[Nomad rover|Nomad robot]] explores remote regions of Antarctica looking for meteorite samples.
 * '''2002''' [[iRobot]]'s [[Roomba]] autonomously vacuums the floor while navigating and avoiding obstacles.
@@ -253,11 +227,7 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''2008''' Cynthia Mason at Stanford presents her idea on Artificial Compassionate Intelligence, in her paper on "Giving Robots Compassion".<ref>{{Cite journal|url=https://www.researchgate.net/publication/260230014|title=Giving Robots Compassion, C. Mason, Conference on Science and Compassion, Poster Session, Telluride, Colorado, 2012.|website=ResearchGate|date=19 July 2012 |language=en|access-date=17 July 2019}}</ref>
 * '''2009''' An [[LSTM]] trained by [[connectionist temporal classification]]<ref name="graves2006">{{Cite journal|last1=Graves|first1=Alex|author1-link=Alex Graves (computer scientist) | last2=Fernández|first2=Santiago|last3=Gomez|first3=Faustino|last4=Schmidhuber|first4=Juergen|author4-link=Juergen Schmidhuber|  date=2006|title=Connectionist temporal classification: Labelling unsegmented sequence data with recurrent neural networks|journal=Proceedings of the International Conference on Machine Learning, ICML 2006|pages=369–376}}</ref> was the first [[recurrent neural network]] to win [[pattern recognition]] contests, winning three competitions in connected [[handwriting recognition]].<ref>Graves, Alex; and Schmidhuber, Jürgen; ''Offline Handwriting Recognition with Multidimensional Recurrent Neural Networks'', in Bengio, Yoshua; Schuurmans, Dale; Lafferty, John; Williams, Chris K. I.; and Culotta, Aron (eds.), ''Advances in Neural Information Processing Systems 22 (NIPS'22), 7–10 December 2009, Vancouver, BC'', Neural Information Processing Systems (NIPS) Foundation, 2009, pp. 545–552</ref>{{sfn|Schmidhuber|2022}}
 * '''2009''' [[Google]] builds an autonomous car.<ref>{{cite web|last=Fisher|first=Adam|title=Inside Google's Quest To Popularize Self-Driving Cars|url=http://www.popsci.com/cars/article/2013-09/google-self-driving-car|work=Popular Science|date=18 September 2013 |access-date=10 October 2013|archive-date=22 September 2013|archive-url=https://web.archive.org/web/20130922192206/http://www.popsci.com/cars/article/2013-09/google-self-driving-car|url-status=live}}</ref>
-}}
-
-===2010s===
-{{#invoke:TimelineRail/sandbox|outline |id=ai10
-|text=
+== 2010s ==
 * '''2010''' [[Microsoft]] launched Kinect for Xbox 360, the first gaming device to track human body movement, using just a 3D camera and infrared detection, enabling users to play their Xbox 360 wirelessly. The award-winning machine learning for human motion capture technology for this device was developed by the [http://research.microsoft.com/en-us/groups/vision/default.aspx Computer Vision group] at [[Microsoft Research#Laboratories|Microsoft Research]], Cambridge.<ref>{{cite web|url=http://research.microsoft.com/en-us/people/jamiesho/|title=Jamie Shotton at Microsoft Research|website=Microsoft Research|access-date=3 February 2016|archive-date=3 February 2016|archive-url=https://web.archive.org/web/20160203165349/http://research.microsoft.com/en-us/people/jamiesho/|url-status=live}}</ref><ref>{{cite web|url=http://research.microsoft.com/en-us/projects/vrkinect/|title=Human Pose Estimation for Kinect – Microsoft Research|access-date=3 February 2016|archive-date=3 February 2016|archive-url=https://web.archive.org/web/20160203224732/http://research.microsoft.com/en-us/projects/vrkinect/|url-status=live}}</ref>
 * '''2010''' [[Tomáš Mikolov]] and colleagues developed a [[recurrent neural network]]-based [[language model]] that substantially outperformed traditional [[n-gram]] language models.<ref>{{cite conference |last1=Mikolov |first1=Tomáš |last2=Karafiát |first2=Martin |last3=Burget |first3=Lukáš |last4=Černocký |first4=Jan |last5=Khudanpur |first5=Sanjeev |title=Recurrent neural network based language model |conference=Interspeech 2010 |pages=1045–1048 |year=2010 |doi=10.21437/Interspeech.2010-343 }}</ref>
 * '''2011''' [[Mary Lou Maher]] and [[Doug Fisher (academic)|Doug Fisher]] organize the First [[AAAI]] Workshop on AI and Sustainability.<ref>{{Cite web|url=http://dts-web1.it.vanderbilt.edu/~fisherdh//AI-Design-Sustainability.html|title=AAAI Spring Symposium - AI and Design for Sustainability|access-date=29 July 2019|archive-date=29 July 2019|archive-url=https://web.archive.org/web/20190729063022/http://dts-web1.it.vanderbilt.edu/~fisherdh//AI-Design-Sustainability.html|url-status=live}}</ref>
@@ -287,14 +257,10 @@ This is a timeline of [[artificial intelligence]], also known as [[synthetic int
 * '''2018''' The European Lab for Learning and Intelligent Systems (''aka'' Ellis) proposed as a pan-European competitor to American AI efforts, to stave off a [[Brain-drain|brain drain]] of talent, along the lines of [[CERN]] after World War II.<ref>{{Cite news |url=https://www.theguardian.com/science/2018/apr/23/scientists-plan-huge-european-ai-hub-to-compete-with-us |title=Scientists plan huge European AI hub to compete with US |last=Sample |first=Ian |date=23 April 2018 |work=The Guardian |access-date=23 April 2018 |edition=US |archive-date=24 April 2018 |archive-url=https://web.archive.org/web/20180424024625/https://www.theguardian.com/science/2018/apr/23/scientists-plan-huge-european-ai-hub-to-compete-with-us |url-status=live }}</ref>
 * '''2018''' Announcement of [[Google Duplex]], a service to allow an AI assistant to book appointments over the phone. The ''[[Los Angeles Times]]'' judges the AI's voice to be a "nearly flawless" imitation of human-sounding speech.<ref>{{cite news|last1=Pierson|first1=David|title=Should people know they're talking to an algorithm? After a controversial debut, Google now says yes|url=https://www.latimes.com/business/technology/la-fi-tn-virtual-assistants-20180509-story.html|access-date=17 May 2018|work=Los Angeles Times|date=2018|archive-date=17 May 2018|archive-url=https://web.archive.org/web/20180517065036/http://www.latimes.com/business/technology/la-fi-tn-virtual-assistants-20180509-story.html|url-status=live}}</ref>
 * '''2019''' DeepMind's AlphaStar reaches Grandmaster level at ''StarCraft II'', outperforming 99.8 percent of human players.<ref>{{cite news|last1=Sample|first1=Ian|title=AI becomes grandmaster in 'fiendishly complex' StarCraft II|url=https://www.theguardian.com/technology/2019/oct/30/ai-becomes-grandmaster-in-fiendishly-complex-starcraft-ii|access-date=30 July 2021|work=The Guardian|date=2019|archive-date=29 December 2020|archive-url=https://web.archive.org/web/20201229185547/https://www.theguardian.com/technology/2019/oct/30/ai-becomes-grandmaster-in-fiendishly-complex-starcraft-ii|url-status=live}}</ref>
-}}
-
-===2020s===
+== 2020s ==
 {{See also|Timeline of computing 2020–present}}
-[[File:20250202 "AI" (search term) on Google Trends.svg|thumb|center|The number of the public's Google searches for the term "AI" began to accelerate in 2022.]]
+{{clear}}[[File:20250202 "AI" (search term) on Google Trends.svg|thumb|center|The number of the public's Google searches for the term "AI" began to accelerate in 2022.]]
 {{clear}}
-{{#invoke:TimelineRail/sandbox|outline |id=ai11
-|text=
 * '''2020''' In February 2020, Microsoft introduces its Turing Natural Language Generation (T-NLG), which is the "largest language model ever published at 17 billion parameters".<ref name="Wired_Sterling_20200213">{{Cite magazine| issn = 1059-1028| last = Sterling| first = Bruce| title = Web Semantics: Microsoft Project Turing introduces Turing Natural Language Generation (T-NLG)| magazine = Wired| access-date = 31 July 2020| date = 13 February 2020| url = https://www.wired.com/beyond-the-beyond/2020/02/web-semantics-microsoft-project-turing-introduces-turing-natural-language-generation-t-nlg/| archive-date = 4 November 2020| archive-url = https://web.archive.org/web/20201104163637/https://www.wired.com/beyond-the-beyond/2020/02/web-semantics-microsoft-project-turing-introduces-turing-natural-language-generation-t-nlg/| url-status = live}}</ref>
 * '''2020''' In November 2020, [[AlphaFold]] 2 by DeepMind, a model that performs [[Protein structure prediction|predictions of protein structure]], wins the [[CASP]] competition.<ref>{{cite news |last1=Sample |first1=Ian |title=Google's DeepMind predicts 3D shapes of proteins |url=https://www.theguardian.com/science/2018/dec/02/google-deepminds-ai-program-alphafold-predicts-3d-shapes-of-proteins |access-date=19 July 2019 |work=The Guardian |date=2 December 2018}}</ref>
 * '''2020''' [[OpenAI]] introduces [[GPT-3]], a state-of-the-art autoregressive language model that uses [[deep learning]] to produce a variety of computer codes, poetry and other language tasks exceptionally similar, and almost indistinguishable from those written by humans. Its capacity was ten times greater than that of the T-NLG. It was introduced in May 2020,<ref name="arXiv_Brown_20200722">{{cite arXiv| last1 = Brown| first1 = Tom B.| last2 = Mann| first2 = Benjamin| last3 = Ryder| first3 = Nick| last4 = Subbiah| first4 = Melanie| last5 = Kaplan| first5 = Jared| last6 = Dhariwal| first6 = Prafulla| title = Language Models are Few-Shot Learners|date = 22 July 2020| class = cs.CL| eprint = 2005.14165}}</ref> and was in beta testing in June 2020.
