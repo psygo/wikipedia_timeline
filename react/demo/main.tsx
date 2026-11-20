@@ -1,12 +1,37 @@
 import { createRoot } from 'react-dom/client';
 import '../src/theme.css';
 import portrait from '../../prototype/images/huang-longshi.png';
-import { TimelineRail, TimelineItem, TimelineSection, TimelineColumn, TimelineGap } from '../src';
+import {
+  TimelineRail, TimelineItem, TimelineSection, TimelineColumn, TimelineGap,
+  OutlineList, OutlineTable, ViewSwitcher, View,
+} from '../src';
+
+// The data, written once: every view reads the same elements.
+const items = (
+  <>
+    <TimelineSection title="Early">
+      <TimelineItem date="1612" title="The Go academy">The Tokugawa shogunate patronises the game.</TimelineItem>
+      <TimelineItem date="March 2016" title="AlphaGo defeats Lee Sedol" image={portrait} imageWidth={120} caption="A picture">AlphaGo wins four games to one in Seoul.</TimelineItem>
+    </TimelineSection>
+    <TimelineSection title="Later">
+      <TimelineItem date="2017" events={[{ title: 'AlphaGo Master', text: 'Wins 60 online games.' }, { title: 'Summit', text: 'Beats Ke Jie.' }]} summary="Two events" />
+      <TimelineItem date="2020" title="With a sub timeline" sub={<TimelineItem date="Spring" title="First">Sub item one.</TimelineItem>}>Parent text.</TimelineItem>
+    </TimelineSection>
+  </>
+);
 
 function App() {
   return (
     <main style={{ maxWidth: '56em', margin: '0 auto', padding: '1em' }}>
       <h1>TimelineRail for React</h1>
+
+      <h2>One set of data, several views</h2>
+      <p>The timeline, the list, the table and the switcher are separate components. The switcher only shows one of its views.</p>
+      <ViewSwitcher>
+        <View label="Timeline" default><TimelineRail>{items}</TimelineRail></View>
+        <View label="List"><OutlineList>{items}</OutlineList></View>
+        <View label="Table"><OutlineTable>{items}</OutlineTable></View>
+      </ViewSwitcher>
 
       <h2>Items</h2>
       <TimelineRail>

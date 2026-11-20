@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timeline components: views</title>
+<link rel="stylesheet" href="../src/theme.css">
+<style>
+	main { max-width: 58em; margin: 0 auto; padding: 1em; line-height: 1.5; }
+	h2 { border-bottom: 1px solid var(--border-color-subtle); margin-top: 1.6em; }
+	.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; align-items: start; }
+	.compare h3 { margin: 0.2em 0; }
+	@media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
+	.note { color: var(--color-subtle); font-size: 0.9em; }
+</style>
+<script src="../components.bundle.js"></script>
+</head>
+<body>
+<main>
+<h1>One set of data, separate components</h1>
+<p>The data is written once, in a <code>&lt;timeline-data&gt;</code> element. The timeline, the list and the table are three
+separate components that each draw it (<code>for="..."</code>), and <code>&lt;view-switcher&gt;</code> is a fourth that
+only shows one of its children at a time. None of them knows about the others. Text adapted from
+<i>Timeline of historic inventions</i> (CC BY-SA 4.0).</p>
+
+<timeline-data id="inv">
+
+	<timeline-section title="3.3 Mya – 1 Mya" id="3.3_Mya_–_1_Mya">
+		<timeline-item date="3.3 Mya – 2.6 Mya" title="Stone tools">Found in modern-day <a href="#">Kenya</a> are older and only found on the archetype road. Ancient stone tools from <a href="#">Ethiopia</a> (<a href="#">Oldowan</a>) were hand-crafted by <a href="#">Australopithecus</a> or related people.</timeline-item>
+		<timeline-item date="1.76 Mya" title="Advanced (Acheulean) stone tools">In <a href="#">Kenya</a> by <i><a href="#">Homo erectus</a></i>.</timeline-item>
+		<timeline-item date="1.75 Mya – 150 kya" title="Origin of language">Varying estimates.</timeline-item>
+		<timeline-item date="1.5 Mya" title="Control of fire">Earliest likely, by <i><a href="#">Homo erectus</a></i>.</timeline-item>
+		<timeline-item date="1.5 Mya" title="Bone tools">In Africa by <i><a href="#">Homo erectus</a></i> and/or <i><a href="#">Paranthropus boisei</a></i>.</timeline-item>
+	</timeline-section>
+	<timeline-section title="1 Mya and later" id="1_Mya_and_later">
+		<timeline-item date="1 Mya – 780 kya" title="Cooking">In the Middle East by <a href="#">Homo erectus</a>.</timeline-item>
+		<timeline-item date="900 kya – 40 kya" title="Rafts"></timeline-item>
+		<timeline-item date="500 kya" title="Hafting">In South Africa by <i><a href="#">Homo heidelbergensis</a></i>.</timeline-item>
+		<timeline-item date="500 kya – 450 kya" title="Woodworking construction">In Zambia by <i><a href="#">Homo heidelbergensis</a></i>. (The <a href="#">oldest known surviving buildings</a> are made from stone and date back no more than 9,500 years.)</timeline-item>
+		<timeline-item date="420 kya – 200 kya" title="Food storage">In the form of uncracked bones saved for their marrow in <a href="#">Qesem cave</a>, <a href="#">Israel</a>.</timeline-item>
+		<timeline-item date="400 kya" title="Hide and leather">Clothing, footwear and shelter.</timeline-item>
+		<timeline-item date="400 kya" title="Pigments">In Zambia by <i><a href="#">Homo heidelbergensis</a></i>.</timeline-item>
+		<timeline-item date="337 kya – 300 kya" title="Schöningen spears">In <a href="#">Germany</a>, likely by <i><a href="#">Homo heidelbergensis</a></i> or early Neanderthals.</timeline-item>
+		<timeline-item date="320 kya" last="yes" title="Trade">Long-distance (up to 50 miles) <a href="#">transportation</a> of resources (e.g. <a href="#">obsidian</a>), use of pigments, and possible making of projectile points in Kenya.</timeline-item>
+	</timeline-section>
+</timeline-data>
+
+<h2>Before and after</h2>
+<p class="note">Same data twice, no switcher: the list a reader gets today, and the timeline.</p>
+<div class="compare">
+	<div><h3>Before: list</h3><outline-list for="inv"></outline-list></div>
+	<div><h3>After: timeline</h3><timeline-rail for="inv"></timeline-rail></div>
+</div>
+
+<h2>With the switcher</h2>
+<p class="note">The first child is shown unless one has <code>default</code> (or the switcher has <code>default="Table"</code>).</p>
+<view-switcher>
+	<timeline-rail for="inv" label="Timeline" default></timeline-rail>
+	<outline-list for="inv" label="List"></outline-list>
+	<outline-table for="inv" label="Table"></outline-table>
+</view-switcher>
+
+<h2>Starting in another view, choosing table columns</h2>
+<view-switcher default="Table">
+	<timeline-rail for="inv" label="Timeline"></timeline-rail>
+	<outline-table for="inv" label="Table" columns="date, text"></outline-table>
+</view-switcher>
+
+<h2>Several kinds of data: sub items, events on one dot</h2>
+<timeline-data id="rich">
+
+	<timeline-item date="1968" title="First Go program">Albert Zobrist writes the first program able to play a full game of Go.</timeline-item>
+	<timeline-item date="2006" summary="Crazy Stone, UCT">
+		<timeline-event title="Crazy Stone">Rémi Coulom applies Monte Carlo tree search to Go.</timeline-event>
+		<timeline-event title="UCT">Kocsis and Szepesvári publish the UCT algorithm for tree search.</timeline-event>
+	</timeline-item>
+	<timeline-item date="2016" title="AlphaGo defeats Lee Sedol">AlphaGo wins four games to one in Seoul.</timeline-item>
+	<timeline-item date="2017" summary="Ke Jie, AlphaGo Zero, Open programs">
+		<timeline-event title="Ke Jie">AlphaGo beats the world number one, Ke Jie, three games to none.</timeline-event>
+		<timeline-event title="AlphaGo Zero">A version trained without human games is described in <i>Nature</i>.</timeline-event>
+		<timeline-event title="Open programs">Strong open-source engines begin to appear for everyone to study.</timeline-event>
+	</timeline-item>
+</timeline-data>
+<view-switcher>
+	<timeline-rail for="rich" label="Timeline" default></timeline-rail>
+	<outline-list for="rich" label="List"></outline-list>
+	<outline-table for="rich" label="Table"></outline-table>
+</view-switcher>
+
+<h2>Your own view</h2>
+<p>A view is a small class: extend <code>ViewElement</code>, implement <code>draw(model)</code>, register the tag, and give it to the
+switcher like the others. This one draws cards.</p>
+<view-switcher>
+	<timeline-rail for="rich" label="Timeline" default></timeline-rail>
+	<outline-cards for="rich" label="Cards"></outline-cards>
+</view-switcher>
+</main>
+
+<script>
+	const { ViewElement, h, flatten } = TimelineKit;
+	class OutlineCards extends ViewElement {
+		draw( model ) {
+			const grid = h( 'div', '', { style: 'display:grid;grid-template-columns:repeat(auto-fill,minmax(12em,1fr));gap:0.8em' } );
+			for ( const { node } of flatten( model.columns[ 0 ].nodes ) ) {
+				grid.append( h( 'div', '', { style: 'border:1px solid var(--border-color-base,#a2a9b1);border-radius:4px;padding:0.6em 0.8em' },
+					h( 'div', '', { style: 'font-size:1.4em;font-weight:bold;color:var(--color-progressive,#36c)' }, node.date ),
+					h( 'div', '', { style: 'font-weight:bold' }, node.title ), node.content() ) );
+			}
+			return grid;
+		}
+	}
+	customElements.define( 'outline-cards', OutlineCards );
+	document.querySelector( 'view-switcher' ).addEventListener( 'view-change', ( e ) => console.log( 'view:', e.detail.label ) );
+</script>
+</body>
+</html>

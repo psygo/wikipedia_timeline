@@ -24,57 +24,60 @@
  * <timeline-column>   title. Several of them as children of the rail place timelines side by side;
  *                     add the grouped attribute on the rail to align their dots.
  *
+ * Several views of the same data: put the items once in <timeline-data id="x"> and write
+ * <timeline-rail for="x">, <outline-list for="x">, <outline-table for="x"> inside a <view-switcher>.
+ *
  * Interaction: click or Enter on a row toggles it; double-click an item's dot to collapse or expand
  * every item of that timeline; double-click a section's dot to keep it open and close its sibling
  * sections. The "timeline-toggle" event bubbles with { id, open }. The rail also opens the
  * item or section named by location.hash.
  */
 import baseCss from './timeline.css.js';
+import { h, isTag, blank, bool, whenParsed } from './util.js';
+import { DATA_TAGS } from './data.js';
 
 // Links inside the shadow root do not see the page's link colour; use the same token.
-const css = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); }\n';
+const railCss = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); }\n';
 
-const DATA_TAGS = ['timeline-item', 'timeline-section', 'timeline-gap', 'timeline-column', 'timeline-event'];
 let sheet = null;
 if ( typeof CSSStyleSheet !== 'undefined' && 'replaceSync' in CSSStyleSheet.prototype ) {
 	sheet = new CSSStyleSheet();
-	sheet.replaceSync( css );
+	sheet.replaceSync( railCss );
 }
-
-function h( tag, cls, attrs, ...kids ) {
-	const el = document.createElement( tag );
-	if ( cls ) { el.className = cls; }
-	for ( const k in attrs || {} ) { if ( attrs[ k ] != null ) { el.setAttribute( k, attrs[ k ] ); } }
-	for ( const k of kids ) { if ( k ) { el.append( k ); } }
-	return el;
-}
-const isTag = ( n, t ) => n.nodeType === 1 && n.localName === t;
-const blank = ( n ) => n.nodeType === 8 || ( n.nodeType === 3 && !n.textContent.trim() );
-const bool = ( el, name ) => el.hasAttribute( name ) && el.getAttribute( name ) !== 'false';
 
 export class TimelineRail extends HTMLElement {
 	#root; #open = new Map(); #pending = false; #mo;
-	static get observedAttributes() { return [ 'grouped' ]; }
+	static get observedAttributes() { return [ 'grouped', 'for' ]; }
 
 	constructor() {
 		super();
 		this.#root = this.attachShadow( { mode: 'open' } );
 		if ( sheet ) { this.#root.adoptedStyleSheets = [ sheet ]; }
-		else { this.#root.append( h( 'style' ) ); this.#root.firstChild.textContent = css; }
+		else { this.#root.append( h( 'style' ) ); this.#root.firstChild.textContent = railCss; }
 		this.#mo = new MutationObserver( () => this.#schedule() );
 	}
 
 	connectedCallback() {
-		this.#mo.observe( this, { childList: true, subtree: true, characterData: true, attributes: true } );
 		window.addEventListener( 'hashchange', this.#hash );
-		this.#render();
-		this.#hash();
+		whenParsed( () => { this.#watch(); this.#render(); this.#hash(); } );
 	}
 	disconnectedCallback() {
 		this.#mo.disconnect();
 		window.removeEventListener( 'hashchange', this.#hash );
 	}
-	attributeChangedCallback() { this.#schedule(); }
+	attributeChangedCallback() { if ( this.isConnected ) { this.#watch(); } this.#schedule(); }
+	/** The element the items are read from: this one, or the one named by for="id" (see data.js). */
+	get source() {
+		const id = this.getAttribute( 'for' );
+		return id ? document.getElementById( id ) : this;
+	}
+	#watch() {
+		this.#mo.disconnect();
+		const opts = { childList: true, subtree: true, characterData: true, attributes: true };
+		const src = this.source;
+		this.#mo.observe( this, opts );
+		if ( src && src !== this ) { this.#mo.observe( src, opts ); }
+	}
 	#schedule() {
 		if ( this.#pending ) { return; }
 		this.#pending = true;
@@ -191,7 +194,9 @@ export class TimelineRail extends HTMLElement {
 		return ol;
 	}
 	#render() {
-		const columns = [ ...this.children ].filter( ( c ) => isTag( c, 'timeline-column' ) );
+		const src = this.source;
+		if ( !src ) { return; }
+		const columns = [ ...src.children ].filter( ( c ) => isTag( c, 'timeline-column' ) );
 		let tree;
 		if ( columns.length ) {
 			tree = h( 'div', 'wt-timelines' + ( bool( this, 'grouped' ) ? ' wt-timelines--grouped' : '' ) );
@@ -202,7 +207,7 @@ export class TimelineRail extends HTMLElement {
 				tree.append( col );
 			} );
 		} else {
-			tree = this.#list( this.#readList( this, 'r' ), 'wt-timeline' );
+			tree = this.#list( this.#readList( src, 'r' ), 'wt-timeline' );
 		}
 		[ ...this.#root.children ].forEach( ( n ) => { if ( n.localName !== 'style' ) { n.remove(); } } );
 		this.#root.append( tree );
@@ -260,8 +265,4 @@ export class TimelineRail extends HTMLElement {
 	};
 }
 
-// The data elements are inert: only the rail draws them.
-for ( const tag of DATA_TAGS ) {
-	if ( !customElements.get( tag ) ) { customElements.define( tag, class extends HTMLElement {} ); }
-}
 if ( !customElements.get( 'timeline-rail' ) ) { customElements.define( 'timeline-rail', TimelineRail ); }

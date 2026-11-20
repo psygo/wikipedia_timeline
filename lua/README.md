@@ -39,16 +39,37 @@ lua/
 
 ## Put it on a wiki
 
-| Create | Paste |
-|---|---|
-| `Module:TimelineRail` | `lua/Module_TimelineRail.lua` |
-| `Module:TimelineRail/doc` | `lua/Module_TimelineRail__doc.wikitext` |
-| `Template:TimelineRail/outline` | `lua/template/TimelineRail__outline.wikitext` |
+**Step 1: try it in sandboxes** (any autoconfirmed account; nothing touches an article). Paste each file into the page on the left.
 
-To try the module without touching the existing templates, create the module and the wrappers in your own
-space (e.g. `Module:TimelineRail/sandbox` and templates that `#invoke:TimelineRail/sandbox`). To replace the
-template family, paste the other `lua/template/*.wikitext` files over the existing pages; the stylesheet
-page stays as it is. A wrapper whose name matches an existing template needs no change to articles.
+| Create | Paste | Needed for |
+|---|---|---|
+| `Module:TimelineRail/sandbox` | `lua/Module_TimelineRail.lua` | the timeline |
+| `Template:TimelineRail/styles.css` | `template/TimelineRail__styles.css` (skip if the page is already there) | the timeline's look |
+| `Module:ViewSwitcher/sandbox` | `lua/Module_ViewSwitcher.lua` | the switcher |
+| `Module:ViewSwitcher/styles.css` | `lua/ViewSwitcher__styles.css` | the button and menu (the module names this page; no sandbox copy) |
+| `Module:OutlineList/sandbox` | `lua/Module_OutlineList.lua` | the List view |
+| `Module:OutlineTable/sandbox` | `lua/Module_OutlineTable.lua` | the Table view |
+| `User:<you>/common.js` | `userscript/ViewSwitcher.js` | the View button, for you only |
+| `User:<you>/<a draft page>` | one of `drafts/*__lua.wikitext` (already written for `/sandbox` modules) | the article draft, to look at with Show preview |
+
+**Step 2: measure.** In the preview, look at the report in the page source (`NewPP limit report`) or at the bottom of the preview:
+*Post-expand include size* must stay under 2,097,152 bytes; *Lua time usage* under 10 s. The table of estimates is below.
+Earth and AI are expected to fit; the 3-view inventions page (`drafts/Timeline_of_historic_inventions__lua_views.wikitext`) is not
+(use `Timeline_of_historic_inventions__lua.wikitext`, timeline only, or split the article).
+
+**Step 3: make it live** (needed before an article can use it; each page needs a template editor or an interface admin
+only where noted).
+
+| Create | Paste | Who |
+|---|---|---|
+| `Module:TimelineRail`, `Module:ViewSwitcher`, `Module:OutlineList`, `Module:OutlineTable` | the same four `lua/Module_*.lua` files | anyone autoconfirmed (a page that is later used a lot gets protected) |
+| `Module:TimelineRail/doc` | `lua/Module_TimelineRail__doc.wikitext` | anyone |
+| `MediaWiki:Gadget-ViewSwitcher.js` and a line in `MediaWiki:Gadgets-definition` (`* ViewSwitcher[default]\|ViewSwitcher.js`) | `userscript/ViewSwitcher.js` | interface administrators: ask on `MediaWiki talk:Gadgets-definition` or at Wikipedia:Interface administrators' noticeboard. Until then the button only works for people who put the script in their own common.js |
+| the article | the draft regenerated for the live names: `python3 tools/convert_<article>.py --outline --module=TimelineRail --switcher` | anyone, after the talk-page proposals are agreed |
+
+Readers without the script (everyone on the mobile site, anyone with JavaScript off, until the gadget exists) see only the **default
+view**, which is the first one unless a `*` marks another (`*Timeline=...`, or `\|default=List`). So the original text is never lost, but
+those readers cannot reach it unless it is the default. Footnotes are kept in the default view only (see below).
 
 ## Switching views: separate modules
 
@@ -82,8 +103,8 @@ in the page source.
 `Label=Module.function` pairs; every other argument goes to every function. Views you write yourself:
 `|label1=Photos |view1=... |label2=Map |view2=...`, and `|default=2` picks the view shown first.
 Without the script the reader sees the first view only. The list and table read the outline with
-`Module:TimelineRail`'s `parseOutline`. To try it in sandboxes, name every module `.../sandbox` and add
-`|parser=TimelineRail/sandbox`. The converters write this call with `--switcher` (or
+`Module:TimelineRail`'s `parseOutline`. In sandboxes, name every module `.../sandbox` and add
+`|parser=TimelineRail/sandbox` (the converters do). The converters write this call with `--switcher` (or
 `--switcher=ViewSwitcher/sandbox`); the Earth draft is
 `drafts/Timeline_of_first_images_of_Earth_from_space__lua_views.wikitext`.
 
@@ -96,11 +117,30 @@ Tests: `luajit lua/test/test_switcher.lua`.
 
 ## Drafts made with it
 
-`python3 tools/convert_first_images.py --outline` and `python3 tools/convert_inventions.py --outline` write
-`drafts/*__lua.wikitext`: the *Timeline of first images of Earth from space* (36 sections, 46 items) and the whole
-*Timeline of historic inventions* (53 sections, 543 items), each section a `== heading ==` of one
-`{{#invoke:TimelineRail/sandbox|outline |id=...}}` (change `--module=TimelineRail` once the module is live).
-Checked against the live parser with `Module:TimelineRail/sandbox`:
+`tools/convert_*.py --outline --switcher=ViewSwitcher/sandbox` writes the drafts in `drafts/`, each with three views: the timeline first
+(the default), and the article's own text as one of them, as it is (a list for the inventions, a table for Earth and AI); the
+other two are made from the outline. Add `--module=TimelineRail --switcher` for the live module names. Checked against the live articles:
+
+| Draft | Views | Content check |
+|---|---|---|
+| `Timeline_of_first_images_of_Earth_from_space__lua.wikitext` | Timeline, List, Table (= the original table) | 46 items in each view; the original is the article's table (apart from the converter's fix of a stray `\|`) |
+| `Timeline_of_artificial_intelligence__lua.wikitext` | Timeline, List, Table (= the original tables and decade headings) | 273 items in each view; the 4 originals equal the article's text |
+| `Timeline_of_historic_inventions__lua_views.wikitext` | Timeline, List (= the original bullets), Table | 544 items in each view; the 4 archive.today links the edit filter blocks are removed from the original too |
+| `Timeline_of_historic_inventions__lua.wikitext` | the timeline only | 543 items; fits the size limit |
+
+Estimated size, from the modules run locally (the wiki's number is larger: measure in a preview):
+
+| Draft | Output of the switcher | Text passed in | Fits the 2,097,152 limit? |
+|---|---|---|---|
+| Earth | 170 kB | 90 kB | expected to |
+| AI | 542 kB | 286 kB | expected to |
+| Inventions, 3 views | 1,137 kB | 559 kB | no: the timeline alone was already 1,448,598 |
+
+Footnotes: the same `<ref>` in three views would be listed three times, so `Module:ViewSwitcher` removes the reference markers
+from every view but the default (`|refs=all` keeps them). That works on the markers MediaWiki hands modules in place of `<ref>`;
+it is untested on a wiki.
+
+### Timeline only, measured on the wiki
 
 | Draft | Post-expand include size (limit 2,097,152) | Content check |
 |---|---|---|

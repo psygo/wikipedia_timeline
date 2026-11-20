@@ -165,7 +165,7 @@ if OUTLINE:
     stray = [l[:70] for l in lines if bare_pipes(l)]
     if stray:
         print('WARNING: a bare | would cut the text off in these lines:', *stray, sep='\n  ')
-    timeline = invoke(MODULE, 'img', '\n'.join(lines))
+    timeline = invoke(MODULE, 'img', '\n'.join(lines), original='{|' + table + '\n|}', original_as='table')
 items = sections
 
 # ---------------------------------------------------------------- the rest of the page

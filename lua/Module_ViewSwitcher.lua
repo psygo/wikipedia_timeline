@@ -9,10 +9,17 @@
 --
 --   Views drawn from one set of data, by module functions that all get the same arguments:
 --     {{#invoke:ViewSwitcher|switch
---       |views=Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
---       |id=inv1 |text= ... }}
---     "Label=Module.function" (the module name is without "Module:", may contain /sandbox).
---     Every argument except views, default and class goes to every function.
+--       |views=*Timeline=TimelineRail.outline; List=@original; Table=OutlineTable.table
+--       |id=inv1 |text= ... |original= ... }}
+--     "Label=Module.function" (the module name is without "Module:", may contain /sandbox);
+--     "Label=@name" shows the text of the argument |name= as it is (the article's original list or
+--     table, say). Every other argument goes to every function.
+--
+--   The default view (the one shown first, and the only one without the script): a * before its label,
+--     or |default=Table (a label) or |default=2 (a position). Without any of them, the first.
+--
+--   Footnotes: the <ref>s of the text would be listed once per view, so only the default view keeps
+--     them. |refs=all keeps them in every view.
 --
 -- Output: <div class="viewswitcher"><div class="viewswitcher__view" data-vs-label="Timeline">...</div>...</div>
 
@@ -39,16 +46,23 @@ local function getArgs( frame )
 	return args
 end
 
--- "Label=Module.function; Label2=Module2.function2" -> { { label, module, func }, ... }
+-- "Label=Module.function; *Label2=@arg; ..." -> { { label, default, module, func | arg }, ... }
+-- A leading * on the label marks the default view; "@arg" takes the text of the argument |arg=.
 local function parseViews( spec )
 	local views = {}
 	for part in ( spec .. ';' ):gmatch( '([^;]*);' ) do
 		local label, target = part:match( '^%s*(.-)%s*=%s*(.-)%s*$' )
 		if label and label ~= '' and target ~= '' then
-			local mod, func = target:match( '^(.*)%.([^%.]+)$' )
-			if mod then
-				views[ #views + 1 ] = { label = label, module = mod, func = func }
+			local star = label:match( '^%*%s*(.*)$' )
+			local v = { label = star or label, default = star ~= nil }
+			local arg = target:match( '^@%s*(.+)$' )
+			if arg then
+				v.arg = arg
+			else
+				local mod, func = target:match( '^(.*)%.([^%.]+)$' )
+				if mod then v.module, v.func = mod, func end
 			end
+			if v.arg or v.module then views[ #views + 1 ] = v end
 		end
 	end
 	return views
@@ -65,37 +79,66 @@ local function render( frame, args, v )
 	return fn( child )
 end
 
+-- A footnote written in the text of several views would be listed once per view. The reference
+-- markers (what <ref> is turned into before a module sees it) are taken out of every view but the
+-- default one; |refs=all keeps them everywhere.
+local function withoutRefs( html )
+	return ( html:gsub( '\127\'"`UNIQ%-%-ref%-%x+%-QINU`"\'\127', '' ) )
+end
+
 function p.switch( frame )
 	local args = getArgs( frame )
 	local views = {}
 	if trim( args.views ) then
+		local specs = parseViews( args.views )
+		local reserved = { views = true, default = true, class = true, refs = true }
+		for _, v in ipairs( specs ) do if v.arg then reserved[ v.arg ] = true end end
 		local passed = {}
 		for k, v in pairs( args ) do
-			if k ~= 'views' and k ~= 'default' and k ~= 'class' then passed[ k ] = v end
+			if not reserved[ k ] then passed[ k ] = v end
 		end
-		for _, v in ipairs( parseViews( args.views ) ) do
-			views[ #views + 1 ] = { label = v.label, html = render( frame, passed, v ) }
+		for _, v in ipairs( specs ) do
+			views[ #views + 1 ] = { label = v.label, default = v.default,
+				html = v.arg and ( args[ v.arg ] or '' ) or render( frame, passed, v ) }
 		end
 	else
 		local i = 1
 		while trim( args[ 'view' .. i ] ) or trim( args[ 'label' .. i ] ) do
-			views[ #views + 1 ] = { label = trim( args[ 'label' .. i ] ) or ( 'View ' .. i ), html = args[ 'view' .. i ] or '' }
+			local label = trim( args[ 'label' .. i ] ) or ( 'View ' .. i )
+			local star = label:match( '^%*%s*(.*)$' )
+			views[ #views + 1 ] = { label = star or label, default = star ~= nil, html = args[ 'view' .. i ] or '' }
 			i = i + 1
 		end
 	end
 	if #views == 0 then
 		return '<span class="error">ViewSwitcher: give |views= or |label1= and |view1=</span>'
 	end
-	local default = tonumber( args.default ) or 1
-	if default < 1 or default > #views then default = 1 end
+
+	-- the default view: a * on a label, else |default= (a number or a label), else the first
+	local default
+	for i, v in ipairs( views ) do
+		if v.default and not default then default = i end
+	end
+	local want = trim( args.default )
+	if not default and want then
+		default = tonumber( want )
+		if not default then
+			for i, v in ipairs( views ) do
+				if v.label:lower() == want:lower() then default = i; break end
+			end
+		end
+	end
+	if not default or default < 1 or default > #views then default = 1 end
 
 	local root = mw.html.create( 'div' ):addClass( 'viewswitcher' )
 	if trim( args.class ) then root:addClass( args.class ) end
 	for i, v in ipairs( views ) do
 		local d = root:tag( 'div' ):addClass( 'viewswitcher__view' ):attr( 'data-vs-label', v.label )
 		if i == default then d:addClass( 'viewswitcher__view--default' ) end
+		local html = v.html
+		if i ~= default and trim( args.refs ) ~= 'all' then html = withoutRefs( html ) end
 		-- newlines: a list or table written in a view must start a line
-		d:wikitext( '\n' .. v.html .. '\n' )
+		d:wikitext( '\n' .. html .. '\n' )
 	end
 	return frame:extensionTag( 'templatestyles', '', { src = STYLES } ) .. tostring( root )
 end

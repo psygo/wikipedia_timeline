@@ -60,6 +60,30 @@ has( 'table link kept', out, '[[Shusaku]]' )
 lacks( 'no timeline ids in list view', out:match( 'data%-vs%-label="List".-</div>' ) or '', 'id="' )
 lacks( 'views argument not passed on', out, 'views=' )
 
+
+-- the default view: * on a label, |default= as a label or a number
+out = switcher.switch( mw.frame( { label1 = 'A', view1 = 'a', label2 = '*B', view2 = 'b', label3 = 'C', view3 = 'c' } ) )
+has( 'star default', out, 'viewswitcher__view--default" data-vs-label="B"' )
+has( 'star removed from label', out, 'data-vs-label="B"' )
+out = switcher.switch( mw.frame( { label1 = 'A', view1 = 'a', label2 = 'Table', view2 = 'b', default = 'table' } ) )
+has( 'default by label, any case', out, 'viewswitcher__view--default" data-vs-label="Table"' )
+out = switcher.switch( mw.frame( { label1 = 'A', view1 = 'a', label2 = 'B', view2 = 'b', default = '9' } ) )
+has( 'bad default falls back to the first', out, 'viewswitcher__view--default" data-vs-label="A"' )
+out = switcher.switch( mw.frame( { views = 'T=TimelineRail.outline; *List=OutlineList.list', text = '* x' } ) )
+has( 'star in views=', out, 'viewswitcher__view--default" data-vs-label="List"' )
+
+-- "@name": a view that is the text of an argument, as it is
+out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; Original=@orig', text = '* one', orig = '* the original' } ) )
+has( 'at-arg view', out, '\n* the original\n' )
+check( 'at-arg not passed on to the functions', not out:find( 'the original</div></div></li>', 1, true ) )
+
+-- references only in the default view
+local REF = "\127'\"`UNIQ--ref-0000000A-QINU`\"'\127"
+out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; List=OutlineList.list', text = '* one ' .. REF } ) )
+check( 'ref kept in the default view', count_of( out, 'UNIQ--ref-0000000A' ) == 1, 'count ' .. count_of( out, 'UNIQ--ref-0000000A' ) )
+out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; List=OutlineList.list', text = '* one ' .. REF, refs = 'all' } ) )
+check( 'refs=all keeps every one', count_of( out, 'UNIQ--ref-0000000A' ) == 2 )
+
 -- bad function name
 local ok, err = pcall( switcher.switch, mw.frame( { views = 'X=OutlineList.nope', text = 'a' } ) )
 check( 'missing function is an error', not ok and tostring( err ):find( 'no function', 1, true ) ~= nil, tostring( err ) )

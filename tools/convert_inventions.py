@@ -285,6 +285,18 @@ def outline_section(sec):
             lines.append(outline_item(e[1], e[2], pending)); pending = None
     return '\n'.join(lines)
 
+_pos = [0]
+def raw_section(sec):
+    """The heading and bullets of one leaf section exactly as the article has them (in document order)."""
+    L = sec.level
+    m = re.compile(r'(?m)^={%d}[ \t]*%s[ \t]*={%d}[ \t]*$' % (L, re.escape(sec.title), L)).search(raw_lines, _pos[0])
+    if not m:
+        anomalies.append('original text of a section not found: ' + sec.title)
+        return ''
+    nxt = re.compile(r'(?m)^={1,%d}[^=\n]' % L).search(raw_lines, m.end())
+    _pos[0] = m.end()
+    return raw_lines[m.start():nxt.start() if nxt else len(raw_lines)].strip('\n')
+
 def emit(sec, pieces):
     """Headings that only hold other headings stay real headings; the runs of leaf headings
     under one parent become one TimelineRail whose sections are those leaves. (Nesting the
@@ -301,7 +313,8 @@ def emit(sec, pieces):
         if run:
             if OUTLINE:
                 stats['outlines'] = stats.get('outlines', 0) + 1
-                pieces.append(invoke(MODULE, 'inv%d' % stats['outlines'], '\n'.join(outline_section(c) for c in run)))
+                pieces.append(invoke(MODULE, 'inv%d' % stats['outlines'], '\n'.join(outline_section(c) for c in run),
+                                     original='\n\n'.join(raw_section(c) for c in run), original_as='list'))
             else:
                 pieces.append('{{%s\n|%s\n}}' % (BASE, '\n'.join(section_wikitext(c) for c in run)))
             run.clear()

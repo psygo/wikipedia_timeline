@@ -3,12 +3,18 @@
   "version": "0.1.0",
   "description": "TimelineRail as a web component: <timeline-rail>, a vertical, collapsible timeline.",
   "type": "module",
-  "main": "src/timeline-rail.js",
+  "main": "src/index.js",
   "exports": {
-    ".": "./src/timeline-rail.js",
+    ".": "./src/index.js",
+    "./timeline-rail": "./src/timeline-rail.js",
+    "./outline-list": "./src/outline-list.js",
+    "./outline-table": "./src/outline-table.js",
+    "./view-switcher": "./src/view-switcher.js",
     "./theme.css": "./src/theme.css"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {
     "sync": "python3 ../tools/sync_css.py",
     "start": "python3 -m http.server 8080 --directory .."

@@ -24,7 +24,7 @@ ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + '__lua.wikitext')
 
-url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
+url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote('Timeline of Artificial Intelligence (AI)'.replace(' ', '_'))   # moved; the old title is a redirect
 wt = subprocess.run(['curl', '-s', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
 if '{|' not in wt:
     sys.exit('Could not fetch the article wikitext')
@@ -117,8 +117,8 @@ def table_items(table_text):
     stats['tables'] += 1
     return items
 
-def wrap(n, lines):
-    return invoke(MODULE, 'ai%d' % n, '\n'.join(lines))
+def wrap(n, lines, original=None):
+    return invoke(MODULE, 'ai%d' % n, '\n'.join(lines), original=original, original_as='table')
 
 def intro_lines(text):
     """What stands between a subsection heading and its table: notices, hatnotes, pictures."""
@@ -150,7 +150,7 @@ for i, m in enumerate(l2):
     if not subs:
         n += 1
         t = tables[0]
-        page += block[:t.start()] + wrap(n, table_items(t.group(0))) + block[t.end():]
+        page += block[:t.start()] + wrap(n, table_items(t.group(0)), t.group(0)) + block[t.end():]
         continue
     # a heading that holds decades: the decades become sections of one timeline
     page += block[:subs[0].start()]
@@ -167,7 +167,7 @@ for i, m in enumerate(l2):
         lines += intro_lines(before)
         lines += table_items(t.group(0))
     n += 1
-    page += wrap(n, lines) + '\n\n'
+    page += wrap(n, lines, block[subs[0].start():]) + '\n\n'
 page = re.sub(r'\[\[Category:', '[[:Category:', page)
 page = ('{{User sandbox}}\n'
         "<!-- Draft showing how [[Module:%s]] could present the tables of [[%s]]. The text is copied from that "

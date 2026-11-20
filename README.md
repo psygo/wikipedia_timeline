@@ -62,8 +62,8 @@ Usage for one event per dot, several events per dot, nested timelines, collapsib
 
 The same stylesheet, class names and behaviour, outside Wikipedia (the stylesheet is copied from `prototype/timeline.css` by `python3 tools/sync_css.py`, which `tools/build.py` also runs):
 
-- [web-component/](web-component/) is a `<timeline-rail>` custom element, no dependencies, no build step.
-- [react/](react/) is a set of React components (Vite library build, TypeScript types).
+- [web-component/](web-component/) is a `<timeline-rail>` custom element, no dependencies, no build step, plus separate `<view-switcher>`, `<outline-list>` and `<outline-table>` elements for switching between a timeline, a list and a table.
+- [react/](react/) is a set of React components (Vite library build, TypeScript types), with `ViewSwitcher`, `OutlineList` and `OutlineTable` as separate components.
 - [lua/](lua/) is `Module:TimelineRail`, a Scribunto module that writes the same markup (with an `outline` entry point that avoids the post-expand size problem); locally tested only.
 
 ## User script (optional)
