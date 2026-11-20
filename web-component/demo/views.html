@@ -13,7 +13,7 @@
 	@media (max-width: 760px) { .compare { grid-template-columns: 1fr; } }
 	.note { color: var(--color-subtle); font-size: 0.9em; }
 </style>
-<script type="module" src="../src/timeline-rail.js"></script>
+<script src="../timeline-rail.bundle.js"></script>
 </head>
 <body>
 <main>
@@ -80,8 +80,7 @@ The table here also uses <code>table-columns="date, text"</code>.</p>
 </timeline-rail>
 </main>
 
-<script type="module">
-	import { TimelineRail } from '../src/timeline-rail.js';
+<script>
 
 	// Before and after: the same children in two rails.
 	const source = document.getElementById( 'menu' ).innerHTML;
