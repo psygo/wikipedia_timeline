@@ -19,6 +19,8 @@ The timeline with sections (red dots) in the prototype article, in the reader's 
 ## References
 
 - [Wikipedia Proposal](<https://en.wikipedia.org/wiki/Wikipedia:Village_pump_(proposals)#Timeline_Visual_Component%3E>)
+  - [Proposal for Converting the Timeline of AI](https://en.wikipedia.org/wiki/Talk:Timeline_of_artificial_intelligence#Converting_The_Timeline_of_AI_to_a_TimelineRail_Component)
+  - [Proposal for Converting the Timeline of First Images of Earth from Space](https://en.wikipedia.org/wiki/Talk:Timeline_of_first_images_of_Earth_from_space#Converting_The_Timeline_of_Images_of_Earth_from_Space_to_a_TimelineRail_Component)
 - [Go | Hall of Fame](https://go-hall-of-fame.vercel.app)
 
 ## Try the prototype
