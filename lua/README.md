@@ -49,7 +49,7 @@ lua/
 | [`Module:ViewSwitcher/styles.css`](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher/styles.css&action=edit) | `lua/ViewSwitcher__styles.css` | the button and menu (the module names this page; no sandbox copy) |
 | [`Module:OutlineList/sandbox`](https://en.wikipedia.org/w/index.php?title=Module:OutlineList/sandbox&action=edit) | `lua/Module_OutlineList.lua` | the List view |
 | [`Module:OutlineTable/sandbox`](https://en.wikipedia.org/w/index.php?title=Module:OutlineTable/sandbox&action=edit) | `lua/Module_OutlineTable.lua` | the Table view |
-| [`User:Fanaro009/common.js`](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&action=edit) | `userscript/ViewSwitcher.js` | the View button, for you only |
+| [`User:Fanaro009/ViewSwitcher.js`](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/ViewSwitcher.js&action=edit), then the line `importScript( 'User:Fanaro009/ViewSwitcher.js' );` in [`User:Fanaro009/common.js`](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&action=edit) | `userscript/ViewSwitcher.js` | the View button, for you only |
 | a page under your user space, e.g. [Earth](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline_of_first_images_of_Earth_from_space&action=edit), [AI](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline_of_artificial_intelligence&action=edit), [inventions](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline_of_historic_inventions&action=edit) | one of `drafts/*__lua.wikitext` (already written for `/sandbox` modules) | the article draft, to look at with Show preview |
 
 **Step 2: measure.** In the preview, look at the report in the page source (`NewPP limit report`) or at the bottom of the preview:

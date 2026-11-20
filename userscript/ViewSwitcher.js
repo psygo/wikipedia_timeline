@@ -3,7 +3,8 @@
  *
  * The module writes   <div class="viewswitcher"><div class="viewswitcher__view" data-vs-label="Table">...
  * and this script puts a button at the top right that shows one view at a time. Install it as a
- * gadget (MediaWiki:Gadget-ViewSwitcher.js) or, to try it, in your own User:<name>/common.js.
+ * gadget (MediaWiki:Gadget-ViewSwitcher.js) or, to try it, on its own page User:<name>/ViewSwitcher.js,
+ * loaded by the line  importScript( 'User:<name>/ViewSwitcher.js' );  in your User:<name>/common.js.
  * Without it the reader sees the first (default) view.
  *
  * Fires a "viewswitcher-change" DOM event on the container, with detail.label and detail.index.
