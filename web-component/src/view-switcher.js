@@ -102,7 +102,7 @@ export class ViewSwitcher extends HTMLElement {
 		const cur = this.#index(), labels = this.views;
 		views.forEach( ( el, i ) => { el.hidden = i !== cur; } );
 
-		const button = h( 'button', 'button', { type: 'button', 'aria-haspopup': 'menu', 'aria-expanded': String( this.#open ) }, 'View: ' + labels[ cur ] );
+		const button = h( 'button', 'button', { type: 'button', 'aria-haspopup': 'menu', 'aria-expanded': String( this.#open ) }, labels[ cur ] );
 		const list = h( 'div', 'list', { role: 'menu', 'aria-label': 'View' } );
 		list.hidden = !this.#open;
 		const items = labels.map( ( l, i ) => {

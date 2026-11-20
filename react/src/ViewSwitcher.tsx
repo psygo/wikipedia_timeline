@@ -66,7 +66,7 @@ export function ViewSwitcher({ children, defaultView, view: controlled, onViewCh
         <div className="tlv-switcher__menu">
           <button ref={button} type="button" className="tlv-switcher__button" aria-haspopup="menu" aria-expanded={open} aria-controls={menuId}
             onClick={() => setOpen(!open)} onKeyDown={(e) => { if (e.key === 'ArrowDown') { e.preventDefault(); setOpen(true); } }}>
-            View: {current}
+            {current}
           </button>
           <div id={menuId} className="tlv-switcher__list" role="menu" aria-label="View" hidden={!open} onKeyDown={onKey}>
             {labels.map((l, i) => (

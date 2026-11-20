@@ -46,7 +46,7 @@
 			current = i;
 			views.forEach( function ( v, k ) { v.hidden = k !== i; } );
 			items.forEach( function ( b, k ) { b.setAttribute( 'aria-checked', String( k === i ) ); } );
-			button.textContent = 'View: ' + label( i );
+			button.textContent = label( i );
 			if ( announce ) {
 				box.dispatchEvent( new CustomEvent( 'viewswitcher-change', { bubbles: true, detail: { label: label( i ), index: i } } ) );
 			}
