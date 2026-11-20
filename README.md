@@ -96,7 +96,7 @@ skeletons for the simple, multi-event, parallel and grouped timelines. Copy it t
 `User:<YourName>/Timeline-toolbar.js` and add `importScript( 'User:<YourName>/Timeline-toolbar.js' );`
 to `User:<YourName>/common.js`. Needs the WikiEditor toolbar. Untested on a live wiki.
 `userscript/Timeline-collapse-all.js` (double-click a dot to collapse or expand the whole timeline) and
-`userscript/ViewSwitcher.js` (the View button) are installed the same way, each on its own page.
+`userscript/ViewSwitcher.js` (the View button) are installed the same way, each on its own page. `userscript/common.js` is the whole of what goes on `User:Fanaro009/common.js` (the three `importScript` lines).
 
 ## Demo on a Wikipedia user subpage
 
