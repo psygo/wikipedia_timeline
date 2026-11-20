@@ -4,9 +4,10 @@
 {{See also|History of artificial intelligence|Progress in artificial intelligence}}
 {{Use dmy dates|date=September 2026}}
 
-[[File:Ai training compute doubling v2.png|thumb|The training computation of notable AI systems through time]]
 
 This is a timeline of [[artificial intelligence]], also known as [[synthetic intelligence]].
+
+[[File:Ai training compute doubling v2.png|thumb|center|upright=2|The training computation of notable AI systems through time]]
 
 ==Antiquity, Classical and Medieval eras==
 {{#invoke:ViewSwitcher/sandbox|switch |views=*Timeline=TimelineRail/sandbox.outline; List=OutlineList/sandbox.list; Table=@original

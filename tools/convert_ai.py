@@ -168,6 +168,17 @@ for i, m in enumerate(l2):
         lines += table_items(t.group(0))
     n += 1
     page += wrap(n, lines, block[subs[0].start():]) + '\n\n'
+# The picture that opens the article sits in the introduction: below the first paragraph, larger, centred
+# (as a small right-hand float it squeezes the timeline's first rows).
+m = re.search(r'^\[\[(File|Image):.*\]\][ \t]*\n', page, re.M | re.I)
+if m and m.start() < page.index('\n==') :
+    pic = m.group(0).strip()
+    pic = re.sub(r'\|\s*(right|left|center|centre|none)\s*(?=\||\])', '', pic)
+    pic = re.sub(r'\|\s*thumb(nail)?\s*(?=\|)', '|thumb|center|upright=2', pic, count=1)
+    page = page[:m.start()] + page[m.end():]
+    first = re.compile(r'\s*[^\s=][^\n]*').match(page, m.start())     # the first paragraph line (the lead sentence)
+    end = first.end() if first else m.start()
+    page = page[:end] + '\n\n' + pic + page[end:]
 page = re.sub(r'\[\[Category:', '[[:Category:', page)
 page = ('{{User sandbox}}\n'
         "<!-- Draft showing how [[Module:%s]] could present the tables of [[%s]]. The text is copied from that "
