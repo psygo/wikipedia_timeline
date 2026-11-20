@@ -43,14 +43,14 @@ lua/
 
 | Create | Paste | Needed for |
 |---|---|---|
-| `Module:TimelineRail/sandbox` | `lua/Module_TimelineRail.lua` | the timeline |
-| `Template:TimelineRail/styles.css` | `template/TimelineRail__styles.css` (skip if the page is already there) | the timeline's look |
-| `Module:ViewSwitcher/sandbox` | `lua/Module_ViewSwitcher.lua` | the switcher |
-| `Module:ViewSwitcher/styles.css` | `lua/ViewSwitcher__styles.css` | the button and menu (the module names this page; no sandbox copy) |
-| `Module:OutlineList/sandbox` | `lua/Module_OutlineList.lua` | the List view |
-| `Module:OutlineTable/sandbox` | `lua/Module_OutlineTable.lua` | the Table view |
-| `User:<you>/common.js` | `userscript/ViewSwitcher.js` | the View button, for you only |
-| `User:<you>/<a draft page>` | one of `drafts/*__lua.wikitext` (already written for `/sandbox` modules) | the article draft, to look at with Show preview |
+| [`Module:TimelineRail/sandbox`](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail/sandbox&action=edit) | `lua/Module_TimelineRail.lua` | the timeline |
+| [`Template:TimelineRail/styles.css`](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/styles.css&action=edit) | `template/TimelineRail__styles.css` (skip if the page is already there) | the timeline's look |
+| [`Module:ViewSwitcher/sandbox`](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher/sandbox&action=edit) | `lua/Module_ViewSwitcher.lua` | the switcher |
+| [`Module:ViewSwitcher/styles.css`](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher/styles.css&action=edit) | `lua/ViewSwitcher__styles.css` | the button and menu (the module names this page; no sandbox copy) |
+| [`Module:OutlineList/sandbox`](https://en.wikipedia.org/w/index.php?title=Module:OutlineList/sandbox&action=edit) | `lua/Module_OutlineList.lua` | the List view |
+| [`Module:OutlineTable/sandbox`](https://en.wikipedia.org/w/index.php?title=Module:OutlineTable/sandbox&action=edit) | `lua/Module_OutlineTable.lua` | the Table view |
+| [`User:Fanaro009/common.js`](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&action=edit) | `userscript/ViewSwitcher.js` | the View button, for you only |
+| a page under your user space, e.g. [Earth](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline_of_first_images_of_Earth_from_space&action=edit), [AI](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline_of_artificial_intelligence&action=edit), [inventions](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline_of_historic_inventions&action=edit) | one of `drafts/*__lua.wikitext` (already written for `/sandbox` modules) | the article draft, to look at with Show preview |
 
 **Step 2: measure.** In the preview, look at the report in the page source (`NewPP limit report`) or at the bottom of the preview:
 *Post-expand include size* must stay under 2,097,152 bytes; *Lua time usage* under 10 s. The table of estimates is below.
@@ -62,9 +62,9 @@ only where noted).
 
 | Create | Paste | Who |
 |---|---|---|
-| `Module:TimelineRail`, `Module:ViewSwitcher`, `Module:OutlineList`, `Module:OutlineTable` | the same four `lua/Module_*.lua` files | anyone autoconfirmed (a page that is later used a lot gets protected) |
-| `Module:TimelineRail/doc` | `lua/Module_TimelineRail__doc.wikitext` | anyone |
-| `MediaWiki:Gadget-ViewSwitcher.js` and a line in `MediaWiki:Gadgets-definition` (`* ViewSwitcher[default]\|ViewSwitcher.js`) | `userscript/ViewSwitcher.js` | interface administrators: ask on `MediaWiki talk:Gadgets-definition` or at Wikipedia:Interface administrators' noticeboard. Until then the button only works for people who put the script in their own common.js |
+| [`Module:TimelineRail`](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail&action=edit), [`Module:ViewSwitcher`](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher&action=edit), [`Module:OutlineList`](https://en.wikipedia.org/w/index.php?title=Module:OutlineList&action=edit), [`Module:OutlineTable`](https://en.wikipedia.org/w/index.php?title=Module:OutlineTable&action=edit) | the same four `lua/Module_*.lua` files | anyone autoconfirmed (a page that is later used a lot gets protected) |
+| [`Module:TimelineRail/doc`](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail/doc&action=edit) | `lua/Module_TimelineRail__doc.wikitext` | anyone |
+| `MediaWiki:Gadget-ViewSwitcher.js` and a line in `MediaWiki:Gadgets-definition` (`* ViewSwitcher[default]\|ViewSwitcher.js`) | `userscript/ViewSwitcher.js` | interface administrators: ask on [MediaWiki talk:Gadgets-definition](https://en.wikipedia.org/wiki/MediaWiki_talk:Gadgets-definition) or at the [Interface administrators' noticeboard](https://en.wikipedia.org/wiki/Wikipedia:Interface_administrators%27_noticeboard). Until then the button only works for people who put the script in their own common.js |
 | the article | the draft regenerated for the live names: `python3 tools/convert_<article>.py --outline --module=TimelineRail --switcher` | anyone, after the talk-page proposals are agreed |
 
 Readers without the script (everyone on the mobile site, anyone with JavaScript off, until the gadget exists) see only the **default

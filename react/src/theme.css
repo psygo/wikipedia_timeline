@@ -34,4 +34,5 @@
 	--background-color-interactive-subtle: #1b1f23;
 }
 body { background: var(--background-color-base); color: var(--color-base); font-family: system-ui, sans-serif; }
-a { color: var(--color-progressive); }
+a { color: var(--color-progressive); text-decoration: none; }
+a:hover { text-decoration: underline; }

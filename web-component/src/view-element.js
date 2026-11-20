@@ -12,7 +12,8 @@ import { readModel } from './data.js';
 export const viewCss = `
 :host { display: block; }
 .view { color: var( --color-base, #202122 ); line-height: 1.6; }
-.view a { color: var( --color-progressive, #36c ); }
+.view a { color: var( --color-progressive, #36c ); text-decoration: none; }
+.view a:hover { text-decoration: underline; }
 .view__heading { margin: 1em 0 0.3em; font-weight: bold; }
 .view__heading[data-level="1"] { font-size: 1.3em; border-bottom: 1px solid var( --border-color-subtle, #c8ccd1 ); }
 .view__heading[data-level="2"] { font-size: 1.15em; }

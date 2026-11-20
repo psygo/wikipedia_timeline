@@ -111,7 +111,8 @@ function flatten( nodes, depth = 0, parent = null, out = [] ) {
 const viewCss = `
 :host { display: block; }
 .view { color: var( --color-base, #202122 ); line-height: 1.6; }
-.view a { color: var( --color-progressive, #36c ); }
+.view a { color: var( --color-progressive, #36c ); text-decoration: none; }
+.view a:hover { text-decoration: underline; }
 .view__heading { margin: 1em 0 0.3em; font-weight: bold; }
 .view__heading[data-level="1"] { font-size: 1.3em; border-bottom: 1px solid var( --border-color-subtle, #c8ccd1 ); }
 .view__heading[data-level="2"] { font-size: 1.15em; }
@@ -326,7 +327,7 @@ if ( !customElements.get( 'outline-table' ) ) { customElements.define( 'outline-
  */
 
 // Links inside the shadow root do not see the page's link colour; use the same token.
-const railCss = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); }\n';
+const railCss = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); text-decoration: none; }\n.wt-timeline a:hover { text-decoration: underline; }\n';
 
 let sheet = null;
 if ( typeof CSSStyleSheet !== 'undefined' && 'replaceSync' in CSSStyleSheet.prototype ) {

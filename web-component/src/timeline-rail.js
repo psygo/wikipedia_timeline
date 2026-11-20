@@ -37,7 +37,7 @@ import { h, isTag, blank, bool, whenParsed } from './util.js';
 import { DATA_TAGS } from './data.js';
 
 // Links inside the shadow root do not see the page's link colour; use the same token.
-const railCss = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); }\n';
+const railCss = baseCss + '\n.wt-timeline a { color: var( --color-progressive, #36c ); text-decoration: none; }\n.wt-timeline a:hover { text-decoration: underline; }\n';
 
 let sheet = null;
 if ( typeof CSSStyleSheet !== 'undefined' && 'replaceSync' in CSSStyleSheet.prototype ) {

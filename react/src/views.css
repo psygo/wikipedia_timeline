@@ -1,6 +1,7 @@
 /* List, table and view switcher. Colours are the same custom properties as the timeline's. */
 .tlv { color: var( --color-base, #202122 ); line-height: 1.6; }
-.tlv a { color: var( --color-progressive, #36c ); }
+.tlv a { color: var( --color-progressive, #36c ); text-decoration: none; }
+.tlv a:hover { text-decoration: underline; }
 .tlv__heading { margin: 1em 0 0.3em; font-weight: bold; }
 .tlv__heading[data-level="1"] { font-size: 1.3em; border-bottom: 1px solid var( --border-color-subtle, #c8ccd1 ); }
 .tlv__heading[data-level="2"] { font-size: 1.15em; }
