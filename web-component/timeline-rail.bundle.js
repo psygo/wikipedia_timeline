@@ -426,7 +426,7 @@ class TimelineRail extends HTMLElement {
 		const li = h( 'li', cls, { 'data-key': node.key } );
 		const date = h( 'span', 'wt-timeline__date', null, node.date );
 		const events = h( 'div', 'wt-timeline__events', null,
-			...( node.events.length ? node.events.map( ( e ) => this.#event( e, collapsible ) ) : [ this.#event( ev, collapsible ) ] ) );
+			...( node.events.length ? node.events.map( ( e ) => this.#event( e, false ) ) : [ this.#event( ev, collapsible ) ] ) );
 		const sub = node.children.length ? this.#list( node.children, 'wt-timeline wt-timeline--sub' ) : null;
 		if ( !collapsible ) { li.append( date, events ); if ( sub ) { li.append( sub ); } return li; }
 		const peek = node.events.length
