@@ -126,6 +126,7 @@ other two are made from the outline. Add `--module=TimelineRail --switcher` for 
 | `Timeline_of_first_images_of_Earth_from_space__lua.wikitext` | Timeline, List, Table (= the original table) | 46 items in each view; the original is the article's table (apart from the converter's fix of a stray `\|`) |
 | `Timeline_of_artificial_intelligence__lua.wikitext` | Timeline, List, Table (= the original tables and decade headings) | 273 items in each view; the 4 originals equal the article's text |
 | `Timeline_of_historic_inventions__lua_views.wikitext` | Timeline, List (= the original bullets), Table | 544 items in each view; the 4 archive.today links the edit filter blocks are removed from the original too |
+| `Timeline_of_historic_inventions__lua_2views.wikitext` | Timeline, List (made from the outline, so no original copy) | 544 items in both; **measured on the wiki: 1,541,264 of 2,097,152**, no warning. Made with `--views=timeline,list --no-original` |
 | `Timeline_of_historic_inventions__lua.wikitext` | the timeline only | 543 items; fits the size limit |
 
 Estimated size, from the modules run locally (the wiki's number is larger: measure in a preview):
@@ -134,7 +135,9 @@ Estimated size, from the modules run locally (the wiki's number is larger: measu
 |---|---|---|---|
 | Earth | 170 kB | 90 kB | expected to |
 | AI | 542 kB | 286 kB | expected to |
-| Inventions, 3 views | 1,137 kB | 559 kB | no: the timeline alone was already 1,448,598 |
+| Inventions, 3 views | 1,137 kB | 559 kB | no: measured on the wiki, over the limit (the report stops counting at 2,097,152) |
+| Inventions, timeline + the original bullets | 833 kB | 558 kB | no: measured, over the limit |
+| Inventions, timeline + a generated list | | 283 kB | yes: measured 1,541,264 (timeline alone: 1,449,396) |
 
 Footnotes: the same `<ref>` in three views would be listed three times, so `Module:ViewSwitcher` removes the reference markers
 from every view but the default (`|refs=all` keeps them). That works on the markers MediaWiki hands modules in place of `<ref>`;
