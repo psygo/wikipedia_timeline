@@ -211,6 +211,31 @@ def link(text):
             linked.add(name)
     return text
 
+# Pictures on Wikimedia Commons, the ones History of Go uses: (date, a part of the event's text, file)
+IMAGES = [
+    ('1st–3rd century', 'Ban Gu', 'Go Board Han dynasty.JPG'),
+    ('3rd–6th century', 'Dunhuang', 'British Library Dunhuang Go Manual.jpg'),
+    ('475', 'To-lim', 'Baekje Game of Baduk (Copy) (30079340202).jpg'),
+    ('618–907', 'Tang', 'Early Go stones.jpeg'),
+    ('Early 8th century', 'Tibet', 'TibetGoBoard.png'),
+    ('1349', 'Xuanxuan', 'Inner Mongolia Museum weiqi stones.jpg'),
+    ('Ming dynasty', 'Hongwu', 'Go Ming Court.jpg'),
+    ('1588', 'Hideyoshi', 'Go board Hideyoshi Ieyasu Ryogenin M1868.jpg'),
+    ('1603', 'Sansa', 'Sansa.jpg'),
+    ('Late 17th century', 'Dōsaku', 'Honinbo Dosaku.png'),
+    ('1846', 'ear-reddening', 'Kulak_kizartan_go.png'),
+    ('1933', 'Game of the Century', 'Game_of_the_Century_-_Honinbo_Shusai_(W)_vs_Go_Seigen_(B)_no_text.svg'),
+    ('1936–1938', 'Shūsai', 'Honinbo Shusai.jpg'),
+    ('1950', 'Go Seigen', 'Go_Seigen_and_Kitani_Minoru.jpg'),
+    ('1959', 'Sakata', 'Sakata-Eio-1.jpg'),
+    ('2000', 'Redmond', 'Michael Redmond in 2018.png'),
+    ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg'),
+    ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg'),
+    ('2019', 'KataGo', 'KataGoanalisis.png'),
+]
+for _d, _t, _f in IMAGES:       # a typo here would silently drop a picture
+    assert any(d == _d and _t in t for _, evs in SECTIONS for d, t, *_ in evs), (_d, _t)
+
 lines, n = [], 0
 for title, events in SECTIONS:
     lines.append('== %s ==' % title)
@@ -220,6 +245,9 @@ for title, events in SECTIONS:
         refs = ref_text(phrase) if phrase and 'HOG' in src else ''
         if 'SL' in src:
             refs += ref_text(None, named=':11')
+        for d, t, f in IMAGES:
+            if d == date and t in text:
+                lines.append('[[File:%s|200px]]' % f)
         lines.append("* '''%s''' %s%s" % (date, text, refs))
 
 body = invoke(MODULE, 'go', '\n'.join(lines), flags=['--switcher', '--no-original'])
@@ -235,7 +263,8 @@ page = (
     'the Go History page of Sensei\'s Library (senseis.xmp.net/?GoHistory). -->\n'
     '{{Short description|Chronology of the board game Go}}\n'
     '{{Use dmy dates|date=November 2026}}\n\n'
-    + lead + '\n\n== Timeline ==\n' + body +
+    + "[[File:MET DP135836.jpg|thumb|right|upright=1.3|''Outfit for the Go Game'', woodblock print (''surimono''), 19th century, [[Metropolitan Museum of Art]].]]\n"
+    + lead + '\n{{clear}}\n\n== Timeline ==\n' + body +
     '\n\n== See also ==\n* [[History of Go]]\n* [[Go (game)]]\n* [[Timeline of artificial intelligence]]\n'
     '\n== References ==\n'
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
