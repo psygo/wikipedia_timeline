@@ -78,11 +78,11 @@ button that switches between them, are other components. Each works alone.
 
 | Module | What it does | Paste from |
 |---|---|---|
-| `Module:ViewSwitcher` | `{{#invoke:ViewSwitcher|switch ...}}`: wraps several views, each any wikitext or the output of any module function, in one box | `lua/Module_ViewSwitcher.lua` |
+| `Module:ViewSwitcher` | `{{#invoke:ViewSwitcher\|switch ...}}`: wraps several views, each any wikitext or the output of any module function, in one box | `lua/Module_ViewSwitcher.lua` |
 | `Module:ViewSwitcher/styles.css` | the button and menu (passes the TemplateStyles sanitizer) | `lua/ViewSwitcher__styles.css` |
-| the button itself | the script that builds the dropdown (MediaWiki:Gadget-ViewSwitcher.js, or your common.js to try it) | `userscript/ViewSwitcher.js` |
-| `Module:OutlineList` (optional) | `{{#invoke:OutlineList|list \|text=...}}`: the outline as a plain bulleted list | `lua/Module_OutlineList.lua` |
-| `Module:OutlineTable` (optional) | `{{#invoke:OutlineTable|table \|text=...}}`: the outline as a `wikitable` | `lua/Module_OutlineTable.lua` |
+| the button itself | the script that builds the dropdown (MediaWiki:Gadget-ViewSwitcher.js, or User:Fanaro009/ViewSwitcher.js loaded from your common.js to try it) | `userscript/ViewSwitcher.js` |
+| `Module:OutlineList` (optional) | `{{#invoke:OutlineList\|list \|text=...}}`: the outline as a plain bulleted list | `lua/Module_OutlineList.lua` |
+| `Module:OutlineTable` (optional) | `{{#invoke:OutlineTable\|table \|text=...}}`: the outline as a `wikitable` | `lua/Module_OutlineTable.lua` |
 
 **The list and table modules are optional.** They add no styling: they write a plain `<ul>` and a
 `class="wikitable"`, the default Wikipedia elements. All they do is write them from the same outline, so the
