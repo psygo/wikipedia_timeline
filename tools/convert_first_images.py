@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Draft: "Timeline of first images of Earth from space" rebuilt with TimelineRail.
 
-Usage: python3 tools/convert_first_images.py [--outline [--module=NAME]] [out.wikitext]
+Usage: python3 tools/convert_first_images.py [--outline [--module=NAME]] [--article] [out.wikitext]
+
+With --article the output is the text to paste into the real article: Module:TimelineRail and
+Module:ViewSwitcher (not the /sandbox ones), the article's own table as the List view, no
+{{User sandbox}} banner and no draft comment, the categories left live. Written to
+drafts/Timeline_of_first_images_of_Earth_from_space__article.wikitext.
 
 With --outline the timeline is written for the Lua module: one {{#invoke:NAME|outline|text=...}}
 (NAME is TimelineRail/sandbox until Module:TimelineRail is live) instead of the template family.
@@ -18,16 +23,19 @@ import pathlib, re, subprocess, sys, urllib.parse
 
 ARTICLE = 'Timeline of first images of Earth from space'
 root = pathlib.Path(__file__).resolve().parent.parent
+ARTICLE_MODE = '--article' in sys.argv[1:]
+if ARTICLE_MODE:
+    sys.argv += ['--outline'] + ([] if any(a.startswith('--switcher') for a in sys.argv) else ['--switcher'])
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
 from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 OUTLINE = '--outline' in FLAGS
-MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
-out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__lua' if OUTLINE else '') + '.wikitext')
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail' if ARTICLE_MODE else 'TimelineRail/sandbox')
+out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__article' if ARTICLE_MODE else '__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 
-url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote('Timeline of First Images of Earth from Space'.replace(' ', '_'))   # the article was moved; the old title is a redirect
-wt = subprocess.run(['curl', '-s', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
+wt = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
 if '{|' not in wt:
     sys.exit('Could not fetch the article wikitext')
 
@@ -170,12 +178,14 @@ items = sections
 
 # ---------------------------------------------------------------- the rest of the page
 head = head.strip()   # keeps {{short description}} and {{Use mdy dates}}: the dates in the citations depend on it
-tail = re.sub(r'\[\[Category:', '[[:Category:', tail)
-page = (
+if not ARTICLE_MODE:
+    tail = re.sub(r'\[\[Category:', '[[:Category:', tail)
+banner = '' if ARTICLE_MODE else (
     '{{User sandbox}}\n'
     "<!-- Draft showing how [[%s]] could present the table of [[%s]]. "
     'The text is copied from that article; see its history for attribution. '
-    'The original table is not changed. -->\n\n' % (('Module:' + MODULE.split('/')[0]) if OUTLINE else ('Template:' + BASE), ARTICLE)
+    'The original table is not changed. -->\n\n' % (('Module:' + MODULE.split('/')[0]) if OUTLINE else ('Template:' + BASE), ARTICLE))
+page = (banner
     + head + '\n\n== Timeline ==\nEach section on the following timeline refers to a craft or a mission.\n\n' + timeline + '\n' + tail
 )
 out.parent.mkdir(exist_ok=True)

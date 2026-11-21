@@ -125,6 +125,8 @@ other two are made from the outline. Add `--module=TimelineRail --switcher` for 
 |---|---|---|
 | `Timeline_of_first_images_of_Earth_from_space__lua.wikitext` | Timeline, List, Table (= the original table) | 46 items in each view; the original is the article's table (apart from the converter's fix of a stray `\|`) |
 | `Timeline_of_artificial_intelligence__lua.wikitext` | Timeline, List, Table (= the original tables and decade headings) | 273 items in each view; the 4 originals equal the article's text |
+| `Timeline_of_first_images_of_Earth_from_space__article.wikitext` | the same three views, **for the real article** | made with `python3 tools/convert_first_images.py --article`: live module names (no `/sandbox`), no `{{User sandbox}}` banner or draft comment, categories live; paste over the article once the live modules exist |
+| `Timeline_of_artificial_intelligence__article.wikitext` | the same three views, **for the real article** | made with `python3 tools/convert_ai.py --article`; same as above |
 | `Timeline_of_historic_inventions__lua_views.wikitext` | Timeline, List (= the original bullets), Table | 544 items in each view; the 4 archive.today links the edit filter blocks are removed from the original too |
 | `Timeline_of_historic_inventions__lua_2views.wikitext` | Timeline, List (made from the outline, so no original copy) | 544 items in both; **measured on the wiki: 1,541,264 of 2,097,152**, no warning. Made with `--views=timeline,list --no-original` |
 | `Timeline_of_historic_inventions__lua.wikitext` | the timeline only | 543 items; fits the size limit |

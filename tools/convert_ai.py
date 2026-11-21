@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Draft: "Timeline of artificial intelligence" rebuilt with the Lua module.
 
-Usage: python3 tools/convert_ai.py [--module=NAME] [out.wikitext]
+Usage: python3 tools/convert_ai.py [--module=NAME] [--article] [out.wikitext]
+
+With --article the output is the text to paste into the real article: Module:TimelineRail and
+Module:ViewSwitcher (not the /sandbox ones), the article's own tables as the Table view, no
+{{User sandbox}} banner and no draft comment, the categories left live. Written to
+drafts/Timeline_of_artificial_intelligence__article.wikitext.
 
 Fetches the current wikitext of the article from English Wikipedia. Every two-column table (date |
 development) becomes timeline items, one per row; a date shared by several rows (rowspan) is repeated
@@ -18,14 +23,17 @@ import pathlib, re, subprocess, sys, urllib.parse
 
 ARTICLE = 'Timeline of artificial intelligence'
 root = pathlib.Path(__file__).resolve().parent.parent
+ARTICLE_MODE = '--article' in sys.argv[1:]
+if ARTICLE_MODE and not any(a.startswith('--switcher') for a in sys.argv):
+    sys.argv.append('--switcher')
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
 from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
-MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
-out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + '__lua.wikitext')
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail' if ARTICLE_MODE else 'TimelineRail/sandbox')
+out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__article' if ARTICLE_MODE else '__lua') + '.wikitext')
 
-url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote('Timeline of Artificial Intelligence (AI)'.replace(' ', '_'))   # moved; the old title is a redirect
-wt = subprocess.run(['curl', '-s', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
+wt = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
 if '{|' not in wt:
     sys.exit('Could not fetch the article wikitext')
 
@@ -180,11 +188,12 @@ if m and m.start() < page.index('\n==') :
     first = re.compile(r'\s*[^\s=][^\n]*').match(page, m.end())          # the lead sentence
     if first:
         page = page[:m.start()] + pic + '\n' + page[m.end():first.end()] + '\n{{clear}}' + page[first.end():]
-page = re.sub(r'\[\[Category:', '[[:Category:', page)
-page = ('{{User sandbox}}\n'
+if not ARTICLE_MODE:
+    page = re.sub(r'\[\[Category:', '[[:Category:', page)
+page = ('' if ARTICLE_MODE else '{{User sandbox}}\n'
         "<!-- Draft showing how [[Module:%s]] could present the tables of [[%s]]. The text is copied from that "
         'article; see its history for attribution. The original is not changed. -->\n' % (MODULE.split('/')[0], ARTICLE)
-        + page)
+        ) + page
 out.parent.mkdir(exist_ok=True)
 out.write_text(page)
 print('%d tables, %d rows -> %s (%d bytes)' % (stats['tables'], stats['rows'], out, len(page)))
