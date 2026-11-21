@@ -1,0 +1,90 @@
+{{User sandbox}}
+<!-- Draft of a "Timeline of Go" with [[Module:TimelineRail]]. The events and their sources are adapted from [[History of Go]] (see its history for attribution) and from the Go | Hall of Fame timeline (go-hall-of-fame.vercel.app). -->
+{{Short description|Chronology of the board game Go}}
+{{Use dmy dates|date=November 2026}}
+
+This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''weiqi'', Korean ''baduk''), from its legendary origins in ancient China to the age of AI. For the full story, see [[History of Go]].
+
+== Timeline ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=go
+|text=
+== Legends and first records ==
+* '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in Zhejiang watches deities playing a mysterious game and loses track of time.
+* '''c. 2356–2255 BCE''' According to legend, [[Emperor Yao]] creates the game to teach discipline and balance to his son Danzhu.<ref name="Berge-Becker">{{Cite book |last=Berge-Becker |first=Zach |title=Games & Play in Chinese & Sinophone Cultures |date=2024 |publisher=[[University of Washington Press]] |isbn=9780295752402 |editor-last=Guo |editor-first=Li |location=Seattle, WA |pages= |chapter=Groups on the Grid: Weiqi Cultures in Song-Yuan-Ming China |editor-last2=Eyman |editor-first2=Douglas |editor-last3=Sun |editor-first3=Hongmei}}</ref>
+* '''548 BCE''' The earliest written reference to the game is usually taken to be the historical annal [[Zuo Zhuan]], about an event of this year; it is also mentioned in the [[Analects]] of Confucius and in the books of [[Mencius]].{{sfn|Potter|1985}}{{sfn|Fairbairn|1995}}
+* '''206 BCE – 24 CE''' Western Han: a broken piece of a pottery board, the earliest board found in China, is later unearthed in Shaanxi.
+== Ancient and medieval East Asia ==
+* '''1st–3rd century''' Eastern Han: Ban Gu writes ''Yì Zhǐ'' ("The Essentials of Go"), considered the first specialized book on the game, and boards have 17 × 17 lines.<ref name=":11">{{Cite web |title=Go History at Sensei's Library |url=https://senseis.xmp.net/?GoHistory |access-date=2025-08-24 |website=senseis.xmp.net}}</ref>
+* '''3rd–6th century''' The board grows from 17 × 17 to 19 × 19 lines. The ''Dunhuang Go Manual'', the first book devoted to Go on the larger board, dates to this period.
+* '''475''' In the rivalry between Goguryeo and Baekje, the Goguryeo priest To-lim uses the game of Go to spy on King Yogyong; the invasion of Baekje follows.
+* '''Around 500''' Emperor Wu of Liang promotes the game and holds the first documented national tournament; 278 players receive a rank.
+* '''618–907''' Tang dynasty: the court creates the post of Go attendant ("Qídàizhào") for players who play against the emperor, and players are ranked.<ref>{{Cite web |title=The Ten Golden Rules List at Sensei's Library |url=https://senseis.xmp.net/?TheTenGoldenRulesList |access-date=2025-08-23 |website=senseis.xmp.net}}</ref>
+* '''Early 8th century''' The game reaches Tibet and Mongolia, where the 17 × 17 board survives.
+* '''8th century''' Go reaches Japan, traditionally brought by [[Kibi no Makibi]]; the Taihō Code of 701 already describes it.<ref name=":5">Shotwell (2011), Chapter Sixteen, The History of Go</ref>
+* '''737''' The Chinese player Yang Jiying travels to Korea as an envoy and no player of Silla can match him.
+* '''c. 1050''' Song dynasty: Wang Ni writes ''The Classic of Weiqi'', tying the board to yin and yang and to the days of the year.<ref>Paolo Zanon, “Qijing Shisanpan (The Classic of Go in Thirteen Chapters): Its History and Translation.” Annali Di Ca ‘Foscari, no. 3: Serie Orientale, 27 (1996): pp. 382-383.</ref>
+* '''c. 1100''' The ''Wangyou Qingle Ji'' records a game between a Japanese prince and Gu Shiyan, probably the best Chinese player of his time, the first recorded double-ladder breaker.
+* '''1349''' Yuan dynasty: the ''Xuanxuan Qijing'' ("Gateway to All Marvels"), a large collection of problems, joseki and set patterns, is compiled; it becomes one of the most influential Go books.
+* '''Ming dynasty''' The Hongwu Emperor issues an "Edict Banning Weiqi" in the face of widespread gambling on the game.
+* '''1582''' [[Hon'inbō Sansa|Honinbo Sansa]] plays a triple ko against Kashio Rigen at a monastery in Kyoto in the presence of Oda Nobunaga; the game is suspended. The next day Nobunaga is killed, and a triple ko is considered bad luck ever after.
+* '''1588''' Toyotomi Hideyoshi organizes the first Japanese Go tournament; Hon'inbō (Sansa) wins and is granted a salary.<ref name=":5" />
+== Edo-period Japan and Qing China ==
+* '''1603''' Honinbo Sansa is appointed by Shogun Tokugawa Ieyasu as head of the Go world: the major Japanese Go school system begins.<ref name=":5" />
+* '''1612''' The Tokugawa shogunate establishes four hereditary Go houses (Hon'inbō, Inoue, Yasui and Hayashi) that compete for 300 years, with an annual Castle Game before the shogun.<ref name=":5" />
+* '''c. 1650''' [[Huang Longshi]], probably the strongest Chinese player of the Qing dynasty, is born (c. 1650 – c. 1694).<ref>{{Cite web |title=Huang Longshi at Sensei's Library |url=https://senseis.xmp.net/?HuangLongshi |access-date=2025-08-24 |website=senseis.xmp.net}}</ref>
+* '''Late 17th century''' The fourth Hon'inbō, Dōsaku (1645–1702), defeats every top player of his time and is praised as having "thirteen-dan strength".<ref name=":5" />
+* '''1694''' [[Thomas Hyde]] writes the first detailed description of Go in a European language, in his treatise on oriental board games.<ref name=":11" />
+* '''1739''' Shi Xiangxia and Fan Xiping play the "Ten Games at Danghu" in Pinghu, Zhejiang.<ref>{{Cite web |title=Fan Xiping and Shi Ding'an at Sensei's Library |url=https://senseis.xmp.net/?FanXipingAndShiDingan |access-date=2025-08-23 |website=senseis.xmp.net}}</ref>
+* '''1840''' The "blood-vomiting game": Hon'inbō Jōwa beats Akaboshi Intetsu in a week-long match; Akaboshi collapses from exhaustion and dies soon after.<ref name=":5" />
+* '''1846''' The "ear-reddening game": [[Hon'inbō Shūsaku|Honinbo Shusaku]]'s move 127 stuns Gennan Inseki, and becomes one of the best moves of all time.<ref name=":5" />
+== Modern professional Go ==
+* '''1868''' The Meiji Restoration dissolves the official system of the shogunate; Go loses its patrons and the masters struggle.
+* '''1872''' The first recorded game of Go in Europe is played between Kido Takayoshi and Ōkubo Toshimichi of the Iwakura Mission.
+* '''1880''' [[Oskar Korschelt]], who learned the game in Japan from Murase Shūho, publishes ''Das Go Spiel'': the first systematic description in a Western language.<ref>{{Cite web |title=Oskar Korschelt at Sensei's Library |url=https://senseis.xmp.net/?OscarKorschelt |access-date=2025-08-28 |website=senseis.xmp.net}}</ref>
+* '''1924''' The [[Nihon Ki-in]], Japan's professional Go association, is founded, ending the hereditary house system and inaugurating the modern rank and tournament system.<ref name=":5" />
+* '''1933''' The "Game of the Century": [[Go Seigen]] opens at the three-three, star and center points against [[Hon'inbō Shūsai|Honinbo Shusai]], in a controversial three-month game that challenges the old system.<ref name="AUK">{{cite web |title=Analysed Games of Go Seigen |url=https://www.usgo.org/files/pdf/go-seigen-book.pdf |url-status=dead |archive-url=https://web.archive.org/web/20200808162306/https://www.usgo.org/sites/default/files/pdf/go-seigen-book.pdf |archive-date=8 August 2020}}</ref>
+* '''1936''' The Nihon Ki-in holds the first Hon'inbō tournament, after Shūsai hands over the title.<ref name=":5" />
+* '''1945''' The "Game Under the Atomic Bomb": the second game of the 3rd Hon'inbō match, played near Hiroshima on August 6, is finished after the blast.
+* '''1950''' Go Seigen is awarded 9 dan, and becomes the world's best player; he wins his ten-game matches against all top rivals until 1956.<ref name=":5" />
+* '''1954''' The Korea Baduk Association is established.<ref name=":5" />
+* '''1959''' [[Sakata Eio]] 9p takes the first place from Go Seigen.
+* '''1960''' The China–Japan Go Friendship Match starts; it is held every year until 1991.
+* '''1976''' After the "Meijin Incident" of 1974, the Tengen (1975), Kisei and Gosei (1976) titles complete the seven major Japanese titles.
+* '''1984''' [[Nie Weiping]] leads China to victory over Japan in the first China–Japan Super Go Matches, a national triumph.<ref name=":6">{{Cite news |title=China's Hero of the Game 'Go' |url=https://www.csmonitor.com/1992/0306/06141.html |access-date=2025-08-24 |work=Christian Science Monitor |issn=0882-7729}}</ref><ref name=":5" />
+* '''1989''' [[Cho Hun-hyun|Cho Hunhyun]], the only Korean entrant, wins the first [[Ing Cup]], the "Olympics of Go", beating Nie Weiping.<ref name=":5" />
+* '''1990''' [[Lee Chang-ho|Lee Changho]], a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.
+== Go in the West and in space ==
+* '''1978''' Manfred Wimmer becomes the first Westerner to receive a professional certificate from an East Asian Go association.<ref>[http://pokspace.goverband.at/essays/wimmer_e.htm Manfred Wimmer]</ref>
+* '''1996''' Astronauts Daniel Barry and Koichi Wakata become the first people to play Go in space.{{sfn|Peng|Hall|1996}}
+* '''1998–2003''' The manga ''Hikaru no Go'' (later also an anime) sparks a Go boom among young players in Japan.<ref name=":5" />
+* '''2000''' The American [[Michael Redmond]] is the first Westerner to reach 9 dan. In February, [[Rui Naiwei]], playing for Korea, becomes the first woman to win a major international title.<ref name=":3">{{Cite web |title=Korean History - All About Go |url=http://www.allaboutgo.com/history/korea-history.html |access-date=2025-08-23 |website=www.allaboutgo.com}}</ref>
+== The AI era ==
+* '''2016''' Google's [[AlphaGo]] beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.
+* '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
+* '''May 2017''' A new and much improved AlphaGo plays [[Ke Jie]].
+* '''June 2018''' [[Shin Jin-seo|Shin Jinseo]] 9p, whose style resembles that of the AIs, becomes the world no. 1.
+* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7">{{Cite web |title=AlphaGo: Dawn of a New Era in Human-Machine Partnership |url=https://baduk.news/s/alphago-dawn-of-a-new-era-in-human-machine-partnership |access-date=2025-08-24 |website=Baduk News |language=en}}</ref><ref name=":8">Lee, Hajin. ''[https://hajinlee.medium.com/impact-of-go-ai-on-the-professional-go-world-f14cf201c7c2 Impact of Go AI on the professional Go world],'' 2020.</ref><ref name=":9">{{Cite web |title=Impact of Go AI on the Professional Go World – Response |url=https://www.nordicgodojo.eu/post/276/impact-of-go-ai-on-the-professional-go-world-response |access-date=2025-08-24 |website=Nordic Go Dojo}}</ref>
+* '''2026''' Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
+}}
+
+== See also ==
+* [[History of Go]]
+* [[Go (game)]]
+* [[Timeline of artificial intelligence]]
+
+== References ==
+{{Reflist|30em}}
+
+== Sources ==
+* {{cite journal | last = Potter | first = Donald L. | year = 1984 | title = Go in the Classics | journal = [[Go World]] | issue = 37 | publisher = Ishi Press | location = Tokyo | pages = 16–18 | url = http://www.kiseido.com/classics.htm | access-date = 2007-11-02 | archive-date = 2010-12-18 | archive-url = https://web.archive.org/web/20101218113923/http://kiseido.com/classics.htm | url-status = dead }}
+* {{cite journal | last = Potter | first = Donald L. | year = 1985 | title = Go in the Classics (ii): the Tso-chuan | journal = [[Go World]] | issue = 42 | publisher = Ishi Press | location = Tokyo | pages = 19–21 | url = http://www.kiseido.com/classics.htm | access-date = 2007-11-02 | archive-date = 2010-12-18 | archive-url = https://web.archive.org/web/20101218113923/http://kiseido.com/classics.htm | url-status = dead }}
+* {{cite web | url = http://www.pandanet.co.jp/English/essay/goancientchina.html | title = Go in Ancient China | last = Fairbairn | first = John | author-link = John Fairbairn (writer) | year = 1995 | access-date = 2007-11-02}}
+* {{cite web|url=http://www.msoworld.com/mindzine/news/orient/go/history/origin_korea.html |title=History of Go in Korea |last=Fairbairn |first=John |author-link=John Fairbairn (writer) |year=2000 |access-date=2007-11-06 |url-status=dead |archive-url=https://web.archive.org/web/20110608021308/http://www.msoworld.com/mindzine/news/orient/go/history/origin_korea.html |archive-date=2011-06-08 }}
+* {{cite book | last = Lasker | first = Edward | author-link = Edward Lasker | title = Go and Go-Moku | isbn = 0-486-20613-0 | year = 1960 | publisher = Courier Corporation | orig-year = 1934 | url-access = registration | url = https://archive.org/details/gogomokuoriental00lask }}
+* {{Cite book | url = http://www.kiseido.com/printss/ukiyoedx.html | chapter-url = http://www.kiseido.com/printss/four.html | title = Japanese Prints and the World of Go | chapter = The Four Accomplishments | year = 1989 | last = Pinckard | first = William | editor = Richard Bozulich | access-date = 2007-11-02 | archive-url = https://web.archive.org/web/20080316051106/http://www.kiseido.com/printss/ukiyoedx.html | archive-date = 2008-03-16 | url-status = dead }}.
+* {{Cite journal|title=One Giant Leap For Go |url=http://homepage.mac.com/bjornwendsjo/go/2-96.pdf |journal=Svensk Gotidning |volume=96 |issue=2 |year=1996 |pages=7–8 |last1=Peng |first1=Mike |last2=Hall |first2=Mark |access-date=2007-11-12 |url-status=dead |archive-url=https://web.archive.org/web/20120304121705/http://homepage.mac.com/bjornwendsjo/go/2-96.pdf |archive-date=2012-03-04 }}
+* {{Cite web | last = Shotwell | first = Peter | date = 3 April 2003 | title = The Game of Go in Ancient and Modern Tibet |url=https://www.usgo.org/sites/default/files/bh_library/go_in_tibet.pdf | access-date = 23 September 2021 | url-status = dead | archive-url=https://web.archive.org/web/20230131142827/https://www.usgo.org/sites/default/files/bh_library/go_in_tibet.pdf | archive-date = 31 January 2023}} Revision of {{cite magazine | last = Shotwell | first = Peter | title=Go in the Snow |magazine=GoWorld |number=69 |date=1993}}
+* Shotwell, Peter (2011). ''Go! More Than a Game''. Tuttle Publishing. ISBN 9781462900060
+
+[[:Category:Go (game)]]
