@@ -170,7 +170,7 @@ SECTIONS = [
  ('World no. 1 players', [
   ('January 1950', '{{Flag icon|China}}{{Flag icon|Japan}} Go Seigen becomes the world no. 1.', None, 'VID'),
   ('January 1959', '{{Flag icon|Japan}} Sakata Eio becomes the world no. 1.', None, 'VID'),
-  ('January 1969', '{{Flag icon|Japan}} Rin Kaiho becomes the world no. 1.', None, 'VID'),
+  ('January 1969', '{{Flag icon|Taiwan}}{{Flag icon|Japan}} Rin Kaiho becomes the world no. 1.', None, 'VID'),
   ('June 1975', '{{Flag icon|Japan}} Kato Masao becomes the world no. 1.', None, 'VID'),
   ('November 1979', '{{Flag icon|South Korea}}{{Flag icon|Japan}} Cho Chikun becomes the world no. 1.', None, 'VID'),
   ('July 1982', '{{Flag icon|South Korea}} Cho Hunhyun becomes the world no. 1.', None, 'VID'),

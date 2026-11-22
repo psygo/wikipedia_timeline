@@ -143,7 +143,7 @@ __TOC__
 [[File:Sakata-Eio-1.jpg|200px]]
 * '''January 1959''' {{Flag icon|Japan}} [[Sakata Eio]] becomes the world no. 1.<ref name="gomagic" />
 [[File:Go Seigen teaching to a young Rin Kaiho.jpg|200px]]
-* '''January 1969''' {{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
+* '''January 1969''' {{Flag icon|Taiwan}}{{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
 * '''June 1975''' {{Flag icon|Japan}} [[Kato Masao]] becomes the world no. 1.<ref name="gomagic" />
 [[File:Cho Chikun at World Go Festival20190630.jpg|200px]]
 * '''November 1979''' {{Flag icon|South Korea}}{{Flag icon|Japan}} [[Cho Chikun]] becomes the world no. 1.<ref name="gomagic" />
@@ -278,7 +278,7 @@ __TOC__
 == World no. 1 players ==
 * '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} Go Seigen becomes the world no. 1.<ref name="gomagic" />
 * '''January 1959''' {{Flag icon|Japan}} [[Sakata Eio]] becomes the world no. 1.<ref name="gomagic" />
-* '''January 1969''' {{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
+* '''January 1969''' {{Flag icon|Taiwan}}{{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
 * '''June 1975''' {{Flag icon|Japan}} [[Kato Masao]] becomes the world no. 1.<ref name="gomagic" />
 * '''November 1979''' {{Flag icon|South Korea}}{{Flag icon|Japan}} [[Cho Chikun]] becomes the world no. 1.<ref name="gomagic" />
 == Go in the West and in space ==
