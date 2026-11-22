@@ -179,8 +179,8 @@ SECTIONS = [
   ('July 2006', '{{Flag icon|South Korea}} Lee Sedol becomes the world no. 1.', None, 'VID'),
   ('July 2011', '{{Flag icon|South Korea}} Park Junghwan becomes the world no. 1.', None, 'VID'),
   ('May 2015', '{{Flag icon|China}} Ke Jie becomes the world no. 1.', None, 'VID'),
+  ('August 2017', '{{Flag icon|South Korea}} Park Junghwan becomes the world no. 1 for the second time.', None, 'VID'),
   ('May 2018', '{{Flag icon|South Korea}} Shin Jinseo, whose style resembles that of the AIs, becomes the world no. 1.', None, 'VID+HOF'),
-  ('August 2018', '{{Flag icon|South Korea}} Park Junghwan becomes the world no. 1 for the second time.', None, 'VID'),
  ]),
  ('Go in the West and in space', [
   ('1615', 'Nicolas Trigault publishes in Augsburg the diaries of the Jesuit Matteo Ricci, which explain the game of weiqi; the book goes through at least 16 editions in European languages.', None, 'SL'),
@@ -293,7 +293,7 @@ TAGS = [
  ('January 1950', 'Go Seigen', 'CJ'), ('January 1959', 'Sakata', 'J'), ('January 1969', 'Rin', 'J'), ('June 1975', 'Kato', 'J'),
  ('November 1979', 'Cho Chikun', 'KJ'), ('July 1982', 'Cho Hunhyun', 'K'), ('October 1990', 'Lee Changho', 'K'),
  ('January 2006', 'Gu Li', 'C'), ('July 2006', 'Lee Sedol', 'K'), ('July 2011', 'Park', 'K'), ('May 2015', 'Ke Jie', 'C'),
- ('May 2018', 'Shin', 'K'), ('August 2018', 'Park', 'K'),
+ ('May 2018', 'Shin', 'K'), ('August 2017', 'Park', 'K'),
  ('October 2015', 'AlphaGo', 'P'), ('2016', 'Lee Sedol 4', 'P'), ('Late 2016 – early 2017', 'Master', 'PI'), ('May 2017', 'Ke Jie', 'P'),
  ('2019', 'KataGo', 'P'), ('2026', 'Shin Jinseo defeats', 'P'), ('19 December 1976', 'teletype', 'I'), ('1984', 'inetgo', 'I'),
  ('2 February 1992', 'Internet Go Server', 'I'),
@@ -308,16 +308,17 @@ for d, frag, letters in TAGS:
     tag_of.setdefault(hits[0], '')
     tag_of[hits[0]] += letters
 
-AUTO = {'Go in the West and in space': 'W', 'Go online and computer Go': 'P'}      # whole sections
+AUTO = {'Go in the West and in space': 'W', 'Go online and computer Go': 'P', 'The AI era': 'A'}      # whole sections
 for i, ev in enumerate(EVENTS):
     if ev[0] in AUTO:
         tag_of[i] = tag_of.get(i, '') + AUTO[ev[0]]
 
-def outline(select, pictures, headings=True):
+def outline(select, pictures, headings=True, order=None):
     """Outline lines of the selected events (indices), grouped by section."""
     lines, last, mine = [], None, set()
     local = set()
-    for i, (title, date, text, phrase, src) in enumerate(EVENTS):
+    for i in (order if order is not None else range(len(EVENTS))):
+        title, date, text, phrase, src = EVENTS[i]
         if not select(i):
             continue
         if title != last:
@@ -339,13 +340,38 @@ def outline(select, pictures, headings=True):
 
 n = len(EVENTS)
 # the main timeline: one wiki heading per era (so each shows in the table of contents), each a timeline of its own
+def year_key(date):
+    """Rough year of a date label, to place the events of the West / online / computer / AI sections among the eras."""
+    d = date
+    m = re.search(r'(\d+)(?:st|nd|rd|th)', d)
+    if 'century' in d and m:
+        c = (int(m.group(1)) - 1) * 100 + 50
+        c += -40 if d.startswith('Early') else 30 if d.startswith('Late') else 0
+        return -c if 'BCE' in d else c
+    if 'Unknown' in d: return -9999
+    if 'Ming' in d: return 1368
+    m = re.search(r'\b(\d{3,4})\b', d)
+    return (-1 if 'BCE' in d else 1) * int(m.group(1)) if m else 0
+
+SPLICED = ('Go in the West and in space', 'Go online and computer Go', 'The AI era')
+ERAS = [t for t, _ in SECTIONS if t not in SPLICED]
+eras = {t: [i for i, e in enumerate(EVENTS) if e[0] == t] for t in ERAS}
+extra = sorted((i for i, e in enumerate(EVENTS) if e[0] in SPLICED), key=lambda i: year_key(EVENTS[i][1]))
+def era_of(i):
+    y = year_key(EVENTS[i][1])
+    return ERAS[2] if y < 1868 else ERAS[3]          # Edo-period / Modern professional Go
+for i in extra:                                       # splice by year: before the first event of the era that is later
+    lst = eras[era_of(i)]
+    pos = next((j for j, o in enumerate(lst) if year_key(EVENTS[o][1]) > year_key(EVENTS[i][1])), len(lst))
+    lst.insert(pos, i)
+# the main timeline: one wiki heading per era (so each shows in the table of contents), each a timeline of its own
 body = ''
-for k, (title, _evs) in enumerate(SECTIONS, 1):
-    ls = outline(lambda i, t=title: EVENTS[i][0] == t, True, headings=False)
+for k, title in enumerate(ERAS, 1):
+    ls = outline(lambda i: True, True, headings=False, order=eras[title])
     body += '\n=== %s ===\n%s\n' % (title, invoke(MODULE, 'go%d' % k, '\n'.join(ls), flags=['--switcher', '--no-original']))
 solo = ''
-TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go'}
-for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go')):
+TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era'}
+for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go'), ('A', 'the AI era')):
     ls = outline(lambda i, c=code: c in tag_of.get(i, ''), False)
     cnt = sum(1 for l in ls if l.startswith('*'))
     print(name, cnt, 'events')
@@ -384,7 +410,7 @@ page = (
     '{{Short description|Chronology of the board game Go}}\n'
     '{{Use dmy dates|date=November 2026}}\n\n'
     + "[[File:MET DP135836.jpg|thumb|right|upright=1.3|''Outfit for the Go Game'', woodblock print (''surimono''), 19th century, [[Metropolitan Museum of Art]].]]\n"
-    + lead + '\n{{clear}}\n\n== Timeline ==' + body + solo +
+    + lead + '\n{{clear}}\n\n__TOC__\n\n== Timeline ==' + body + solo +
     '\n\n== See also ==\n* [[History of Go]]\n* [[Go (game)]]\n* [[Timeline of artificial intelligence]]\n'
     '\n== References ==\n'
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
