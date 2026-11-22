@@ -21,7 +21,10 @@ root = pathlib.Path(__file__).resolve().parent.parent
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail')
-out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / 'Timeline_of_Go__lua.wikitext'
+PT = '--lang=pt' in FLAGS          # Portuguese (Brazil) version, text in tools/go_pt.py
+if PT:
+    import go_pt
+out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / ('Linha_do_tempo_do_Go__pt.wikitext' if PT else 'Timeline_of_Go__lua.wikitext')
 
 url = 'https://en.wikipedia.org/w/index.php?action=raw&title=History_of_Go'
 hog = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
@@ -71,6 +74,10 @@ VIDEO = ('<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who
 
 GORATINGS = ('<ref name="goratings">{{cite web |title=Go Ratings |url=https://www.goratings.org/en/ |website=goratings.org '
              '|access-date=22 November 2026}}</ref>')
+
+if PT:       # the Portuguese citation templates want an ISO date
+    VIDEO = VIDEO.replace('22 November 2026', '2026-11-22')
+    GORATINGS = GORATINGS.replace('22 November 2026', '2026-11-22')
 
 def ref_text(phrase, named=None):
     """Full footnotes; `dedupe` later turns repeats into <ref name="..." />."""
@@ -272,6 +279,9 @@ LINKS = [
     ('DeepMind', 'Google DeepMind', None), ('Google', 'Google', None), ('AlphaGo', 'AlphaGo', None), ('KataGo', 'KataGo', None),
 ]
 
+if PT:
+    LINKS = go_pt.localize_links(LINKS)
+
 def link(text, seen, date=''):
     """Link each LINKS entry in the event (once per event) and add its dates the first time on a timeline (`seen`)."""
     toks = []
@@ -290,10 +300,11 @@ def link(text, seen, date=''):
         first = target not in seen
         seen.add(target)
         shown = name
-        if target.startswith('http'):
-            piece = '[%s %s]' % (target, shown)
+        tg = go_pt.target(target) if PT else target
+        if tg.startswith('http'):
+            piece = '[%s %s]' % (tg, shown)
         else:
-            piece = '[[%s]]' % shown if target == shown else '[[%s|%s]]' % (target, shown)
+            piece = '[[%s]]' % shown if tg == shown else '[[%s|%s]]' % (tg, shown)
         after = text[m.end():m.end() + 2]
         if first and paren and paren not in date and not after.startswith((' (', '(')):
             piece += ' (%s)' % paren
@@ -309,7 +320,7 @@ CAP_EXTRA = [("Hon'inbō Sansa", "Hon'inbō Sansa"), ("Hon'inbō Dōsaku", "Hon'
 def cap_link(caption):
     """A caption links the people and things it names (each once), without dates."""
     toks, seen = [], set()
-    entries = sorted([(n, t) for n, t, _ in LINKS if not t.startswith('http')] + CAP_EXTRA, key=lambda e: -len(e[0]))
+    entries = sorted([(n, t) for n, t, _ in LINKS if not t.startswith('http')] + (go_pt.CAP_EXTRA if PT else CAP_EXTRA), key=lambda e: -len(e[0]))
     for name, target in entries:
         if target in seen:
             continue
@@ -317,7 +328,8 @@ def cap_link(caption):
         if not m:
             continue
         seen.add(target)
-        piece = '[[%s]]' % name if target == name else '[[%s|%s]]' % (target, name)
+        tg = go_pt.target(target) if PT else target
+        piece = '[[%s]]' % name if tg == name else '[[%s|%s]]' % (tg, name)
         toks.append(piece)
         caption = caption[:m.start()] + '\x02%d\x03' % (len(toks) - 1) + caption[m.end():]
     return re.sub('\x02(\\d+)\x03', lambda m: toks[int(m.group(1))], caption)
@@ -445,20 +457,26 @@ for i, ev in enumerate(EVENTS):
     if ev[0] in AUTO:
         tag_of[i] = tag_of.get(i, '') + AUTO[ev[0]]
 
-def outline(select, pictures, headings=True, order=None):
+def T(title):
+    return go_pt.SECTION_PT.get(title, title) if PT else title
+
+def outline(select, pictures, headings=True, order=None, seen=None):
     """Outline lines of the selected events (indices), grouped by section."""
     lines, last, mine = [], None, set()
-    local = set()
+    local = seen if seen is not None else set()      # targets linked so far on this timeline: dates only the first time
     for i in (order if order is not None else range(len(EVENTS))):
         title, date, text, phrase, src = EVENTS[i]
         if not select(i):
             continue
         if title != last:
             if headings:
-                lines.append('== %s ==' % title)
+                lines.append('== %s ==' % T(title))
             last = title
         raw = text
-        text = link(text.replace('{i}', "''").replace('{/i}', "''"), local, date)
+        shown_date = go_pt.pt_date(date) if PT else date
+        if PT and not shown_date.startswith('c.'):
+            shown_date = shown_date[0].upper() + shown_date[1:]
+        text = link((go_pt.TEXTS[i] if PT else text).replace('{i}', "''").replace('{/i}', "''"), local, shown_date)
         refs = ref_text(phrase) if phrase and 'HOG' in src else ''
         if 'SL' in src:
             refs += ref_text(None, named=':11')
@@ -469,8 +487,8 @@ def outline(select, pictures, headings=True, order=None):
             for k, (f, c) in enumerate(shown):
                 if (f, c) in shown[:k]:
                     continue
-                lines.append('[[File:%s|%s|%s]]' % (f, '200px', cap_link(c)))
-        lines.append("* '''%s''' %s%s" % (date, text, refs))
+                lines.append('[[File:%s|%s|%s]]' % (f, '200px', cap_link(go_pt.CAPTIONS.get(c, c) if PT else c)))
+        lines.append("* '''%s''' %s%s" % (shown_date, text, refs))
     return lines
 
 n = len(EVENTS)
@@ -500,14 +518,15 @@ for i in extra:                                       # splice by year: before t
     lst = eras[era_of(i)]
     pos = next((j for j, o in enumerate(lst) if year_key(EVENTS[o][1]) > year_key(EVENTS[i][1])), len(lst))
     lst.insert(pos, i)
+LABELS = go_pt.LABELS if PT else ('Timeline', 'List', 'Table')
 # the main timeline: one timeline whose sections (TimelineRail sections, not wiki headings) are the eras
-ls = []
+ls, main_seen = [], set()
 for title in ERAS + ['The AI era']:
-    ls.append('== %s ==' % title)
-    ls += outline(lambda i: True, 'main', headings=False, order=eras[title])
-body = '\n' + invoke(MODULE, 'go', '\n'.join(ls), flags=['--switcher', '--no-original']) + '\n'
+    ls.append('== %s ==' % T(title))
+    ls += outline(lambda i: True, 'main', headings=False, order=eras[title], seen=main_seen)
+body = '\n' + invoke(MODULE, 'go', '\n'.join(ls), flags=['--switcher', '--no-original'], labels=LABELS) + '\n'
 solo = ''
-TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era', 'N': 'World no. 1 players'}
+TITLES = go_pt.TITLES if PT else {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era', 'N': 'World no. 1 players'}
 for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go'), ('A', 'the AI era')):
     pick = lambda i, c=code: c in tag_of.get(i, '')
     pics = True if code == 'N' else 'vid' if code in 'CKJ' else False
@@ -517,18 +536,18 @@ for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'),
         for title in ERAS:
             idx = [i for i in eras[title] if pick(i)] + ([i for i in eras['The AI era'] if pick(i)] if title == ERAS[-1] else [])
             if idx:
-                ls.append('== %s ==' % title)
+                ls.append('== %s ==' % T(title))
                 ls += outline(pick, pics, headings=False, order=idx)
     else:
         # a subject: one flat chronology, the heading of the page names it
         ls = outline(pick, pics, headings=False, order=[i for t in ERAS + ['The AI era'] for i in eras[t]])
     cnt = sum(1 for l in ls if l.startswith('*'))
     print(name, cnt, 'events')
-    call = invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original'])
+    call = invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original'], labels=LABELS)
     # the eras inside a solo timeline are not headings of the page (they would repeat the main timeline's in the table of contents)
     if code == 'N':       # the list of world no. 1 players is not finished: the rail goes on after the last dot
         call = call.replace('\n|id=gon\n', '\n|id=gon |open=yes\n', 1)
-    note = ("The data on who became the world no. 1, and when, comes from [https://www.goratings.org/en/ Go Ratings]." + GORATINGS + "\n\n") if code == 'N' else ''
+    note = ((go_pt.NOTE_N if PT else "The data on who became the world no. 1, and when, comes from [https://www.goratings.org/en/ Go Ratings].") + GORATINGS + "\n\n") if code == 'N' else ''
     solo += '\n\n== %s ==\n%s%s' % (TITLES[code], note, call.replace('\n|id=go%s\n' % code.lower(), '\n|id=go%s |toc=no\n' % code.lower(), 1))
 
 # Sensei's Library: its own timeline (section 7 of its Go History page, facts in new words) and the list of timelines elsewhere (section 8)
@@ -541,8 +560,10 @@ SL_EVENTS = [
  ('22 April 2009', 'A customised board search is added.'),
  ('28 May 2010', 'The 20,000th page is created, by Dave Sigaty.'),
 ]
+if PT:
+    SL_EVENTS = go_pt.SL_EVENTS
 sl_lines = ["* \'\'\'%s\'\'\' %s%s" % (d, t, ref_text(None, named=':11')) for d, t in SL_EVENTS]
-solo += '\n\n== Sensei\'s Library ==\n' + invoke(MODULE, 'gosl', '\n'.join(sl_lines), flags=['--switcher', '--no-original'])
+solo += '\n\n== Sensei\'s Library ==\n' + invoke(MODULE, 'gosl', '\n'.join(sl_lines), flags=['--switcher', '--no-original'], labels=LABELS)
 ELSEWHERE = (
  '\n== Timelines elsewhere ==\n'
  '* Milton N. Bradley, [http://users.eniinternet.com/bradleym/America.html "How Go came to America"]\n'
@@ -552,6 +573,8 @@ ELSEWHERE = (
  '* The book \'\'Eurogo\'\'\n'
 )
 
+if PT:
+    ELSEWHERE = go_pt.ELSEWHERE
 sources = re.search(r'^== ?Sources ?==\n(.*?)(?=^==)', hog, re.S | re.M)
 sources = sources.group(1).strip() if sources else ''
 lead = ("This is a timeline of the history of the board game [[Go (game)|Go]] "
@@ -568,6 +591,19 @@ page = (
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
     + ELSEWHERE + '\n[[Category:History of Go|Timeline]]\n'
 )
+if PT:
+    go_ = go_pt.target('Go (game)')
+    lead_pt = ("Esta é uma linha do tempo da história do jogo de tabuleiro [[%s|Go]] "
+               "({{lang|ja|囲碁}}, {{transl|ja|igo}}; {{lang|zh-Hans|围棋}}, {{lang|zh-Hant|圍棋}}, {{transl|zh|wéiqí}}; "
+               "{{lang|ko|바둑}}, {{transl|ko|baduk}}), "
+               "desde suas origens lendárias na China antiga até a era da IA. Para a história completa, veja [[:en:History of Go|História do Go]] (em inglês)." % go_)
+    page = (
+        "[[File:MET DP135836.jpg|thumb|right|upright=1.3|''Outfit for the Go Game'', xilogravura (''surimono'') do século XIX, [[%s|Metropolitan Museum of Art]].]]\n" % go_pt.target('Metropolitan Museum of Art').lstrip(':')
+        + lead_pt + '\n{{clear}}\n\n__TOC__\n\n== Linha do tempo ==' + body + solo +
+        '\n\n== Ver também ==\n* [[:en:History of Go|História do Go]] (em inglês)\n* [[%s]]\n' % go_
+        + '\n== Referências ==\n{{Reflist|30em}}\n\n== Bibliografia ==\n' + sources + '\n'
+        + ELSEWHERE + '\n'
+    )
 out.parent.mkdir(exist_ok=True)
 page = dedupe(page)
 out.write_text(page)

@@ -53,7 +53,7 @@ __TOC__
 == Edo-period Japan and Qing China ==
 [[File:Sansa.jpg|200px|[[Hon'inbō Sansa]]]]
 [[File:Tokugawa Ieyasu2.JPG|200px|[[Tokugawa Ieyasu]]]]
-* '''1603''' [[Hon'inbō Sansa|Honinbo Sansa]] (1559–1623) is appointed by Shogun [[Tokugawa Ieyasu]] (1543–1616) as head of the Go world ([[Meijin (Go)|Meijin]] Godokoro): the major Japanese Go school system begins.<ref name=":5" /><ref name=":11" />
+* '''1603''' [[Hon'inbō Sansa|Honinbo Sansa]] is appointed by Shogun [[Tokugawa Ieyasu]] (1543–1616) as head of the Go world ([[Meijin (Go)|Meijin]] Godokoro): the major Japanese Go school system begins.<ref name=":5" /><ref name=":11" />
 [[File:Tokugawa Ieyasu2.JPG|200px|[[Tokugawa Ieyasu]], founder of the [[Tokugawa shogunate]]]]
 * '''1612''' The [[Tokugawa shogunate]] (1603–1868) establishes four hereditary Go houses (Hon'inbō, Inoue, Yasui and Hayashi) and pays them stipends; they compete for 250–300 years.<ref name=":5" /><ref name=":11" />
 [[File:Portrait of Nicolas Trigault by Peter Paul Rubens.png|200px|[[Nicolas Trigault]], by [[Peter Paul Rubens|Rubens]]]]
@@ -172,13 +172,13 @@ __TOC__
 * '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
 [[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|200px|[[Lee Sedol]] in 2016]]
 [[File:20180213eiyo07 Yuta Iyama.jpg|200px|[[Yuta Iyama|Iyama Yūta]]]]
-* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 [[File:Alphago logo Reversed.svg|200px|Logo of [[AlphaGo]]]]
 * '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
 [[File:Ke Jie (柯洁) 2019 (cropped).png|200px|[[Ke Jie]]]]
 [[File:Alphago logo Reversed.svg|200px|Logo of [[AlphaGo]]]]
-* '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
-* '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] (born 1993) becomes the world no. 1 for the second time.<ref name="gomagic" /><ref name="goratings" />
+* '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1 for the second time.<ref name="gomagic" /><ref name="goratings" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]] (born 2000), whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 [[File:KataGoanalisis.png|200px|A game analysed with [[KataGo]]]]
 * '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.

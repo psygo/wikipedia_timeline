@@ -31,7 +31,7 @@ def protect_pipes(text):
         i += 1
     return ''.join(out)
 
-def invoke(module, id, body, original=None, original_as='table', flags=None):
+def invoke(module, id, body, original=None, original_as='table', flags=None, labels=('Timeline', 'List', 'Table')):
     flags = flags if flags is not None else [a for a in sys.argv[1:] if a.startswith('--')]
     sw = next((f.split('=', 1)[1] if '=' in f else 'ViewSwitcher' for f in flags if f.startswith('--switcher')), None)
     if sw is None:
@@ -41,8 +41,8 @@ def invoke(module, id, body, original=None, original_as='table', flags=None):
     suffix = module[len('TimelineRail'):]          # '' or '/sandbox': the other modules follow the same sandbox
     # --views=timeline,list drops the views that are not named (each view costs size: see lua/README.md)
     keep = next((f.split('=', 1)[1].lower().split(',') for f in flags if f.startswith('--views=')), ['timeline', 'list', 'table'])
-    views = ['*Timeline=%s.outline' % module]
-    for label, kind in (('List', 'list'), ('Table', 'table')):
+    views = ['*%s=%s.outline' % (labels[0], module)]
+    for label, kind in ((labels[1], 'list'), (labels[2], 'table')):
         if kind not in keep:
             continue
         if original and original_as == kind:
