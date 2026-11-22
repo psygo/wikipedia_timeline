@@ -186,6 +186,8 @@ __TOC__
 
 
 == World no. 1 players ==
+The data on who became the world no. 1, and when, comes from [https://www.goratings.org/en/ Go Ratings].<ref name="goratings" />
+
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
 |id=gon |open=yes
 |text=

@@ -523,7 +523,8 @@ for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'),
     # the eras inside a solo timeline are not headings of the page (they would repeat the main timeline's in the table of contents)
     if code == 'N':       # the list of world no. 1 players is not finished: the rail goes on after the last dot
         call = call.replace('\n|id=gon\n', '\n|id=gon |open=yes\n', 1)
-    solo += '\n\n== %s ==\n%s' % (TITLES[code], call.replace('\n|id=go%s\n' % code.lower(), '\n|id=go%s |toc=no\n' % code.lower(), 1))
+    note = ("The data on who became the world no. 1, and when, comes from [https://www.goratings.org/en/ Go Ratings]." + GORATINGS + "\n\n") if code == 'N' else ''
+    solo += '\n\n== %s ==\n%s%s' % (TITLES[code], note, call.replace('\n|id=go%s\n' % code.lower(), '\n|id=go%s |toc=no\n' % code.lower(), 1))
 
 # Sensei's Library: its own timeline (section 7 of its Go History page, facts in new words) and the list of timelines elsewhere (section 8)
 SL_EVENTS = [
