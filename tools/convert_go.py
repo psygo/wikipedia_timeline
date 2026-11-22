@@ -375,7 +375,19 @@ body = '\n' + invoke(MODULE, 'go', '\n'.join(ls), flags=['--switcher', '--no-ori
 solo = ''
 TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era', 'N': 'World no. 1 players'}
 for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go'), ('A', 'the AI era')):
-    ls = outline(lambda i, c=code: c in tag_of.get(i, ''), code == 'N', headings=(code != 'N'))
+    pick = lambda i, c=code: c in tag_of.get(i, '')
+    pics = code == 'N'
+    if code in 'CKJ':
+        # a country: the eras of the main timeline (the World no. 1 players and the later events are spliced into them by date)
+        ls = []
+        for title in ERAS:
+            idx = [i for i in eras[title] if pick(i)] + ([i for i in eras['The AI era'] if pick(i)] if title == ERAS[-1] else [])
+            if idx:
+                ls.append('== %s ==' % title)
+                ls += outline(pick, pics, headings=False, order=idx)
+    else:
+        # a subject: one flat chronology, the heading of the page names it
+        ls = outline(pick, pics, headings=False, order=[i for t in ERAS + ['The AI era'] for i in eras[t]])
     cnt = sum(1 for l in ls if l.startswith('*'))
     print(name, cnt, 'events')
     call = invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original'])
