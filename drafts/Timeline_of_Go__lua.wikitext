@@ -12,14 +12,14 @@ __TOC__
 |id=go
 |text=
 == Legends and first records ==
-* '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in Zhejiang watches deities playing a mysterious game and loses track of time.
+* '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in [[Zhejiang]] watches deities playing a mysterious game and loses track of time.
 [[File:EmperorYao.jpg|200px|[[Emperor Yao]]]]
 * '''c. 2356–2255 BCE''' According to legend, [[Emperor Yao]] creates the game to teach discipline and balance to his son Danzhu. Another legend has Shun, his successor, invent it for his own son.<ref name="Berge-Becker">{{Cite book |last=Berge-Becker |first=Zach |title=Games & Play in Chinese & Sinophone Cultures |date=2024 |publisher=[[University of Washington Press]] |isbn=9780295752402 |editor-last=Guo |editor-first=Li |location=Seattle, WA |pages= |chapter=Groups on the Grid: Weiqi Cultures in Song-Yuan-Ming China |editor-last2=Eyman |editor-first2=Douglas |editor-last3=Sun |editor-first3=Hongmei}}</ref><ref name=":11">{{Cite web |title=Go History at Sensei's Library |url=https://senseis.xmp.net/?GoHistory |access-date=2025-08-24 |website=senseis.xmp.net}}</ref>
 [[File:Li Yuanyang Zuo zhuan first page.png|200px|First page of an edition of the [[Zuo Zhuan]]]]
 * '''548 BCE''' The earliest written reference to the game is usually taken to be the historical annal [[Zuo Zhuan]], about an event of this year; it is also mentioned in the [[Analects]] of [[Confucius]] (c. 551 – c. 479 BCE) and in the books of [[Mencius]] (c. 371 – c. 289 BCE).{{sfn|Potter|1985}}{{sfn|Fairbairn|1995}}
 [[File:Half Portraits of the Great Sage and Virtuous Men of Old - Meng Ke (孟軻).jpg|200px|[[Mencius]]]]
 * '''3rd century BCE''' [[Mencius]] mentions a famous player called Yi Qiu.<ref name=":11" />
-* '''206 BCE – 24 CE''' [[Han dynasty|Western Han]]: a broken piece of a pottery board, the earliest board found in China, is later unearthed in Shaanxi.
+* '''206 BCE – 24 CE''' [[Han dynasty|Western Han]]: a broken piece of a pottery board, the earliest board found in China, is later unearthed in [[Shaanxi]].
 [[File:Go Board Han dynasty.JPG|200px|A [[Han dynasty]] Go board]]
 * '''1st–3rd century''' [[Han dynasty|Eastern Han]]: [[Ban Gu]] (32–92) writes ''Yì Zhǐ'' ("The Essentials of Go"), the oldest surviving text devoted to Go, and boards have 17 × 17 lines.<ref name=":11" /><ref name=":11" />
 * '''c. 250''' The "Wu Diagrams" record the earliest known game of Go.<ref name=":11" />
@@ -70,7 +70,7 @@ __TOC__
 * '''1694''' [[Thomas Hyde]] (1636–1703) writes the first detailed description of Go in a European language, in his treatise on oriental board games.<ref name=":11" /><ref name=":11" />
 [[File:Hatsuyoron - problem 76.png|200px|Problem 76 of the Igo Hatsuyoron]]
 * '''1713''' The ''Igo Hatsuyoron'', a collection of very hard problems, is created.<ref name=":11" />
-* '''1739''' Shi Xiangxia and Fan Xiping play the "Ten Games at Danghu" in Pinghu, Zhejiang.<ref name="go4">{{Cite web |title=Fan Xiping and Shi Ding'an at Sensei's Library |url=https://senseis.xmp.net/?FanXipingAndShiDingan |access-date=2025-08-23 |website=senseis.xmp.net}}</ref><ref name=":11" />
+* '''1739''' Shi Xiangxia and Fan Xiping play the "Ten Games at Danghu" in [[Pinghu]], [[Zhejiang]].<ref name="go4">{{Cite web |title=Fan Xiping and Shi Ding'an at Sensei's Library |url=https://senseis.xmp.net/?FanXipingAndShiDingan |access-date=2025-08-23 |website=senseis.xmp.net}}</ref><ref name=":11" />
 * '''1840''' The "blood-vomiting game": [[Hon'inbō Jōwa]] (1787–1847) beats [[Akaboshi Intetsu]] (1810–1835) in a week-long match; Akaboshi collapses from exhaustion and dies soon after.<ref name=":5" /><ref name=":11" />
 [[File:Kulak_kizartan_go.png|200px|The "ear-reddening" game]]
 [[File:Honinbo_Shusaku.jpg|200px|[[Hon'inbō Shūsaku]]]]
@@ -87,7 +87,7 @@ __TOC__
 [[File:Oscar Korschelt.jpg|200px|[[Oskar Korschelt]]]]
 * '''1880''' [[Oskar Korschelt]] (1853–1940), who learned the game in Japan from Murase Shūho, publishes ''Das Go Spiel'': the first systematic description in a Western language.<ref name="go5">{{Cite web |title=Oskar Korschelt at Sensei's Library |url=https://senseis.xmp.net/?OscarKorschelt |access-date=2025-08-28 |website=senseis.xmp.net}}</ref><ref name=":11" />
 [[File:Edward Lasker.jpg|200px|[[Edward Lasker]]]]
-* '''1905–1908''' [[Edward Lasker]] (1885–1981) learns Go in Berlin (1905) and later founds the New York Go Club; in 1908 Arthur Smith publishes the first Go book in English, ''The Game of Go''.<ref name="agahbk95">{{cite web | url = http://www.usgo.org/archive/agahbk95.html | title = American Go Association 1995 Historical Book | author = American Go Association | url-status = dead | archive-url = https://web.archive.org/web/20110806204728/http://www.usgo.org/archive/agahbk95.html | archive-date = 2011-08-06 }}</ref><ref name=":11" />
+* '''1905–1908''' [[Edward Lasker]] (1885–1981) learns Go in [[Berlin]] (1905) and later founds the [[New York City|New York]] Go Club; in 1908 Arthur Smith publishes the first Go book in English, ''The Game of Go''.<ref name="agahbk95">{{cite web | url = http://www.usgo.org/archive/agahbk95.html | title = American Go Association 1995 Historical Book | author = American Go Association | url-status = dead | archive-url = https://web.archive.org/web/20110806204728/http://www.usgo.org/archive/agahbk95.html | archive-date = 2011-08-06 }}</ref><ref name=":11" />
 * '''1909–1910''' The Japanese professional [[Dohei Takabe|Takabe Dōhei]] (1881–1951) visits China and introduces play without fixed starting stones.<ref name=":11" />
 [[File:Nihon Ki-in Headquarter (2016-05-05) 5.jpg|200px|The [[Nihon Ki-in]] headquarters]]
 * '''1924''' The [[Nihon Ki-in]], Japan's professional Go association, is founded, ending the hereditary house system and inaugurating the modern rank and tournament system.<ref name=":5" /><ref name=":11" />
@@ -120,7 +120,7 @@ __TOC__
 * '''January 1969''' {{Flag icon|Taiwan}}{{Flag icon|Japan}} [[Rin Kaiho]] (born 1942) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 * '''June 1975''' {{Flag icon|Japan}} [[Kato Masao]] (1947–2004) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 * '''1976''' After the "[[Meijin (Go)|Meijin]] Incident" of 1974, the [[Tengen (Go)|Tengen]] (1975), [[Kisei (Go)|Kisei]] and Gosei (1976) titles complete the seven major Japanese titles. [[Hideyuki Fujisawa|Fujisawa Shūkō]] wins the first Kisei in 1977.<ref name=":11" />
-* '''19 December 1976''' A friendship match between Taiwan and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
+* '''19 December 1976''' A friendship match between [[Taiwan]] and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
 * '''1978''' [[Manfred Wimmer]] (1944–1995) becomes the first Westerner to receive a professional certificate from an East Asian Go association ([[Kansai Ki-in]]); James Kerwin is the first at the [[Nihon Ki-in]].<ref name="go6">[http://pokspace.goverband.at/essays/wimmer_e.htm Manfred Wimmer]</ref><ref name=":11" />
 [[File:Cho Chikun at World Go Festival20190630.jpg|200px|[[Cho Chikun]]]]
 * '''November 1979''' {{Flag icon|South Korea}}{{Flag icon|Japan}} [[Cho Chikun]] (born 1956) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
@@ -172,7 +172,7 @@ __TOC__
 * '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
 [[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|200px|[[Lee Sedol]] in 2016]]
 [[File:20180213eiyo07 Yuta Iyama.jpg|200px|[[Yuta Iyama|Iyama Yūta]]]]
-* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 [[File:Alphago logo Reversed.svg|200px|Logo of [[AlphaGo]]]]
 * '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
 [[File:Ke Jie (柯洁) 2019 (cropped).png|200px|[[Ke Jie]]]]
@@ -224,11 +224,11 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 |id=goc |toc=no
 |text=
 == Legends and first records ==
-* '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in Zhejiang watches deities playing a mysterious game and loses track of time.
+* '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in [[Zhejiang]] watches deities playing a mysterious game and loses track of time.
 * '''c. 2356–2255 BCE''' According to legend, [[Emperor Yao]] creates the game to teach discipline and balance to his son Danzhu. Another legend has Shun, his successor, invent it for his own son.<ref name="Berge-Becker" /><ref name=":11" />
 * '''548 BCE''' The earliest written reference to the game is usually taken to be the historical annal [[Zuo Zhuan]], about an event of this year; it is also mentioned in the [[Analects]] of [[Confucius]] (c. 551 – c. 479 BCE) and in the books of [[Mencius]] (c. 371 – c. 289 BCE).{{sfn|Potter|1985}}{{sfn|Fairbairn|1995}}
 * '''3rd century BCE''' [[Mencius]] mentions a famous player called Yi Qiu.<ref name=":11" />
-* '''206 BCE – 24 CE''' [[Han dynasty|Western Han]]: a broken piece of a pottery board, the earliest board found in China, is later unearthed in Shaanxi.
+* '''206 BCE – 24 CE''' [[Han dynasty|Western Han]]: a broken piece of a pottery board, the earliest board found in China, is later unearthed in [[Shaanxi]].
 * '''1st–3rd century''' [[Han dynasty|Eastern Han]]: [[Ban Gu]] (32–92) writes ''Yì Zhǐ'' ("The Essentials of Go"), the oldest surviving text devoted to Go, and boards have 17 × 17 lines.<ref name=":11" /><ref name=":11" />
 * '''c. 250''' The "Wu Diagrams" record the earliest known game of Go.<ref name=":11" />
 == Ancient and medieval East Asia ==
@@ -244,7 +244,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 == Edo-period Japan and Qing China ==
 * '''1615''' [[Nicolas Trigault]] (1577–1628) publishes in [[Augsburg]] the diaries of the [[Jesuits|Jesuit]] [[Matteo Ricci]] (1552–1610), which explain the game of weiqi; the book goes through at least 16 editions in European languages.<ref name=":11" />
 * '''c. 1650''' [[Huang Longshi]], probably the strongest Chinese player of the [[Qing dynasty]] (1644–1912), is born (c. 1650 – c. 1694).<ref name="go3" />
-* '''1739''' Shi Xiangxia and Fan Xiping play the "Ten Games at Danghu" in Pinghu, Zhejiang.<ref name="go4" /><ref name=":11" />
+* '''1739''' Shi Xiangxia and Fan Xiping play the "Ten Games at Danghu" in [[Pinghu]], [[Zhejiang]].<ref name="go4" /><ref name=":11" />
 == Modern professional Go ==
 * '''1909–1910''' The Japanese professional [[Dohei Takabe|Takabe Dōhei]] (1881–1951) visits China and introduces play without fixed starting stones.<ref name=":11" />
 * '''1950''' [[Go Seigen]] (1914–2014) is awarded 9 dan, and becomes the world's best player; he wins his ten-game matches against all top rivals until 1956.<ref name=":5" />
@@ -286,7 +286,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''2011–2014''' The [[American Go Association]] signs an agreement with the [[Korea Baduk Association|Korean Baduk Association]] to promote its own professional system (2011); the [[European Go Federation]] creates its own (2014).<ref name=":11" />
 [[File:(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg|200px|[[Park Junghwan]]]]
 * '''July 2011''' {{Flag icon|South Korea}} [[Park Junghwan]] (born 1993) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
-* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 * '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1 for the second time.<ref name="gomagic" /><ref name="goratings" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]] (born 2000), whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 * '''2019''' [[Lee Sedol]] announces his retirement, citing [[AlphaGo]] as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
@@ -346,7 +346,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''1998–2003''' The [[Manga|manga]] ''[[Hikaru no Go]]'' (later also an [[Anime|anime]]) sparks a Go boom among young players in Japan.<ref name=":5" /><ref name=":11" />
 * '''2000''' The American [[Michael Redmond (Go player)|Michael Redmond]] (born 1963) is the first Westerner to reach 9 dan.<ref name="go7" /><ref name=":11" />
 * '''2003''' The [[Oteai]] promotion system is discontinued in Japan and a new one introduced.<ref name=":11" />
-* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 }}
 
 == Go in non-Asian countries ==
@@ -358,7 +358,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''1694''' [[Thomas Hyde]] (1636–1703) writes the first detailed description of Go in a European language, in his treatise on oriental board games.<ref name=":11" /><ref name=":11" />
 * '''1872''' The first recorded game of Go in Europe is played between [[Kido Takayoshi]] (1833–1877) and [[Ōkubo Toshimichi]] (1830–1878) of the [[Iwakura Mission]] (1871–1873).
 * '''1880''' [[Oskar Korschelt]] (1853–1940), who learned the game in Japan from Murase Shūho, publishes ''Das Go Spiel'': the first systematic description in a Western language.<ref name="go5" /><ref name=":11" />
-* '''1905–1908''' [[Edward Lasker]] (1885–1981) learns Go in Berlin (1905) and later founds the New York Go Club; in 1908 Arthur Smith publishes the first Go book in English, ''The Game of Go''.<ref name="agahbk95" /><ref name=":11" />
+* '''1905–1908''' [[Edward Lasker]] (1885–1981) learns Go in [[Berlin]] (1905) and later founds the [[New York City|New York]] Go Club; in 1908 Arthur Smith publishes the first Go book in English, ''The Game of Go''.<ref name="agahbk95" /><ref name=":11" />
 * '''1934–1937''' Lasker's ''Go and Go-moku'' (1934) helps popularize the game in the US; the [[American Go Association]] is formed in 1935 and the German Go Association in 1937.<ref name="agahbk95" /><ref name=":11" />
 * '''1978''' [[Manfred Wimmer]] (1944–1995) becomes the first Westerner to receive a professional certificate from an East Asian Go association ([[Kansai Ki-in]]); James Kerwin is the first at the [[Nihon Ki-in]].<ref name="go6" /><ref name=":11" />
 * '''1996''' Astronauts [[Daniel T. Barry|Daniel Barry]] (born 1953) and [[Koichi Wakata]] (born 1963) become the first people to play Go in space.{{sfn|Peng|Hall|1996}}
@@ -370,7 +370,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
 |id=goi |toc=no
 |text=
-* '''19 December 1976''' A friendship match between Taiwan and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
+* '''19 December 1976''' A friendship match between [[Taiwan]] and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
 * '''1984''' The first computer Go event, the [[Acornsoft]] tournament for the [[BBC Micro]], is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
 * '''2 February 1992''' The [[Internet Go server|Internet Go Server]] (IGS), the first server dedicated to Go, starts.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
@@ -381,7 +381,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 |id=gop |toc=no
 |text=
 * '''1968''' [[Albert Lindsey Zobrist|Albert Zobrist]] (born 1942) writes the first program that plays complete games of Go.<ref name=":11" />
-* '''19 December 1976''' A friendship match between Taiwan and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
+* '''19 December 1976''' A friendship match between [[Taiwan]] and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
 * '''1984''' The first computer Go event, the [[Acornsoft]] tournament for the [[BBC Micro]], is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
 * '''1985''' The Ing Prize for computer programs starts; it expires in 2000, when the last challenge was won by HandTalk at an 11-stone handicap against a young professional.<ref name=":11" />
 * '''2 February 1992''' The [[Internet Go server|Internet Go Server]] (IGS), the first server dedicated to Go, starts.<ref name=":11" />
@@ -390,7 +390,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''2008''' MoGo wins one of three games against the professional Catalin Taranu on 9×9 and later beats an 8-dan Korean professional on 19×19 with a 9-stone handicap.<ref name=":11" />
 * '''2012''' The program [[Zen (software)|Zen]] beats [[Takemiya Masaki]] (born 1951) in games with 5 and 4 handicap stones.<ref name=":11" />
 * '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
-* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
 * '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 * '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
@@ -402,7 +402,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 |id=goa |toc=no
 |text=
 * '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
-* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in [[Seoul]], the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
 * '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 * '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
