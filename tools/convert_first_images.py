@@ -34,8 +34,8 @@ MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__article' if ARTICLE_MODE else '__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 
-url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
-wt = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+from wp_fetch import fetch_article
+wt = fetch_article(ARTICLE)
 if '{|' not in wt:
     sys.exit('Could not fetch the article wikitext')
 
@@ -125,20 +125,24 @@ def parse_media(cell):
     rest = re.sub(r'\s*\|\s*$', '', one_line(rest))   # the article has a stray | after a template; harmless in a table, fatal in an argument
     if rest:
         extra.append(rest)
-    return image, extra
+    others = [f for f in files if f != image]
+    return image, extra, others, rest
 
 sections = []   # [craft, [ (date, text, image) ... ]]  one section per run of rows with the same craft
 for img, date, craft, event in table_rows:
     refs = ''.join(REF.findall(date))
     date = one_line(REF.sub('', date)) or '?'
     craft = one_line(REF.sub('', craft))
-    image, extra = parse_media(img)
+    image, extra, others, rest = parse_media(img)
     text = one_line(event) + refs     # refs the date cell carried
-    if extra:                         # framed media start on their own line, like the image
+    if OUTLINE:                       # every picture is a file line before the item: they share one row that wraps
+        if rest:
+            text += '<br />' + rest
+    elif extra:                       # framed media start on their own line, like the image
         text += '<br />' + ' '.join(extra)
     if not sections or sections[-1][0] != craft:
         sections.append([craft, []])
-    sections[-1][1].append((date, text, image))
+    sections[-1][1].append((date, text, image, others if OUTLINE else []))
 
 def plain(title):
     """Section id: the visible words of the craft name, safe for use in a class and an id."""
@@ -152,7 +156,7 @@ for craft, rows_ in sections:
         k += 1; sid = '%s_%d' % (plain(craft), k)
     used.add(sid)
     out_items = []
-    for n, (date, text, image) in enumerate(rows_):
+    for n, (date, text, image, _others) in enumerate(rows_):
         counter += 1
         # No title: the section already names the craft. The item is still collapsible (dot or
         # date); closed, it shows its date. Toggle ids must be unique and plain, so give one.
@@ -166,9 +170,9 @@ if OUTLINE:
     lines = []
     for craft, rows_ in sections:
         lines.append('== %s ==' % craft)
-        for date, text, image in rows_:
-            if image:
-                lines.append('[[File:%s|200px]]' % image)
+        for date, text, image, others in rows_:
+            for f in ([image] if image else []) + others:
+                lines.append('[[File:%s|200px]]' % f)
             lines.append("* '''%s''' %s" % (date, text))
     stray = [l[:70] for l in lines if bare_pipes(l)]
     if stray:

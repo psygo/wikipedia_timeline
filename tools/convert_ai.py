@@ -32,8 +32,8 @@ ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail' if ARTICLE_MODE else 'TimelineRail/sandbox')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__article' if ARTICLE_MODE else '__lua') + '.wikitext')
 
-url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
-wt = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+from wp_fetch import fetch_article
+wt = fetch_article(ARTICLE)
 if '{|' not in wt:
     sys.exit('Could not fetch the article wikitext')
 

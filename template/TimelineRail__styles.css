@@ -150,6 +150,7 @@
 .wt-timeline__images {
 	display: flex;
 	flex-wrap: wrap;
+	align-items: flex-start;     /* each frame is as tall as its own picture and caption */
 	gap: 0 0.5em;
 }
 
