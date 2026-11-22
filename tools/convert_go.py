@@ -210,10 +210,10 @@ SECTIONS = [
   ('2012', 'The program Zen beats Takemiya Masaki in games with 5 and 4 handicap stones.', None, 'SL'),
  ]),
  ('The AI era', [
-  ('October 2015', 'AlphaGo, made by Google, beats the European champion Fan Hui (2p) 5–0 in even games: the first time a program beats a professional.', None, 'SL'),
-  ('2016', 'Google\'s AlphaGo beats Lee Sedol 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.', '4-1 victory', 'HOG+HOF+SL'),
-  ('Late 2016 – early 2017', 'A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.', None, 'HOF'),
-  ('May 2017', 'A new and much improved AlphaGo plays Ke Jie and wins all three games; Ke Jie says its play is "like a god of Go".', None, 'HOF+SL'),
+  ('October 2015', 'AlphaGo, made by Google\'s DeepMind, beats the European champion Fan Hui (2p) 5–0 in even games: the first time a program beats a professional.', None, 'SL'),
+  ('2016', 'DeepMind\'s AlphaGo beats Lee Sedol 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.', '4-1 victory', 'HOG+HOF+SL'),
+  ('Late 2016 – early 2017', 'A stronger version of DeepMind\'s AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.', None, 'HOF'),
+  ('May 2017', 'DeepMind\'s new and much improved AlphaGo plays Ke Jie and wins all three games; Ke Jie says its play is "like a god of Go".', None, 'HOF+SL'),
   ('2019', 'The open-source Go AI KataGo is created by David Wu.', None, 'HOF'),
   ('2019', 'Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".', 'retirement announcement in 2019', 'HOG+HOF'),
   ('2026', 'Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.', None, 'HOF'),
@@ -268,7 +268,7 @@ LINKS = [
     ('teletype', 'Teleprinter', None), ('tsumego', 'Tsumego', None), ('komi', 'Komi (Go)', None),
     ('Monte Carlo tree search', 'Monte Carlo tree search', None), ('Monte Carlo', 'Monte Carlo method', None),
     ('CrazyStone', 'Crazy Stone (software)', None), ('Computer Olympiad', 'Computer Olympiad', None), ('Zen', 'Zen (software)', None),
-    ('Google', 'Google', None), ('AlphaGo', 'AlphaGo', None), ('KataGo', 'KataGo', None),
+    ('DeepMind', 'Google DeepMind', None), ('Google', 'Google', None), ('AlphaGo', 'AlphaGo', None), ('KataGo', 'KataGo', None),
 ]
 
 def link(text, seen, date=''):
@@ -377,10 +377,14 @@ IMAGES = [
     ('2000', 'Redmond', 'Michael Redmond in 2018.png', 'Michael Redmond in 2018'),
     ('2012', 'Takemiya', 'Takemiya Masaki.jpg', 'Takemiya Masaki'),
     ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg', 'An AlphaGo computer rack'),
+    ('October 2015', 'AlphaGo', 'Alphago logo Reversed.svg', 'Logo of AlphaGo'),
+    ('October 2015', 'DeepMind', 'DeepMind logo.png', 'Logo of DeepMind'),
     ('October 2015', 'Fan Hui', 'FanHui.jpg', 'Fan Hui'),
+    ('Late 2016 – early 2017', 'AlphaGo', 'Alphago logo Reversed.svg', 'Logo of AlphaGo'),
     ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg', 'Lee Sedol in 2016'),
     ('2016', 'Iyama', '20180213eiyo07 Yuta Iyama.jpg', 'Iyama Yūta'),
     ('May 2017', 'Ke Jie', 'Ke Jie (柯洁) 2019 (cropped).png', 'Ke Jie'),
+    ('May 2017', 'AlphaGo', 'Alphago logo Reversed.svg', 'Logo of AlphaGo'),
     ('2019', 'KataGo', 'KataGoanalisis.png', "A game analysed with KataGo"),
     ('2019', 'Lee Sedol', 'Lee Se-Dol - 2016 (cropped).jpg', 'Lee Sedol'),
     ('January 1950', 'Go Seigen', 'Go_Seigen_01.jpg', 'Go Seigen'),

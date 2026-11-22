@@ -167,14 +167,18 @@ __TOC__
 * '''May 2015''' {{Flag icon|China}} [[Ke Jie]] (born 1997) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 == The AI era ==
 [[File:AlphaGo_computer_rack.jpg|200px|An [[AlphaGo]] computer rack]]
+[[File:Alphago logo Reversed.svg|200px|Logo of [[AlphaGo]]]]
+[[File:DeepMind logo.png|200px|Logo of [[Google DeepMind|DeepMind]]]]
 [[File:FanHui.jpg|200px|[[Fan Hui]]]]
-* '''October 2015''' [[AlphaGo]], made by [[Google]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
+* '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
 [[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|200px|[[Lee Sedol]] in 2016]]
 [[File:20180213eiyo07 Yuta Iyama.jpg|200px|[[Yuta Iyama|Iyama Yūta]]]]
-* '''2016''' [[Google]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
-* '''Late 2016 – early 2017''' A stronger [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+[[File:Alphago logo Reversed.svg|200px|Logo of [[AlphaGo]]]]
+* '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
 [[File:Ke Jie (柯洁) 2019 (cropped).png|200px|[[Ke Jie]]]]
-* '''May 2017''' A new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+[[File:Alphago logo Reversed.svg|200px|Logo of [[AlphaGo]]]]
+* '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 * '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] (born 1993) becomes the world no. 1 for the second time.<ref name="gomagic" /><ref name="goratings" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]] (born 2000), whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 [[File:KataGoanalisis.png|200px|A game analysed with [[KataGo]]]]
@@ -256,7 +260,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''January 2006''' {{Flag icon|China}} [[Gu Li (Go player)|Gu Li]] (born 1983) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 [[File:Ke Jie (柯洁) 2019 (cropped).png|200px|[[Ke Jie]]]]
 * '''May 2015''' {{Flag icon|China}} [[Ke Jie]] (born 1997) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
-* '''May 2017''' A new and much improved [[AlphaGo]] plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 }}
 
 == Go in Korea ==
@@ -283,7 +287,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''2011–2014''' The [[American Go Association]] signs an agreement with the [[Korea Baduk Association|Korean Baduk Association]] to promote its own professional system (2011); the [[European Go Federation]] creates its own (2014).<ref name=":11" />
 [[File:(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg|200px|[[Park Junghwan]]]]
 * '''July 2011''' {{Flag icon|South Korea}} [[Park Junghwan]] (born 1993) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
-* '''2016''' [[Google]]'s [[AlphaGo]] beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 * '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1 for the second time.<ref name="gomagic" /><ref name="goratings" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]] (born 2000), whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 * '''2019''' [[Lee Sedol]] announces his retirement, citing [[AlphaGo]] as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
@@ -343,7 +347,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''1998–2003''' The [[Manga|manga]] ''[[Hikaru no Go]]'' (later also an [[Anime|anime]]) sparks a Go boom among young players in Japan.<ref name=":5" /><ref name=":11" />
 * '''2000''' The American [[Michael Redmond (Go player)|Michael Redmond]] (born 1963) is the first Westerner to reach 9 dan.<ref name="go7" /><ref name=":11" />
 * '''2003''' The [[Oteai]] promotion system is discontinued in Japan and a new one introduced.<ref name=":11" />
-* '''2016''' [[Google]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 }}
 
 == Go in non-Asian countries ==
@@ -370,7 +374,7 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''19 December 1976''' A friendship match between Taiwan and the United States is played by [[Teleprinter|teletype]]; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
 * '''1984''' The first computer Go event, the [[Acornsoft]] tournament for the [[BBC Micro]], is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
 * '''2 February 1992''' The [[Internet Go server|Internet Go Server]] (IGS), the first server dedicated to Go, starts.<ref name=":11" />
-* '''Late 2016 – early 2017''' A stronger [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
+* '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
 }}
 
 == Computer Go ==
@@ -386,10 +390,10 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 * '''2006''' The UCT algorithm, a [[Monte Carlo tree search]], is developed; a program using it, [[Crazy Stone (software)|CrazyStone]], wins the [[Computer Olympiad]] 9×9 Go event the same year.<ref name=":11" />
 * '''2008''' MoGo wins one of three games against the professional Catalin Taranu on 9×9 and later beats an 8-dan Korean professional on 19×19 with a 9-stone handicap.<ref name=":11" />
 * '''2012''' The program [[Zen (software)|Zen]] beats [[Takemiya Masaki]] (born 1951) in games with 5 and 4 handicap stones.<ref name=":11" />
-* '''October 2015''' [[AlphaGo]], made by [[Google]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
-* '''2016''' [[Google]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
-* '''Late 2016 – early 2017''' A stronger [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
-* '''May 2017''' A new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
+* '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 * '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
 * '''2026''' [[Shin Jin-seo|Shin Jinseo]] (born 2000) defeats a new version of [[KataGo]] on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
@@ -398,10 +402,10 @@ The data on who became the world no. 1, and when, comes from [https://www.gorati
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
 |id=goa |toc=no
 |text=
-* '''October 2015''' [[AlphaGo]], made by [[Google]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
-* '''2016''' [[Google]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
-* '''Late 2016 – early 2017''' A stronger [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
-* '''May 2017''' A new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''October 2015''' [[AlphaGo]], made by [[Google]]'s [[Google DeepMind|DeepMind]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
+* '''2016''' [[Google DeepMind|DeepMind]]'s [[AlphaGo]] beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
+* '''Late 2016 – early 2017''' A stronger version of [[Google DeepMind|DeepMind]]'s [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
+* '''May 2017''' [[Google DeepMind|DeepMind]]'s new and much improved [[AlphaGo]] plays [[Ke Jie]] (born 1997) and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 * '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
 * '''2019''' [[Lee Sedol]] announces his retirement, citing [[AlphaGo]] as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
 * '''2026''' [[Shin Jin-seo|Shin Jinseo]] (born 2000) defeats a new version of [[KataGo]] on a 2-stone handicap, coming back from a first-game defeat to win the next two.
