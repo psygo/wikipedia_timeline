@@ -59,6 +59,13 @@ end
 -- ------------------------------------------------------------------ rendering
 -- Each renderer takes a plain table (the "model") and returns an HTML/wikitext string.
 
+-- The framed picture is as wide as the picture (3 px padding and a 1 px border on each side), so a longer caption wraps
+-- inside the box instead of widening it. Only known when the size is given in pixels.
+local function boxStyle( size )
+	local n = size and tostring( size ):match( '^(%d+)px$' )
+	return n and ( ' style="width:' .. ( tonumber( n ) + 8 ) .. 'px"' ) or ''
+end
+
 -- ev: { title, text, image, imagesize, imagealt, caption }
 local function renderEvent( ev, hideTitle )
 	local out = { '<div class="wt-timeline__event"><span class="wt-timeline__title">',
@@ -70,12 +77,12 @@ local function renderEvent( ev, hideTitle )
 		-- several pictures: one row of framed pictures that wraps when there is no more room
 		out[ #out + 1 ] = '<div class="wt-timeline__images">'
 		for _, f in ipairs( ev.images ) do
-			out[ #out + 1 ] = '<span class="wt-timeline__image">[[File:' .. f[ 1 ] .. '|' .. ( f[ 3 ] or '100x100px' )
+			out[ #out + 1 ] = '<span class="wt-timeline__image"' .. boxStyle( f[ 3 ] ) .. '>[[File:' .. f[ 1 ] .. '|' .. ( f[ 3 ] or '100x100px' )
 				.. '|alt=]]' .. ( f[ 2 ] and ( '<span class="wt-timeline__caption">' .. f[ 2 ] .. '</span>' ) or '' ) .. '</span>'
 		end
 		out[ #out + 1 ] = '</div>'
 	elseif ev.image then
-		out[ #out + 1 ] = '<span class="wt-timeline__image">[[File:' .. ev.image .. '|'
+		out[ #out + 1 ] = '<span class="wt-timeline__image"' .. boxStyle( ev.imagesize ) .. '>[[File:' .. ev.image .. '|'
 			.. ( ev.imagesize or '100x100px' ) .. '|alt=' .. ( ev.imagealt or '' ) .. ']]'
 		if ev.caption then out[ #out + 1 ] = '<span class="wt-timeline__caption">' .. ev.caption .. '</span>' end
 		out[ #out + 1 ] = '</span>'

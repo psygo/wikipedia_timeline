@@ -134,8 +134,7 @@
 /* Same look as a Wikipedia thumbnail. */
 .wt-timeline__image {
 	display: inline-block;
-	/* as wide as the picture: a longer caption wraps instead of widening the box */
-	width: min-content;
+	/* the module gives the box the width of the picture (inline style): a longer caption wraps */
 	max-width: 100%;
 	box-sizing: border-box;
 	margin-top: 0.5em;
@@ -542,14 +541,16 @@
 }
 
 /* The outline module makes the title a real heading (h2-h6) so the page's table of contents lists
-   it (|toc=no turns that off): take back what the skin gives headings. */
+   it (|toc=no turns that off): take back what the skin gives headings. The left margin and the
+   float are the title's own layout (see the wide layout below), so they are not touched here. */
 h2.wt-timeline__section-title,
 h3.wt-timeline__section-title,
 h4.wt-timeline__section-title,
 h5.wt-timeline__section-title,
 h6.wt-timeline__section-title {
-	display: inline;
-	margin: 0;
+	margin-top: 0;
+	margin-right: 0;
+	margin-bottom: 0;
 	padding: 0;
 	border: 0;
 	font-family: inherit;
