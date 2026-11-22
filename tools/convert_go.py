@@ -332,7 +332,7 @@ def outline(select, pictures, headings=True, order=None):
             refs += ref_text(None, named=':11')
         if 'VID' in src:
             refs += VIDEO
-        if pictures:
+        if pictures and (pictures != 'vid' or 'VID' in src):      # 'vid': only the world no. 1 events have their picture
             for d, t, f in IMAGES:
                 if d == date and t in text:
                     lines.append('[[File:%s|200px]]' % f)
@@ -376,7 +376,7 @@ solo = ''
 TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era', 'N': 'World no. 1 players'}
 for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go'), ('A', 'the AI era')):
     pick = lambda i, c=code: c in tag_of.get(i, '')
-    pics = code == 'N'
+    pics = True if code == 'N' else 'vid' if code in 'CKJ' else False
     if code in 'CKJ':
         # a country: the eras of the main timeline (the World no. 1 players and the later events are spliced into them by date)
         ls = []
