@@ -462,7 +462,7 @@ def outline(select, pictures, headings=True, order=None):
             for k, (f, c) in enumerate(shown):
                 if (f, c) in shown[:k]:
                     continue
-                lines.append('[[File:%s|%s|%s]]' % (f, '150px' if len(shown) > 1 else '200px', cap_link(c)))
+                lines.append('[[File:%s|%s|%s]]' % (f, '200px', cap_link(c)))
         lines.append("* '''%s''' %s%s" % (date, text, refs))
     return lines
 

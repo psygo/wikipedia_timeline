@@ -45,20 +45,20 @@ __TOC__
 * '''1349''' [[Yuan dynasty]] (1271–1368): Yan Defu and Yan Tianzhang compile the ''Xuanxuan Qijing'' ("Gateway to All Marvels"), six volumes with 376 problems, essays and game records; it inspires problem books around the world.<ref name=":11" />
 [[File:Go Ming Court.jpg|200px|Go at the Ming court]]
 * '''Ming dynasty''' Chinese scoring changes from territory to stone scoring. The [[Hongwu Emperor]] (1328–1398) issues an "Edict Banning Weiqi" in the face of widespread gambling on the game.<ref name=":11" />
-[[File:Odanobunaga.jpg|150px|[[Oda Nobunaga]]]]
-[[File:Sansa.jpg|150px|[[Hon'inbō Sansa]]]]
+[[File:Odanobunaga.jpg|200px|[[Oda Nobunaga]]]]
+[[File:Sansa.jpg|200px|[[Hon'inbō Sansa]]]]
 * '''1582''' [[Hon'inbō Sansa|Honinbo Sansa]] (1559–1623) plays a triple ko against [https://senseis.xmp.net/?KashioRigen Kashio Rigen] (1565–?) at a monastery in [[Kyoto]] in the presence of [[Oda Nobunaga]] (1534–1582); the game is suspended. The next day Nobunaga is killed, and a triple ko is considered bad luck ever after.
-[[File:Go board Hideyoshi Ieyasu Ryogenin M1868.jpg|150px|The Go board of Hideyoshi and Ieyasu, [[Ryōgen-in]]]]
-[[File:Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png|150px|[[Toyotomi Hideyoshi]]]]
+[[File:Go board Hideyoshi Ieyasu Ryogenin M1868.jpg|200px|The Go board of Hideyoshi and Ieyasu, [[Ryōgen-in]]]]
+[[File:Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png|200px|[[Toyotomi Hideyoshi]]]]
 * '''1588''' [[Toyotomi Hideyoshi]] (1537–1598) organizes the first Japanese Go tournament; Hon'inbō (Sansa) wins and is granted a salary.<ref name=":5" />
 == Edo-period Japan and Qing China ==
-[[File:Sansa.jpg|150px|[[Hon'inbō Sansa]]]]
-[[File:Tokugawa Ieyasu2.JPG|150px|[[Tokugawa Ieyasu]]]]
+[[File:Sansa.jpg|200px|[[Hon'inbō Sansa]]]]
+[[File:Tokugawa Ieyasu2.JPG|200px|[[Tokugawa Ieyasu]]]]
 * '''1603''' [[Hon'inbō Sansa|Honinbo Sansa]] (1559–1623) is appointed by Shogun [[Tokugawa Ieyasu]] (1543–1616) as head of the Go world ([[Meijin (Go)|Meijin]] Godokoro): the major Japanese Go school system begins.<ref name=":5" /><ref name=":11" />
 [[File:Tokugawa Ieyasu2.JPG|200px|[[Tokugawa Ieyasu]], founder of the [[Tokugawa shogunate]]]]
 * '''1612''' The [[Tokugawa shogunate]] (1603–1868) establishes four hereditary Go houses (Hon'inbō, Inoue, Yasui and Hayashi) and pays them stipends; they compete for 250–300 years.<ref name=":5" /><ref name=":11" />
-[[File:Portrait of Nicolas Trigault by Peter Paul Rubens.png|150px|[[Nicolas Trigault]], by [[Peter Paul Rubens|Rubens]]]]
-[[File:利玛窦像，游文辉绘.jpg|150px|[[Matteo Ricci]]]]
+[[File:Portrait of Nicolas Trigault by Peter Paul Rubens.png|200px|[[Nicolas Trigault]], by [[Peter Paul Rubens|Rubens]]]]
+[[File:利玛窦像，游文辉绘.jpg|200px|[[Matteo Ricci]]]]
 * '''1615''' [[Nicolas Trigault]] (1577–1628) publishes in [[Augsburg]] the diaries of the [[Jesuits|Jesuit]] [[Matteo Ricci]] (1552–1610), which explain the game of weiqi; the book goes through at least 16 editions in European languages.<ref name=":11" />
 * '''1626–1628''' The first castle game, played before the shogun, takes place in 1626; in 1628 the castle games become an official yearly ceremony.<ref name=":11" />
 * '''1645–1653''' The first official challenge match (sōgo) to decide the Meijin, between [[Hon'inbō San'etsu|Hon'inbō Sanetsu]] (1611–1658) and [[Yasui Sanchi]] (1617–1703).<ref name=":11" />
@@ -73,16 +73,16 @@ __TOC__
 * '''1713''' The ''Igo Hatsuyoron'', a collection of very hard problems, is created.<ref name=":11" />
 * '''1739''' Shi Xiangxia and Fan Xiping play the "Ten Games at Danghu" in Pinghu, Zhejiang.<ref name="go4">{{Cite web |title=Fan Xiping and Shi Ding'an at Sensei's Library |url=https://senseis.xmp.net/?FanXipingAndShiDingan |access-date=2025-08-23 |website=senseis.xmp.net}}</ref><ref name=":11" />
 * '''1840''' The "blood-vomiting game": [[Hon'inbō Jōwa]] (1787–1847) beats [[Akaboshi Intetsu]] (1810–1835) in a week-long match; Akaboshi collapses from exhaustion and dies soon after.<ref name=":5" /><ref name=":11" />
-[[File:Kulak_kizartan_go.png|150px|The "ear-reddening" game]]
-[[File:Honinbo_Shusaku.jpg|150px|[[Hon'inbō Shūsaku]]]]
+[[File:Kulak_kizartan_go.png|200px|The "ear-reddening" game]]
+[[File:Honinbo_Shusaku.jpg|200px|[[Hon'inbō Shūsaku]]]]
 * '''1846''' The "ear-reddening game": [[Hon'inbō Shūsaku|Honinbo Shusaku]] (1829–1862)'s move 127 stuns [[Inoue Gennan Inseki|Gennan Inseki]] (1798–1859), and becomes one of the best moves of all time.<ref name=":5" />
 * '''1863''' The last castle games are played as the crisis of the shogunate disrupts the ceremonies.<ref name=":11" />
 == Modern professional Go ==
 [[File:Emperor Meiji by Takahashi Yuichi.jpg|200px|[[Emperor Meiji]]]]
 * '''1868''' The [[Meiji Restoration]] (1866–1869) ends the official stipends of the Go houses; Go loses its patrons and the masters struggle.<ref name=":11" />
-[[File:Takayoshi_Kido_suit.jpg|150px|[[Kido Takayoshi]]]]
-[[File:Ōkubo_Toshimichi_1872_(cropped).jpg|150px|[[Ōkubo Toshimichi]]]]
-[[File:Iwakura mission.jpg|150px|Members of the [[Iwakura Mission]]]]
+[[File:Takayoshi_Kido_suit.jpg|200px|[[Kido Takayoshi]]]]
+[[File:Ōkubo_Toshimichi_1872_(cropped).jpg|200px|[[Ōkubo Toshimichi]]]]
+[[File:Iwakura mission.jpg|200px|Members of the [[Iwakura Mission]]]]
 * '''1872''' The first recorded game of Go in Europe is played between [[Kido Takayoshi]] (1833–1877) and [[Ōkubo Toshimichi]] (1830–1878) of the [[Iwakura Mission]] (1871–1873).
 * '''1878''' The first newspaper Go column appears in Japan, on 1 April. In 1879 the [[Hoensha]] society forms; its journal ''Igo Shinpo'' is the first Go magazine.<ref name=":11" />
 [[File:Oscar Korschelt.jpg|200px|[[Oskar Korschelt]]]]
@@ -92,15 +92,15 @@ __TOC__
 * '''1909–1910''' The Japanese professional [[Dohei Takabe|Takabe Dōhei]] (1881–1951) visits China and introduces play without fixed starting stones.<ref name=":11" />
 [[File:Nihon Ki-in Headquarter (2016-05-05) 5.jpg|200px|The [[Nihon Ki-in]] headquarters]]
 * '''1924''' The [[Nihon Ki-in]], Japan's professional Go association, is founded, ending the hereditary house system and inaugurating the modern rank and tournament system.<ref name=":5" /><ref name=":11" />
-[[File:Game_of_the_Century_-_Honinbo_Shusai_(W)_vs_Go_Seigen_(B)_no_text.svg|150px|The "Game of the Century": [[Hon'inbō Shūsai|Shūsai]] (white) against [[Go Seigen]] (black)]]
-[[File:Go_Seigen_01.jpg|150px|[[Go Seigen]]]]
-[[File:Honinbo Shusai.jpg|150px|[[Hon'inbō Shūsai]]]]
+[[File:Game_of_the_Century_-_Honinbo_Shusai_(W)_vs_Go_Seigen_(B)_no_text.svg|200px|The "Game of the Century": [[Hon'inbō Shūsai|Shūsai]] (white) against [[Go Seigen]] (black)]]
+[[File:Go_Seigen_01.jpg|200px|[[Go Seigen]]]]
+[[File:Honinbo Shusai.jpg|200px|[[Hon'inbō Shūsai]]]]
 * '''1933''' The "Game of the Century": [[Go Seigen]] (1914–2014) opens at the three-three, star and center points against [[Hon'inbō Shūsai|Honinbo Shusai]] (1874–1940), in a controversial three-month game that challenges the old system.<ref name="AUK">{{cite web |title=Analysed Games of Go Seigen |url=https://www.usgo.org/files/pdf/go-seigen-book.pdf |url-status=dead |archive-url=https://web.archive.org/web/20200808162306/https://www.usgo.org/sites/default/files/pdf/go-seigen-book.pdf |archive-date=8 August 2020}}</ref>
 * '''1934–1937''' Lasker's ''Go and Go-moku'' (1934) helps popularize the game in the US; the [[American Go Association]] is formed in 1935 and the German Go Association in 1937.<ref name="agahbk95" /><ref name=":11" />
 * '''1935''' A game of Go is broadcast on radio for the first time.<ref name=":11" />
-[[File:Honinbo Shusai.jpg|150px|[[Hon'inbō Shūsai]]]]
-[[File:Kitani_Minoru_1955.jpg|150px|[[Minoru Kitani|Kitani Minoru]]]]
-[[File:Yasunari_Kawabata_1938.jpg|150px|[[Yasunari Kawabata]]]]
+[[File:Honinbo Shusai.jpg|200px|[[Hon'inbō Shūsai]]]]
+[[File:Kitani_Minoru_1955.jpg|200px|[[Minoru Kitani|Kitani Minoru]]]]
+[[File:Yasunari_Kawabata_1938.jpg|200px|[[Yasunari Kawabata]]]]
 * '''1936–1938''' Shūsai hands the Hon'inbō title to the Nihon Ki-in (1936) and retires in 1938 after a game against [[Minoru Kitani|Kitani Minoru]] (1909–1975) that inspires the novel ''[[The Master of Go]]'' by [[Yasunari Kawabata]] (1899–1972).<ref name=":5" /><ref name=":11" />
 * '''1941''' [[Riichi Sekiyama|Sekiyama Riichi]] (1909–1970) wins the first Hon'inbō title tournament, one of the first major modern tournaments with [[Komi (Go)|komi]] (4.5 points).<ref name=":11" />
 [[File:Atomic bombing of Japan.jpg|200px|The atomic bombings of [[Hiroshima]] (left) and [[Nagasaki]] (right)]]
@@ -134,8 +134,8 @@ __TOC__
 * '''1985''' The Ing Prize for computer programs starts; it expires in 2000, when the last challenge was won by HandTalk at an 11-stone handicap against a young professional.<ref name=":11" />
 [[File:Takemiya Masaki.jpg|200px|[[Takemiya Masaki]]]]
 * '''1988''' [[Takemiya Masaki]] (born 1951) wins the first [[Fujitsu Cup]], one of the first international tournaments.<ref name=":11" />
-[[File:Chohunhyun1.jpg|150px|[[Cho Hun-hyun|Cho Hunhyun]]]]
-[[File:Nie Weiping 2023.jpg|150px|[[Nie Weiping]]]]
+[[File:Chohunhyun1.jpg|200px|[[Cho Hun-hyun|Cho Hunhyun]]]]
+[[File:Nie Weiping 2023.jpg|200px|[[Nie Weiping]]]]
 * '''1989''' Cho Hunhyun, the only Korean entrant, wins the first [[Ing Cup]], the "Olympics of Go", beating Nie Weiping.<ref name=":5" /><ref name=":11" />
 [[File:Lee ChangHo.JPG|200px|[[Lee Chang-ho|Lee Changho]]]]
 * '''October 1990''' {{Flag icon|South Korea}} [[Lee Chang-ho|Lee Changho]] (born 1975), a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.<ref name="gomagic" /><ref name="goratings" />
@@ -144,8 +144,8 @@ __TOC__
 * '''1995''' [[Ma Xiaochun]] (born 1964) is the first Chinese player to win an international tournament, taking both the Fujitsu Cup and the Tongyang Securities Cup.<ref name=":11" />
 [[File:Lee ChangHo.JPG|200px|[[Lee Chang-ho|Lee Changho]]]]
 * '''1996''' Lee Changho wins the first [[LG Cup (Go)|LG Cup]].<ref name=":11" />
-[[File:Daniel Thomas Barry.jpg|150px|[[Daniel T. Barry|Daniel Barry]]]]
-[[File:Koichi_Wakata_Official_Portrait_(cropped)_2.jpg|150px|[[Koichi Wakata]]]]
+[[File:Daniel Thomas Barry.jpg|200px|[[Daniel T. Barry|Daniel Barry]]]]
+[[File:Koichi_Wakata_Official_Portrait_(cropped)_2.jpg|200px|[[Koichi Wakata]]]]
 * '''1996''' Astronauts [[Daniel T. Barry|Daniel Barry]] (born 1953) and [[Koichi Wakata]] (born 1963) become the first people to play Go in space.{{sfn|Peng|Hall|1996}}
 * '''1998–2003''' The [[Manga|manga]] ''[[Hikaru no Go]]'' (later also an [[Anime|anime]]) sparks a Go boom among young players in Japan.<ref name=":5" /><ref name=":11" />
 [[File:圍棋九段選手芮迺偉女士 (cropped).jpg|200px|[[Rui Naiwei]]]]
@@ -167,11 +167,11 @@ __TOC__
 [[File:Ke Jie (柯洁) 2019 (cropped).png|200px|[[Ke Jie]]]]
 * '''May 2015''' {{Flag icon|China}} [[Ke Jie]] (born 1997) becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />
 == The AI era ==
-[[File:AlphaGo_computer_rack.jpg|150px|An [[AlphaGo]] computer rack]]
-[[File:FanHui.jpg|150px|[[Fan Hui]]]]
+[[File:AlphaGo_computer_rack.jpg|200px|An [[AlphaGo]] computer rack]]
+[[File:FanHui.jpg|200px|[[Fan Hui]]]]
 * '''October 2015''' [[AlphaGo]], made by [[Google]], beats the European champion [[Fan Hui]] (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
-[[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|150px|[[Lee Sedol]] in 2016]]
-[[File:20180213eiyo07 Yuta Iyama.jpg|150px|[[Yuta Iyama|Iyama Yūta]]]]
+[[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|200px|[[Lee Sedol]] in 2016]]
+[[File:20180213eiyo07 Yuta Iyama.jpg|200px|[[Yuta Iyama|Iyama Yūta]]]]
 * '''2016''' Google's AlphaGo beats [[Lee Sedol]] (born 1983) 4–1 in Seoul, the first time an AI beats a top professional. The same year, [[Yuta Iyama|Iyama Yūta]] (born 1989) holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
 [[File:Ke Jie (柯洁) 2019 (cropped).png|200px|[[Ke Jie]]]]
