@@ -182,6 +182,14 @@ items = sections
 
 # ---------------------------------------------------------------- the rest of the page
 head = head.strip()   # keeps {{short description}} and {{Use mdy dates}}: the dates in the citations depend on it
+# The lead gets the first picture of the timeline: the first image on the page is what Wikipedia uses as the page image
+# (the thumbnail of search results and link previews, and og:image when the page is shared), and this article had none.
+if sections and sections[0][1] and sections[0][1][0][2] and not re.search(r'\[\[(File|Image):', head, re.I):
+    first_date, _t, first_image, _o = sections[0][1][0]
+    pic = ('[[File:%s|thumb|right|upright=1.3|The first photograph of Earth from outer space, taken on a %s flight on %s.]]'
+           % (first_image, sections[0][0], first_date))
+    parts = head.split('\n\n', 1)             # the templates, then the lead
+    head = parts[0] + '\n\n' + pic + '\n' + parts[1] if len(parts) == 2 else pic + '\n' + head
 if not ARTICLE_MODE:
     tail = re.sub(r'\[\[Category:', '[[:Category:', tail)
 banner = '' if ARTICLE_MODE else (
