@@ -56,6 +56,17 @@
 	background: var( --border-color-subtle, #c8ccd1 );
 }
 
+/* An open-ended timeline (|open=yes in the outline module): the last dot is not the end, the rail
+   goes on and fades out below it. */
+.wt-timeline--open {
+	padding-bottom: 3em;
+}
+
+.wt-timeline--open::before {
+	bottom: 0;
+	background: linear-gradient( to bottom, var( --border-color-subtle, #c8ccd1 ) calc( 100% - 3em ), transparent );
+}
+
 .wt-timeline__item {
 	position: relative;
 	margin: 0;

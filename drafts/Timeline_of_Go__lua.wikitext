@@ -169,7 +169,7 @@ __TOC__
 
 == World no. 1 players ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=gon |toc=no
+|id=gon |open=yes
 |text=
 [[File:Go_Seigen_01.jpg|200px]]
 * '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} [[Go Seigen]] becomes the world no. 1.<ref name="gomagic" /><ref name="goratings" />

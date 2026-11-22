@@ -133,8 +133,9 @@ local function renderSection( sec )
 		.. ( sec.body or '' ) .. '</ol></div></li>'
 end
 
-local function renderRail( body, title )
-	local ol = '<ol class="wt-timeline">' .. ( body or '' ) .. '</ol>'
+-- open: the rail fades out below the last dot instead of ending there (a list that is not finished)
+local function renderRail( body, title, open )
+	local ol = '<ol class="wt-timeline' .. ( open and ' wt-timeline--open' or '' ) .. '">' .. ( body or '' ) .. '</ol>'
 	if title then
 		return '<div class="wt-timelines__col"><div class="wt-timeline__heading">' .. title .. '</div>' .. ol .. '</div>'
 	end
@@ -353,7 +354,7 @@ function p.outline( frame )
 	local h = 5381
 	for i = 1, #text do h = ( h * 33 + text:byte( i ) ) % 4294967296 end
 	local body = buildOutline( tree, opts, a.id or string.format( 'tl%x', h ), { s = 0, i = 0 } )
-	return styles( frame ) .. renderRail( body, a.title )
+	return styles( frame ) .. renderRail( body, a.title, a.open ~= nil and a.open:lower() ~= 'no' )
 end
 
 -- exposed for the tests
