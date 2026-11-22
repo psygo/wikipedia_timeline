@@ -296,6 +296,28 @@ def link(text, seen, date=''):
         text = text[:m.start()] + put(piece) + text[m.end():]
     return re.sub('\x02(\\d+)\x03', lambda m: toks[int(m.group(1))], text)
 
+# Names that only occur in picture captions
+CAP_EXTRA = [("Hon'inbō Sansa", "Hon'inbō Sansa"), ("Hon'inbō Dōsaku", "Hon'inbō Dōsaku"), ("Hon'inbō Shūsai", "Hon'inbō Shūsai"),
+             ("Hon'inbō Shūsaku", "Hon'inbō Shūsaku"), ('Emperor Meiji', 'Emperor Meiji'), ('British Library', 'British Library'),
+             ('Nagasaki', 'Nagasaki'), ('Rubens', 'Peter Paul Rubens'), ('Ryōgen-in', 'Ryōgen-in'), ('Han dynasty', 'Han dynasty'),
+             ('Inner Mongolia Museum', 'Inner Mongolia Museum')]
+
+def cap_link(caption):
+    """A caption links the people and things it names (each once), without dates."""
+    toks, seen = [], set()
+    entries = sorted([(n, t) for n, t, _ in LINKS if not t.startswith('http')] + CAP_EXTRA, key=lambda e: -len(e[0]))
+    for name, target in entries:
+        if target in seen:
+            continue
+        m = re.search(r'(?<![\w\x02\x03])' + re.escape(name) + r'(?![\w\x02\x03])', caption)
+        if not m:
+            continue
+        seen.add(target)
+        piece = '[[%s]]' % name if target == name else '[[%s|%s]]' % (target, name)
+        toks.append(piece)
+        caption = caption[:m.start()] + '\x02%d\x03' % (len(toks) - 1) + caption[m.end():]
+    return re.sub('\x02(\\d+)\x03', lambda m: toks[int(m.group(1))], caption)
+
 # Pictures on Wikimedia Commons: (date, a part of the event's text, file, caption). An event with several pictures shows
 # them all, in the order given here, in one row that wraps.
 IMAGES = [
@@ -440,7 +462,7 @@ def outline(select, pictures, headings=True, order=None):
             for k, (f, c) in enumerate(shown):
                 if (f, c) in shown[:k]:
                     continue
-                lines.append('[[File:%s|%s|%s]]' % (f, '150px' if len(shown) > 1 else '200px', c))
+                lines.append('[[File:%s|%s|%s]]' % (f, '150px' if len(shown) > 1 else '200px', cap_link(c)))
         lines.append("* '''%s''' %s%s" % (date, text, refs))
     return lines
 

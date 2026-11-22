@@ -71,13 +71,13 @@ local function renderEvent( ev, hideTitle )
 		out[ #out + 1 ] = '<div class="wt-timeline__images">'
 		for _, f in ipairs( ev.images ) do
 			out[ #out + 1 ] = '<span class="wt-timeline__image">[[File:' .. f[ 1 ] .. '|' .. ( f[ 3 ] or '100x100px' )
-				.. '|alt=]]' .. ( f[ 2 ] and ( '<br />' .. f[ 2 ] ) or '' ) .. '</span>'
+				.. '|alt=]]' .. ( f[ 2 ] and ( '<span class="wt-timeline__caption">' .. f[ 2 ] .. '</span>' ) or '' ) .. '</span>'
 		end
 		out[ #out + 1 ] = '</div>'
 	elseif ev.image then
 		out[ #out + 1 ] = '<span class="wt-timeline__image">[[File:' .. ev.image .. '|'
 			.. ( ev.imagesize or '100x100px' ) .. '|alt=' .. ( ev.imagealt or '' ) .. ']]'
-		if ev.caption then out[ #out + 1 ] = '<br />' .. ev.caption end
+		if ev.caption then out[ #out + 1 ] = '<span class="wt-timeline__caption">' .. ev.caption .. '</span>' end
 		out[ #out + 1 ] = '</span>'
 	end
 	out[ #out + 1 ] = '</div>'

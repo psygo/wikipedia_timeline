@@ -134,6 +134,9 @@
 /* Same look as a Wikipedia thumbnail. */
 .wt-timeline__image {
 	display: inline-block;
+	/* as wide as the picture: a longer caption wraps instead of widening the box */
+	width: min-content;
+	max-width: 100%;
 	box-sizing: border-box;
 	margin-top: 0.5em;
 	padding: 3px;
@@ -149,6 +152,17 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0 0.5em;
+}
+
+/* The wrapper MediaWiki puts around the picture would add a line's height above the caption. */
+.wt-timeline__image > span:first-child {
+	display: block;
+	line-height: 0;
+}
+
+.wt-timeline__caption {
+	display: block;
+	text-align: center;
 }
 
 .wt-timeline__image img {
