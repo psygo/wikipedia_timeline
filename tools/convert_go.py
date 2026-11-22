@@ -332,7 +332,7 @@ def outline(select, pictures, headings=True, order=None):
             refs += ref_text(None, named=':11')
         if 'VID' in src:
             refs += VIDEO
-        if pictures and not (pictures == 'main' and 'VID' in src):      # the no. 1 pictures are in their own page section
+        if pictures:
             for d, t, f in IMAGES:
                 if d == date and t in text:
                     lines.append('[[File:%s|200px]]' % f)

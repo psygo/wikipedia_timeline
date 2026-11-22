@@ -81,25 +81,31 @@ __TOC__
 * '''1949''' Fujisawa Hōsai becomes the first player to reach 9 dan under the Oteai promotion system.<ref name=":11" />
 [[File:Go_Seigen_and_Kitani_Minoru.jpg|200px]]
 * '''1950''' Go Seigen is awarded 9 dan, and becomes the world's best player; he wins his ten-game matches against all top rivals until 1956.<ref name=":5" />
+[[File:Go_Seigen_01.jpg|200px]]
 * '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} Go Seigen becomes the world no. 1.<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who Was the Strongest Go Player Every Year? (1950–2026) {{!}} Bar Chart Race |url=https://www.youtube.com/watch?v=oY50_IKnsMs |medium=Video |publisher=YouTube |access-date=22 November 2026}}</ref>
 * '''1954''' The Korea Baduk Association (Hankuk Kiwon) is established, on 28 January. The first NHK Cup is broadcast on radio; it moves to television in 1962.<ref name=":5" /><ref name=":11" />
 * '''1956''' The first professional tournament in Korea, the Kuksu Cup, starts.<ref name=":11" />
+[[File:Sakata-Eio-1.jpg|200px]]
 * '''January 1959''' {{Flag icon|Japan}} [[Sakata Eio]] becomes the world no. 1.<ref name="gomagic" />
 * '''1960''' The China–Japan Go Friendship Match starts; it is held every year until 1991.
 * '''1962''' Fujisawa Shūkō wins the first Meijin title tournament.<ref name=":11" />
 * '''1968''' Albert Zobrist writes the first program that plays complete games of Go.<ref name=":11" />
+[[File:Go Seigen teaching to a young Rin Kaiho.jpg|200px]]
 * '''January 1969''' {{Flag icon|Taiwan}}{{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
 * '''June 1975''' {{Flag icon|Japan}} [[Kato Masao]] becomes the world no. 1.<ref name="gomagic" />
 * '''1976''' After the "Meijin Incident" of 1974, the Tengen (1975), Kisei and Gosei (1976) titles complete the seven major Japanese titles. Fujisawa Shūkō wins the first Kisei in 1977.<ref name=":11" />
 * '''19 December 1976''' A friendship match between Taiwan and the United States is played by teletype; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
 * '''1978''' Manfred Wimmer becomes the first Westerner to receive a professional certificate from an East Asian Go association (Kansai Ki-in); James Kerwin is the first at the Nihon Ki-in.<ref name="go6">[http://pokspace.goverband.at/essays/wimmer_e.htm Manfred Wimmer]</ref><ref name=":11" />
+[[File:Cho Chikun at World Go Festival20190630.jpg|200px]]
 * '''November 1979''' {{Flag icon|South Korea}}{{Flag icon|Japan}} [[Cho Chikun]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Chohunhyun1.jpg|200px]]
 * '''July 1982''' {{Flag icon|South Korea}} [[Cho Hun-hyun|Cho Hunhyun]] becomes the world no. 1.<ref name="gomagic" />
 * '''1984''' [[Nie Weiping]] leads China to victory over Japan in the first China–Japan Super Go Matches, a national triumph.<ref name=":6">{{Cite news |title=China's Hero of the Game 'Go' |url=https://www.csmonitor.com/1992/0306/06141.html |access-date=2025-08-24 |work=Christian Science Monitor |issn=0882-7729}}</ref><ref name=":5" />
 * '''1984''' The first computer Go event, the Acornsoft tournament for the BBC Micro, is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
 * '''1985''' The Ing Prize for computer programs starts; it expires in 2000, when the last challenge was won by HandTalk at an 11-stone handicap against a young professional.<ref name=":11" />
 * '''1988''' Takemiya Masaki wins the first Fujitsu Cup, one of the first international tournaments.<ref name=":11" />
 * '''1989''' Cho Hunhyun, the only Korean entrant, wins the first [[Ing Cup]], the "Olympics of Go", beating Nie Weiping.<ref name=":5" /><ref name=":11" />
+[[File:Lee ChangHo.JPG|200px]]
 * '''October 1990''' {{Flag icon|South Korea}} [[Lee Chang-ho|Lee Changho]], a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.<ref name="gomagic" />
 * '''2 February 1992''' The Internet Go Server (IGS), the first server dedicated to Go, starts.<ref name=":11" />
 * '''1993''' Bruegmann's Gobble is the first Go program based on random playouts (Monte Carlo).<ref name=":11" />
@@ -111,13 +117,17 @@ __TOC__
 [[File:Michael Redmond in 2018.png|200px]]
 * '''2000''' The American [[Michael Redmond]] is the first Westerner to reach 9 dan.<ref name="go7">{{cite web |url=http://shinbo.free.fr/TheMagicOfGo/index.php?tmog=40 |title=The Magic of Go – 40. Go in Europe |author=Richard Bozulich |access-date=2008-04-28 |archive-url=https://web.archive.org/web/20070730222854/http://shinbo.free.fr/TheMagicOfGo/index.php?tmog=40 |archive-date=2007-07-30 |url-status=dead}}</ref><ref name=":11" />
 * '''2003''' The Oteai promotion system is discontinued in Japan and a new one introduced.<ref name=":11" />
+[[File:Gu Li 2024.jpg|200px]]
 * '''January 2006''' {{Flag icon|China}} [[Gu Li]] becomes the world no. 1.<ref name="gomagic" />
 * '''2006''' The UCT algorithm, a Monte Carlo tree search, is developed; a program using it, CrazyStone, wins the Computer Olympiad 9×9 Go event the same year.<ref name=":11" />
+[[File:Lee Se-Dol - 2016 (cropped).jpg|200px]]
 * '''July 2006''' {{Flag icon|South Korea}} [[Lee Sedol]] becomes the world no. 1.<ref name="gomagic" />
 * '''2008''' MoGo wins one of three games against the professional Catalin Taranu on 9×9 and later beats an 8-dan Korean professional on 19×19 with a 9-stone handicap.<ref name=":11" />
 * '''2011–2014''' The American Go Association signs an agreement with the Korean Baduk Association to promote its own professional system (2011); the European Go Federation creates its own (2014).<ref name=":11" />
+[[File:(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg|200px]]
 * '''July 2011''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1.<ref name="gomagic" />
 * '''2012''' The program Zen beats Takemiya Masaki in games with 5 and 4 handicap stones.<ref name=":11" />
+[[File:Ke Jie (柯洁) 2019 (cropped).png|200px]]
 * '''May 2015''' {{Flag icon|China}} [[Ke Jie]] becomes the world no. 1.<ref name="gomagic" />
 == The AI era ==
 [[File:AlphaGo_computer_rack.jpg|200px]]
