@@ -69,6 +69,9 @@ def refs_after(phrase):
 VIDEO = ('<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who Was the Strongest Go Player Every Year? (1950–2026) {{!}} Bar Chart Race '
          '|url=https://www.youtube.com/watch?v=oY50_IKnsMs |medium=Video |publisher=YouTube |access-date=22 November 2026}}</ref>')
 
+GORATINGS = ('<ref name="goratings">{{cite web |title=Go Ratings |url=https://www.goratings.org/en/ |website=goratings.org '
+             '|access-date=22 November 2026}}</ref>')
+
 def ref_text(phrase, named=None):
     """Full footnotes; `dedupe` later turns repeats into <ref name="..." />."""
     out = []
@@ -258,6 +261,28 @@ IMAGES = [
     ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg'),
     ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg'),
     ('2019', 'KataGo', 'KataGoanalisis.png'),
+    ('c. 2356–2255 BCE', 'Yao', 'EmperorYao.jpg'),
+    ('548 BCE', 'Zuo', 'Li Yuanyang Zuo zhuan first page.png'),
+    ('3rd century BCE', 'Mencius', 'Half Portraits of the Great Sage and Virtuous Men of Old - Meng Ke (孟軻).jpg'),
+    ('Around 500', 'Wu of Liang', 'Liang Wudi.jpg'),
+    ('8th century', 'Kibi', 'Kibino Makibi.jpg'),
+    ('1582', 'Nobunaga', 'Odanobunaga.jpg'),
+    ('1612', 'Tokugawa', 'Tokugawa Ieyasu2.JPG'),
+    ('1615', 'Trigault', 'Portrait of Nicolas Trigault by Peter Paul Rubens.png'),
+    ('1694', 'Thomas Hyde', 'Thomas-Hyde.jpg'),
+    ('17th–18th century', 'Leibniz', 'Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg'),
+    ('1713', 'Hatsuyoron', 'Hatsuyoron - problem 76.png'),
+    ('1868', 'Meiji', 'Emperor Meiji by Takahashi Yuichi.jpg'),
+    ('1872', 'Kido', 'Iwakura mission.jpg'),
+    ('1880', 'Korschelt', 'Oscar Korschelt.jpg'),
+    ('1905–1908', 'Lasker', 'Edward Lasker.jpg'),
+    ('1924', 'Nihon Ki-in', 'Nihon Ki-in Headquarter (2016-05-05) 5.jpg'),
+    ('1945', 'Atomic', 'Atomic bombing of Japan.jpg'),
+    ('1984', 'Nie Weiping', 'Nie Weiping 2023.jpg'),
+    ('1984', 'Acornsoft', 'BBC Micro Front Restored.jpg'),
+    ('1988', 'Takemiya', 'Takemiya Masaki.jpg'),
+    ('2000', 'Rui Naiwei', '圍棋九段選手芮迺偉女士 (cropped).jpg'),
+    ('1996', 'Barry', 'Daniel Thomas Barry.jpg'),
     ('January 1950', 'Go Seigen', 'Go_Seigen_01.jpg'),
     ('January 1969', 'Rin Kaiho', 'Go Seigen teaching to a young Rin Kaiho.jpg'),
     ('November 1979', 'Cho Chikun', 'Cho Chikun at World Go Festival20190630.jpg'),
@@ -331,7 +356,7 @@ def outline(select, pictures, headings=True, order=None):
         if 'SL' in src:
             refs += ref_text(None, named=':11')
         if 'VID' in src:
-            refs += VIDEO
+            refs += VIDEO + GORATINGS
         if pictures and (pictures != 'vid' or 'VID' in src):      # 'vid': only the world no. 1 events have their picture
             for d, t, f in IMAGES:
                 if d == date and t in text:
