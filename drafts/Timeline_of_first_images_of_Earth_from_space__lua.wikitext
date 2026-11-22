@@ -4,8 +4,9 @@
 {{short description|none}} <!-- "none" is preferred when the title is sufficiently descriptive; see [[WP:SDNONE]] -->
 {{Use mdy dates|date=April 2021}}
 
-[[File:First photo from space.jpg|thumb|right|upright=1.3|The first photograph of Earth from outer space, taken on a [[V-2]] flight on October 24, 1946.]]
+[[File:First photo from space.jpg|thumb|right|The first photograph of Earth from outer space, taken on a [[V-2]] flight on October 24, 1946.]]
 Photography and other imagery of planet [[Earth]] from [[outer space]]{{efn|Within the context of this timeline, outer space is considered as starting at the [[Kármán line]], {{convert|100|km|abbr=off}} [[above mean sea level]] (AMSL).}} started in the 1940s. Initially the images were taken from [[rocket]]s in [[suborbital flight]], subsequently from [[satellite]]s around Earth, and eventually from [[spacecraft]] beyond Earth's orbit.{{efn|The inclusion criterion for this timeline is being a {{em|first}} in terms of the conditions in which the image was taken.}}
+{{clear}}
 
 == Timeline ==
 Each section on the following timeline refers to a craft or a mission.
