@@ -1,0 +1,972 @@
+{{short description|Chronology of mathematics}}
+{{Use mdy dates|date=November 2026}}
+
+This is a [[timeline]] of [[pure mathematics|pure]] and [[applied mathematics]] [[History of mathematics|history]]. It is divided into three stages, corresponding to stages in the [[History of mathematical notation|development of mathematical notation]]: a "rhetorical" stage in which calculations are described purely by words, a "syncopated" stage in which quantities and common algebraic operations are beginning to be represented by symbolic abbreviations, and finally a "symbolic" stage, in which comprehensive notational systems for formulas are the norm. Below the timeline, the same events are grouped by civilization, as in [[History of mathematics]].
+
+__TOC__
+
+== Timeline ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=math
+|text=
+== Rhetorical stage ==
+Calculations are described purely by words.
+=== Before 1000 BC ===
+* '''ca. [[Middle Paleolithic|70,000 BC]]''' South Africa, ochre rocks adorned with scratched [[Geometry|geometric]] patterns (see [[Blombos Cave]]).<ref name="m1">[http://www.accessexcellence.org/WN/SU/caveart.html Art Prehistory], Sean Henahan, January 10, 2002. {{webarchive |url=https://web.archive.org/web/20080719073344/http://www.accessexcellence.org/WN/SU/caveart.html |date=July 19, 2008 }}</ref>
+* '''c. 40,000 years ago''' [[Neanderthal]]s at Abri du Maras, in southern France, use [[yarn]], which suggests that they knew basic mathematical concepts.<ref name="m2">{{Cite journal |last1=Hardy |first1=B. L. |last2=Moncel |first2=M.-H. |last3=Kerfant |first3=C. |last4=Lebon |first4=M. |last5=Bellot-Gurlet |first5=L. |last6=Mélard |first6=N. |date=2020-04-09 |title=Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications |journal=Scientific Reports |language=en |volume=10 |issue=1 |page=4889 |doi=10.1038/s41598-020-61839-w  |doi-access=free|pmid=32273518 |issn=2045-2322|pmc=7145842 |bibcode=2020NatSR..10.4889H }}</ref><ref name="m3">{{Cite web |last=Rigby |first=Sara |date=2020-04-14 |title=40,000-year-old yarn suggests Neanderthals had basic maths skills |url=https://www.sciencefocus.com/news/40000-year-old-yarn-suggests-neanderthals-had-basic-maths-skills |access-date=2025-02-21 |website=BBC Science Focus Magazine |language=en}}</ref>
+* '''ca. [[35,000 BC]] to [[Upper Paleolithic|20,000 BC]]''' Africa and France, earliest known [[prehistory|prehistoric]] attempts to quantify time (see [[Lebombo bone]]).<ref name="m4">[http://www.tacomacc.edu/home/jkellerm/Papers/Menses/Menses.htm How Menstruation Created Mathematics], [[Tacoma Community College]], [https://web.archive.org/web/20051223112514/http://www.tacomacc.edu/home/jkellerm/Papers/Menses/Menses.htm (archive link).]</ref><ref name="m5">{{cite web|url=http://www.math.buffalo.edu/mad/Ancient-Africa/lebombo.html|title=OLDEST Mathematical Object is in Swaziland|publisher=|accessdate=March 15, 2015}}</ref><ref name="m6">{{cite web|url=http://www.math.buffalo.edu/mad/Ancient-Africa/ishango.html|title=an old Mathematical Object|publisher=|accessdate=March 15, 2015}}</ref>
+[[File:Ishango bone (cropped).jpg|200px|[[Ishango bone]]]]
+* '''c. 20,000 BC''' [[Nile Valley]], [[Ishango bone]]: possibly the earliest reference to [[prime number]]s and [[Egyptian multiplication]].
+* '''5th millennium BC''' [[Predynastic Egypt|Predynastic Egyptians]] represent geometric designs in pictures.
+* '''c. 3400 BC''' [[Mesopotamia]], the [[Sumer]]ians invent the first [[Babylonian cuneiform numerals|numeral system]], and a system of [[Ancient Mesopotamian units of measurement|weights and measures]].
+* '''c. 3100 BC''' [[Egypt]], the earliest known [[decimal|decimal system]] allows indefinite counting by way of introducing new symbols.<ref name="buffalo1">{{cite web|url=http://www.math.buffalo.edu/mad/Ancient-Africa/mad_ancient_egyptpapyrus.html#berlin.|title=Egyptian Mathematical Papyri - Mathematicians of the African Diaspora|publisher=|accessdate=March 15, 2015}}</ref>
+* '''From c. 3000 BC''' The [[Sumer]]ians develop a complex system of [[metrology]], chiefly for administrative and financial counting: grain allotments, workers, weights of silver.<ref name="m7">{{Citation |last=Sharlach |first=Tonia |chapter=Calendars and Counting |title=The Sumerian World |year=2006 |pages=307–308 |publisher=Routledge |doi=10.4324/9780203096604.ch15 |isbn=978-0-203-09660-4}}</ref>
+* '''c. 2800 BC''' [[Indus Valley Civilization]] on the [[Indian subcontinent]], earliest use of decimal ratios in a uniform system of [[Ancient Indus Valley units of measurement|ancient weights and measures]]; the smallest unit of measurement used is 1.704 millimetres, and the smallest unit of mass used is 28&nbsp;grams.
+* '''2700 BC''' Egypt, precision [[surveying]].
+* '''3rd millennium BC''' Megalithic monuments in England and Scotland are claimed to incorporate geometric ideas such as circles, ellipses and [[Pythagorean triple]]s; the claims are disputed.<ref name="m8">Thom, Alexander; Archie Thom (1988). "The metrology and geometry of Megalithic Man", pp. 132–51 in Ruggles, C. L. N. (ed.), ''Records in Stone: Papers in memory of Alexander Thom''. Cambridge University Press. {{ISBN|0-521-33381-4}}.</ref>
+* '''2400 BC''' Egypt, precise [[Egyptian calendar|astronomical calendar]], used even in the [[Middle Ages]] for its mathematical regularity.
+* '''c. 2000 BC''' [[Mesopotamia]], the [[Babylonians]] use a base-60 positional numeral system and compute the first known approximate value of [[pi|π]] at 3.125.
+[[File:Room 51, British MuseumDSCF6620.jpg|200px|[[carved stone balls|Carved stone balls]]]]
+* '''c. 2000 BC''' Scotland, [[carved stone balls]] exhibit a variety of symmetries, including all of the symmetries of [[Platonic solid]]s, though it is not known if this was deliberate.
+[[File:Plimpton 322.jpg|200px|[[Plimpton 322]]]]
+* '''c. 1800 BC''' The [[Plimpton 322]] Babylonian tablet records the oldest known examples of [[Pythagorean triple]]s.<ref name="m9">{{citation |last=Joyce |first=David E.|author-link=David E. Joyce (mathematician) |year=1995 |title=Plimpton 322 |url=http://aleph0.clarku.edu/~djoyce/mathhist/plimpnote.html}} and {{citation |last=Maor |first=Eli |year=1993 |title=Trigonometric Delights |publisher=Princeton University Press |isbn=978-0-691-09541-7 |chapter=Plimpton 322: The Earliest Trigonometric Table? |chapter-url=http://press.princeton.edu/titles/6287.html |accessdate=November 28, 2010 |url-status=dead |pages=30–34 |archiveurl=https://web.archive.org/web/20100805230810/http://press.princeton.edu/titles/6287.html |archivedate=5 August 2010}}</ref>
+[[File:Moskou-papyrus.jpg|200px|[[Moscow Mathematical Papyrus]]]]
+* '''1800 BC''' Egypt, [[Moscow Mathematical Papyrus]], finding the volume of a [[frustum]].
+[[File:Papyrus Berlin 6619.jpg|200px|[[Berlin Papyrus 6619]]]]
+* '''c. 1800 BC''' [[Berlin Papyrus 6619]] (Egypt, 19th dynasty) contains a quadratic equation and its solution.<ref name="buffalo1"/>
+[[File:Rhind Mathematical Papyrus.jpg|200px|[[Rhind Mathematical Papyrus]]]]
+* '''1650 BC''' [[Rhind Mathematical Papyrus]], a copy of a lost scroll from around 1850 BC, the scribe [[Ahmes]] presents one of the first known approximate values of π at 3.16, the first attempt at [[squaring the circle]], the earliest known use of a sort of [[cotangent]], and knowledge of solving first-order linear equations.
+* '''16th century BCE''' The earliest recorded use of [[combinatorial]] techniques comes from problem 79 of the [[Rhind Mathematical Papyrus|Rhind papyrus]], which dates to the 16th century BCE.<ref name="Biggs">{{cite book | last = Biggs | first = Norman |author2=Keith Lloyd |author3=Robin Wilson | editor = Ronald Graham |editor2=Martin Grötschel | editor2-link = Martin Grötschel |editor3=László Lovász | title = Handbook of Combinatorics | year = 1995 | url = https://books.google.com/books?id=kfiv_-l2KyQC | format = Google book | access-date = 2008-03-08 | publisher = MIT Press | isbn = 0-262-57172-2 | pages = 2163–2188 | chapter = 44 }}</ref>
+== Syncopated stage ==
+Quantities and common algebraic operations begin to be represented by symbolic abbreviations.
+=== 1st millennium BC ===
+* '''c. 1000 BC''' [[Simple fraction]]s used by the [[Egyptians]]. However, only unit fractions are used (i.e., those with 1 as the numerator), and [[interpolation]] tables are used to approximate the values of the other fractions.<ref name="m10">Carl B. Boyer, ''A History of Mathematics'', 2nd Ed.</ref>
+* '''first half of 1st millennium BC''' [[Vedic civilization|Vedic India]]&nbsp;– [[Yajnavalkya]], in his [[Shatapatha Brahmana]], describes the motions of the Sun and the Moon and advances a [[Yajnavalkya 95 Years Cycle|95-year cycle]] to synchronize the motions of the Sun and the Moon.
+* '''c. 800 BC''' [[Baudhayana]], author of the [[Baudhayana]] [[Shulba Sutras|Shulba Sutra]], a [[Vedic Sanskrit]] geometric text, contains [[quadratic equation]]s, calculates the [[Square root of 2|square root of two]] correctly to five decimal places, and contains "the earliest extant verbal expression of the Pythagorean Theorem in the world, although it had already been known to the Old [[Babylonians]]."<ref name="m11">*{{cite book| last1=Hayashi| first1=Takao| year=1995| title=The Bakhshali Manuscript, An ancient Indian mathematical treatise| publisher=Groningen: Egbert Forsten, 596 pages| isbn=90-6980-087-X|page=363}}</ref>
+* '''c. 8th century BC''' the [[Yajurveda]], one of the four [[Hindu]] [[Vedas]], contains the earliest concept of [[infinity]] and states, "If you remove a part from infinity or add a part to infinity, still what remains is infinity."
+* '''1046 BC to 256 BC''' China, ''[[Zhoubi Suanjing]]'', arithmetic, geometric algorithms, and proofs.
+[[File:Arte romana, testa di talete di mileto, II sec..JPG|200px|[[Thales of Miletus]]]]
+* '''624 BC – 546 BC''' Greece, [[Thales of Miletus]] (c. 626–c. 548 BC) has various theorems attributed to him.
+* '''c. 600 BC''' India, the other Vedic "Shulba Sutras" ("rule of chords" in [[Sanskrit]]) use [[Pythagorean triple]]s, contain a number of geometrical proofs, and approximate [[pi|π]] at 3.16.
+[[File:Plato Silanion Musei Capitolini MC1377.png|200px|[[Plato]]]]
+* '''c. 387 BC''' [[Plato]] (c. 428–347 BC) founds the [[Platonic Academy|Academy]] in Athens, which becomes the mathematical center of the world in the 4th century BC.<ref name="m12">{{Harv|Boyer|1991|loc="The Age of Plato and Aristotle" p. 86}}</ref>
+* '''c. 330 BC''' The Mohist canon, compiled by the followers of [[Mozi]], contains the oldest extant work on geometry in China.
+* '''second half of 1st millennium BC''' The [[Luoshu Square]], the unique normal [[magic square]] of order three, was discovered in China.
+[[File:Pythagoras in the Roman Forum, Colosseum.jpg|200px|[[Pythagoras]]]]
+* '''530 BC''' Greece, [[Pythagoras]] (c. 570–c. 495 BC) studies propositional [[geometry]] and vibrating lyre strings; his group also discovers the [[irrational number|irrationality]] of the [[square root of two]].
+[[File:Anaxagoras Lebiedzki Rahl.jpg|200px|[[Anaxagoras]]]]
+* '''c. 510 BC''' Greece, [[Anaxagoras]] (c. 500–c. 428 BC)
+* '''c. 500 BC''' [[History of India|Indian]] grammarian [[Pāṇini]] writes the ''[[Astadhyayi|Aṣṭādhyāyī]]'', which contains the use of metarules, [[transformation (mathematics)|transformations]], and [[recursion]]s, originally for the purpose of systematizing the grammar of [[Sanskrit]].
+* '''c. 500 BC''' Greece, [[Oenopides of Chios]]
+* '''470 BC – 410 BC''' Greece, [[Hippocrates of Chios]] (c. 470–c. 421 BC) utilizes [[Lune (mathematics)|lunes]] in an attempt to [[squaring the circle|square the circle]].
+[[File:Portretbuste van Zeno van Elea Paradigmata graphices variorum artificum (serietitel), RP-P-1907-4495.jpg|200px|[[Zeno of Elea]]]]
+* '''490 BC – 430 BC''' Greece, [[Zeno of Elea]] creates ''[[Zeno's paradoxes]].''
+* '''5th century BC''' India, [[Apastamba]], author of the [[Apastamba]] [[Shulba Sutras|Shulba Sutra]], another [[Vedic Sanskrit]] geometric text, makes an attempt at squaring the circle and also calculates the [[square root of 2]] correct to five decimal places.
+* '''3rd century BC''' The [[Mouseion|Musaeum of Alexandria]] is the premier center of mathematical education and research; the century is regarded as the "Golden Age" of Greek mathematics.<ref name="m13">{{Harv|Boyer|1991|loc="Euclid of Alexandria" p. 100}}</ref>
+[[File:QinShiHuang19century.jpg|200px|[[Qin Shi Huang]]]]
+* '''212 BC''' The Emperor [[Qin Shi Huang]] (259–210 BC) orders all books in the [[Qin dynasty|Qin Empire]] other than officially sanctioned ones to be burned.
+* '''5th c. BC''' Greece, [[Theodorus of Cyrene]]
+* '''5th century''' Greece, [[Antiphon the Sophist]]
+[[File:Unknown greek pushkin.jpg|200px|[[Democritus]]]]
+* '''460 BC – 370 BC''' Greece, [[Democritus]]
+* '''460 BC – 399 BC''' Greece, [[Hippias]]
+* '''5th century (late)''' Greece, [[Bryson of Heraclea]]
+[[File:Archytas of Taras.jpg|200px|[[Archytas]]]]
+* '''428 BC – 347 BC''' Greece, [[Archytas]] (435–360 BC)
+* '''423 BC – 347 BC''' Greece, [[Plato]]
+* '''417 BC – 317 BC''' Greece, [[Theaetetus (mathematician)|Theaetetus]] (c. 417–c. 369 BC)
+* '''c. 400 BC''' India, write the ''Surya Prajnapti'', a mathematical text classifying all numbers into three sets: enumerable, innumerable, and [[Infinite set|infinite]]. It also recognizes five different types of infinity: infinite in one and two directions, infinite in area, infinite everywhere, and infinite perpetually.
+* '''408 BC – 355 BC''' Greece, [[Eudoxus of Cnidus]] (c. 390–c. 340 BC)
+* '''400 BC – 350 BC''' Greece, [[Thymaridas]]
+[[File:Xenocrates.jpg|200px|[[Xenocrates]]]]
+* '''395 BC – 313 BC''' Greece, [[Xenocrates]] (c. 396–314 BC)
+* '''390 BC – 320 BC''' Greece, [[Dinostratus]]
+* '''380–290''' Greece, [[Autolycus of Pitane]]
+* '''370 BC''' Greece, [[Eudoxus of Cnidus|Eudoxus]] states the [[method of exhaustion]] for [[area]] determination.
+* '''370 BC – 300 BC''' Greece, [[Aristaeus the Elder]]
+* '''370 BC – 300 BC''' Greece, [[Callippus]]
+[[File:Aristotle Altemps Inv8575.jpg|200px|[[Aristotle]]]]
+[[File:Aristotele, organon, XIII secolo (bml, pluteo 11 sin 1) 01.jpg|200px|[[Organon]]]]
+* '''350 BC''' Greece, [[Aristotle]] (384–322 BC) discusses [[logic]]al reasoning in ''[[Organon]]''.
+* '''4th century BC''' China, [[Counting rods]]
+[[File:Tianyige-330000-1705-0004801 墨子十五卷 明李贄選 明郎兆玉評 明天啟刻本.pdf|200px|[[Mozi (book)]]]]
+* '''330 BC''' China, the earliest known work on [[History of geometry#Chinese geometry|Chinese geometry]], the ''[[Mozi (book)|Mo Jing]]'', is compiled.
+[[File:Aristarco.PNG|200px|[[Aristarchus of Samos]]]]
+* '''310 BC – 230 BC''' Greece, [[Aristarchus of Samos]]
+* '''390 BC – 310 BC''' Greece, [[Heraclides Ponticus]]
+* '''380 BC – 320 BC''' Greece, [[Menaechmus]]
+* '''300 BC''' India,  ''[[Vyākhyāprajñapti|Bhagavati Sutra]]'', which contains the earliest information on [[combinations]].
+[[File:Italian - Euclid - Google Art Project.jpg|200px|[[Euclid]]]]
+[[File:P.Penn. Museum inv. E02748 Euclid's Elements 2.5.jpg|200px|[[Euclid's Elements]]]]
+* '''300 BC&nbsp;''' Greece, [[Euclid]], in his ''[[Euclid's Elements|Elements]]'' studies geometry as an [[axiomatic system]], proves the infinitude of [[prime number]]s, and presents the [[Euclidean algorithm]]; he states the law of reflection in ''Catoptrics'', and he proves the [[fundamental theorem of arithmetic]].
+* '''c. 300 BC''' India, [[Brahmi numerals]] (ancestor of the common modern [[base 10]] [[numeral system]])
+[[File:Eudemos von Rhodos.jpg|200px|[[Eudemus of Rhodes]]]]
+* '''370 BC – 300 BC''' Greece, [[Eudemus of Rhodes]] works on histories of arithmetic, geometry, and astronomy now lost.<ref name="CorsiWeindling1983">{{cite book|last1=Corsi|first1=Pietro|last2=Weindling|first2=Paul|title=Information sources in the history of science and medicine|url=https://books.google.com/books?id=sV0ZAAAAMAAJ|accessdate=July 6, 2014|year=1983|publisher=Butterworth Scientific|isbn=9780408107648}}</ref>
+[[File:Abacus (PSF).png|200px|[[abacus|Abacus]]]]
+* '''300 BC''' [[Mesopotamia]], the [[Babylonians]] invent the earliest calculator, the [[abacus]].
+* '''c. 300 BC''' [[Indian mathematicians|Indian mathematician]] [[Pingala]] writes the ''Chandaḥśāstra'', which contains the first Indian use of zero as a digit (indicated by a dot) and also presents a description of a [[binary numeral system]], along with the first use of [[Fibonacci numbers]] and [[Pascal's triangle]].
+* '''3rd century BC''' [[Indian mathematics|Indian]] texts use the [[Sanskrit]] word "[[wiktionary:शून्य#Sanskrit|Shunya]]" to refer to the concept of "void" ([[0 (number)|zero]]).
+* '''280 BC – 210 BC''' Greece, [[Nicomedes (mathematician)]]
+* '''280 BC – 220BC''' Greece, [[Philo of Byzantium]]
+* '''280 BC – 220 BC''' Greece, [[Conon of Samos]]
+* '''279 BC – 206 BC''' Greece, [[Chrysippus]]
+* '''c. 3rd century BC''' India, [[Kātyāyana]]
+* '''250 BC – 190 BC''' Greece, [[Dionysodorus]]
+[[File:Apollonii Pergei Opera 1537 detail.jpg|200px|[[Apollonius of Perga]]]]
+* '''262 -198 BC''' Greece, [[Apollonius of Perga]] (c. 240–c. 190 BC)
+[[File:Domenico-Fetti Archimedes 1620.jpg|200px|[[Archimedes]]]]
+* '''260 BC''' Greece, [[Archimedes]] (c. 287–c. 212 BC) proved that the value of π lies between 3 + 1/7 (approx. 3.1429) and 3 + 10/71 (approx. 3.1408), that the area of a circle was equal to π multiplied by the square of the radius of the circle, and that the area enclosed by a parabola and a straight line is 4/3 multiplied by the area of a triangle with equal base and height. He also gave a very accurate estimate of the value of the square root of 3.
+* '''c. 250 BC''' late [[Olmec]]s had already begun to use a true zero (a shell glyph) several centuries before [[Ptolemy]] in the New World. See [[0 (number)]].
+[[File:Portrait of Eratosthenes.png|200px|[[Eratosthenes]]]]
+* '''240 BC''' Greece, [[Eratosthenes]] (c. 276–c. 195 BC) uses [[Sieve of Eratosthenes|his sieve algorithm]] to quickly isolate prime numbers.
+* '''240 BC–190 BC''' Greece, [[Diocles (mathematician)]]
+* '''225 BC''' Greece, [[Apollonius of Perga]] writes ''On [[Conic section|Conic Sections]]'' and names the [[ellipse]], [[parabola]], and [[hyperbola]].
+* '''202 BC to 186 BC''' China, ''[[Book on Numbers and Computation]]'', a mathematical treatise, is written in the [[Han dynasty]] (202 BC–220 AD).
+* '''200 BC – 140 BC''' Greece, [[Zenodorus (mathematician)]]
+* '''150 BC''' India, [[Jainism|Jain]] mathematicians in India write the ''[[Sthananga Sutra]]'', which contains work on the theory of numbers, arithmetical operations, geometry, operations with [[fractions]], simple equations, [[cubic equations]], quartic equations, and [[permutations]] and combinations.
+* '''c. 150 BC''' Greece, [[Perseus (geometer)]]
+[[File:九章算術細草圖說.jpg|200px|[[The Nine Chapters on the Mathematical Art]]]]
+* '''150 BC''' China, A method of [[Gaussian elimination]] appears in the Chinese text ''[[The Nine Chapters on the Mathematical Art]]''.
+* '''150 BC''' China, [[Horner's method]] appears in the Chinese text ''[[The Nine Chapters on the Mathematical Art]]''.
+* '''150 BC''' China, [[negative numbers]] appear in the Chinese text ''[[The Nine Chapters on the Mathematical Art]]''.
+* '''150 BC – 75 BC''' Phoenician, [[Zeno of Sidon]]
+[[File:Head of Hipparchus (cropped).jpg|200px|[[Hipparchus]]]]
+* '''190 BC – 120 BC''' Greece, [[Hipparchus]] develops the bases of [[trigonometry]].
+* '''190 BC – 120 BC''' Greece, [[Hypsicles]]
+* '''160 BC – 100 BC''' Greece, [[Theodosius of Bithynia]]
+[[File:Posidonio, replica augustea (23 ac.-14 dc ca) da originale del 100-50 ac. ca. 6142.JPG|200px|[[Posidonius]]]]
+* '''135 BC – 51 BC''' Greece, [[Posidonius]]
+* '''78 BC – 37 BC''' China, [[Jing Fang]]
+* '''50 BC''' [[Indian numerals]], a descendant of the [[Brahmi numerals]] (the first [[positional notation]] [[base-10]] [[numeral system]]), begin development in [[History of India|India]].
+* '''mid-1st century''' [[Cleomedes]] (as late as 400 AD)
+* '''final centuries BC''' Indian astronomer [[Lagadha]] writes the ''[[Vedanga Jyotisha]]'', a Vedic text on [[astronomy]] that describes rules for tracking the motions of the Sun and the Moon and uses geometry and trigonometry for astronomy.
+* '''1st C. BC''' Greece, [[Geminus]]
+* '''50 BC – 23 AD''' China, [[Liu Xin (scholar)|Liu Xin]] (c. 46 BC–23 AD)
+=== 1st millennium AD ===
+* '''1st century''' Greece, [[Heron of Alexandria]], Hero, the earliest, fleeting reference to square roots of negative numbers.
+* '''c 100''' Greece, [[Theon of Smyrna]]
+[[File:Plato-nicomachus.jpg|200px|[[Nicomachus]]]]
+* '''60–120''' Greece, [[Nicomachus]]
+* '''70–140''' Greece, [[Menelaus of Alexandria]] (fl. 100), [[Spherical trigonometry]]
+[[File:20251004 Tomb of Zhang Heng 03.jpg|200px|[[Zhang Heng]]]]
+* '''78–139''' China, [[Zhang Heng]]
+[[File:Claudius Ptolemaeus, Almagestum, 1515.djvu|200px|[[Almagest]]]]
+* '''c. 2nd century''' In Greece, [[Ptolemy]] of [[Alexandria]] wrote the ''[[Almagest]]''.
+[[File:Cai yong.jpg|200px|[[Cai Yong]]]]
+* '''132–192''' China, [[Cai Yong]]
+* '''c. 190''' The earliest written mention of the [[suanpan]], the Chinese abacus, appears in Xu Yue's ''Supplementary Notes on the Art of Figures''.
+* '''240–300''' Greece, [[Sporus of Nicaea]]
+* '''250''' In Greece, [[Diophantus]] uses symbols for unknown numbers in terms of syncopated [[algebra]] and writes ''[[Arithmetica]]'', one of the earliest treatises on algebra.
+* '''263''' China, [[Liu Hui]] computes [[pi|π]] using [[Liu Hui's π algorithm]].
+* '''300''' the earliest known use of [[0 (number)|zero]] as a decimal digit is introduced by [[Indian mathematicians]].
+[[File:Portrait of Porphyry of Tyre from Les vrais pourtraits et vies des hommes illustres grecz, latins et payens.jpg|200px|[[Porphyry (philosopher)]]]]
+* '''234–305''' Greece, [[Porphyry (philosopher)]]
+* '''300–360''' Greece, [[Serenus of Antinoöpolis]]
+* '''250–350''' The "Silver Age" of Greek mathematics: [[Diophantus]] makes significant advances in algebra, with his ''[[Arithmetica]]''.<ref name="m14">{{Harv|Boyer|1991|loc="Revival and Decline of Greek Mathematics" p. 178}}</ref>
+* '''335–405''' Greece, [[Theon of Alexandria]]
+[[File:Pappi Alexandrini. Mathematicae collectiones. 1588.jpg|200px|[[Pappus of Alexandria]]]]
+* '''c. 340''' Greece, [[Pappus of Alexandria]] (c. 290–c. 350) states his [[Pappus's hexagon theorem|hexagon theorem]] and his [[Pappus's centroid theorem|centroid theorem]].
+* '''350–415''' Eastern Roman Empire, [[Hypatia]]
+[[File:Bakhshali manuscript.jpg|200px|[[Bakhshali manuscript]]]]
+* '''c. 400''' India, the [[Bakhshali manuscript]], which describes a theory of the infinite containing different levels of [[Infinite set|infinity]], shows an understanding of [[Indexed family|indices]], as well as [[logarithms]] to [[base 2]], and computes [[square roots]] of numbers as large as a million correct to at least 11 decimal places.
+* '''300–500''' The [[Chinese remainder theorem]] is developed by [[Sun Tzu (mathematician)|Sun Tzu]].
+* '''300–500''' In China, a description of [[rod calculus]] is written by [[Sun Tzu (mathematician)|Sun Tzu]].
+[[File:In primum Euclidis elementorum librum 01.jpg|200px|[[Proclus]]]]
+* '''412–485''' Greece, [[Proclus]]
+* '''420–480''' Greece, [[Domninus of Larissa]]
+* '''b 440''' Greece, [[Marinus of Neapolis]] "I wish everything was mathematics."
+[[File:祖冲之铜像.jpg|200px|[[Zu Chongzhi]]]]
+* '''450''' In China, [[Zu Chongzhi]] (429–500) computes [[pi|π]] to seven decimal places. This calculation remained the most accurate calculation for π for close to a thousand years.
+[[File:Anthemius Trallianus – Fragment d'un ouvrage grec d'Anthèmius sur des Paradoxes de mècanique, 1777 – BEIC 4780621.jpg|200px|[[Anthemius of Tralles]]]]
+* '''c. 474–558''' Greece, [[Anthemius of Tralles]]
+[[File:Aryabhatta of Bihar.jpg|200px|[[Aryabhata]]]]
+* '''500''' In India, [[Aryabhata]] (476–550) writes the ''[[Aryabhata]]-Siddhanta'', which first introduces the trigonometric functions and methods of calculating their approximate numerical values. It defines the concepts of [[sine]] and [[cosine]] and also contains the [[Aryabhata's sine table|earliest tables of sine]] and cosine values (in 3.75-degree intervals from 0 to 90 degrees).
+* '''480–540''' Greece, [[Eutocius of Ascalon]]
+* '''490–560''' Greece, [[Simplicius of Cilicia]] (c. 480–c. 540)
+* '''529''' The emperor [[Justinian I|Justinian]] closes the neo-Platonic [[Platonic Academy|Academy]] of Athens, traditionally taken as the end of the era of Greek mathematics, although the Greek tradition continues in the [[Byzantine Empire]].<ref name="m15">{{Harv|Boyer|1991|loc="Revival and Decline of Greek Mathematics" p. 193}}</ref>
+* '''6th century''' [[Aryabhata]] gives accurate calculations for astronomical constants, such as the [[solar eclipse]] and [[lunar eclipse]], computes π to four decimal places, and obtains whole number solutions to [[linear equations]] by a method equivalent to the modern method.
+* '''505–587''' India, [[Varāhamihira]]
+* '''6th century''' India, [[Yativṛṣabha]]
+* '''535–566''' China, [[Zhen Luan]]
+* '''550''' [[Hindu]] mathematicians give zero a numeral representation in the [[positional notation]] [[Indian numerals|Indian numeral]] system.
+* '''600''' China, Liu Zhuo uses quadratic interpolation.
+[[File:李淳風（說唐演義全傳）.jpg|200px|[[Li Chunfeng]]]]
+* '''602–670''' China, [[Li Chunfeng]]
+* '''625''' China: [[Wang Xiaotong]] (580–640) writes the ''[[Jigu Suanjing]]'', where cubic and quartic equations are solved.
+* '''7th century''' India, [[Bhāskara I]] (c. 600–c. 680) give a rational approximation of the sine function.
+* '''7th century''' India, [[Brahmagupta]] (c. 598–c. 668) invents the method of solving indeterminate equations of the second degree and is the first to use algebra to solve astronomical problems. He also develops methods for calculations of the motions and places of various planets, their rising and setting, conjunctions, and the calculation of eclipses of the sun and the moon.
+* '''628''' [[Brahmagupta]] writes the ''[[Brāhmasphuṭasiddhānta]]'', where zero is clearly explained and where the modern [[place-value]] [[Indian numerals|Indian numeral]] system is fully developed. It also gives rules for manipulating both [[negative and positive numbers]], methods for computing square roots, methods of solving [[linear equation|linear]] and [[quadratic equation]]s, and rules for summing [[series (mathematics)|series]], [[Brahmagupta's identity]], and the [[Brahmagupta theorem]].
+[[File:Virsena Acharya.jpg|200px|[[Virasena]]]]
+* '''8th century''' India, [[Virasena]] (750–825) gives explicit rules for the [[Fibonacci sequence]], gives the derivation of the [[volume]] of a [[frustum]] using an [[Infinity|infinite]] procedure, and worked with the concept of ''ardhachheda'': the number of times a number can be divided by 2.<ref name="m16">See, e.g., {{citation|title=Cryptographic Applications of Analytic Number Theory: Complexity Lower Bounds and Pseudorandomness|volume=22|series=Progress in Computer Science and Applied Logic|first=Igor|last=Shparlinski|publisher=Birkhäuser|year=2013|isbn=978-3-0348-8037-4|page=35|url=https://books.google.com/books?id=z635BwAAQBAJ&pg=PA35}}.</ref><ref name="m17">{{citation| contribution=History of Mathematics in India|title=Students' Britannica India: Select essays|editor1-first=Dale|editor1-last=Hoiberg|editor2-first=Indu|editor2-last=Ramchandani|first=R. C.|last=Gupta|page=329|publisher=Popular Prakashan|year=2000| contribution-url=https://books.google.com/books?id=-xzljvnQ1vAC&q=Virasena+logarithm&pg=PA329|language=en}}</ref> .
+* '''8th century''' India, [[Sridhara]] gives the rule for finding the volume of a sphere and also the formula for solving quadratic equations.
+* '''773''' Iraq, Kanka brings [[Brahmagupta]]'s [[Brāhmasphuṭasiddhānta]] to [[Baghdad]] to explain the Indian system of arithmetic [[astronomy]] and the [[Indian numerals|Indian numeral]] system.
+* '''773''' [[Muḥammad ibn Ibrāhīm al-Fazārī]] translates the [[Brāhmasphuṭasiddhānta]] into Arabic upon the request of King Khalif Abbasid Al Mansoor.
+* '''9th century''' India, [[Govindasvāmi]] discovers the Newton-Gauss interpolation formula and gives the fractional parts of [[Aryabhata]]'s tabular [[Sine (trigonometric function)|sines]].
+* '''810''' The [[House of Wisdom]] is built in [[Baghdad]] for the translation of Greek and [[Sanskrit]] mathematical works into Arabic.
+[[File:Image-Al-Kitāb al-muḫtaṣar fī ḥisāb al-ğabr wa-l-muqābala.jpg|200px|[[The Compendious Book on Calculation by Completion and Balancing|Al-Jabr]]]]
+* '''820 – [[Al-Khwarizmi]]''' [[Persian people|Persian]] mathematician, father of algebra, writes the ''[[The Compendious Book on Calculation by Completion and Balancing|Al-Jabr]]'', later transliterated as ''[[Algebra]]'', which introduces systematic algebraic techniques for solving linear and quadratic equations. Translations of his book on [[arithmetic]] will introduce the [[Arabic numerals|Hindu–Arabic]] [[decimal]] number system to the Western world in the 12th century. The term ''[[algorithm]]'' is also named after him.
+* '''820''' In Iran, [[Al-Mahani]] conceived the idea of reducing [[Geometry|geometrical]] problems such as [[doubling the cube]] to problems in algebra.
+[[File:Stamp IQ 1962 6f.jpg|200px|[[al-Kindi]]]]
+* '''c. 850''' Iraq, [[al-Kindi]] pioneers [[cryptanalysis]] and [[frequency analysis]] in his book on [[cryptography]].
+[[File:Ganita Sara Sangraha - Sanskrit.djvu|200px|[[Gaṇita-sāra-saṅgraha]]]]
+* '''c. 850''' India, [[Mahāvīra (mathematician)|Mahāvīra]] writes the [[Gaṇita-sāra-saṅgraha|Gaṇitasārasan̄graha]], otherwise known as the Ganita Sara Samgraha, which gives systematic rules for expressing a fraction as the [[Egyptian fraction|sum of unit fractions]].
+* '''895''' Syria, [[Thābit ibn Qurra]] (826–901): the only surviving fragment of his original work contains a chapter on the solution and properties of [[cubic equation]]s. He also generalized the [[Pythagorean theorem]] and discovered the [[Thabit number|theorem]] by which pairs of [[amicable number]]s can be found (i.e., two numbers such that each is the sum of the proper divisors of the other).
+* '''c. 900''' Egypt, [[Abu Kamil]] had begun to understand what we would write in symbols as <math>x^n \cdot x^m = x^{m+n}</math>
+[[File:Latin 7266; folio 78r (BnF).jpg|200px|[[al-Battani]]]]
+* '''c. 900''' [[Mesopotamia]], [[al-Battani]] extended the Indian concepts of sine and cosine to other trigonometrical ratios, like tangent, secant, and their inverse functions. Derived the formulae: <math> \sin \alpha = \tan \alpha / \sqrt{1+\tan^2 \alpha} </math> and <math> \cos \alpha = 1 / \sqrt{1 + \tan^2 \alpha}</math>.
+[[File:Buzjani, the Persian.jpg|200px|[[Abu al-Wafa' al-Buzjani]]]]
+* '''940''' Iran, [[Abu al-Wafa' al-Buzjani]] (940–998) extracts [[root of a function|roots]] using the [[Indian numerals|Indian numeral]] system.
+[[File:Kitab al-Fusul fi al Hisab al-Hindi p 61 (decimal fraction).png|200px|[[Abu'l-Hasan al-Uqlidisi|Al-Uqlidisi]]]]
+[[File:Homer E Newell NASA.jpg|200px|[[blackboard|Blackboard]]]]
+* '''953''' The arithmetic of the [[Hindu–Arabic numeral system]] at first required the use of a dust board (a sort of handheld [[blackboard]]) because "the methods required moving the numbers around in the calculation and rubbing some out as the calculation proceeded." [[Abu'l-Hasan al-Uqlidisi|Al-Uqlidisi]] modified these methods for pen and paper use. Eventually the advances enabled by the decimal system led to its standard use throughout the region and the world.
+* '''953''' Persia, [[Al-Karaji]] is the "first person to completely free algebra from geometrical operations and to replace them with the arithmetical type of operations that are at the core of algebra today. He was first to define the [[monomial]]s <math>x</math>, <math>x^2</math>, <math>x^3</math>, ... and <math>1/x</math>, <math>1/x^2</math>, <math>1/x^3</math>, ... and to give rules for [[product (mathematics)|products]] of any two of these. He started a school of algebra, which flourished for several hundred years. "He also discovered the [[binomial theorem]] for [[integer]] [[exponent]]s, which "was a major factor in the development of [[numerical analysis]] based on the decimal system."
+== Symbolic stage ==
+Comprehensive notational systems for formulas are the norm.
+=== 1000–1500 ===
+* '''c. 1000''' [[Abu Sahl al-Quhi]] (Kuhi) solves polynomial [[equation]]s higher than the [[Quadratic equation|second degree]].
+* '''c. 1000''' [[Abu-Mahmud Khujandi]] (c. 940–1000) first states a special case of [[Fermat's Last Theorem]].
+* '''c. 1000''' [[Law of sines]] is discovered by [[Islamic mathematics|Muslim mathematicians]], but it is uncertain who discovers it first between [[Abu-Mahmud al-Khujandi]], [[Abu Nasr Mansur]] (c. 960–1036), and [[Abu al-Wafa' al-Buzjani]].
+[[File:Meister der Reichenauer Schule 002 (cropped).jpg|200px|[[Pope Sylvester II]]]]
+* '''c. 1000''' [[Pope Sylvester II]] (c. 946–1003) introduces the [[abacus]] using the [[Hindu–Arabic numeral system]] to Europe.
+* '''1000''' [[Al-Karaji]] writes a book containing the first known [[Mathematical proof|proofs]] by [[mathematical induction]]. He used it to prove the [[binomial theorem]], [[Pascal's triangle]], and the sum of [[Integer|integral]] [[Cube (algebra)|cubes]].<ref name="m18">[[Victor J. Katz]] (1998). ''History of Mathematics: An Introduction'', p. 255–259. [[Addison-Wesley]]. {{isbn|0-321-01618-1}}.</ref> He was "the first who introduced the theory of [[algebra]]ic [[calculus]]".<ref name="m19">F. Woepcke (1853). ''Extrait du Fakhri, traité d'Algèbre par Abou Bekr Mohammed Ben Alhacan Alkarkhi''. Paris.</ref>
+* '''c. 1000''' [[Abu Mansur al-Baghdadi]] studied a slight variant of [[Thābit ibn Qurra]]'s theorem on [[amicable number]]s, and he also made improvements on the decimal system.
+* '''1020''' [[Abu al-Wafa' al-Buzjani]] gave the formula: sin (α + β) = sin α cos β + sin β cos α. Also discussed the quadrature of the [[parabola]] and the volume of the [[paraboloid]].
+[[File:Ibn al-Haytham crop.jpg|200px|[[Ibn al-Haytham]]]]
+* '''1021''' [[Ibn al-Haytham]] (c. 965–c. 1040) formulated and solved [[Alhazen's problem]] geometrically.
+* '''1030''' [[Alī ibn Ahmad al-Nasawī]] writes a treatise on the [[decimal]] and [[sexagesimal]] number systems. His arithmetic explains the division of fractions and the extraction of square and cubic roots (square root of 57,342; cubic root of 3,652,296) in an almost modern manner.<ref name="m20">{{MacTutor|id=Al-Nasawi|title=Abu l'Hasan Ali ibn Ahmad Al-Nasawi}}</ref>
+[[File:Hakim Omar Khayam - panoramio.jpg|200px|[[Omar Khayyam]]]]
+* '''1070''' [[Omar Khayyam]] (1048–1131) begins to write ''Treatise on Demonstration of Problems of [[Algebra]]'' and classifies cubic equations.
+* '''c. 1100''' Omar Khayyám "gave a complete classification of [[cubic equation]]s with geometric solutions found by means of intersecting [[conic section]]s". He became the first to find general [[geometry|geometric]] solutions of cubic equations and laid the foundations for the development of [[analytic geometry]] and [[non-Euclidean geometry]]. He also extracted [[root of a function|roots]] using the decimal system ([[Hindu–Arabic numeral system]]).
+* '''12th century''' [[Indian numerals]] have been modified by Arab mathematicians to form the modern [[Arabic numeral]] system.
+* '''12th century''' the [[Arabic numeral]] system reaches Europe through the [[Arabs]].
+[[File:भास्कराचार्य.jpg|200px|[[Bhāskara II|Bhaskara Acharya]]]]
+[[File:Lilavati of Bhaskaracharya II, Sanskrit language, Newar script.jpg|200px|[[Lilavati|Līlāvatī]]]]
+* '''12th century''' [[Bhāskara II|Bhaskara Acharya]] writes the [[Lilavati]], which covers the topics of definitions, arithmetical terms, interest computation, arithmetical and geometrical progressions, plane geometry, [[solid geometry]], the shadow of the [[gnomon]], methods to solve indeterminate equations, and [[combinations]].
+* '''12th century''' [[Bhāskara II]] ([[Bhāskara II|Bhaskara Acharya]]) writes the ''[[Bijaganita]]'' (''[[Algebra]]''), which is the first text to recognize that a positive number has two square roots. Furthermore, it also gives the ''[[Chakravala method]]'' which was the first generalized solution of so-called ''[[Pell's equation]].''
+* '''12th century''' [[Bhāskara II|Bhaskara Acharya]] develops preliminary concepts of infinitesimal methods,and also develops early form of Rolle's theorem in his work, though it was stated without a modern formal proof.<ref name="m21">{{Cite web |title=Rolle's theorem {{!}} Definition, Equation, & Facts {{!}} Britannica |url=https://www.britannica.com/science/Rolles-theorem |access-date=2025-03-02 |website=www.britannica.com |language=en}}</ref>, [[Pell's equation]], a proof for the [[Pythagorean theorem]], proves that division by zero is infinity, computes [[pi|π]] to 5 decimal places, and calculates the time taken for the Earth to orbit the Sun to 9 decimal places.
+* '''1130''' [[Al-Samawal al-Maghribi]] gave a definition of algebra: "[it is concerned] with operating on unknowns using all the arithmetical tools, in the same way as the arithmetician operates on the known."<ref name=MacTutor/>
+* '''1135''' [[Sharaf al-Din al-Tusi]] (c. 1135–c. 1213) followed al-Khayyam's application of algebra to geometry, and wrote a treatise on cubic equations that "represents an essential contribution to another algebra which aimed to study curves by means of equations, thus inaugurating the beginning of algebraic geometry."<ref name="MacTutor">[http://www-groups.dcs.st-and.ac.uk/~history/HistTopics/Arabic_mathematics.html Arabic mathematics], ''[[MacTutor History of Mathematics archive]]'', [[University of St Andrews]], Scotland</ref>
+[[File:Liber abbaci magliab f124r.jpg|200px|[[Liber Abaci]]]]
+* '''1202''' [[Leonardo of Pisa|Leonardo Fibonacci]] demonstrates the utility of [[Hindu–Arabic numerals]] in his [[Liber Abaci]] (''Book of the Abacus'').
+[[File:Third order equation-Shu-shu-jiu-zhang.jpg|200px|[[Qin Jiushao]]]]
+[[File:Shu Shu Jiu Zhang skqs.jpg|200px|[[Mathematical Treatise in Nine Sections]]]]
+* '''1247''' [[Qin Jiushao]] (c. 1202–1261) publishes ''Shùshū Jiǔzhāng'' (''[[Mathematical Treatise in Nine Sections]]'').
+* '''1248''' [[Li Ye (mathematician)|Li Ye]] (1192–1279) writes ''[[Ceyuan haijing]]'', a 12 volume mathematical treatise containing 170 formulas and 696 problems mostly solved by polynomial equations using the method [[tian yuan shu]].
+[[File:Kamal-1.jpg|200px|[[Kamāl al-Dīn al-Fārisī|Al-Farisi]]]]
+[[File:Pierre de Fermat.jpg|200px|[[Fermat]]]]
+* '''1260''' [[Kamāl al-Dīn al-Fārisī|Al-Farisi]] gave a new proof of Thabit ibn Qurra's theorem, introducing important new ideas concerning [[factorization]] and [[Combinatorics|combinatorial]] methods. He also gave the pair of amicable numbers 17296 and 18416 that have also been jointly attributed to [[Fermat]] (1601–1665) as well as Thabit ibn Qurra.<ref name="m22">[http://amicable.homepage.dk/apstat.htm#discoverer Various AP Lists and Statistics] {{Webarchive|url=https://web.archive.org/web/20120728163824/http://amicable.homepage.dk/apstat.htm#discoverer |date=July 28, 2012 }}</ref>
+* '''c. 1250''' [[Nasir al-Din al-Tusi]] attempts to develop a form of non-[[Euclidean geometry]].
+[[File:Guo Shoujing-beijing.JPG|200px|[[Guo Shoujing]]]]
+* '''1280''' [[Guo Shoujing]] (1231–1316) and Wang Xun use cubic interpolation for generating sine.
+[[File:SIYUAN YUJIAN PDF-036-036.jpg|200px|[[Zhu Shijie]]]]
+* '''1303''' [[Zhu Shijie]] (1249–1314) publishes ''[[Jade Mirror of the Four Unknowns]]'', which contains an ancient method of arranging [[binomial coefficient]]s in a triangle.
+* '''1356''' [[Narayana Pandita (mathematician)|Narayana Pandita]] (1340–1400) completes his treatise [[Ganita Kaumudi]], generalized [[Fibonacci sequence]], and the first ever algorithm to systematically generate all permutations as well as many new magic figure techniques.
+* '''14th century''' [[Madhava of Sangamagrama|Madhava]] (c. 1340–c. 1425) discovers the [[power series]] expansion for <math>\sin x</math>, <math>\cos x</math>, <math>\arctan x</math> and <math>\pi/4</math><ref name="m23">{{Cite web |last=Weisstein |first=Eric W. |title=Taylor Series |url=https://mathworld.wolfram.com/ |access-date=2022-11-03 |website=mathworld.wolfram.com |language=en}}</ref><ref name="m24">{{Cite journal |date=August 1932 |title=The Taylor Series: an Introduction to the Theory of Functions of a Complex Variable |journal=Nature |language=en |volume=130 |issue=3275 |pages=188 |doi=10.1038/130188b0 |bibcode=1932Natur.130R.188. |s2cid=4088442 |issn=1476-4687|doi-access=free }}</ref> This theory is now well known in the Western world as the [[Taylor series]] or infinite series.<ref name="m25">{{Cite web |last=Saeed |first=Mehreen |date=2021-08-19 |title=A Gentle Introduction to Taylor Series |url=https://machinelearningmastery.com/a-gentle-introduction-to-taylor-series/ |access-date=2022-11-03 |website=Machine Learning Mastery |language=en-US}}</ref>
+* '''14th century''' [[Parameshvara Nambudiri]] (c. 1380–1460), a [[Kerala school of astronomy and mathematics|Kerala school]] mathematician, presents a series form of the [[sine function]] that is equivalent to its [[Taylor series]] expansion, states the [[mean value theorem]] of differential calculus, and is also the first mathematician to give the radius of circle with inscribed [[cyclic quadrilateral]].
+* '''1400''' [[Madhava of Sangamagrama|Madhava]] discovers the series expansion for the inverse-tangent function, the infinite series for arctan and sin, and many methods for calculating the circumference of the circle, and uses them to compute π correct to 11 decimal places.
+[[File:Jamshid bin Mas'ud bin Mahmud al-Tabib al-Kashi, known as Ghiyath (d. 1429); Miftah al-Hisab signed ibn Muhammad Mu'min Taj al-Din al-Shirazi, Iran, dated 31 May 1656.jpg|200px|[[Jamshid al-Kashi]]]]
+* '''c. 1400''' [[Jamshid al-Kashi]] (c. 1380–1429) "contributed to the development of [[decimal fraction]]s not only for approximating [[algebraic number]]s, but also for [[real number]]s such as π. His contribution to decimal fractions is so major that for many years he was considered their inventor. Although not the first to do so, al-Kashi gave an algorithm for calculating nth roots, which is a special case of the methods given many centuries later by [Paolo] Ruffini and [William George] Horner." He is also the first to use the [[decimal point]] notation in [[arithmetic]] and [[Arabic numerals]]. His works include ''The Key of Arithmetics,'' ''Discoveries in Mathematics,'' ''The Decimal Point,'' and ''The Benefits of the Zero.'' The contents of the ''Benefits of the Zero'' are an introduction followed by five essays: "On whole number arithmetic," "On fractional arithmetic," "On astrology," "On areas," and "On finding the unknowns [unknown variables]." He also wrote the ''Thesis on the sine and the chord'' and the ''Thesis on finding the first degree sine.''
+* '''15th century''' [[Ibn al-Banna' al-Marrakushi]] and [[Abu'l-Hasan ibn Ali al-Qalasadi]] (1412–1486) introduced [[Mathematical notation|symbolic notation]] for algebra and for mathematics in general.<ref name=MacTutor/>
+* '''15th century''' [[Nilakantha Somayaji]] (1444–1544), a [[Kerala school of astronomy and mathematics|Kerala school]] mathematician, writes the ''Aryabhatiya Bhasya,'' which contains work on infinite-series expansions, problems of algebra, and spherical geometry.
+* '''1424''' [[Jamshid al-Kashi]] computes π to sixteen decimal places using inscribed and circumscribed polygons.
+* '''1427''' [[Jamshid al-Kashi]] completes ''The Key to Arithmetic,'' containing work of great depth on decimal fractions. It applies arithmetical and algebraic methods to the solution of various problems, including several geometric ones.
+[[File:Delle vite de' più eccellenti pittori, scultori, et architetti (1648) (14799608033).jpg|200px|[[Piero della Francesca]]]]
+* '''15th century''' [[Piero della Francesca]] (c. 1415–1492) writes books on solid geometry and linear perspective, among them ''De Prospectiva Pingendi''.<ref name="m26">della Francesca, Piero (1942). ''De Prospectiva Pingendi'', ed. G. Nicco Fasola, 2 vols., Florence.</ref><ref name="m27">della Francesca, Piero. ''Trattato d'Abaco'', ed. G. Arrighi, Pisa (1970).</ref>
+[[File:Johannes Regiomontanus.jpg|200px|[[Regiomontanus]]]]
+* '''1464''' [[Regiomontanus]] (1436–1476) writes ''De Triangulis omnimodus,'' which is one of the earliest texts to treat trigonometry as a separate branch of mathematics.
+* '''1478''' An anonymous author writes the ''[[Treviso Arithmetic]].''
+[[File:Pacioli.jpg|200px|[[Luca Pacioli]]]]
+* '''1494''' [[Luca Pacioli]] (c. 1447–1517) writes ''[[Summa de arithmetica|Summa de arithmetica, geometria, proportioni et proportionalità]],'' introducing primitive symbolic algebra using "co" (cosa) for the unknown.
+=== 16th century ===
+[[File:Opening verses in Tantrasamgraha.JPG|200px|[[Tantrasamgraha]]]]
+* '''1501''' [[Nilakantha Somayaji]] writes the [[Tantrasamgraha]], which is the first treatment of all 10 cases in spherical trigonometry.
+* '''1520''' [[Scipione del Ferro]] (1465–1526) develops a method for solving "depressed" cubic equations (cubic equations without an x² term), but does not publish.
+[[File:Ries.PNG|200px|[[Adam Ries]]]]
+* '''1522''' [[Adam Ries]] (1492–1559) explained the use of Arabic digits and their advantages over Roman numerals.
+[[File:Portret van Niccolo Tartaglia Nicolavs Tartaglia Brixianvs (titel op object) Portretten van beroemde Europese geleerden (serietitel) Virorum doctorum de Disciplinis benemerentium effigies (serietitel), RP-P-1909-4459.jpg|200px|[[Nicolo Tartaglia]]]]
+* '''1535''' [[Nicolo Tartaglia]] (1499–1557) independently develops a method for solving depressed cubic equations but also does not publish.
+[[File:Girolamo Cardano. Stipple engraving by R. Cooper. Wellcome V0001004.jpg|200px|[[Gerolamo Cardano]]]]
+* '''1539''' [[Gerolamo Cardano]] (1501–1576) learns Tartaglia's method for solving depressed cubics and discovers a method for depressing cubics, thereby creating a method for solving all cubics.
+[[File:Tartaglia - Terza risposta data a messer Hieronimo Cardano et a messer Lodovico Ferraro.jpg|200px|[[Lodovico Ferrari]]]]
+* '''1540''' [[Lodovico Ferrari]] (1522–1565) solves the [[quartic equation]].
+[[File:Nikolaus Kopernikus MOT.jpg|200px|[[Nicolaus Copernicus]]]]
+* '''1543''' [[Nicolaus Copernicus]] (1473–1543) publishes ''[[De revolutionibus orbium coelestium]]'', a heliocentric model whose main content is mathematical rather than physical.
+[[File:Michael Stifel.jpeg|200px|[[Michael Stifel]]]]
+* '''1544''' [[Michael Stifel]] (1487–1567) publishes ''[[Arithmetica]] integra.''
+* '''1545''' [[Gerolamo Cardano]] conceives the idea of [[complex number]]s.
+* '''1550''' Jyeṣṭhadeva, a [[Kerala school of astronomy and mathematics|Kerala school]] mathematician writes the ''[[Yuktibhāṣā]],'' which gives proofs of power series expansion of some trigonometry functions.
+[[File:Algebra by Rafael Bombelli.gif|200px|[[Rafael Bombelli]]]]
+* '''1572''' [[Rafael Bombelli]] (1526–1572) writes the ''[[Algebra]]'' treatise and uses imaginary numbers to solve cubic equations.
+* '''1584''' [[Zhu Zaiyu]] (1536–1611) calculates [[equal temperament]].
+[[File:Simon-stevin.jpeg|200px|[[Simon Stevin]]]]
+* '''1585''' [[Simon Stevin]] (1548–1620)'s ''De Thiende'' ("the art of tenths"), first published in Dutch, contains the first systematic treatment of [[decimal]] notation in Europe.<ref name="m28">[[Roshdi Rashed]] (1996) ''Encyclopedia of the History of Arabic Science'', chapter 10: Numeration and Arithmetic, page 315, [[Routledge]] {{doi|10.4324/9780203403600}}</ref><ref name="hom-GS35">{{Cite journal |last=Sarton |first=George |date=1935 |title=The First Explanation of Decimal Fractions and Measures (1585). Together with a History of the Decimal Idea and a Facsimile (No. XVII) of Stevin's Disme |journal=Isis |volume=23 |issue=1 |pages=153–244 |doi=10.1086/346940 |jstor=225223 |s2cid=143395001 |issn=0021-1753}}</ref>
+[[File:Fotothek df tg 0004503 Geometrie ^ Trigonometrie.jpg|200px|[[Bartholomaeus Pitiscus]]]]
+* '''1595''' [[Bartholomaeus Pitiscus]] (1561–1613) publishes his ''Trigonometria'', the first use of the word [[trigonometry]].
+[[File:Portret van Ludolph van Ceulen, RP-P-OB-15.347.jpg|200px|[[Ludolph van Ceulen]]]]
+* '''1596''' [[Ludolph van Ceulen]] (1540–1610) computes π to twenty decimal places using inscribed and circumscribed polygons.
+=== 17th century ===
+[[File:John Napier of Merchiston, 1616.jpg|200px|[[John Napier]]]]
+* '''1614''' [[John Napier]] (1550–1617) publishes a table of Napierian [[logarithm]]s in ''[[Mirifici Logarithmorum Canonis Descriptio]].''
+[[File:Henry-Briggs.jpg|200px|[[Henry Briggs (mathematician)|Henry Briggs]]]]
+* '''1617''' [[Henry Briggs (mathematician)|Henry Briggs]] (1561–1630) discusses decimal logarithms in ''Logarithmorum Chilias Prima.''
+* '''1618''' [[John Napier]] publishes the first references to [[E (mathematical constant)|''e'']] in a work on [[logarithms]].
+[[File:JKepler.jpg|200px|[[Johannes Kepler]]]]
+* '''1619''' [[Johannes Kepler]] (1571–1630) discovers two of the [[Kepler-Poinsot polyhedra]].
+* '''1629''' [[Pierre de Fermat]] develops a rudimentary [[differential calculus]].
+[[File:Gilles personne de roberval.jpg|200px|[[Gilles de Roberval]]]]
+* '''1634''' [[Gilles de Roberval]] (1602–1675) shows that the area under a [[cycloid]] is three times the area of its generating circle.
+* '''1636''' [[Pierre de Fermat]] circulates manuscript ''Methodus ad disquirendam maximam et minimam et de tangentibus linearum curvarum,'' a rudimentary [[differential calculus]] containing his version of [[analytic geometry]]
+[[File:Frans Hals - Portret van René Descartes.jpg|200px|[[René Descartes|Descartes]]]]
+* '''1636''' [[Muhammad Baqir Yazdi]] jointly discovered the pair of [[amicable number]]s 9,363,584 and 9,437,056 along with [[René Descartes|Descartes]] (1636).
+* '''1637''' [[René Descartes]] publishes [[La Géométrie]] containing his version of [[Analytic geometry]]
+* '''1637''' [[Pierre de Fermat]] claims to have proven [[Fermat's Last Theorem]] in his copy of [[Diophantus]]' ''[[Arithmetica]].''
+* '''1637''' First use of the term "[[imaginary number]]" by [[René Descartes]]; it was meant to be derogatory.
+* '''1643''' [[René Descartes]] develops [[Descartes' theorem]].
+[[File:Blaise Pascal Versailles, circa 1690.JPG|200px|[[Blaise Pascal]]]]
+* '''1654''' [[Blaise Pascal]] (1623–1662) and [[Pierre de Fermat]] create the theory of [[probability]].
+[[File:John Wallis by Sir Godfrey Kneller, Bt.jpg|200px|[[John Wallis]]]]
+* '''1655''' [[John Wallis]] (1616–1703) writes ''[[Arithmetica]] Infinitorum.''
+[[File:Christopher Wren by Godfrey Kneller 1711.jpg|200px|[[Christopher Wren]]]]
+* '''1658''' [[Christopher Wren]] (1632–1723) shows that the length of a cycloid is four times the diameter of its generating circle.
+[[File:Portrait of Sir Isaac Newton, 1689 (brightened).jpg|200px|[[Isaac Newton]]]]
+* '''1665''' [[Isaac Newton]] (1643–1727) works on the [[fundamental theorem of calculus]] and develops his version of [[infinitesimal calculus]].
+[[File:Nicolaus Mercator Logarithmotechnia.png|200px|[[Nicholas Mercator]]]]
+[[File:Portrait of William Brouncker, 2nd Viscount Brouncker.jpg|200px|[[William Brouncker, 2nd Viscount Brouncker|William Brouncker]]]]
+* '''1668''' [[Nicholas Mercator]] (c. 1620–1687) and [[William Brouncker, 2nd Viscount Brouncker|William Brouncker]] (c. 1620–1684) discover an [[infinite series]] for the logarithm while attempting to calculate the area under a hyperbolic segment.
+[[File:James Gregory by John Scougal.jpg|200px|[[James Gregory (astronomer and mathematician)|James Gregory]]]]
+* '''1671''' [[James Gregory (astronomer and mathematician)|James Gregory]] (1638–1675) develops a series expansion for the inverse-[[tangent (trigonometric function)|tangent]] function (originally discovered by [[Madhava of Sangamagrama|Madhava]]).
+* '''1671''' [[James Gregory (astronomer and mathematician)|James Gregory]] discovers [[Taylor's theorem]].
+[[File:Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg|200px|[[Gottfried Leibniz]]]]
+* '''1673''' [[Gottfried Leibniz]] (1646–1716) also develops his version of infinitesimal calculus.
+* '''1675''' [[Isaac Newton]] invents an algorithm for the [[Newton's method|computation of functional roots]].
+* '''1680s''' [[Gottfried Leibniz]] works on symbolic logic.
+[[File:Seki.jpeg|200px|[[Seki Takakazu]]]]
+* '''1683''' [[Seki Takakazu]] (1642–1708) discovers the [[resultant]] and [[determinant]].
+* '''1683''' [[Seki Takakazu]] develops [[elimination theory]].
+* '''1691''' [[Gottfried Leibniz]] discovers the technique of separation of variables for ordinary [[differential equation]]s.
+[[File:Edmund Halley.jpg|200px|[[Edmund Halley]]]]
+* '''1693''' [[Edmund Halley]] (1656–1742) prepares the first mortality tables statistically relating death rate to age.
+[[File:Guillaume de l'Hôpital.jpg|200px|[[Guillaume de l'Hôpital]]]]
+* '''1696''' [[Guillaume de l'Hôpital]] (1661–1704) states [[L'Hôpital's rule|his rule]] for the computation of certain [[limit (mathematics)|limits]].
+[[File:Jakob Bernoulli.jpg|200px|[[Jakob Bernoulli]]]]
+[[File:Johann Bernoulli2.jpg|200px|[[Johann Bernoulli]]]]
+* '''1696''' [[Jakob Bernoulli]] (1655–1705) and [[Johann Bernoulli]] (1667–1748) solve [[brachistochrone curve|the brachistochrone problem]], the first result in the [[calculus of variations]].
+[[File:Sharp Abraham.jpg|200px|[[Abraham Sharp]]]]
+* '''1699''' [[Abraham Sharp]] (c. 1653–1742) calculates π to 72 digits, but only 71 are correct.
+=== 18th century ===
+* '''1706''' [[John Machin]] (c. 1686–1751) develops a quickly converging inverse-tangent series for π and computes π to 100 decimal places.
+* '''1708''' [[Seki Takakazu]] discovers [[Bernoulli numbers]]. [[Jacob Bernoulli]], whom the numbers are named after, is believed to have independently discovered the numbers shortly after Takakazu.
+[[File:Hans Hysing (1678-1753) (attributed to studio of) - Brook Taylor (1685–1731) - RS.9685 - Royal Society.jpg|200px|[[Brook Taylor]]]]
+* '''1712''' [[Brook Taylor]] (1685–1731) develops the [[Taylor series]].
+[[File:Abraham de Moivre by Joseph Highmore.jpg|200px|[[Abraham de Moivre]]]]
+* '''1722''' [[Abraham de Moivre]] (1667–1754) states [[de Moivre's formula]] connecting [[trigonometric function]]s and [[complex number]]s.
+* '''1722''' [[Takebe Kenko]] introduces [[Richardson extrapolation]].
+* '''1724''' Abraham De Moivre studies mortality statistics and the foundation of the theory of annuities in ''Annuities on Lives.''
+* '''1730''' [[James Stirling (mathematician)|James Stirling]] (1692–1770) publishes ''The Differential Method.''
+[[File:Saccheri 1733 - Euclide Ab Omni Naevo Vindicatus.gif|200px|[[Giovanni Gerolamo Saccheri]]]]
+* '''1733''' [[Giovanni Gerolamo Saccheri]] (1667–1733) studies what geometry would be like if [[parallel postulate|Euclid's fifth postulate]] were false.
+* '''1733''' [[Abraham de Moivre]] introduces the [[normal distribution]] to approximate the [[binomial distribution]] in probability.
+[[File:Leonhard Euler - Jakob Emanuel Handmann (Kunstmuseum Basel).jpg|200px|[[Leonhard Euler]]]]
+* '''1734''' [[Leonhard Euler]] (1707–1783) introduces the [[integrating factor technique]] for solving first-order ordinary [[differential equation]]s.
+* '''1735''' [[Leonhard Euler]] solves the [[Basel problem]], relating an infinite series to π.
+* '''1736''' [[Leonhard Euler]] solves the problem of the [[Seven Bridges of Königsberg]], in effect creating [[graph theory]].
+* '''1739''' [[Leonhard Euler]] solves the general [[Homogeneous differential equation#Homogeneous linear differential equations|homogeneous linear ordinary differential equation]] with [[constant coefficients]].
+* '''1742''' [[Christian Goldbach]] (1690–1764) conjectures that every even number greater than two can be expressed as the sum of two primes, now known as [[Goldbach's conjecture]].
+[[File:Jean Le Rond d'Alembert, by French school.jpg|200px|[[Jean le Rond d'Alembert]]]]
+* '''1747''' [[Jean le Rond d'Alembert]] (1717–1783) [[d'Alembert's formula|solves]] the [[String vibration|vibrating string]] problem (one-dimensional [[wave equation]]).<ref name="m29">D'Alembert (1747) [https://archive.org/details/bub_gb_lJQDAAAAMAAJ/page/n244 <!-- pg=214 --> "Recherches sur la courbe que forme une corde tenduë mise en vibration" (Researches on the curve that a tense cord [string] forms [when] set into vibration), ''Histoire de l'académie royale des sciences et belles lettres de Berlin,'' vol. 3, pages 214-219.</ref>
+[[File:Maria Gaetana Agnesi.jpg|200px|[[Maria Gaetana Agnesi]]]]
+* '''1748''' [[Maria Gaetana Agnesi]] (1718–1799) discusses analysis in ''Instituzioni Analitiche ad Uso della Gioventu Italiana.''
+[[File:Thomas Bayes.gif|200px|[[Thomas Bayes]]]]
+* '''1761''' [[Thomas Bayes]] (c. 1701–1761) proves [[Bayes' theorem]].
+[[File:JHLambert.jpg|200px|[[Johann Heinrich Lambert]]]]
+* '''1761''' [[Johann Heinrich Lambert]] (1728–1777) proves that π is irrational.
+[[File:Lagrange crop.jpg|200px|[[Joseph-Louis Lagrange]]]]
+* '''1762''' [[Joseph-Louis Lagrange]] (1736–1813) discovers the [[divergence theorem]].
+[[File:Georg Freiherr von Vega 1802.jpg|200px|[[Jurij Vega]]]]
+* '''1789''' [[Jurij Vega]] (1754–1802) improves Machin's formula and computes π to 140 decimal places, 136 of which were correct.
+* '''1794''' [[Jurij Vega]] publishes ''[[Thesaurus Logarithmorum Completus]].''
+[[File:Carl Friedrich Gauss 1840 by Jensen.jpg|200px|[[Carl Friedrich Gauss]]]]
+[[File:Regular Hexagon Inscribed in a Circle 240px.gif|200px|[[compass and straightedge|Straightedge and compass construction]]]]
+* '''1796''' [[Carl Friedrich Gauss]] (1777–1855) proves that the [[heptadecagon|regular 17-gon]] can be constructed using only a [[compass and straightedge]].
+[[File:Legendre.jpg|200px|[[Adrien-Marie Legendre]]]]
+* '''1796''' [[Adrien-Marie Legendre]] (1752–1833) conjectures the [[prime number theorem]].
+* '''1797''' [[Caspar Wessel]] (1745–1818) associates vectors with complex numbers and studies complex number operations in geometrical terms.
+* '''1799''' [[Carl Friedrich Gauss]] proves the [[fundamental theorem of algebra]] (every polynomial equation has a solution among the complex numbers).
+[[File:Ruffini-paolo-colour.webp|200px|[[Paolo Ruffini (mathematician)|Paolo Ruffini]]]]
+* '''1799''' [[Paolo Ruffini (mathematician)|Paolo Ruffini]] (1765–1822) partially proves the [[Abel–Ruffini theorem]] that [[Quintic equation|quintic]] or higher equations cannot be solved by a general formula.
+=== 19th century ===
+* '''1801''' ''[[Disquisitiones Arithmeticae]],'' [[Carl Friedrich Gauss]]'s [[number theory]] treatise, is published in Latin.
+* '''1805''' [[Adrien-Marie Legendre]] introduces the [[method of least squares]] for fitting a curve to a given set of observations.
+[[File:Pointsot2.jpg|200px|[[Louis Poinsot]]]]
+* '''1806''' [[Louis Poinsot]] (1777–1859) discovers the two remaining [[Kepler-Poinsot polyhedra]].
+[[File:Quantites Imaginaires Argand 1806.png|200px|[[Jean-Robert Argand]]]]
+* '''1806''' [[Jean-Robert Argand]] (1768–1822) publishes proof of the [[fundamental theorem of algebra]] and the [[Argand diagram]].
+[[File:Fourier2 - restoration1.jpg|200px|[[Joseph Fourier]]]]
+* '''1807''' [[Joseph Fourier]] (1768–1830) announces his discoveries about the [[Fourier series|trigonometric decomposition of functions]].
+* '''1811''' [[Carl Friedrich Gauss]] discusses the meaning of integrals with complex limits and briefly examines the dependence of such integrals on the chosen path of integration.
+[[File:SiméonDenisPoisson.jpg|200px|[[Siméon Denis Poisson]]]]
+* '''1815''' [[Siméon Denis Poisson]] (1781–1840) carries out integrations along paths in the complex plane.
+[[File:Bernard Bolzano.jpg|200px|[[Bernard Bolzano]]]]
+* '''1817''' [[Bernard Bolzano]] (1781–1848) presents the [[intermediate value theorem]]—a [[continuous function]] that is negative at one point and positive at another point must be zero for at least one point in between. Bolzano gives the first formal [[(ε, δ)-definition of limit]].
+[[File:French School - Portrait of Augustin-Louis Cauchy (1789-1857).jpg|200px|[[Augustin-Louis Cauchy]]]]
+* '''1821''' [[Augustin-Louis Cauchy]] (1789–1857) publishes [[Cours d'Analyse]], which purportedly contains an erroneous “proof” that the [[Pointwise convergence|pointwise limit]] of continuous functions is continuous.
+* '''1822''' [[Augustin-Louis Cauchy]] presents [[Cauchy's integral theorem]] for integration around the boundary of a rectangle in the [[complex plane]].
+[[File:Sangaku of Konnoh Hachimangu 1859.jpg|200px|[[Sangaku]]]]
+* '''1822''' Irisawa Shintarō Hiroatsu analyzes [[Soddy's hexlet]] in a [[Sangaku]].
+* '''1823''' [[Sophie Germain's theorem|Sophie Germain's Theorem]] is published in the second edition of [[Adrien-Marie Legendre]]'s Essai sur la théorie des nombres<ref name="m30">{{Cite web|url=https://www.agnesscott.edu/lriddle/women/germain-FLT/SGandFLT.htm|title = Sophie Germain and FLT}}</ref>
+[[File:Niels Henrik Abel.jpg|200px|[[Niels Henrik Abel]]]]
+* '''1824''' [[Niels Henrik Abel]] (1802–1829) partially proves the [[Abel–Ruffini theorem]] that the general [[Quintic equation|quintic]] or higher equations cannot be solved by a general formula involving only arithmetical operations and roots.
+* '''1825''' [[Augustin-Louis Cauchy]] presents the [[Cauchy's integral theorem|Cauchy integral theorem]] for general integration paths—he assumes the function being integrated has a continuous derivative, and he introduces the theory of [[residue (complex analysis)|residue]]s in [[complex analysis]].
+[[File:Peter Gustav Lejeune Dirichlet.jpg|200px|[[Peter Gustav Lejeune Dirichlet]]]]
+* '''1825''' [[Peter Gustav Lejeune Dirichlet]] (1805–1859) and [[Adrien-Marie Legendre]] prove [[Fermat's Last Theorem]] for ''n'' = 5.
+[[File:Ampere Andre 1825.jpg|200px|[[André-Marie Ampère]]]]
+* '''1825''' [[André-Marie Ampère]] (1775–1836) discovers [[Stokes' theorem]].
+* '''1826''' [[Niels Henrik Abel]] gives counterexamples to [[Augustin-Louis Cauchy]]’s purported “proof” that the [[Limit of a function#Pointwise limits and uniform limits|pointwise limit]] of continuous functions is continuous.
+* '''1828''' George Green proves [[Green's theorem]].
+[[File:Bolyai János (Márkos Ferenc festménye).jpg|200px|[[János Bolyai]]]]
+[[File:Lobachevsky 03 crop.jpg|200px|[[Nikolai Ivanovich Lobachevsky|Lobachevsky]]]]
+* '''1829''' [[János Bolyai]] (1802–1860), [[Carl Friedrich Gauss|Gauss]], and [[Nikolai Ivanovich Lobachevsky|Lobachevsky]] (1792–1856) invent hyperbolic [[non-Euclidean geometry]].
+[[File:PGRS 2 069 Ostrogradski - crop.jpg|200px|[[Mikhail Vasilievich Ostrogradsky]]]]
+* '''1831''' [[Mikhail Vasilievich Ostrogradsky]] (1801–1862) rediscovers and gives the first proof of the divergence theorem earlier described by Lagrange, Gauss, and Green.
+[[File:Evariste galois.jpg|200px|[[Évariste Galois]]]]
+* '''1832''' [[Évariste Galois]] (1811–1832) presents a general condition for the solvability of [[algebraic equation]]s, thereby essentially founding [[group theory]] and [[Galois theory]].
+* '''1832''' Lejeune Dirichlet proves [[Fermat's Last Theorem]] for ''n'' = 14.
+* '''1835''' Lejeune Dirichlet proves [[Dirichlet's theorem on arithmetic progressions|Dirichlet's theorem]] about prime numbers in arithmetical progressions.
+* '''1837''' [[Pierre Wantzel]] (1814–1848) proves that doubling the cube and [[trisecting the angle]] are impossible with only a compass and straightedge, as well as the full completion of the problem of constructability of regular polygons.
+* '''1837''' [[Peter Gustav Lejeune Dirichlet]] develops [[analytic number theory]].
+[[File:Karl Weierstrass.jpg|200px|[[Karl Weierstrass]]]]
+* '''1838''' First mention of [[uniform convergence]] in a paper by [[Christoph Gudermann]] (1798–1852); later formalized by [[Karl Weierstrass]] (1815–1897). Uniform convergence is required to fix [[Augustin-Louis Cauchy]]'s erroneous “proof” that the [[Pointwise convergence|pointwise limit]] of continuous functions is continuous from Cauchy's 1821 [[Cours d'Analyse]].
+* '''1841''' [[Karl Weierstrass]] discovers but does not publish the [[Laurent expansion theorem]].
+[[File:Pierre Alphonse Laurent.jpeg|200px|[[Pierre-Alphonse Laurent]]]]
+* '''1843''' [[Pierre-Alphonse Laurent]] (1813–1854) discovers and presents the [[Laurent expansion theorem]].
+[[File:William Rowan Hamilton portrait oval combined.png|200px|[[William Rowan Hamilton|William Hamilton]]]]
+* '''1843''' [[William Rowan Hamilton|William Hamilton]] (1805–1865) discovers the calculus of [[quaternion]]s and deduces that they are non-commutative.
+[[File:Hermann Grassmann etching.jpg|200px|[[Hermann Grassmann]]]]
+* '''1844''' [[Hermann Grassmann]] (1809–1877) publishes his ''Ausdehnungslehre,'' from which [[linear algebra]] is later developed.
+[[File:Portrait of George Boole.png|200px|[[George Boole]]]]
+* '''1847''' [[George Boole]] (1815–1864) formalizes [[symbolic logic]] in ''The Mathematical Analysis of Logic,'' defining what is now called [[Boolean algebra (logic)|Boolean algebra]].
+[[File:Portrait of George Gabriel Stokes (1819-1903), Physicist and Mathematician (2551115803).jpg|200px|[[George Gabriel Stokes]]]]
+* '''1849''' [[George Gabriel Stokes]] shows that [[soliton|solitary wave]]s can arise from a combination of periodic waves.
+[[File:Victor Puiseux.jpeg|200px|[[Victor Alexandre Puiseux]]]]
+* '''1850''' [[Victor Alexandre Puiseux]] (1820–1883) distinguishes between poles and branch points and introduces the concept of [[mathematical singularity|essential singular points]].
+* '''1850''' [[George Gabriel Stokes]] rediscovers and proves [[Stokes' theorem]].
+[[File:Georg Friedrich Bernhard Riemann.jpeg|200px|[[Bernhard Riemann]]]]
+* '''1854''' [[Bernhard Riemann]] (1826–1866) introduces [[Riemannian geometry]].
+[[File:Arthur Cayley.jpg|200px|[[Arthur Cayley]]]]
+* '''1854''' [[Arthur Cayley]] (1821–1895) shows that quaternions can be used to represent rotations in four-dimensional [[space]].
+[[File:August Ferdinand Möbius.jpg|200px|[[August Ferdinand Möbius]]]]
+* '''1858''' [[August Ferdinand Möbius]] (1790–1868) invents the [[Möbius strip]].
+[[File:Charles Hermite.jpg|200px|[[Charles Hermite]]]]
+* '''1858''' [[Charles Hermite]] (1822–1901) solves the general quintic equation by means of elliptic and modular functions.
+* '''1859''' [[Bernhard Riemann]] formulates the [[Riemann hypothesis]], which has strong implications about the distribution of [[prime number]]s.
+[[File:Beltrami.jpg|200px|[[Eugenio Beltrami]]]]
+* '''1868''' [[Eugenio Beltrami]] (1835–1900) demonstrates [[Independence (mathematical logic)|the independence]] of [[Euclid]]’s [[parallel postulate]] from the other axioms of [[Euclidean geometry]].
+[[File:Felix Klein, ante 1897 - Accademia delle Scienze di Torino 0078 B.jpg|200px|[[Felix Klein]]]]
+* '''1870''' [[Felix Klein]] (1849–1925) constructs an analytic geometry for Lobachevski's geometry, thereby establishing its self-consistency and the logical independence of [[parallel postulate|Euclid's fifth postulate]].
+* '''1865–1884''' National mathematical societies are founded: the [[London Mathematical Society]] (1865), the [[Société mathématique de France]] (1872) and the [[Circolo Matematico di Palermo]] (1884), among others.<ref name="m31">{{Cite journal |last=Collingwood |first=E. F. |date=1966 |title=A Century of the London Mathematical Society |url=http://doi.wiley.com/10.1112/jlms/s1-41.1.577 |journal=Journal of the London Mathematical Society |language=en |volume=s1-41 |issue=1 |pages=577–594 |doi=10.1112/jlms/s1-41.1.577|url-access=subscription }}</ref><ref name="m32">{{Cite web |title=Nous connaître {{!}} Société Mathématique de France |url=https://smf.emath.fr/la-smf/connaitre-la-smf |access-date=2024-01-28 |website=smf.emath.fr}}</ref>
+[[File:Richard Dedekind 1900s.jpg|200px|[[Richard Dedekind]]]]
+* '''1872''' [[Richard Dedekind]] (1831–1916) invents what is now called the [[Dedekind cut|Dedekind Cut]] for defining irrational numbers, and it is now used for defining surreal numbers.
+* '''1873''' [[Charles Hermite]] proves that [[e (mathematical constant)|e]] is [[Transcendental number|transcendental]].
+[[File:GeorgFrobenius (cropped).jpg|200px|[[Georg Frobenius]]]]
+* '''1873''' [[Georg Frobenius]] (1849–1917) presents his method for finding series solutions to linear differential equations with [[regular singular point]]s.
+[[File:Georg Cantor (Porträt).jpg|200px|[[Georg Cantor]]]]
+* '''1874''' [[Georg Cantor]] (1845–1918) proves that the set of all [[real number]]s is [[uncountable|uncountably infinite]], but the set of all real [[algebraic number]]s is [[countable|countably infinite]]. [[Cantor's first uncountability proof|His proof]] does not use his [[Cantor's diagonal argument|diagonal argument]], which he published in 1891.
+[[File:Carl Louis Ferdinand von Lindemann.jpg|200px|[[Ferdinand von Lindemann]]]]
+* '''1882''' [[Ferdinand von Lindemann]] (1852–1939) proves that π is transcendental and that therefore the circle cannot be squared with a compass and straightedge.
+* '''1882''' [[Felix Klein]] invents the [[Klein bottle]].
+[[File:Portrett av Sophus Lie.jpg|200px|[[Sophus Lie]]]]
+* '''1888''' [[Sophus Lie]] (1842–1899) publishes work on [[transformation groups]], serving as the foundation for the modern theory of [[Lie groups]].
+[[File:D.J.Korteweg.JPG|200px|[[Diederik Korteweg]]]]
+* '''1895''' [[Diederik Korteweg]] (1848–1941) and [[Gustav de Vries]] (1866–1934) derive the [[Korteweg–de Vries equation]] to describe the development of long solitary water waves in a canal of rectangular cross section.
+* '''1895''' [[Georg Cantor]] publishes a book about set theory containing the arithmetic of infinite [[cardinal number]]s and the [[continuum hypothesis]].
+[[File:PSM V82 D416 Henri Poincare.png|200px|[[Henri Poincaré]]]]
+* '''1895''' [[Henri Poincaré]] (1854–1912) publishes the paper "[[Analysis Situs (paper)|Analysis Situs]]," which started modern topology.
+[[File:Hadamard2 cropped.jpg|200px|[[Jacques Hadamard]]]]
+[[File:De La Vallée Poussin.jpg|200px|[[Charles Jean de la Vallée-Poussin]]]]
+* '''1896''' [[Jacques Hadamard]] (1865–1963) and [[Charles Jean de la Vallée-Poussin]] independently prove the [[prime number theorem]].
+[[File:De Raum zeit Minkowski Bild (cropped).jpg|200px|[[Hermann Minkowski]]]]
+* '''1896''' [[Hermann Minkowski]] (1864–1909) presents ''Geometry of Numbers.''
+* '''1899''' [[Georg Cantor]] discovers a contradiction in his set theory.
+[[File:Hilbert.jpg|200px|[[David Hilbert]]]]
+* '''1899''' [[David Hilbert]] (1862–1943) presents a set of self-consistent geometric axioms in ''Foundations of Geometry.''
+* '''1900''' [[David Hilbert]] states his [[Hilbert's problems|list of 23 problems]], which show where some further mathematical work is needed.
+=== 20th century ===
+* '''1901''' [[Élie Cartan]] (1869–1951) develops the [[exterior derivative]].
+[[File:Lebesgue 2.jpeg|200px|[[Henri Lebesgue]]]]
+* '''1901''' [[Henri Lebesgue]] (1875–1941) publishes on [[Lebesgue integration]].
+[[File:Edmund Landau.jpg|200px|[[Edmund Georg Hermann Landau]]]]
+* '''1903''' [[Edmund Georg Hermann Landau]] (1877–1938) gives considerably simpler proof of the prime number theorem.
+[[File:Ernst Zermelo 1900s.jpg|200px|[[Ernst Zermelo]]]]
+* '''1908''' [[Ernst Zermelo]] (1871–1953) axiomizes [[set theory]], thus avoiding Cantor's contradictions.
+[[File:Josip Plemelj 1920s.jpg|200px|[[Josip Plemelj]]]]
+* '''1908''' [[Josip Plemelj]] (1873–1967) solves the Riemann problem about the existence of a differential equation with a given [[monodromic group]] and uses Sokhotsky – Plemelj formulae.
+[[File:Bohr Brouwer Zurich1932.tif|200px|[[Luitzen Egbertus Jan Brouwer]]]]
+* '''1912''' [[Luitzen Egbertus Jan Brouwer]] (1881–1966) presents the [[Brouwer fixed-point theorem]].
+* '''1912''' [[Josip Plemelj]] publishes simplified proof for the [[Fermat's Last Theorem]] for exponent ''n'' = 5.
+[[File:Emmy Noether (3x4 cropped).jpg|200px|[[Emmy Noether]]]]
+* '''1915''' [[Emmy Noether]] (1882–1935) proves [[Noether's theorem|her symmetry theorem]], which shows that every [[symmetry in physics]] has a corresponding [[conservation law]].
+[[File:Srinivasa Ramanujan-Add. MS a94 version2 (cropped).jpg|200px|[[Srinivasa Ramanujan]]]]
+* '''1916''' [[Srinivasa Ramanujan]] (1887–1920) introduces [[Ramanujan conjecture]]. This conjecture is later generalized by [[Hans Petersson]] (1902–1984).
+[[File:Viggo Brun 1927-05-25.jpg|200px|[[Viggo Brun]]]]
+* '''1919''' [[Viggo Brun]] (1885–1978) defines [[Brun's constant]] ''B''<sub>2</sub> for [[twin prime]]s.
+* '''1921''' [[Emmy Noether]] introduces the first general definition of a [[commutative ring]].
+[[File:JohnvonNeumann-LosAlamos.gif|200px|[[John von Neumann]]]]
+* '''1928''' [[John von Neumann]] (1903–1957) begins devising the principles of [[game theory]] and proves the [[minimax theorem]].
+* '''1929''' [[Emmy Noether]] introduces the first general representation theory of groups and algebras.
+[[File:Kazimierz Kuratowski Polish scientist.jpg|200px|[[Casimir Kuratowski]]]]
+* '''1930''' [[Casimir Kuratowski]] (1896–1980) shows that the [[three-cottage problem]] has no solution.
+* '''1929–1930''' [[Mojżesz Presburger]] (1904–c. 1943) proves that the truth or falsity of all statements about the natural numbers with either addition or multiplication (but not both) is decidable.
+[[File:Kurt gödel.jpg|200px|[[Kurt Gödel]]]]
+* '''1931''' [[Kurt Gödel]] (1906–1978) proves [[Gödel's incompleteness theorem|his incompleteness theorem]], which shows that every axiomatic system for mathematics is either incomplete or inconsistent.
+* '''1931''' [[Georges de Rham]] (1903–1990) develops theorems in [[cohomology]] and [[characteristic class]]es.
+[[File:Stefana Banach - ستيفان بناخ.jpg|200px|[[Stefan Banach]]]]
+* '''1932''' [[Stefan Banach]] (1892–1945) brought the abstract study of [[functional analysis]] to the broader mathematical community.
+[[File:Karol Borsuk, matematyk.jpg|200px|[[Karol Borsuk]]]]
+[[File:Stanislaw Ulam.tif|200px|[[Stanislaw Ulam]]]]
+* '''1933''' [[Karol Borsuk]] (1905–1982) and [[Stanislaw Ulam]] (1909–1984) present the [[Borsuk–Ulam theorem|Borsuk–Ulam antipodal-point theorem]].
+[[File:Andrej Nikolajewitsch Kolmogorov.jpg|200px|[[Andrey Nikolaevich Kolmogorov]]]]
+* '''1933''' [[Andrey Nikolaevich Kolmogorov]] (1903–1987) publishes his book ''Basic notions of the calculus of probability'' (''Grundbegriffe der Wahrscheinlichkeitsrechnung''), which contains an [[probability axiom|axiomatization of probability]] based on [[measure theory]].
+[[File:Alan turing header.jpg|200px|[[Alan Turing]]]]
+[[File:Turing Machine Model Davey 2012.jpg|200px|[[Turing machine]]]]
+* '''1936''' [[Alonzo Church]] (1903–1995) and [[Alan Turing]] (1912–1954) create, respectively, the [[Lambda calculus|λ-calculus]] and the [[Turing machine]], formalizing the notion of computation and computability.
+* '''1938''' [[Tadeusz Banachiewicz]] introduces [[LU decomposition]].
+* '''1940''' [[Kurt Gödel]] shows that neither the [[continuum hypothesis]] nor the [[axiom of choice]] can be disproven from the standard axioms of set theory.
+[[File:Cahit Arf 10 lira.jpg|200px|[[Cahit Arf]]]]
+* '''1941''' [[Cahit Arf]] (1910–1997) defines the [[Arf invariant]].
+* '''1942''' [[G.C. Danielson]] (1912–1983) and [[Cornelius Lanczos]] (1906–1974) develop a [[fast Fourier transform]] algorithm.
+* '''1943''' [[Kenneth Levenberg]] (1919–1973) proposes a method for nonlinear least squares fitting.
+[[File:Stephen Cole Kleene circa 1963.tif|200px|[[Stephen Cole Kleene]]]]
+* '''1945''' [[Stephen Cole Kleene]] (1909–1994) introduces [[realizability]].
+[[File:Saunders MacLane.jpg|200px|[[Saunders Mac Lane]]]]
+[[File:Samuel Eilenberg MFO.jpeg|200px|[[Samuel Eilenberg]]]]
+* '''1945''' [[Saunders Mac Lane]] (1909–2005) and [[Samuel Eilenberg]] (1913–1998) start [[category theory]].
+* '''1945''' [[Norman Steenrod]] (1910–1971) and [[Samuel Eilenberg]] give the [[Eilenberg–Steenrod axioms]] for (co-)homology.
+[[File:Jean Leray.jpeg|200px|[[Jean Leray]]]]
+* '''1946''' [[Jean Leray]] (1906–1998) introduces the [[Spectral sequence]].
+[[File:George B Dantzig 1936.jpg|200px|[[George Dantzig]]]]
+* '''1947''' [[George Dantzig]] (1914–2005) publishes the [[simplex method]] for linear programming.
+[[File:Self-replicating machine.png|200px|[[Self-replicating machine]]]]
+* '''1948''' [[John von Neumann]] mathematically studies [[Self-replicating machine|self-reproducing machines]].
+[[File:Norbert Wiener.png|200px|[[Norbert Wiener]]]]
+* '''1948''' [[Norbert Wiener]] (1894–1964) begins the study of [[cybernetics]], the science of communication as it relates to living things and machines.
+[[File:Atle Selberg.jpg|200px|[[Atle Selberg]]]]
+[[File:Erdos budapest fall 1992 (cropped).jpg|200px|[[Paul Erdős]]]]
+* '''1948''' [[Atle Selberg]] (1917–2007) and [[Paul Erdős]] (1913–1996) prove independently in an elementary way the [[prime number theorem]].
+[[File:André Weil, 1968 (cropped).jpg|200px|[[André Weil]]]]
+* '''1949''' [[André Weil]] (1906–1998) proposed his famous conjectures.
+[[File:ENIAC at Moore School of Electrical Engineering (2026-09-21).webp|200px|[[ENIAC]]]]
+* '''1949''' [[John Wrench]] (1911–2009) and L.&nbsp;R. Smith compute π to 2,037 decimal places using [[ENIAC]].
+[[File:C.E. Shannon. Tekniska museet 43069 (2x3 crop).jpg|200px|[[Claude Shannon]]]]
+* '''1949''' [[Claude Shannon]] (1916–2001) develops notion of [[information theory]].
+* '''1950''' [[Stanisław Ulam]] and [[John von Neumann]] present [[cellular automata]] dynamical systems.
+[[File:Nicholas Metropolis cropped.PNG|200px|[[Nicholas Metropolis]]]]
+* '''1953''' [[Nicholas Metropolis]] (1915–1999) introduces the idea of thermodynamic [[simulated annealing]] algorithms.
+[[File:H.S.M. Coxeter.jpeg|200px|[[H. S. M. Coxeter]]]]
+* '''1955''' [[H. S. M. Coxeter]] (1907–2003) et al. publish the complete list of [[uniform polyhedron]].
+[[File:Enrico Fermi 1943-49.jpg|200px|[[Enrico Fermi]]]]
+[[File:Mary Tsingou-Menzel at Los Alamos.jpg|200px|[[Mary Tsingou]]]]
+* '''1955''' [[Enrico Fermi]] (1901–1954), [[John Pasta]] (1918–1981), [[Stanisław Ulam]], and [[Mary Tsingou]] (1928–2026) numerically study a nonlinear spring model of heat conduction and discover solitary wave type behavior.
+[[File:Noam Chomsky portrait 2017 retouched.jpg|200px|[[Noam Chomsky]]]]
+* '''1956''' [[Noam Chomsky]] (born 1928) describes a [[Chomsky hierarchy|hierarchy]] of [[formal language]]s.
+[[File:John Milnor 1993 cropped.jpg|200px|[[John Milnor]]]]
+* '''1956''' [[John Milnor]] (born 1931) discovers the existence of an [[Exotic sphere]] in seven dimensions, inaugurating the field of [[differential topology]].
+[[File:Kiyoshi Ito cropped 3 Kiyosi Ito.jpg|200px|[[Kiyosi Itô]]]]
+* '''1957''' [[Kiyosi Itô]] (1915–2008) develops [[Itô calculus]].
+[[File:Stephen Smale, 2008 (cropped).jpg|200px|[[Stephen Smale]]]]
+* '''1957''' [[Stephen Smale]] (born 1930) provides the [[existence proof]] for crease-free [[sphere eversion]].
+[[File:Alexander Grothendieck - face.jpg|200px|[[Alexander Grothendieck]]]]
+* '''1958''' [[Alexander Grothendieck]] (1928–2014)'s proof of the [[Grothendieck–Riemann–Roch theorem]] is published.
+* '''1959''' [[Kenkichi Iwasawa]] (1917–1998) creates [[Iwasawa theory]].
+[[File:Sir Tony Hoare IMG 5125.jpg|200px|[[Tony Hoare]]]]
+[[File:Sorting quicksort anim.gif|200px|[[quicksort|Quicksort]]]]
+* '''1960''' [[Tony Hoare]] (1934–2026) invents the [[quicksort]] algorithm.
+[[File:Rudolf Kalman.jpg|200px|[[Rudolf Kalman]]]]
+* '''1960''' [[Rudolf Kalman]] introduced the [[Kalman filter]] in his "A New Approach to Linear Filtering and Prediction Problems".
+* '''1960''' [[Irving S. Reed]] (1923–2012) and [[Gustave Solomon]] (1930–1996) present the [[Reed–Solomon code|Reed–Solomon error-correcting code]].
+* '''1961''' [[Daniel Shanks]] (1917–1996) and [[John Wrench]] compute π to 100,000 decimal places using an inverse-tangent identity and an [[IBM 7090]] computer.
+* '''1961''' [[John G. F. Francis]] (born 1934) and [[Vera Kublanovskaya]] (1920–2012) independently develop the [[QR algorithm]] to calculate the [[eigenvalues]] and [[eigenvectors]] of a matrix.
+* '''1961''' [[Stephen Smale]] proves the [[Poincaré conjecture]] for all dimensions greater than or equal to 5.
+* '''1962''' [[Donald Marquardt]] (1929–1997) proposes the [[Levenberg–Marquardt nonlinear least squares fitting algorithm]].
+* '''1963''' [[Paul Cohen (mathematician)|Paul Cohen]] (1934–2007) uses his technique of [[forcing (mathematics)|forcing]] to show that neither the continuum hypothesis nor the axiom of choice can be proven from the standard axioms of set theory.
+* '''1963''' [[Martin Kruskal]] (1925–2006) and [[Norman Zabusky]] analytically study the [[Fermi–Pasta–Ulam–Tsingou problem|Fermi–Pasta–Ulam–Tsingou heat conduction problem]] in the [[continuum limit]] and find that the [[KdV equation]] governs this system.
+[[File:EdwardLorenz.jpg|200px|[[Edward Norton Lorenz]]]]
+* '''1963''' meteorologist and mathematician [[Edward Norton Lorenz]] (1917–2008) published solutions for a simplified mathematical model of atmospheric turbulence – generally known as chaotic behaviour and [[strange attractor]]s or [[Lorenz attractor]] – also the [[butterfly effect]].
+[[File:Zadeh, L.A. 2005.jpg|200px|[[Lotfi Asker Zadeh]]]]
+* '''1965''' Iranian mathematician [[Lotfi Asker Zadeh]] (1921–2017) founded [[fuzzy set]] theory as an extension of the classical notion of [[Set (mathematics)|set]]s and he founded the field of [[fuzzy mathematics]].
+* '''1965''' [[Martin Kruskal]] and [[Norman Zabusky]] numerically study colliding [[Soliton|solitary waves]] in [[Plasma (physics)|plasmas]] and find that they do not disperse after collisions.
+* '''1965''' [[James Cooley]] (1926–2016) and [[John Tukey]] (1915–2000) present an influential fast Fourier transform algorithm.
+* '''1966''' [[E. J. Putzer]] presents two methods for computing the [[Matrix exponential|exponential of a matrix]] in terms of a polynomial in that matrix.
+[[File:Robinson abraham 1970.jpg|200px|[[Abraham Robinson]]]]
+* '''1966''' [[Abraham Robinson]] (1918–1974) presents [[non-standard analysis]].
+[[File:Langlands2 (cropped).jpg|200px|[[Robert Langlands]]]]
+* '''1967''' [[Robert Langlands]] (born 1936) formulates the influential [[Langlands program]] of conjectures relating number theory and representation theory.
+[[File:Michael Francis Atiyah.jpg|200px|[[Michael Atiyah]]]]
+[[File:Isadore Singer 1977 (re-scanned 2; border-less) (cleaned) (cropped).jpg|200px|[[Isadore Singer]]]]
+* '''1968''' [[Michael Atiyah]] (1929–2019) and [[Isadore Singer]] (1924–2021) prove the [[Atiyah–Singer index theorem]] about the index of [[elliptic operator]]s.
+[[File:Yuri Matiyasevich. Portrait 1969.jpg|200px|[[Yuri Matiyasevich]]]]
+* '''1970''' [[Yuri Matiyasevich]] (born 1947) proves that there exists no general algorithm to solve all [[Diophantine equation]]s, thus giving a negative answer to [[Hilbert's 10th problem]].
+* '''1973''' [[Lotfi Zadeh]] founded the field of [[fuzzy logic]].
+[[File:Pierre Deligne (2005) (cropped).jpg|200px|[[Pierre Deligne]]]]
+* '''1974''' [[Pierre Deligne]] (born 1944) solves the last and deepest of the [[Weil conjectures]], completing the program of Grothendieck.
+[[File:Benoit Mandelbrot, TED 2010 (3x4 cropped).jpg|200px|[[Benoit Mandelbrot]]]]
+* '''1975''' [[Benoit Mandelbrot]] (1924–2010) publishes ''Les objets fractals, forme, hasard et dimension''.
+[[File:Kenneth appel 1970.jpg|200px|[[Kenneth Appel]]]]
+[[File:Wolfgang Haken 2008.jpg|200px|[[Wolfgang Haken]]]]
+* '''1976''' [[Kenneth Appel]] (1932–2013) and [[Wolfgang Haken]] (1928–2022) use a computer to prove the [[Four color theorem]].
+[[File:Richard Feynman Nobel.jpg|200px|[[Richard Feynman]]]]
+[[File:Yuri Manin, 2006 (cropped).jpeg|200px|[[Yuri Manin]]]]
+* '''1981''' [[Richard Feynman]] (1918–1988) gives an influential talk "Simulating Physics with Computers" (in 1980 [[Yuri Manin]] (1937–2023) proposed the same idea about quantum computations in "Computable and Uncomputable" (in Russian)).
+[[File:Gerd Faltings MFO (cropped 3).jpg|200px|[[Gerd Faltings]]]]
+* '''1983''' [[Gerd Faltings]] (born 1954) proves the [[Mordell conjecture]] and thereby shows that there are only finitely many whole number solutions for each exponent of [[Fermat's Last Theorem]].
+[[File:Vaughan Jones 2018 (cropped).JPG|200px|[[Vaughan Jones]]]]
+* '''1984''' [[Vaughan Jones]] (1952–2020) discovers the [[Jones polynomial]] in knot theory, which leads to other new knot polynomials as well as connections between knot theory and other fields.
+[[File:Debranges.jpeg|200px|[[Louis de Branges de Bourcia]]]]
+* '''1985''' [[Louis de Branges de Bourcia]] (born 1932) proves the [[Bieberbach conjecture]].
+[[File:Kenneth Alan Ribet (cropped).jpg|200px|[[Ken Ribet]]]]
+* '''1986''' [[Ken Ribet]] (born 1948) proves [[Ribet's theorem]].
+[[File:David Harold Bailey.jpg|200px|[[David H. Bailey (mathematician)|David Bailey]]]]
+[[File:NEC SX-5 supercomputer.jpg|200px|[[NEC SX-2|NEC SX]]]]
+* '''1987''' [[Yasumasa Kanada]] (1949–2020), [[David H. Bailey (mathematician)|David Bailey]] (born 1948), [[Jonathan Borwein]] (1951–2016), and [[Peter Borwein]] (1953–2020) use iterative modular equation approximations to elliptic integrals and a [[NEC SX-2]] [[supercomputer]] to compute π to 134 million decimal places.
+[[File:Alain Connes, 2012 (cropped).jpg|200px|[[Alain Connes]]]]
+[[File:John Lott (mathematician) 2010.jpg|200px|[[John Lott (mathematician)|John W. Lott]]]]
+* '''1991''' [[Alain Connes]] (born 1947) and [[John Lott (mathematician)|John W. Lott]] (born 1959) develop [[non-commutative geometry]].
+[[File:David Deutsch (cropped).jpg|200px|[[David Deutsch]]]]
+* '''1992''' [[David Deutsch]] (born 1953) and [[Richard Jozsa]] (born 1953) develop the [[Deutsch–Jozsa algorithm]], one of the first examples of a [[quantum algorithm]] that is exponentially faster than any possible deterministic classical algorithm.
+[[File:Andrew wiles1-3.jpg|200px|[[Andrew Wiles]]]]
+* '''1994''' [[Andrew Wiles]] (born 1953) proves part of the [[Taniyama–Shimura conjecture]] and thereby proves [[Fermat's Last Theorem]].
+[[File:Peter Shor 2017 Dirac Medal Award Ceremony.png|200px|[[Peter Shor]]]]
+* '''1994''' [[Peter Shor]] (born 1959) formulates [[Shor's algorithm]], a [[quantum algorithm]] for [[integer factorization]].
+[[File:Simon Plouffe 1.jpg|200px|[[Simon Plouffe]]]]
+* '''1995''' [[Simon Plouffe]] (born 1956) discovers [[Bailey–Borwein–Plouffe formula]] capable of finding the ''n''th binary digit of π.
+[[File:Halescropped.jpg|200px|[[Thomas Callister Hales]]]]
+* '''1998''' [[Thomas Callister Hales]] (almost certainly) proves the [[Kepler conjecture]].
+* '''1999''' the full [[Taniyama–Shimura conjecture]] is proven.
+* '''2000''' the [[Clay Mathematics Institute]] proposes the seven [[Millennium Prize Problems]] of unsolved important classic mathematical questions.
+=== 21st century ===
+[[File:Manindra Agarwal.jpg|200px|[[Manindra Agrawal]]]]
+[[File:The Prime Minister, Shri Narendra Modi presenting the Shanti Swarup Bhatnagar Prizes for Mathematical Sciences to Dr. Nitin Saxena, Professor, IIT Kanpur, at a function in New Delhi on February 28, 2019.jpg|200px|[[Nitin Saxena]]]]
+* '''2002''' [[Manindra Agrawal]] (born 1966), [[Nitin Saxena]] (born 1981), and [[Neeraj Kayal]] of [[IIT Kanpur]] present an unconditional deterministic [[polynomial time]] algorithm to determine whether a given number is [[prime number|prime]] (the [[AKS primality test]]).
+[[File:Preda Mihailescu vor Tafel.png|200px|[[Preda Mihăilescu]]]]
+* '''2002''' [[Preda Mihăilescu]] (born 1955) proves [[Catalan's conjecture]].
+[[File:Grigori Perelman, 1993 (re-scanned) (cropped).jpg|200px|[[Grigori Perelman]]]]
+* '''2003''' [[Grigori Perelman]] (born 1966) proves the [[Poincaré conjecture]].
+* '''2004''' the [[classification of finite simple groups]], a collaborative work involving some hundred mathematicians and spanning fifty years, is completed.
+[[File:Ben Green.jpg|200px|[[Ben Green (mathematician)|Ben Green]]]]
+[[File:Terence Tao at IPAM's Fireside Chat 2026 (50m16s) (cropped).jpg|200px|[[Terence Tao]]]]
+* '''2004''' [[Ben Green (mathematician)|Ben Green]] (born 1977) and [[Terence Tao]] (born 1975) prove the [[Green–Tao theorem]].
+[[File:Ngô Bảo Châu.JPG|200px|[[Ngô Bảo Châu]]]]
+* '''2009''' [[Fundamental lemma (Langlands program)]] is [[Mathematical proof|proved]] by [[Ngô Bảo Châu]] (born 1972).<ref name="m33">{{citation|first1=G.|last1=Laumon|author-link=Gérard Laumon|first2=B. C.|last2=Ngô|arxiv=math/0404454|year=2004|title=Le lemme fondamental pour les groupes unitaires|bibcode=2004math......4454L}}</ref>
+[[File:Larry Guth at Oberwolfach, 2025 (cropped).jpg|200px|[[Larry Guth]]]]
+* '''2010''' [[Larry Guth]] (born 1977) and [[Nets Hawk Katz]] solve the [[Erdős distinct distances problem]].
+[[File:Yitang Zhang.jpg|200px|[[Yitang Zhang]]]]
+* '''2013''' [[Yitang Zhang]] (born 1955) proves the first finite bound on gaps between prime numbers.<ref name="m34">{{cite web|title=UNH Mathematician's Proof Is Breakthrough Toward Centuries-Old Problem|url=http://www.unh.edu/news/releases/2013/may/bp16zhang.cfm|publisher=[[University of New Hampshire]]|accessdate=May 20, 2013|date=May 1, 2013}}</ref>
+[[File:Harald Helfgott (mathematician).jpg|200px|[[Harald Helfgott]]]]
+* '''2013''' [[Harald Helfgott]] (born 1977) publishes a proof of the weak [[Goldbach's conjecture]].
+* '''2014''' Project Flyspeck<ref name="m35">[https://code.google.com/p/flyspeck/wiki/AnnouncingCompletion Announcement of Completion.] Project Flyspeck, [[Google Code]].</ref> announces that it completed a proof of [[Kepler conjecture|Kepler's conjecture]].<ref name="m36">[http://phys.org/news/2014-08-team-formal-computer-verified-proof-kepler.html Team announces construction of a formal computer-verified proof of the Kepler conjecture.] August 13, 2014 by Bob Yirk.</ref><ref name="m37">[https://www.newscientist.com/article/dn26041-proof-confirmed-of-400-year-old-fruit-stacking-problem/ Proof confirmed of 400-year-old fruit-stacking problem], 12 August 2014; [[New Scientist]]. </ref><ref name="m38">[https://arxiv.org/abs/1501.02155 A formal proof of the Kepler conjecture], [[arXiv]].</ref><ref name="m39">[http://pnews.sky.com/story/1317501/solved-400-year-old-maths-theory-finally-proven Solved: 400-Year-Old Maths Theory Finally Proven.] [[Sky News]], 16:39, UK, Tuesday 12 August 2014.</ref>
+* '''2015''' [[Terence Tao]] solves the [[Paul Erdős|Erdős]] [[Sign sequence#Erdős discrepancy problem|discrepancy problem]].
+[[File:Laszlo Babai.jpg|200px|[[László Babai]]]]
+* '''2015''' [[László Babai]] (born 1950) finds that a quasipolynomial complexity algorithm would solve the [[Graph isomorphism problem]].
+[[File:Maryna Vazovska MFO 2013 crop.jpg|200px|[[Maryna Viazovska]]]]
+* '''2016''' [[Maryna Viazovska]] (born 1984) solves the [[sphere packing]] problem in dimension 8. Subsequent work building on this leads to a solution for dimension 24.
+[[File:Aaron Naber Oberwolfach 2015.jpg|200px|[[Aaron Naber]]]]
+* '''2023''' Elia Bruè, [[Aaron Naber]] (born 1982), and Daniele Semola disprove the [[Milnor conjecture (Ricci curvature)|Milnor conjecture]] for six or more dimensions.<ref name="Milnor">{{cite news |last1=Cepelewicz |first1=Jordana |title=Strangely Curved Shapes Break 50-Year-Old Geometry Conjecture |url=https://www.quantamagazine.org/strangely-curved-shapes-break-50-year-old-geometry-conjecture-20240514/ |access-date=12 January 2025 |work=Quanta Magazine |date=May 14, 2024}}</ref><ref name="2311.12155">{{cite arXiv |last1=Bruè |first1=Elia |last2=Naber |first2=Aaron |last3=Semola |first3=Daniele |date=2023 |title=Six dimensional counterexample to the Milnor Conjecture |class=math.DG |eprint=2311.12155}}</ref>
+* '''2023''' The first [[einstein problem|einstein]], a single tile that tiles the plane only aperiodically, is discovered.
+}}
+
+
+== Mathematics in Mesopotamia ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=mathm
+|text=
+* '''c. 3400 BC''' [[Mesopotamia]], the [[Sumer]]ians invent the first [[Babylonian cuneiform numerals|numeral system]], and a system of [[Ancient Mesopotamian units of measurement|weights and measures]].
+* '''From c. 3000 BC''' The [[Sumer]]ians develop a complex system of [[metrology]], chiefly for administrative and financial counting: grain allotments, workers, weights of silver.<ref name="m7" />
+* '''c. 2000 BC''' [[Mesopotamia]], the [[Babylonians]] use a base-60 positional numeral system and compute the first known approximate value of [[pi|π]] at 3.125.
+* '''c. 1800 BC''' The [[Plimpton 322]] Babylonian tablet records the oldest known examples of [[Pythagorean triple]]s.<ref name="m9" />
+* '''c. 800 BC''' [[Baudhayana]], author of the [[Baudhayana]] [[Shulba Sutras|Shulba Sutra]], a [[Vedic Sanskrit]] geometric text, contains [[quadratic equation]]s, calculates the [[Square root of 2|square root of two]] correctly to five decimal places, and contains "the earliest extant verbal expression of the Pythagorean Theorem in the world, although it had already been known to the Old [[Babylonians]]."<ref name="m11" />
+* '''300 BC''' [[Mesopotamia]], the [[Babylonians]] invent the earliest calculator, the [[abacus]].
+* '''c. 900''' [[Mesopotamia]], [[al-Battani]] extended the Indian concepts of sine and cosine to other trigonometrical ratios, like tangent, secant, and their inverse functions. Derived the formulae: <math> \sin \alpha = \tan \alpha / \sqrt{1+\tan^2 \alpha} </math> and <math> \cos \alpha = 1 / \sqrt{1 + \tan^2 \alpha}</math>.
+}}
+
+== Mathematics in ancient Egypt ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=mathe
+|text=
+* '''c. 20,000 BC''' [[Nile Valley]], [[Ishango bone]]: possibly the earliest reference to [[prime number]]s and [[Egyptian multiplication]].
+* '''5th millennium BC''' [[Predynastic Egypt|Predynastic Egyptians]] represent geometric designs in pictures.
+* '''c. 3100 BC''' [[Egypt]], the earliest known [[decimal|decimal system]] allows indefinite counting by way of introducing new symbols.<ref name="buffalo1" />
+* '''2700 BC''' Egypt, precision [[surveying]].
+* '''2400 BC''' Egypt, precise [[Egyptian calendar|astronomical calendar]], used even in the [[Middle Ages]] for its mathematical regularity.
+* '''1800 BC''' Egypt, [[Moscow Mathematical Papyrus]], finding the volume of a [[frustum]].
+* '''c. 1800 BC''' [[Berlin Papyrus 6619]] (Egypt, 19th dynasty) contains a quadratic equation and its solution.<ref name="buffalo1"/>
+* '''1650 BC''' [[Rhind Mathematical Papyrus]], a copy of a lost scroll from around 1850 BC, the scribe [[Ahmes]] presents one of the first known approximate values of π at 3.16, the first attempt at [[squaring the circle]], the earliest known use of a sort of [[cotangent]], and knowledge of solving first-order linear equations.
+* '''16th century BCE''' The earliest recorded use of [[combinatorial]] techniques comes from problem 79 of the [[Rhind Mathematical Papyrus|Rhind papyrus]], which dates to the 16th century BCE.<ref name="Biggs" />
+* '''c. 1000 BC''' [[Simple fraction]]s used by the [[Egyptians]]. However, only unit fractions are used (i.e., those with 1 as the numerator), and [[interpolation]] tables are used to approximate the values of the other fractions.<ref name="m10" />
+* '''c. 900''' Egypt, [[Abu Kamil]] had begun to understand what we would write in symbols as <math>x^n \cdot x^m = x^{m+n}</math>
+}}
+
+== Mathematics in ancient Greece and Rome ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=mathg
+|text=
+* '''3rd millennium BC''' Megalithic monuments in England and Scotland are claimed to incorporate geometric ideas such as circles, ellipses and [[Pythagorean triple]]s; the claims are disputed.<ref name="m8" />
+* '''c. 2000 BC''' Scotland, [[carved stone balls]] exhibit a variety of symmetries, including all of the symmetries of [[Platonic solid]]s, though it is not known if this was deliberate.
+* '''c. 1800 BC''' The [[Plimpton 322]] Babylonian tablet records the oldest known examples of [[Pythagorean triple]]s.<ref name="m9" />
+* '''c. 800 BC''' [[Baudhayana]], author of the [[Baudhayana]] [[Shulba Sutras|Shulba Sutra]], a [[Vedic Sanskrit]] geometric text, contains [[quadratic equation]]s, calculates the [[Square root of 2|square root of two]] correctly to five decimal places, and contains "the earliest extant verbal expression of the Pythagorean Theorem in the world, although it had already been known to the Old [[Babylonians]]."<ref name="m11" />
+* '''624 BC – 546 BC''' Greece, [[Thales of Miletus]] (c. 626–c. 548 BC) has various theorems attributed to him.
+* '''c. 600 BC''' India, the other Vedic "Shulba Sutras" ("rule of chords" in [[Sanskrit]]) use [[Pythagorean triple]]s, contain a number of geometrical proofs, and approximate [[pi|π]] at 3.16.
+* '''c. 387 BC''' [[Plato]] (c. 428–347 BC) founds the [[Platonic Academy|Academy]] in Athens, which becomes the mathematical center of the world in the 4th century BC.<ref name="m12" />
+* '''530 BC''' Greece, [[Pythagoras]] (c. 570–c. 495 BC) studies propositional [[geometry]] and vibrating lyre strings; his group also discovers the [[irrational number|irrationality]] of the [[square root of two]].
+* '''c. 510 BC''' Greece, [[Anaxagoras]] (c. 500–c. 428 BC)
+* '''c. 500 BC''' Greece, [[Oenopides of Chios]]
+* '''470 BC – 410 BC''' Greece, [[Hippocrates of Chios]] (c. 470–c. 421 BC) utilizes [[Lune (mathematics)|lunes]] in an attempt to [[squaring the circle|square the circle]].
+* '''490 BC – 430 BC''' Greece, [[Zeno of Elea]] creates ''[[Zeno's paradoxes]].''
+* '''3rd century BC''' The [[Mouseion|Musaeum of Alexandria]] is the premier center of mathematical education and research; the century is regarded as the "Golden Age" of Greek mathematics.<ref name="m13" />
+* '''5th c. BC''' Greece, [[Theodorus of Cyrene]]
+* '''5th century''' Greece, [[Antiphon the Sophist]]
+* '''460 BC – 370 BC''' Greece, [[Democritus]]
+* '''460 BC – 399 BC''' Greece, [[Hippias]]
+* '''5th century (late)''' Greece, [[Bryson of Heraclea]]
+* '''428 BC – 347 BC''' Greece, [[Archytas]] (435–360 BC)
+* '''423 BC – 347 BC''' Greece, [[Plato]]
+* '''417 BC – 317 BC''' Greece, [[Theaetetus (mathematician)|Theaetetus]] (c. 417–c. 369 BC)
+* '''408 BC – 355 BC''' Greece, [[Eudoxus of Cnidus]] (c. 390–c. 340 BC)
+* '''400 BC – 350 BC''' Greece, [[Thymaridas]]
+* '''395 BC – 313 BC''' Greece, [[Xenocrates]] (c. 396–314 BC)
+* '''390 BC – 320 BC''' Greece, [[Dinostratus]]
+* '''380–290''' Greece, [[Autolycus of Pitane]]
+* '''370 BC''' Greece, [[Eudoxus of Cnidus|Eudoxus]] states the [[method of exhaustion]] for [[area]] determination.
+* '''370 BC – 300 BC''' Greece, [[Aristaeus the Elder]]
+* '''370 BC – 300 BC''' Greece, [[Callippus]]
+* '''350 BC''' Greece, [[Aristotle]] (384–322 BC) discusses [[logic]]al reasoning in ''[[Organon]]''.
+* '''310 BC – 230 BC''' Greece, [[Aristarchus of Samos]]
+* '''390 BC – 310 BC''' Greece, [[Heraclides Ponticus]]
+* '''380 BC – 320 BC''' Greece, [[Menaechmus]]
+* '''300 BC&nbsp;''' Greece, [[Euclid]], in his ''[[Euclid's Elements|Elements]]'' studies geometry as an [[axiomatic system]], proves the infinitude of [[prime number]]s, and presents the [[Euclidean algorithm]]; he states the law of reflection in ''Catoptrics'', and he proves the [[fundamental theorem of arithmetic]].
+* '''370 BC – 300 BC''' Greece, [[Eudemus of Rhodes]] works on histories of arithmetic, geometry, and astronomy now lost.<ref name="CorsiWeindling1983" />
+* '''280 BC – 210 BC''' Greece, [[Nicomedes (mathematician)]]
+* '''280 BC – 220BC''' Greece, [[Philo of Byzantium]]
+* '''280 BC – 220 BC''' Greece, [[Conon of Samos]]
+* '''279 BC – 206 BC''' Greece, [[Chrysippus]]
+* '''250 BC – 190 BC''' Greece, [[Dionysodorus]]
+* '''262 -198 BC''' Greece, [[Apollonius of Perga]] (c. 240–c. 190 BC)
+* '''260 BC''' Greece, [[Archimedes]] (c. 287–c. 212 BC) proved that the value of π lies between 3 + 1/7 (approx. 3.1429) and 3 + 10/71 (approx. 3.1408), that the area of a circle was equal to π multiplied by the square of the radius of the circle, and that the area enclosed by a parabola and a straight line is 4/3 multiplied by the area of a triangle with equal base and height. He also gave a very accurate estimate of the value of the square root of 3.
+* '''c. 250 BC''' late [[Olmec]]s had already begun to use a true zero (a shell glyph) several centuries before [[Ptolemy]] in the New World. See [[0 (number)]].
+* '''240 BC''' Greece, [[Eratosthenes]] (c. 276–c. 195 BC) uses [[Sieve of Eratosthenes|his sieve algorithm]] to quickly isolate prime numbers.
+* '''240 BC–190 BC''' Greece, [[Diocles (mathematician)]]
+* '''225 BC''' Greece, [[Apollonius of Perga]] writes ''On [[Conic section|Conic Sections]]'' and names the [[ellipse]], [[parabola]], and [[hyperbola]].
+* '''200 BC – 140 BC''' Greece, [[Zenodorus (mathematician)]]
+* '''c. 150 BC''' Greece, [[Perseus (geometer)]]
+* '''150 BC – 75 BC''' Phoenician, [[Zeno of Sidon]]
+* '''190 BC – 120 BC''' Greece, [[Hipparchus]] develops the bases of [[trigonometry]].
+* '''190 BC – 120 BC''' Greece, [[Hypsicles]]
+* '''160 BC – 100 BC''' Greece, [[Theodosius of Bithynia]]
+* '''135 BC – 51 BC''' Greece, [[Posidonius]]
+* '''mid-1st century''' [[Cleomedes]] (as late as 400 AD)
+* '''1st C. BC''' Greece, [[Geminus]]
+* '''1st century''' Greece, [[Heron of Alexandria]], Hero, the earliest, fleeting reference to square roots of negative numbers.
+* '''c 100''' Greece, [[Theon of Smyrna]]
+* '''60–120''' Greece, [[Nicomachus]]
+* '''70–140''' Greece, [[Menelaus of Alexandria]] (fl. 100), [[Spherical trigonometry]]
+* '''c. 2nd century''' In Greece, [[Ptolemy]] of [[Alexandria]] wrote the ''[[Almagest]]''.
+* '''240–300''' Greece, [[Sporus of Nicaea]]
+* '''250''' In Greece, [[Diophantus]] uses symbols for unknown numbers in terms of syncopated [[algebra]] and writes ''[[Arithmetica]]'', one of the earliest treatises on algebra.
+* '''234–305''' Greece, [[Porphyry (philosopher)]]
+* '''300–360''' Greece, [[Serenus of Antinoöpolis]]
+* '''250–350''' The "Silver Age" of Greek mathematics: [[Diophantus]] makes significant advances in algebra, with his ''[[Arithmetica]]''.<ref name="m14" />
+* '''335–405''' Greece, [[Theon of Alexandria]]
+* '''c. 340''' Greece, [[Pappus of Alexandria]] (c. 290–c. 350) states his [[Pappus's hexagon theorem|hexagon theorem]] and his [[Pappus's centroid theorem|centroid theorem]].
+* '''350–415''' Eastern Roman Empire, [[Hypatia]]
+* '''412–485''' Greece, [[Proclus]]
+* '''420–480''' Greece, [[Domninus of Larissa]]
+* '''b 440''' Greece, [[Marinus of Neapolis]] "I wish everything was mathematics."
+* '''c. 474–558''' Greece, [[Anthemius of Tralles]]
+* '''480–540''' Greece, [[Eutocius of Ascalon]]
+* '''490–560''' Greece, [[Simplicius of Cilicia]] (c. 480–c. 540)
+* '''529''' The emperor [[Justinian I|Justinian]] closes the neo-Platonic [[Platonic Academy|Academy]] of Athens, traditionally taken as the end of the era of Greek mathematics, although the Greek tradition continues in the [[Byzantine Empire]].<ref name="m15" />
+}}
+
+== Mathematics in China and East Asia ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=mathc
+|text=
+* '''1046 BC to 256 BC''' China, ''[[Zhoubi Suanjing]]'', arithmetic, geometric algorithms, and proofs.
+* '''c. 330 BC''' The Mohist canon, compiled by the followers of [[Mozi]], contains the oldest extant work on geometry in China.
+* '''second half of 1st millennium BC''' The [[Luoshu Square]], the unique normal [[magic square]] of order three, was discovered in China.
+* '''212 BC''' The Emperor [[Qin Shi Huang]] (259–210 BC) orders all books in the [[Qin dynasty|Qin Empire]] other than officially sanctioned ones to be burned.
+* '''4th century BC''' China, [[Counting rods]]
+* '''330 BC''' China, the earliest known work on [[History of geometry#Chinese geometry|Chinese geometry]], the ''[[Mozi (book)|Mo Jing]]'', is compiled.
+* '''300 BC''' [[Mesopotamia]], the [[Babylonians]] invent the earliest calculator, the [[abacus]].
+* '''202 BC to 186 BC''' China, ''[[Book on Numbers and Computation]]'', a mathematical treatise, is written in the [[Han dynasty]] (202 BC–220 AD).
+* '''150 BC''' China, A method of [[Gaussian elimination]] appears in the Chinese text ''[[The Nine Chapters on the Mathematical Art]]''.
+* '''150 BC''' China, [[Horner's method]] appears in the Chinese text ''[[The Nine Chapters on the Mathematical Art]]''.
+* '''150 BC''' China, [[negative numbers]] appear in the Chinese text ''[[The Nine Chapters on the Mathematical Art]]''.
+* '''78 BC – 37 BC''' China, [[Jing Fang]]
+* '''50 BC – 23 AD''' China, [[Liu Xin (scholar)|Liu Xin]] (c. 46 BC–23 AD)
+* '''78–139''' China, [[Zhang Heng]]
+* '''132–192''' China, [[Cai Yong]]
+* '''c. 190''' The earliest written mention of the [[suanpan]], the Chinese abacus, appears in Xu Yue's ''Supplementary Notes on the Art of Figures''.
+* '''263''' China, [[Liu Hui]] computes [[pi|π]] using [[Liu Hui's π algorithm]].
+* '''300–500''' The [[Chinese remainder theorem]] is developed by [[Sun Tzu (mathematician)|Sun Tzu]].
+* '''300–500''' In China, a description of [[rod calculus]] is written by [[Sun Tzu (mathematician)|Sun Tzu]].
+* '''450''' In China, [[Zu Chongzhi]] (429–500) computes [[pi|π]] to seven decimal places. This calculation remained the most accurate calculation for π for close to a thousand years.
+* '''535–566''' China, [[Zhen Luan]]
+* '''600''' China, Liu Zhuo uses quadratic interpolation.
+* '''602–670''' China, [[Li Chunfeng]]
+* '''625''' China: [[Wang Xiaotong]] (580–640) writes the ''[[Jigu Suanjing]]'', where cubic and quartic equations are solved.
+* '''c. 1000''' [[Pope Sylvester II]] (c. 946–1003) introduces the [[abacus]] using the [[Hindu–Arabic numeral system]] to Europe.
+* '''1247''' [[Qin Jiushao]] (c. 1202–1261) publishes ''Shùshū Jiǔzhāng'' (''[[Mathematical Treatise in Nine Sections]]'').
+* '''1248''' [[Li Ye (mathematician)|Li Ye]] (1192–1279) writes ''[[Ceyuan haijing]]'', a 12 volume mathematical treatise containing 170 formulas and 696 problems mostly solved by polynomial equations using the method [[tian yuan shu]].
+* '''1280''' [[Guo Shoujing]] (1231–1316) and Wang Xun use cubic interpolation for generating sine.
+* '''1303''' [[Zhu Shijie]] (1249–1314) publishes ''[[Jade Mirror of the Four Unknowns]]'', which contains an ancient method of arranging [[binomial coefficient]]s in a triangle.
+* '''1683''' [[Seki Takakazu]] (1642–1708) discovers the [[resultant]] and [[determinant]].
+* '''1683''' [[Seki Takakazu]] develops [[elimination theory]].
+* '''1708''' [[Seki Takakazu]] discovers [[Bernoulli numbers]]. [[Jacob Bernoulli]] (1655–1705), whom the numbers are named after, is believed to have independently discovered the numbers shortly after Takakazu.
+}}
+
+== Mathematics in India ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=mathi
+|text=
+* '''c. 2800 BC''' [[Indus Valley Civilization]] on the [[Indian subcontinent]], earliest use of decimal ratios in a uniform system of [[Ancient Indus Valley units of measurement|ancient weights and measures]]; the smallest unit of measurement used is 1.704 millimetres, and the smallest unit of mass used is 28&nbsp;grams.
+* '''first half of 1st millennium BC''' [[Vedic civilization|Vedic India]]&nbsp;– [[Yajnavalkya]], in his [[Shatapatha Brahmana]], describes the motions of the Sun and the Moon and advances a [[Yajnavalkya 95 Years Cycle|95-year cycle]] to synchronize the motions of the Sun and the Moon.
+* '''c. 800 BC''' [[Baudhayana]], author of the [[Baudhayana]] [[Shulba Sutras|Shulba Sutra]], a [[Vedic Sanskrit]] geometric text, contains [[quadratic equation]]s, calculates the [[Square root of 2|square root of two]] correctly to five decimal places, and contains "the earliest extant verbal expression of the Pythagorean Theorem in the world, although it had already been known to the Old [[Babylonians]]."<ref name="m11" />
+* '''c. 8th century BC''' the [[Yajurveda]], one of the four [[Hindu]] [[Vedas]], contains the earliest concept of [[infinity]] and states, "If you remove a part from infinity or add a part to infinity, still what remains is infinity."
+* '''c. 600 BC''' India, the other Vedic "Shulba Sutras" ("rule of chords" in [[Sanskrit]]) use [[Pythagorean triple]]s, contain a number of geometrical proofs, and approximate [[pi|π]] at 3.16.
+* '''c. 500 BC''' [[History of India|Indian]] grammarian [[Pāṇini]] writes the ''[[Astadhyayi|Aṣṭādhyāyī]]'', which contains the use of metarules, [[transformation (mathematics)|transformations]], and [[recursion]]s, originally for the purpose of systematizing the grammar of [[Sanskrit]].
+* '''5th century BC''' India, [[Apastamba]], author of the [[Apastamba]] [[Shulba Sutras|Shulba Sutra]], another [[Vedic Sanskrit]] geometric text, makes an attempt at squaring the circle and also calculates the [[square root of 2]] correct to five decimal places.
+* '''c. 400 BC''' India, write the ''Surya Prajnapti'', a mathematical text classifying all numbers into three sets: enumerable, innumerable, and [[Infinite set|infinite]]. It also recognizes five different types of infinity: infinite in one and two directions, infinite in area, infinite everywhere, and infinite perpetually.
+* '''300 BC''' India,  ''[[Vyākhyāprajñapti|Bhagavati Sutra]]'', which contains the earliest information on [[combinations]].
+* '''c. 300 BC''' India, [[Brahmi numerals]] (ancestor of the common modern [[base 10]] [[numeral system]])
+* '''c. 300 BC''' [[Indian mathematicians|Indian mathematician]] [[Pingala]] writes the ''Chandaḥśāstra'', which contains the first Indian use of zero as a digit (indicated by a dot) and also presents a description of a [[binary numeral system]], along with the first use of [[Fibonacci numbers]] and [[Pascal's triangle]].
+* '''3rd century BC''' [[Indian mathematics|Indian]] texts use the [[Sanskrit]] word "[[wiktionary:शून्य#Sanskrit|Shunya]]" to refer to the concept of "void" ([[0 (number)|zero]]).
+* '''c. 3rd century BC''' India, [[Kātyāyana]]
+* '''150 BC''' India, [[Jainism|Jain]] mathematicians in India write the ''[[Sthananga Sutra]]'', which contains work on the theory of numbers, arithmetical operations, geometry, operations with [[fractions]], simple equations, [[cubic equations]], quartic equations, and [[permutations]] and combinations.
+* '''50 BC''' [[Indian numerals]], a descendant of the [[Brahmi numerals]] (the first [[positional notation]] [[base-10]] [[numeral system]]), begin development in [[History of India|India]].
+* '''final centuries BC''' Indian astronomer [[Lagadha]] writes the ''[[Vedanga Jyotisha]]'', a Vedic text on [[astronomy]] that describes rules for tracking the motions of the Sun and the Moon and uses geometry and trigonometry for astronomy.
+* '''300''' the earliest known use of [[0 (number)|zero]] as a decimal digit is introduced by [[Indian mathematicians]].
+* '''c. 400''' India, the [[Bakhshali manuscript]], which describes a theory of the infinite containing different levels of [[Infinite set|infinity]], shows an understanding of [[Indexed family|indices]], as well as [[logarithms]] to [[base 2]], and computes [[square roots]] of numbers as large as a million correct to at least 11 decimal places.
+* '''500''' In India, [[Aryabhata]] (476–550) writes the ''[[Aryabhata]]-Siddhanta'', which first introduces the trigonometric functions and methods of calculating their approximate numerical values. It defines the concepts of [[sine]] and [[cosine]] and also contains the [[Aryabhata's sine table|earliest tables of sine]] and cosine values (in 3.75-degree intervals from 0 to 90 degrees).
+* '''6th century''' [[Aryabhata]] gives accurate calculations for astronomical constants, such as the [[solar eclipse]] and [[lunar eclipse]], computes π to four decimal places, and obtains whole number solutions to [[linear equations]] by a method equivalent to the modern method.
+* '''505–587''' India, [[Varāhamihira]]
+* '''6th century''' India, [[Yativṛṣabha]]
+* '''550''' [[Hindu]] mathematicians give zero a numeral representation in the [[positional notation]] [[Indian numerals|Indian numeral]] system.
+* '''7th century''' India, [[Bhāskara I]] (c. 600–c. 680) give a rational approximation of the sine function.
+* '''7th century''' India, [[Brahmagupta]] (c. 598–c. 668) invents the method of solving indeterminate equations of the second degree and is the first to use algebra to solve astronomical problems. He also develops methods for calculations of the motions and places of various planets, their rising and setting, conjunctions, and the calculation of eclipses of the sun and the moon.
+* '''628''' [[Brahmagupta]] writes the ''[[Brāhmasphuṭasiddhānta]]'', where zero is clearly explained and where the modern [[place-value]] [[Indian numerals|Indian numeral]] system is fully developed. It also gives rules for manipulating both [[negative and positive numbers]], methods for computing square roots, methods of solving [[linear equation|linear]] and [[quadratic equation]]s, and rules for summing [[series (mathematics)|series]], [[Brahmagupta's identity]], and the [[Brahmagupta theorem]].
+* '''8th century''' India, [[Virasena]] (750–825) gives explicit rules for the [[Fibonacci sequence]], gives the derivation of the [[volume]] of a [[frustum]] using an [[Infinity|infinite]] procedure, and worked with the concept of ''ardhachheda'': the number of times a number can be divided by 2.<ref name="m16" /><ref name="m17" /> .
+* '''8th century''' India, [[Sridhara]] gives the rule for finding the volume of a sphere and also the formula for solving quadratic equations.
+* '''773''' Iraq, Kanka brings [[Brahmagupta]]'s [[Brāhmasphuṭasiddhānta]] to [[Baghdad]] to explain the Indian system of arithmetic [[astronomy]] and the [[Indian numerals|Indian numeral]] system.
+* '''9th century''' India, [[Govindasvāmi]] discovers the Newton-Gauss interpolation formula and gives the fractional parts of [[Aryabhata]]'s tabular [[Sine (trigonometric function)|sines]].
+* '''810''' The [[House of Wisdom]] is built in [[Baghdad]] for the translation of Greek and [[Sanskrit]] mathematical works into Arabic.
+* '''820 – [[Al-Khwarizmi]]''' [[Persian people|Persian]] mathematician, father of algebra, writes the ''[[The Compendious Book on Calculation by Completion and Balancing|Al-Jabr]]'', later transliterated as ''[[Algebra]]'', which introduces systematic algebraic techniques for solving linear and quadratic equations. Translations of his book on [[arithmetic]] will introduce the [[Arabic numerals|Hindu–Arabic]] [[decimal]] number system to the Western world in the 12th century. The term ''[[algorithm]]'' is also named after him.
+* '''c. 850''' India, [[Mahāvīra (mathematician)|Mahāvīra]] writes the [[Gaṇita-sāra-saṅgraha|Gaṇitasārasan̄graha]], otherwise known as the Ganita Sara Samgraha, which gives systematic rules for expressing a fraction as the [[Egyptian fraction|sum of unit fractions]].
+* '''c. 900''' [[Mesopotamia]], [[al-Battani]] extended the Indian concepts of sine and cosine to other trigonometrical ratios, like tangent, secant, and their inverse functions. Derived the formulae: <math> \sin \alpha = \tan \alpha / \sqrt{1+\tan^2 \alpha} </math> and <math> \cos \alpha = 1 / \sqrt{1 + \tan^2 \alpha}</math>.
+* '''940''' Iran, [[Abu al-Wafa' al-Buzjani]] (940–998) extracts [[root of a function|roots]] using the [[Indian numerals|Indian numeral]] system.
+* '''953''' The arithmetic of the [[Hindu–Arabic numeral system]] at first required the use of a dust board (a sort of handheld [[blackboard]]) because "the methods required moving the numbers around in the calculation and rubbing some out as the calculation proceeded." [[Abu'l-Hasan al-Uqlidisi|Al-Uqlidisi]] modified these methods for pen and paper use. Eventually the advances enabled by the decimal system led to its standard use throughout the region and the world.
+* '''c. 1000''' [[Pope Sylvester II]] (c. 946–1003) introduces the [[abacus]] using the [[Hindu–Arabic numeral system]] to Europe.
+* '''c. 1100''' Omar Khayyám "gave a complete classification of [[cubic equation]]s with geometric solutions found by means of intersecting [[conic section]]s". He became the first to find general [[geometry|geometric]] solutions of cubic equations and laid the foundations for the development of [[analytic geometry]] and [[non-Euclidean geometry]]. He also extracted [[root of a function|roots]] using the decimal system ([[Hindu–Arabic numeral system]]).
+* '''12th century''' [[Indian numerals]] have been modified by Arab mathematicians to form the modern [[Arabic numeral]] system.
+* '''12th century''' [[Bhāskara II|Bhaskara Acharya]] writes the [[Lilavati]], which covers the topics of definitions, arithmetical terms, interest computation, arithmetical and geometrical progressions, plane geometry, [[solid geometry]], the shadow of the [[gnomon]], methods to solve indeterminate equations, and [[combinations]].
+* '''12th century''' [[Bhāskara II]] ([[Bhāskara II|Bhaskara Acharya]]) writes the ''[[Bijaganita]]'' (''[[Algebra]]''), which is the first text to recognize that a positive number has two square roots. Furthermore, it also gives the ''[[Chakravala method]]'' which was the first generalized solution of so-called ''[[Pell's equation]].''
+* '''12th century''' [[Bhāskara II|Bhaskara Acharya]] develops preliminary concepts of infinitesimal methods,and also develops early form of Rolle's theorem in his work, though it was stated without a modern formal proof.<ref name="m21" />, [[Pell's equation]], a proof for the [[Pythagorean theorem]], proves that division by zero is infinity, computes [[pi|π]] to 5 decimal places, and calculates the time taken for the Earth to orbit the Sun to 9 decimal places.
+* '''1202''' [[Leonardo of Pisa|Leonardo Fibonacci]] demonstrates the utility of [[Hindu–Arabic numerals]] in his [[Liber Abaci]] (''Book of the Abacus'').
+* '''1356''' [[Narayana Pandita (mathematician)|Narayana Pandita]] (1340–1400) completes his treatise [[Ganita Kaumudi]], generalized [[Fibonacci sequence]], and the first ever algorithm to systematically generate all permutations as well as many new magic figure techniques.
+* '''14th century''' [[Madhava of Sangamagrama|Madhava]] (c. 1340–c. 1425) discovers the [[power series]] expansion for <math>\sin x</math>, <math>\cos x</math>, <math>\arctan x</math> and <math>\pi/4</math><ref name="m23" /><ref name="m24" /> This theory is now well known in the Western world as the [[Taylor series]] or infinite series.<ref name="m25" />
+* '''14th century''' [[Parameshvara Nambudiri]] (c. 1380–1460), a [[Kerala school of astronomy and mathematics|Kerala school]] mathematician, presents a series form of the [[sine function]] that is equivalent to its [[Taylor series]] expansion, states the [[mean value theorem]] of differential calculus, and is also the first mathematician to give the radius of circle with inscribed [[cyclic quadrilateral]].
+* '''1400''' [[Madhava of Sangamagrama|Madhava]] discovers the series expansion for the inverse-tangent function, the infinite series for arctan and sin, and many methods for calculating the circumference of the circle, and uses them to compute π correct to 11 decimal places.
+* '''15th century''' [[Nilakantha Somayaji]] (1444–1544), a [[Kerala school of astronomy and mathematics|Kerala school]] mathematician, writes the ''Aryabhatiya Bhasya,'' which contains work on infinite-series expansions, problems of algebra, and spherical geometry.
+* '''1501''' [[Nilakantha Somayaji]] writes the [[Tantrasamgraha]], which is the first treatment of all 10 cases in spherical trigonometry.
+* '''1550''' Jyeṣṭhadeva, a [[Kerala school of astronomy and mathematics|Kerala school]] mathematician writes the ''[[Yuktibhāṣā]],'' which gives proofs of power series expansion of some trigonometry functions.
+* '''1671''' [[James Gregory (astronomer and mathematician)|James Gregory]] (1638–1675) develops a series expansion for the inverse-[[tangent (trigonometric function)|tangent]] function (originally discovered by [[Madhava of Sangamagrama|Madhava]]).
+* '''1916''' [[Srinivasa Ramanujan]] (1887–1920) introduces [[Ramanujan conjecture]]. This conjecture is later generalized by [[Hans Petersson]] (1902–1984).
+}}
+
+== Mathematics in the Islamic world ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=maths
+|text=
+* '''773''' Iraq, Kanka brings [[Brahmagupta]] (c. 598–c. 668)'s [[Brāhmasphuṭasiddhānta]] to [[Baghdad]] to explain the Indian system of arithmetic [[astronomy]] and the [[Indian numerals|Indian numeral]] system.
+* '''773''' [[Muḥammad ibn Ibrāhīm al-Fazārī]] translates the [[Brāhmasphuṭasiddhānta]] into Arabic upon the request of King Khalif Abbasid Al Mansoor.
+* '''810''' The [[House of Wisdom]] is built in [[Baghdad]] for the translation of Greek and [[Sanskrit]] mathematical works into Arabic.
+* '''820 – [[Al-Khwarizmi]]''' [[Persian people|Persian]] mathematician, father of algebra, writes the ''[[The Compendious Book on Calculation by Completion and Balancing|Al-Jabr]]'', later transliterated as ''[[Algebra]]'', which introduces systematic algebraic techniques for solving linear and quadratic equations. Translations of his book on [[arithmetic]] will introduce the [[Arabic numerals|Hindu–Arabic]] [[decimal]] number system to the Western world in the 12th century. The term ''[[algorithm]]'' is also named after him.
+* '''c. 850''' Iraq, [[al-Kindi]] pioneers [[cryptanalysis]] and [[frequency analysis]] in his book on [[cryptography]].
+* '''c. 900''' Egypt, [[Abu Kamil]] had begun to understand what we would write in symbols as <math>x^n \cdot x^m = x^{m+n}</math>
+* '''c. 900''' [[Mesopotamia]], [[al-Battani]] extended the Indian concepts of sine and cosine to other trigonometrical ratios, like tangent, secant, and their inverse functions. Derived the formulae: <math> \sin \alpha = \tan \alpha / \sqrt{1+\tan^2 \alpha} </math> and <math> \cos \alpha = 1 / \sqrt{1 + \tan^2 \alpha}</math>.
+* '''940''' Iran, [[Abu al-Wafa' al-Buzjani]] (940–998) extracts [[root of a function|roots]] using the [[Indian numerals|Indian numeral]] system.
+* '''953''' The arithmetic of the [[Hindu–Arabic numeral system]] at first required the use of a dust board (a sort of handheld [[blackboard]]) because "the methods required moving the numbers around in the calculation and rubbing some out as the calculation proceeded." [[Abu'l-Hasan al-Uqlidisi|Al-Uqlidisi]] modified these methods for pen and paper use. Eventually the advances enabled by the decimal system led to its standard use throughout the region and the world.
+* '''953''' Persia, [[Al-Karaji]] is the "first person to completely free algebra from geometrical operations and to replace them with the arithmetical type of operations that are at the core of algebra today. He was first to define the [[monomial]]s <math>x</math>, <math>x^2</math>, <math>x^3</math>, ... and <math>1/x</math>, <math>1/x^2</math>, <math>1/x^3</math>, ... and to give rules for [[product (mathematics)|products]] of any two of these. He started a school of algebra, which flourished for several hundred years. "He also discovered the [[binomial theorem]] for [[integer]] [[exponent]]s, which "was a major factor in the development of [[numerical analysis]] based on the decimal system."
+* '''c. 1000''' [[Abu Sahl al-Quhi]] (Kuhi) solves polynomial [[equation]]s higher than the [[Quadratic equation|second degree]].
+* '''c. 1000''' [[Abu-Mahmud Khujandi]] (c. 940–1000) first states a special case of [[Fermat's Last Theorem]].
+* '''c. 1000''' [[Law of sines]] is discovered by [[Islamic mathematics|Muslim mathematicians]], but it is uncertain who discovers it first between [[Abu-Mahmud al-Khujandi]], [[Abu Nasr Mansur]] (c. 960–1036), and [[Abu al-Wafa' al-Buzjani]].
+* '''c. 1000''' [[Pope Sylvester II]] (c. 946–1003) introduces the [[abacus]] using the [[Hindu–Arabic numeral system]] to Europe.
+* '''1000''' [[Al-Karaji]] writes a book containing the first known [[Mathematical proof|proofs]] by [[mathematical induction]]. He used it to prove the [[binomial theorem]], [[Pascal's triangle]], and the sum of [[Integer|integral]] [[Cube (algebra)|cubes]].<ref name="m18" /> He was "the first who introduced the theory of [[algebra]]ic [[calculus]]".<ref name="m19" />
+* '''c. 1000''' [[Abu Mansur al-Baghdadi]] studied a slight variant of [[Thābit ibn Qurra]] (826–901)'s theorem on [[amicable number]]s, and he also made improvements on the decimal system.
+* '''1020''' [[Abu al-Wafa' al-Buzjani]] gave the formula: sin (α + β) = sin α cos β + sin β cos α. Also discussed the quadrature of the [[parabola]] and the volume of the [[paraboloid]].
+* '''1021''' [[Ibn al-Haytham]] (c. 965–c. 1040) formulated and solved [[Alhazen's problem]] geometrically.
+* '''1030''' [[Alī ibn Ahmad al-Nasawī]] writes a treatise on the [[decimal]] and [[sexagesimal]] number systems. His arithmetic explains the division of fractions and the extraction of square and cubic roots (square root of 57,342; cubic root of 3,652,296) in an almost modern manner.<ref name="m20" />
+* '''1070''' [[Omar Khayyam]] (1048–1131) begins to write ''Treatise on Demonstration of Problems of [[Algebra]]'' and classifies cubic equations.
+* '''c. 1100''' Omar Khayyám "gave a complete classification of [[cubic equation]]s with geometric solutions found by means of intersecting [[conic section]]s". He became the first to find general [[geometry|geometric]] solutions of cubic equations and laid the foundations for the development of [[analytic geometry]] and [[non-Euclidean geometry]]. He also extracted [[root of a function|roots]] using the decimal system ([[Hindu–Arabic numeral system]]).
+* '''12th century''' [[Indian numerals]] have been modified by Arab mathematicians to form the modern [[Arabic numeral]] system.
+* '''12th century''' the [[Arabic numeral]] system reaches Europe through the [[Arabs]].
+* '''1130''' [[Al-Samawal al-Maghribi]] gave a definition of algebra: "[it is concerned] with operating on unknowns using all the arithmetical tools, in the same way as the arithmetician operates on the known."<ref name=MacTutor/>
+* '''1135''' [[Sharaf al-Din al-Tusi]] (c. 1135–c. 1213) followed al-Khayyam's application of algebra to geometry, and wrote a treatise on cubic equations that "represents an essential contribution to another algebra which aimed to study curves by means of equations, thus inaugurating the beginning of algebraic geometry."<ref name="MacTutor" />
+* '''1202''' [[Leonardo of Pisa|Leonardo Fibonacci]] demonstrates the utility of [[Hindu–Arabic numerals]] in his [[Liber Abaci]] (''Book of the Abacus'').
+* '''1260''' [[Kamāl al-Dīn al-Fārisī|Al-Farisi]] gave a new proof of Thabit ibn Qurra's theorem, introducing important new ideas concerning [[factorization]] and [[Combinatorics|combinatorial]] methods. He also gave the pair of amicable numbers 17296 and 18416 that have also been jointly attributed to [[Fermat]] (1601–1665) as well as Thabit ibn Qurra.<ref name="m22" />
+* '''c. 1250''' [[Nasir al-Din al-Tusi]] attempts to develop a form of non-[[Euclidean geometry]].
+* '''c. 1400''' [[Jamshid al-Kashi]] (c. 1380–1429) "contributed to the development of [[decimal fraction]]s not only for approximating [[algebraic number]]s, but also for [[real number]]s such as π. His contribution to decimal fractions is so major that for many years he was considered their inventor. Although not the first to do so, al-Kashi gave an algorithm for calculating nth roots, which is a special case of the methods given many centuries later by [Paolo] Ruffini and [William George] Horner." He is also the first to use the [[decimal point]] notation in [[arithmetic]] and [[Arabic numerals]]. His works include ''The Key of Arithmetics,'' ''Discoveries in Mathematics,'' ''The Decimal Point,'' and ''The Benefits of the Zero.'' The contents of the ''Benefits of the Zero'' are an introduction followed by five essays: "On whole number arithmetic," "On fractional arithmetic," "On astrology," "On areas," and "On finding the unknowns [unknown variables]." He also wrote the ''Thesis on the sine and the chord'' and the ''Thesis on finding the first degree sine.''
+* '''15th century''' [[Ibn al-Banna' al-Marrakushi]] and [[Abu'l-Hasan ibn Ali al-Qalasadi]] (1412–1486) introduced [[Mathematical notation|symbolic notation]] for algebra and for mathematics in general.<ref name=MacTutor/>
+* '''1424''' [[Jamshid al-Kashi]] computes π to sixteen decimal places using inscribed and circumscribed polygons.
+* '''1427''' [[Jamshid al-Kashi]] completes ''The Key to Arithmetic,'' containing work of great depth on decimal fractions. It applies arithmetical and algebraic methods to the solution of various problems, including several geometric ones.
+* '''1522''' [[Adam Ries]] (1492–1559) explained the use of Arabic digits and their advantages over Roman numerals.
+* '''1933''' [[Karol Borsuk]] (1905–1982) and [[Stanislaw Ulam]] (1909–1984) present the [[Borsuk–Ulam theorem|Borsuk–Ulam antipodal-point theorem]].
+}}
+
+== Mathematics in medieval and Renaissance Europe ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=mathu
+|text=
+* '''c. 1000''' [[Pope Sylvester II]] (c. 946–1003) introduces the [[abacus]] using the [[Hindu–Arabic numeral system]] to Europe.
+* '''12th century''' the [[Arabic numeral]] system reaches Europe through the [[Arabs]].
+* '''1202''' [[Leonardo of Pisa|Leonardo Fibonacci]] demonstrates the utility of [[Hindu–Arabic numerals]] in his [[Liber Abaci]] (''Book of the Abacus'').
+* '''1356''' [[Narayana Pandita (mathematician)|Narayana Pandita]] (1340–1400) completes his treatise [[Ganita Kaumudi]], generalized [[Fibonacci sequence]], and the first ever algorithm to systematically generate all permutations as well as many new magic figure techniques.
+* '''15th century''' [[Piero della Francesca]] (c. 1415–1492) writes books on solid geometry and linear perspective, among them ''De Prospectiva Pingendi''.<ref name="m26" /><ref name="m27" />
+* '''1464''' [[Regiomontanus]] (1436–1476) writes ''De Triangulis omnimodus,'' which is one of the earliest texts to treat trigonometry as a separate branch of mathematics.
+* '''1478''' An anonymous author writes the ''[[Treviso Arithmetic]].''
+* '''1494''' [[Luca Pacioli]] (c. 1447–1517) writes ''[[Summa de arithmetica|Summa de arithmetica, geometria, proportioni et proportionalità]],'' introducing primitive symbolic algebra using "co" (cosa) for the unknown.
+* '''1522''' [[Adam Ries]] (1492–1559) explained the use of Arabic digits and their advantages over Roman numerals.
+* '''1535''' [[Nicolo Tartaglia]] (1499–1557) independently develops a method for solving depressed cubic equations but also does not publish.
+* '''1539''' [[Gerolamo Cardano]] (1501–1576) learns Tartaglia's method for solving depressed cubics and discovers a method for depressing cubics, thereby creating a method for solving all cubics.
+* '''1540''' [[Lodovico Ferrari]] (1522–1565) solves the [[quartic equation]].
+* '''1543''' [[Nicolaus Copernicus]] (1473–1543) publishes ''[[De revolutionibus orbium coelestium]]'', a heliocentric model whose main content is mathematical rather than physical.
+* '''1545''' [[Gerolamo Cardano]] conceives the idea of [[complex number]]s.
+* '''1572''' [[Rafael Bombelli]] (1526–1572) writes the ''[[Algebra]]'' treatise and uses imaginary numbers to solve cubic equations.
+* '''1585''' [[Simon Stevin]] (1548–1620)'s ''De Thiende'' ("the art of tenths"), first published in Dutch, contains the first systematic treatment of [[decimal]] notation in Europe.<ref name="m28" /><ref name="hom-GS35" />
+* '''1595''' [[Bartholomaeus Pitiscus]] (1561–1613) publishes his ''Trigonometria'', the first use of the word [[trigonometry]].
+* '''1614''' [[John Napier]] (1550–1617) publishes a table of Napierian [[logarithm]]s in ''[[Mirifici Logarithmorum Canonis Descriptio]].''
+* '''1618''' [[John Napier]] publishes the first references to [[E (mathematical constant)|''e'']] in a work on [[logarithms]].
+* '''1619''' [[Johannes Kepler]] (1571–1630) discovers two of the [[Kepler-Poinsot polyhedra]].
+}}
+
+== See also ==
+{{portal|Mathematics}}
+* [[History of mathematical notation]] explains Rhetorical, Syncopated and Symbolic
+* {{annotated link|Timeline of ancient Greek mathematicians}}
+* [[Timeline of mathematical innovation in South and West Asia]]
+* {{annotated link|Timeline of mathematical logic}}
+* [[Timeline of women in mathematics]]
+* [[Timeline of women in mathematics in the United States]]
+
+== References ==
+{{reflist|30em}}
+* David Eugene Smith, 1929 and 1959, ''A Source Book in Mathematics'', [[Dover Publications]]. {{isbn|0-486-64690-4}}.
+
+== Works cited ==
+{{refbegin|30em}}
+* {{citation |first=C.B. |last=Boyer |author-link=Carl Benjamin Boyer |title=A History of Mathematics |edition=2nd |place=New York |publisher=Wiley |year=1991 |orig-date=1989 |isbn=978-0-471-54397-8 |url=https://archive.org/details/historyofmathema00boye }}
+{{refend}}
+
+== External links ==
+* {{MacTutor Biography|class=Chronology|id=full|title=A Mathematical Chronology}}
+
+{{Areas of mathematics}}
+{{History of mathematics}}
