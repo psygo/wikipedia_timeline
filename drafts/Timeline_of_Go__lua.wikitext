@@ -444,4 +444,4 @@ __TOC__
 * [https://senseis.xmp.net/?HistoryOfGoInFrance19652007 "History of Go in France 1965–2007"] at Sensei's Library
 * The book ''Eurogo''
 
-[[:Category:Go (game)]]
+[[Category:History of Go|Timeline]]

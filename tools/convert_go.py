@@ -561,7 +561,7 @@ page = (
     '\n\n== See also ==\n* [[History of Go]]\n* [[Go (game)]]\n* [[Timeline of artificial intelligence]]\n'
     '\n== References ==\n'
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
-    + ELSEWHERE + '\n[[:Category:Go (game)]]\n'
+    + ELSEWHERE + '\n[[Category:History of Go|Timeline]]\n'
 )
 out.parent.mkdir(exist_ok=True)
 page = dedupe(page)
