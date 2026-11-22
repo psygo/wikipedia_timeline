@@ -553,12 +553,11 @@ ELSEWHERE = (
 
 sources = re.search(r'^== ?Sources ?==\n(.*?)(?=^==)', hog, re.S | re.M)
 sources = sources.group(1).strip() if sources else ''
-lead = ("This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''weiqi'', Korean ''baduk''), "
+lead = ("This is a timeline of the history of the board game [[Go (game)|Go]] "
+        "({{lang|ja|囲碁}}, {{transliteration|ja|igo}}; {{lang|zh-Hans|围棋}}, {{lang|zh-Hant|圍棋}}, {{transliteration|zh|wéiqí}}; "
+        "{{lang|ko|바둑}}, {{transliteration|ko|baduk}}), "
         "from its legendary origins in ancient China to the age of AI. For the full story, see [[History of Go]].")
 page = (
-    '<!-- Draft of a "Timeline of Go" with [[Module:TimelineRail]]. The events and their sources are adapted from [[History of Go]] '
-    '(see its history for attribution), the Go | Hall of Fame timeline (go-hall-of-fame.vercel.app) and, as facts put in new words, '
-    'the Go History page of Sensei\'s Library (senseis.xmp.net/?GoHistory). -->\n'
     '{{Short description|Chronology of the board game Go}}\n'
     '{{Use dmy dates|date=November 2026}}\n\n'
     + "[[File:MET DP135836.jpg|thumb|right|upright=1.3|''Outfit for the Go Game'', woodblock print (''surimono''), 19th century, [[Metropolitan Museum of Art]].]]\n"
