@@ -24,7 +24,8 @@ MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 
 PT = '--lang=pt' in FLAGS          # Portuguese (Brazil) version, text in tools/go_pt.py
 if PT:
     import go_pt
-out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / ('Linha_do_tempo_do_Go__pt.wikitext' if PT else 'Timeline_of_Go__lua.wikitext')
+NO_VIDEO = '--no-youtube' in FLAGS   # leave out the YouTube reference (a new account may not add YouTube links on some wikis)
+out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (('Linha_do_tempo_do_Go__pt' if PT else 'Timeline_of_Go__lua') + ('_sem_youtube' if NO_VIDEO else '') + '.wikitext')
 
 url = 'https://en.wikipedia.org/w/index.php?action=raw&title=History_of_Go'
 hog = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
@@ -75,6 +76,8 @@ VIDEO = ('<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who
 GORATINGS = ('<ref name="goratings">{{cite web |title=Go Ratings |url=https://www.goratings.org/en/ |website=goratings.org '
              '|access-date=22 November 2026}}</ref>')
 
+if NO_VIDEO:
+    VIDEO = ''
 if PT:       # the Portuguese citation templates want an ISO date
     VIDEO = VIDEO.replace('22 November 2026', '2026-11-22')
     GORATINGS = GORATINGS.replace('22 November 2026', '2026-11-22')
