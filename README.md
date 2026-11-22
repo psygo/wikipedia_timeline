@@ -93,6 +93,22 @@ write drafts for the sandbox names); `lua/README.md` has the step by step, and t
 
 The test page `lua/Module_TimelineRail__test.wikitext` goes on any user subpage (it calls the sandbox module).
 
+## Wikipedia pages on pt.wikipedia.org
+
+The same modules and styles, copied to the Portuguese Wikipedia (each wiki has its own copy: modules cannot be called across wikis).
+`Module:` and `Template:` also work there as `Módulo:` and `Predefinição:`. Paste in this order; the article comes last.
+
+| Page on pt.wikipedia.org (edit link) | Paste from | What it is |
+| --- | --- | --- |
+| [Módulo:TimelineRail](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:TimelineRail&action=edit) | [`lua/Module_TimelineRail.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail.lua) | The timeline |
+| [Predefinição:TimelineRail/styles.css](https://pt.wikipedia.org/w/index.php?title=Predefini%C3%A7%C3%A3o:TimelineRail/styles.css&action=edit) | [`template/TimelineRail__styles.css`](https://github.com/psygo/wikipedia_timeline/blob/main/template/TimelineRail__styles.css) | Its look |
+| [Módulo:OutlineList](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:OutlineList&action=edit) | [`lua/Module_OutlineList.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineList.lua) | The List view |
+| [Módulo:OutlineTable](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:OutlineTable&action=edit) | [`lua/Module_OutlineTable.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineTable.lua) | The Table view |
+| [Módulo:ViewSwitcher](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:ViewSwitcher&action=edit) | [`lua/Module_ViewSwitcher.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_ViewSwitcher.lua) | The views and their dropdown |
+| [Módulo:ViewSwitcher/styles.css](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:ViewSwitcher/styles.css&action=edit) | [`lua/ViewSwitcher__styles.css`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/ViewSwitcher__styles.css) | The dropdown's look |
+| [Linha do tempo do Go](https://pt.wikipedia.org/w/index.php?title=Linha_do_tempo_do_Go&action=edit) | [`drafts/Linha_do_tempo_do_Go__pt.wikitext`](https://github.com/psygo/wikipedia_timeline/blob/main/drafts/Linha_do_tempo_do_Go__pt.wikitext) | The Portuguese (Brazil) Timeline of Go. `python3 tools/convert_go.py --lang=pt` makes it; `--no-youtube` leaves out the YouTube reference (a new account cannot add YouTube links there) |
+| [Usuário:SEU_NOME/ViewSwitcher.js](https://pt.wikipedia.org/w/index.php?title=Usu%C3%A1rio:SEU_NOME/ViewSwitcher.js&action=edit) (optional) | [`userscript/ViewSwitcher.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js) | The View button, for you only (replace `SEU_NOME` with your username, then `importScript` it from your `common.js`) |
+
 ## User script (optional)
 
 `userscript/Timeline-toolbar.js` adds a **Timeline** drop-down to the edit toolbar that inserts
