@@ -66,7 +66,15 @@ local function renderEvent( ev, hideTitle )
 	if ev.text then
 		out[ #out + 1 ] = '<div class="wt-timeline__text">' .. ev.text .. '</div>'
 	end
-	if ev.image then
+	if ev.images and #ev.images > 1 then
+		-- several pictures: one row of framed pictures that wraps when there is no more room
+		out[ #out + 1 ] = '<div class="wt-timeline__images">'
+		for _, f in ipairs( ev.images ) do
+			out[ #out + 1 ] = '<span class="wt-timeline__image">[[File:' .. f[ 1 ] .. '|' .. ( f[ 3 ] or '100x100px' )
+				.. '|alt=]]' .. ( f[ 2 ] and ( '<br />' .. f[ 2 ] ) or '' ) .. '</span>'
+		end
+		out[ #out + 1 ] = '</div>'
+	elseif ev.image then
 		out[ #out + 1 ] = '<span class="wt-timeline__image">[[File:' .. ev.image .. '|'
 			.. ( ev.imagesize or '100x100px' ) .. '|alt=' .. ( ev.imagealt or '' ) .. ']]'
 		if ev.caption then out[ #out + 1 ] = '<br />' .. ev.caption end
@@ -190,7 +198,7 @@ end
 --   * '''3.3 mya''' Oldest stone tools.    an item: bold date, then the text
 --   * 1612 ;; The Go academy ;; Text       an item with a title: date ;; title ;; text
 --   ** a sub-point                         becomes a list in the item's text
---   [[File:X.jpg|thumb|Caption]]           the picture of the next item
+--   [[File:X.jpg|thumb|Caption]]           the picture of the next item (several lines: several pictures, in a row that wraps)
 --   a continuation line                    goes on the text of the item above
 
 local OPT = {
@@ -277,7 +285,8 @@ function p.parseOutline( text )
 			local date, title, body = parseItem( trim( ( l:gsub( '^%*%s*', '' ) ) ) or '' )
 			lastItem = { date = date, title = title, text = { body }, subs = {} }
 			if pendingFile then
-				lastItem.image, lastItem.caption, lastItem.imagesize = pendingFile[ 1 ], pendingFile[ 2 ], pendingFile[ 3 ]
+				lastItem.image, lastItem.caption, lastItem.imagesize = pendingFile[ 1 ][ 1 ], pendingFile[ 1 ][ 2 ], pendingFile[ 1 ][ 3 ]
+				lastItem.images = pendingFile
 				pendingFile = nil
 			end
 			local parent = stack[ #stack ]
@@ -285,7 +294,8 @@ function p.parseOutline( text )
 			cur = lastItem.text
 		elseif l:match( '^%[%[.*%]%]$' ) and ( l:lower():match( '^%[%[file:' ) or l:lower():match( '^%[%[image:' ) ) then
 			local name, caption, size = parseFile( l )
-			pendingFile = { name, caption, size }
+			pendingFile = pendingFile or {}      -- a list: every picture line before an item belongs to it
+			pendingFile[ #pendingFile + 1 ] = { name, caption, size }
 		elseif cur then
 			if cur.sub then
 				cur[ #cur ] = cur[ #cur ] .. ' ' .. l
@@ -325,8 +335,13 @@ local function buildOutline( node, opts, prefix, counter, depth )
 				for _, s in ipairs( ch.subs ) do lis[ #lis + 1 ] = '<li>' .. s .. '</li>' end
 				text = ( text and ( text .. ' ' ) or '' ) .. '<ul>' .. table.concat( lis ) .. '</ul>'
 			end
+			local images
+			if ch.images then
+				images = {}
+				for _, f in ipairs( ch.images ) do images[ #images + 1 ] = { f[ 1 ], f[ 2 ], f[ 3 ] or '220px' } end
+			end
 			out[ #out + 1 ] = renderItem( {
-				date = ch.date, title = ch.title, text = text, image = ch.image, caption = ch.caption,
+				date = ch.date, title = ch.title, text = text, image = ch.image, caption = ch.caption, images = images,
 				imagesize = ch.image and ( ch.imagesize or '220px' ) or nil,
 				id = prefix .. '_i' .. counter.i, collapsed = opts.collapseItems,
 			} )

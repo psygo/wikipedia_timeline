@@ -109,7 +109,7 @@ SECTIONS = [
  ('Legends and first records', [
   ('Unknown', 'The "Rotten Handle" legend of the origin of the game: a carpenter in Zhejiang watches deities playing a mysterious game and loses track of time.', None, 'HOF'),
   ('c. 2356–2255 BCE', 'According to legend, Emperor Yao creates the game to teach discipline and balance to his son Danzhu. Another legend has Shun, his successor, invent it for his own son.', 'According to legend, the game was created', 'HOG+HOF+SL'),
-  ('548 BCE', 'The earliest written reference to the game is usually taken to be the historical annal [[Zuo Zhuan]], about an event of this year; it is also mentioned in the [[Analects]] of Confucius and in the books of [[Mencius]].', 'The earliest written reference', 'HOG+HOF'),
+  ('548 BCE', 'The earliest written reference to the game is usually taken to be the historical annal Zuo Zhuan, about an event of this year; it is also mentioned in the Analects of Confucius and in the books of Mencius.', 'The earliest written reference', 'HOG+HOF'),
   ('3rd century BCE', 'Mencius mentions a famous player called Yi Qiu.', None, 'SL'),
   ('206 BCE – 24 CE', 'Western Han: a broken piece of a pottery board, the earliest board found in China, is later unearthed in Shaanxi.', 'Chinese archaeologists have discovered a broken piece', 'HOG'),
   ('1st–3rd century', 'Eastern Han: Ban Gu writes {i}Yì Zhǐ{/i} ("The Essentials of Go"), the oldest surviving text devoted to Go, and boards have 17 × 17 lines.', 'Ban Gu', 'HOG+SL'),
@@ -148,10 +148,10 @@ SECTIONS = [
   ('1868', 'The Meiji Restoration ends the official stipends of the Go houses; Go loses its patrons and the masters struggle.', 'Meiji Restoration', 'HOG+SL'),
   ('1878', 'The first newspaper Go column appears in Japan, on 1 April. In 1879 the Hoensha society forms; its journal {i}Igo Shinpo{/i} is the first Go magazine.', None, 'SL'),
   ('1909–1910', 'The Japanese professional Takabe Dōhei visits China and introduces play without fixed starting stones.', None, 'SL'),
-  ('1924', 'The [[Nihon Ki-in]], Japan\'s professional Go association, is founded, ending the hereditary house system and inaugurating the modern rank and tournament system.', 'established in 1924', 'HOG+HOF+SL'),
+  ('1924', 'The Nihon Ki-in, Japan\'s professional Go association, is founded, ending the hereditary house system and inaugurating the modern rank and tournament system.', 'established in 1924', 'HOG+HOF+SL'),
   ('1933', 'The "Game of the Century": Go Seigen opens at the three-three, star and center points against Honinbo Shusai, in a controversial three-month game that challenges the old system.', 'game of the century', 'HOG+HOF'),
   ('1935', 'A game of Go is broadcast on radio for the first time.', None, 'SL'),
-  ('1936–1938', 'Shūsai hands the Hon\'inbō title to the Nihon Ki-in (1936) and retires in 1938 after a game against Kitani Minoru that inspires Kawabata\'s novel {i}The Master of Go{/i}.', 'first tournaments in 1936', 'HOG+SL'),
+  ('1936–1938', 'Shūsai hands the Hon\'inbō title to the Nihon Ki-in (1936) and retires in 1938 after a game against Kitani Minoru that inspires the novel {i}The Master of Go{/i} by Yasunari Kawabata.', 'first tournaments in 1936', 'HOG+SL'),
   ('1941', 'Sekiyama Riichi wins the first Hon\'inbō title tournament, one of the first major modern tournaments with komi (4.5 points).', None, 'SL'),
   ('1945', 'The "Game Under the Atomic Bomb": the second game of the 3rd Hon\'inbō match, played near Hiroshima on August 6, is finished after the blast.', 'Game Under the Atomic Bomb', 'HOG'),
   ('1949', 'Fujisawa Hōsai becomes the first player to reach 9 dan under the Oteai promotion system.', None, 'SL'),
@@ -220,80 +220,157 @@ SECTIONS = [
  ]),
 ]
 
-# first mention of each person or thing is linked (the titles were checked against the wiki)
-LINKS = {
-    'Emperor Yao': 'Emperor Yao', 'Honinbo Sansa': "Hon'inbō Sansa|Honinbo Sansa", 'Honinbo Shusaku': "Hon'inbō Shūsaku|Honinbo Shusaku",
-    'Honinbo Shusai': "Hon'inbō Shūsai|Honinbo Shusai", 'Go Seigen': 'Go Seigen', 'Sakata Eio': 'Sakata Eio',
-    'Nie Weiping': 'Nie Weiping', 'Cho Hunhyun': 'Cho Hun-hyun|Cho Hunhyun', 'Lee Changho': 'Lee Chang-ho|Lee Changho',
-    'Shin Jinseo': 'Shin Jin-seo|Shin Jinseo', 'AlphaGo': 'AlphaGo', 'KataGo': 'KataGo', 'Ke Jie': 'Ke Jie',
-    'Michael Redmond': 'Michael Redmond', 'Rui Naiwei': 'Rui Naiwei', 'Huang Longshi': 'Huang Longshi',
-    'Oskar Korschelt': 'Oskar Korschelt', 'Thomas Hyde': 'Thomas Hyde', 'Kibi no Makibi': 'Kibi no Makibi',
-    'Ing Cup': 'Ing Cup', 'Rin Kaiho': 'Rin Kaiho', 'Kato Masao': 'Kato Masao', 'Cho Chikun': 'Cho Chikun', 'Gu Li': 'Gu Li', 'Park Junghwan': 'Park Junghwan', 'Lee Sedol': 'Lee Sedol', 'Nihon Ki-in': 'Nihon Ki-in',
-}
-linked = set()
-def link(text, linked=linked):
-    for name, target in LINKS.items():
-        if name in linked or '[[%s' % name in text or ('[[' + target.split('|')[0]) in text:
-            continue
-        if name in text:
-            text = text.replace(name, '[[%s]]' % target if '|' in target or target != name else '[[%s]]' % name, 1)
-            linked.add(name)
-    return text
-
-# Pictures on Wikimedia Commons, the ones History of Go uses: (date, a part of the event's text, file)
-IMAGES = [
-    ('1st–3rd century', 'Ban Gu', 'Go Board Han dynasty.JPG'),
-    ('3rd–6th century', 'Dunhuang', 'British Library Dunhuang Go Manual.jpg'),
-    ('475', 'To-lim', 'Baekje Game of Baduk (Copy) (30079340202).jpg'),
-    ('618–907', 'Tang', 'Early Go stones.jpeg'),
-    ('Early 8th century', 'Tibet', 'TibetGoBoard.png'),
-    ('1349', 'Xuanxuan', 'Inner Mongolia Museum weiqi stones.jpg'),
-    ('Ming dynasty', 'Hongwu', 'Go Ming Court.jpg'),
-    ('1588', 'Hideyoshi', 'Go board Hideyoshi Ieyasu Ryogenin M1868.jpg'),
-    ('1603', 'Sansa', 'Sansa.jpg'),
-    ('Late 17th century', 'Dōsaku', 'Honinbo Dosaku.png'),
-    ('1846', 'ear-reddening', 'Kulak_kizartan_go.png'),
-    ('1933', 'Game of the Century', 'Game_of_the_Century_-_Honinbo_Shusai_(W)_vs_Go_Seigen_(B)_no_text.svg'),
-    ('1936–1938', 'Shūsai', 'Honinbo Shusai.jpg'),
-    ('1950', 'Go Seigen', 'Go_Seigen_and_Kitani_Minoru.jpg'),
-    ('January 1959', 'Sakata', 'Sakata-Eio-1.jpg'),
-    ('2000', 'Redmond', 'Michael Redmond in 2018.png'),
-    ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg'),
-    ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg'),
-    ('2019', 'KataGo', 'KataGoanalisis.png'),
-    ('c. 2356–2255 BCE', 'Yao', 'EmperorYao.jpg'),
-    ('548 BCE', 'Zuo', 'Li Yuanyang Zuo zhuan first page.png'),
-    ('3rd century BCE', 'Mencius', 'Half Portraits of the Great Sage and Virtuous Men of Old - Meng Ke (孟軻).jpg'),
-    ('Around 500', 'Wu of Liang', 'Liang Wudi.jpg'),
-    ('8th century', 'Kibi', 'Kibino Makibi.jpg'),
-    ('1582', 'Nobunaga', 'Odanobunaga.jpg'),
-    ('1612', 'Tokugawa', 'Tokugawa Ieyasu2.JPG'),
-    ('1615', 'Trigault', 'Portrait of Nicolas Trigault by Peter Paul Rubens.png'),
-    ('1694', 'Thomas Hyde', 'Thomas-Hyde.jpg'),
-    ('17th–18th century', 'Leibniz', 'Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg'),
-    ('1713', 'Hatsuyoron', 'Hatsuyoron - problem 76.png'),
-    ('1868', 'Meiji', 'Emperor Meiji by Takahashi Yuichi.jpg'),
-    ('1872', 'Kido', 'Iwakura mission.jpg'),
-    ('1880', 'Korschelt', 'Oscar Korschelt.jpg'),
-    ('1905–1908', 'Lasker', 'Edward Lasker.jpg'),
-    ('1924', 'Nihon Ki-in', 'Nihon Ki-in Headquarter (2016-05-05) 5.jpg'),
-    ('1945', 'Atomic', 'Atomic bombing of Japan.jpg'),
-    ('1984', 'Nie Weiping', 'Nie Weiping 2023.jpg'),
-    ('1984', 'Acornsoft', 'BBC Micro Front Restored.jpg'),
-    ('1988', 'Takemiya', 'Takemiya Masaki.jpg'),
-    ('2000', 'Rui Naiwei', '圍棋九段選手芮迺偉女士 (cropped).jpg'),
-    ('1996', 'Barry', 'Daniel Thomas Barry.jpg'),
-    ('January 1950', 'Go Seigen', 'Go_Seigen_01.jpg'),
-    ('January 1969', 'Rin Kaiho', 'Go Seigen teaching to a young Rin Kaiho.jpg'),
-    ('November 1979', 'Cho Chikun', 'Cho Chikun at World Go Festival20190630.jpg'),
-    ('July 1982', 'Cho Hunhyun', 'Chohunhyun1.jpg'),
-    ('October 1990', 'Lee Changho', 'Lee ChangHo.JPG'),
-    ('January 2006', 'Gu Li', 'Gu Li 2024.jpg'),
-    ('July 2006', 'Lee Sedol', 'Lee Se-Dol - 2016 (cropped).jpg'),
-    ('July 2011', 'Park Junghwan', '(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg'),
-    ('May 2015', 'Ke Jie', 'Ke Jie (柯洁) 2019 (cropped).png'),
+# First mention of each person, place, period or thing (on a timeline) is linked, and people and periods get their dates in
+# parentheses: (name, Wikipedia title or an external URL, the parenthesis). The titles were checked against the wiki.
+# The parenthesis is left out when the event's date already says it, or when the text has one there.
+LINKS = [
+    ('Emperor Yao', 'Emperor Yao', None), ('Zuo Zhuan', 'Zuo Zhuan', None), ('Analects', 'Analects', None),
+    ('Confucius', 'Confucius', 'c. 551 – c. 479 BCE'), ('Mencius', 'Mencius', 'c. 371 – c. 289 BCE'), ('Ban Gu', 'Ban Gu', '32–92'),
+    ('Eastern Han', 'Han dynasty', '25–220'), ('Western Han', 'Han dynasty', None),
+    ('Goguryeo', 'Goguryeo', '37 BCE – 668'), ('Baekje', 'Baekje', '18 BCE – 660'), ('Silla', 'Silla', '57 BCE – 935'),
+    ('Emperor Wu of Liang', 'Emperor Wu of Liang', '464–549'), ('Tang dynasty', 'Tang dynasty', '618–907'),
+    ('Tibet', 'Tibet', None), ('Mongolia', 'Mongolia', None), ('Kibi no Makibi', 'Kibi no Makibi', '695–775'),
+    ('Taihō Code', 'Taihō Code', None), ('Song dynasty', 'Song dynasty', '960–1279'), ('Yuan dynasty', 'Yuan dynasty', '1271–1368'),
+    ('Hongwu Emperor', 'Hongwu Emperor', '1328–1398'), ('Qing dynasty', 'Qing dynasty', '1644–1912'),
+    ('Oda Nobunaga', 'Oda Nobunaga', '1534–1582'), ('Kyoto', 'Kyoto', None), ('Kashio Rigen', 'https://senseis.xmp.net/?KashioRigen', '1565–?'),
+    ('Toyotomi Hideyoshi', 'Toyotomi Hideyoshi', '1537–1598'), ('Tokugawa Ieyasu', 'Tokugawa Ieyasu', '1543–1616'),
+    ('Tokugawa shogunate', 'Tokugawa shogunate', '1603–1868'),
+    ('Honinbo Sansa', "Hon'inbō Sansa", '1559–1623'), ("Hon'inbō Sanetsu", "Hon'inbō San'etsu", '1611–1658'),
+    ('Yasui Sanchi', 'Yasui Sanchi', '1617–1703'), ('Dōsaku', "Hon'inbō Dōsaku", None), ("Hon'inbō Jōwa", "Hon'inbō Jōwa", '1787–1847'),
+    ('Akaboshi Intetsu', 'Akaboshi Intetsu', '1810–1835'), ('Honinbo Shusaku', "Hon'inbō Shūsaku", '1829–1862'),
+    ('Gennan Inseki', 'Inoue Gennan Inseki', '1798–1859'), ('Huang Longshi', 'Huang Longshi', None),
+    ('Meiji Restoration', 'Meiji Restoration', '1866–1869'), ('Hoensha', 'Hoensha', None), ('Takabe Dōhei', 'Dohei Takabe', '1881–1951'),
+    ('Nihon Ki-in', 'Nihon Ki-in', None), ('Go Seigen', 'Go Seigen', '1914–2014'), ('Honinbo Shusai', "Hon'inbō Shūsai", '1874–1940'),
+    ('Shūsai', "Hon'inbō Shūsai", '1874–1940'), ('Kitani Minoru', 'Minoru Kitani', '1909–1975'),
+    ('The Master of Go', 'The Master of Go', None), ('Yasunari Kawabata', 'Yasunari Kawabata', '1899–1972'),
+    ('Sekiyama Riichi', 'Riichi Sekiyama', '1909–1970'), ('Hiroshima', 'Hiroshima', None),
+    ('Fujisawa Hōsai', 'Hosai Fujisawa', '1919–1993'), ('Oteai', 'Oteai', None), ('Korea Baduk Association', 'Korea Baduk Association', None),
+    ('Korean Baduk Association', 'Korea Baduk Association', None), ('NHK Cup', 'NHK Cup (Go)', None),
+    ('Fujisawa Shūkō', 'Hideyuki Fujisawa', '1925–2009'), ('Meijin', 'Meijin (Go)', None),
+    ('Tengen', 'Tengen (Go)', None), ('Kisei', 'Kisei (Go)', None), ('Nie Weiping', 'Nie Weiping', '1952–2026'),
+    ('Takemiya Masaki', 'Takemiya Masaki', 'born 1951'), ('Fujitsu Cup', 'Fujitsu Cup', None), ('Ing Cup', 'Ing Cup', None),
+    ('Cho Hunhyun', 'Cho Hun-hyun', 'born 1953'), ('Lee Changho', 'Lee Chang-ho', 'born 1975'), ('Ma Xiaochun', 'Ma Xiaochun', 'born 1964'),
+    ('LG Cup', 'LG Cup (Go)', None), ('Hikaru no Go', 'Hikaru no Go', None), ('manga', 'Manga', None), ('anime', 'Anime', None),
+    ('Rui Naiwei', 'Rui Naiwei', 'born 1963'), ('Iyama Yūta', 'Yuta Iyama', 'born 1989'), ('Sakata Eio', 'Sakata Eio', '1920–2010'),
+    ('Rin Kaiho', 'Rin Kaiho', 'born 1942'), ('Kato Masao', 'Kato Masao', '1947–2004'), ('Cho Chikun', 'Cho Chikun', 'born 1956'),
+    ('Gu Li', 'Gu Li (Go player)', 'born 1983'), ('Lee Sedol', 'Lee Sedol', 'born 1983'), ('Park Junghwan', 'Park Junghwan', 'born 1993'),
+    ('Ke Jie', 'Ke Jie', 'born 1997'), ('Shin Jinseo', 'Shin Jin-seo', 'born 2000'), ('Fan Hui', 'Fan Hui', 'born 1981'),
+    ('Michael Redmond', 'Michael Redmond (Go player)', 'born 1963'), ('Albert Zobrist', 'Albert Lindsey Zobrist', 'born 1942'),
+    ('Manfred Wimmer', 'Manfred Wimmer', '1944–1995'), ('Daniel Barry', 'Daniel T. Barry', 'born 1953'),
+    ('Koichi Wakata', 'Koichi Wakata', 'born 1963'), ('Matteo Ricci', 'Matteo Ricci', '1552–1610'),
+    ('Nicolas Trigault', 'Nicolas Trigault', '1577–1628'), ('Augsburg', 'Augsburg', None), ('Jesuit', 'Jesuits', None),
+    ('Thomas Hyde', 'Thomas Hyde', '1636–1703'), ('Leibniz', 'Gottfried Wilhelm Leibniz', '1646–1716'),
+    ('Kido Takayoshi', 'Kido Takayoshi', '1833–1877'), ('Ōkubo Toshimichi', 'Ōkubo Toshimichi', '1830–1878'),
+    ('Iwakura Mission', 'Iwakura Mission', '1871–1873'), ('Oskar Korschelt', 'Oskar Korschelt', '1853–1940'),
+    ('Edward Lasker', 'Edward Lasker', '1885–1981'), ('American Go Association', 'American Go Association', None),
+    ('European Go Federation', 'European Go Federation', None), ('Kansai Ki-in', 'Kansai Ki-in', None),
+    ('Acornsoft', 'Acornsoft', None), ('BBC Micro', 'BBC Micro', None), ('Internet Go Server', 'Internet Go server', None),
+    ('teletype', 'Teleprinter', None), ('tsumego', 'Tsumego', None), ('komi', 'Komi (Go)', None),
+    ('Monte Carlo tree search', 'Monte Carlo tree search', None), ('Monte Carlo', 'Monte Carlo method', None),
+    ('CrazyStone', 'Crazy Stone (software)', None), ('Computer Olympiad', 'Computer Olympiad', None), ('Zen', 'Zen (software)', None),
+    ('Google', 'Google', None), ('AlphaGo', 'AlphaGo', None), ('KataGo', 'KataGo', None),
 ]
-for _d, _t, _f in IMAGES:       # a typo here would silently drop a picture
+
+def link(text, seen, date=''):
+    """Link the first mention of each LINKS entry (once per `seen`, which is per timeline) and add its dates."""
+    toks = []
+    def put(piece):
+        toks.append(piece)
+        return '\x02%d\x03' % (len(toks) - 1)
+    text = re.sub(r'\[\[[^\]]*\]\]|\{\{[^{}]*\}\}', lambda m: put(m.group(0)), text)      # what is already a link or a template
+    for name, target, paren in LINKS:
+        if target in seen:
+            continue
+        m = re.search(r'(?<![\w\x02\x03])' + re.escape(name) + r'(?![\w\x02\x03])', text)
+        if not m:
+            continue
+        seen.add(target)
+        shown = name
+        if target.startswith('http'):
+            piece = '[%s %s]' % (target, shown)
+        else:
+            piece = '[[%s]]' % shown if target == shown else '[[%s|%s]]' % (target, shown)
+        after = text[m.end():m.end() + 2]
+        if paren and paren not in date and not after.startswith((' (', '(')):
+            piece += ' (%s)' % paren
+        text = text[:m.start()] + put(piece) + text[m.end():]
+    return re.sub('\x02(\\d+)\x03', lambda m: toks[int(m.group(1))], text)
+
+# Pictures on Wikimedia Commons: (date, a part of the event's text, file, caption). An event with several pictures shows
+# them all, in the order given here, in one row that wraps.
+IMAGES = [
+    ('c. 2356–2255 BCE', 'Yao', 'EmperorYao.jpg', 'Emperor Yao'),
+    ('548 BCE', 'Zuo', 'Li Yuanyang Zuo zhuan first page.png', 'First page of an edition of the Zuo Zhuan'),
+    ('3rd century BCE', 'Mencius', 'Half Portraits of the Great Sage and Virtuous Men of Old - Meng Ke (孟軻).jpg', 'Mencius'),
+    ('1st–3rd century', 'Ban Gu', 'Go Board Han dynasty.JPG', 'A Han dynasty Go board'),
+    ('3rd–6th century', 'Dunhuang', 'British Library Dunhuang Go Manual.jpg', 'The Dunhuang Go Manual, British Library'),
+    ('475', 'To-lim', 'Baekje Game of Baduk (Copy) (30079340202).jpg', 'A copy of a Baekje game of baduk'),
+    ('Around 500', 'Wu of Liang', 'Liang Wudi.jpg', 'Emperor Wu of Liang'),
+    ('618–907', 'Tang', 'Early Go stones.jpeg', 'Early Go stones'),
+    ('Early 8th century', 'Tibet', 'TibetGoBoard.png', 'A Tibetan Go board'),
+    ('8th century', 'Kibi', 'Kibino Makibi.jpg', 'Kibi no Makibi'),
+    ('1349', 'Xuanxuan', 'Inner Mongolia Museum weiqi stones.jpg', 'Weiqi stones, Inner Mongolia Museum'),
+    ('Ming dynasty', 'Hongwu', 'Go Ming Court.jpg', 'Go at the Ming court'),
+    ('1582', 'Nobunaga', 'Odanobunaga.jpg', 'Oda Nobunaga'),
+    ('1582', 'Sansa', 'Sansa.jpg', "Hon'inbō Sansa"),
+    ('1588', 'Hideyoshi', 'Go board Hideyoshi Ieyasu Ryogenin M1868.jpg', 'The Go board of Hideyoshi and Ieyasu, Ryōgen-in'),
+    ('1588', 'Hideyoshi', 'Toyotomi_Hideyoshi_c1598_Kodai-ji_Temple.png', 'Toyotomi Hideyoshi'),
+    ('1603', 'Sansa', 'Sansa.jpg', "Hon'inbō Sansa"),
+    ('1603', 'Ieyasu', 'Tokugawa Ieyasu2.JPG', 'Tokugawa Ieyasu'),
+    ('1612', 'Tokugawa', 'Tokugawa Ieyasu2.JPG', 'Tokugawa Ieyasu, founder of the Tokugawa shogunate'),
+    ('1615', 'Trigault', 'Portrait of Nicolas Trigault by Peter Paul Rubens.png', 'Nicolas Trigault, by Rubens'),
+    ('1615', 'Ricci', '利玛窦像，游文辉绘.jpg', 'Matteo Ricci'),
+    ('1694', 'Thomas Hyde', 'Thomas-Hyde.jpg', 'Thomas Hyde'),
+    ('17th–18th century', 'Leibniz', 'Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg', 'Gottfried Wilhelm Leibniz'),
+    ('Late 17th century', 'Dōsaku', 'Honinbo Dosaku.png', "Hon'inbō Dōsaku"),
+    ('1713', 'Hatsuyoron', 'Hatsuyoron - problem 76.png', 'Problem 76 of the Igo Hatsuyoron'),
+    ('1846', 'ear-reddening', 'Kulak_kizartan_go.png', 'The "ear-reddening" game'),
+    ('1846', 'Shusaku', 'Honinbo_Shusaku.jpg', "Hon'inbō Shūsaku"),
+    ('1868', 'Meiji', 'Emperor Meiji by Takahashi Yuichi.jpg', 'Emperor Meiji'),
+    ('1872', 'Kido', 'Takayoshi_Kido_suit.jpg', 'Kido Takayoshi'),
+    ('1872', 'Ōkubo', 'Ōkubo_Toshimichi_1872_(cropped).jpg', 'Ōkubo Toshimichi'),
+    ('1872', 'Iwakura', 'Iwakura mission.jpg', 'Members of the Iwakura Mission'),
+    ('1880', 'Korschelt', 'Oscar Korschelt.jpg', 'Oskar Korschelt'),
+    ('1905–1908', 'Lasker', 'Edward Lasker.jpg', 'Edward Lasker'),
+    ('1924', 'Nihon Ki-in', 'Nihon Ki-in Headquarter (2016-05-05) 5.jpg', 'The Nihon Ki-in headquarters'),
+    ('1933', 'Game of the Century', 'Game_of_the_Century_-_Honinbo_Shusai_(W)_vs_Go_Seigen_(B)_no_text.svg', 'The "Game of the Century": Shūsai (white) against Go Seigen (black)'),
+    ('1933', 'Go Seigen', 'Go_Seigen_01.jpg', 'Go Seigen'),
+    ('1933', 'Honinbo Shusai', 'Honinbo Shusai.jpg', "Hon'inbō Shūsai"),
+    ('1936–1938', 'Shūsai', 'Honinbo Shusai.jpg', "Hon'inbō Shūsai"),
+    ('1936–1938', 'Kitani', 'Kitani_Minoru_1955.jpg', 'Kitani Minoru'),
+    ('1936–1938', 'Kawabata', 'Yasunari_Kawabata_1938.jpg', 'Yasunari Kawabata'),
+    ('1945', 'Atomic', 'Atomic bombing of Japan.jpg', 'The atomic bombings of Hiroshima (left) and Nagasaki (right)'),
+    ('1950', 'Go Seigen', 'Go_Seigen_and_Kitani_Minoru.jpg', 'Go Seigen and Kitani Minoru'),
+    ('1984', 'Nie Weiping', 'Nie Weiping 2023.jpg', 'Nie Weiping'),
+    ('1984', 'Acornsoft', 'BBC Micro Front Restored.jpg', 'A BBC Micro'),
+    ('1988', 'Takemiya', 'Takemiya Masaki.jpg', 'Takemiya Masaki'),
+    ('1989', 'Cho Hunhyun', 'Chohunhyun1.jpg', 'Cho Hunhyun'),
+    ('1989', 'Nie Weiping', 'Nie Weiping 2023.jpg', 'Nie Weiping'),
+    ('1996', 'Lee Changho', 'Lee ChangHo.JPG', 'Lee Changho'),
+    ('1996', 'Barry', 'Daniel Thomas Barry.jpg', 'Daniel Barry'),
+    ('1996', 'Wakata', 'Koichi_Wakata_Official_Portrait_(cropped)_2.jpg', 'Koichi Wakata'),
+    ('2000', 'Rui Naiwei', '圍棋九段選手芮迺偉女士 (cropped).jpg', 'Rui Naiwei'),
+    ('2000', 'Redmond', 'Michael Redmond in 2018.png', 'Michael Redmond in 2018'),
+    ('2012', 'Takemiya', 'Takemiya Masaki.jpg', 'Takemiya Masaki'),
+    ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg', 'An AlphaGo computer rack'),
+    ('October 2015', 'Fan Hui', 'FanHui.jpg', 'Fan Hui'),
+    ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg', 'Lee Sedol in 2016'),
+    ('2016', 'Iyama', '20180213eiyo07 Yuta Iyama.jpg', 'Iyama Yūta'),
+    ('May 2017', 'Ke Jie', 'Ke Jie (柯洁) 2019 (cropped).png', 'Ke Jie'),
+    ('2019', 'KataGo', 'KataGoanalisis.png', "A game analysed with KataGo"),
+    ('2019', 'Lee Sedol', 'Lee Se-Dol - 2016 (cropped).jpg', 'Lee Sedol'),
+    ('January 1950', 'Go Seigen', 'Go_Seigen_01.jpg', 'Go Seigen'),
+    ('January 1959', 'Sakata', 'Sakata-Eio-1.jpg', 'Sakata Eio'),
+    ('January 1969', 'Rin Kaiho', 'Go Seigen teaching to a young Rin Kaiho.jpg', 'Go Seigen teaching a young Rin Kaiho'),
+    ('November 1979', 'Cho Chikun', 'Cho Chikun at World Go Festival20190630.jpg', 'Cho Chikun'),
+    ('July 1982', 'Cho Hunhyun', 'Chohunhyun1.jpg', 'Cho Hunhyun'),
+    ('October 1990', 'Lee Changho', 'Lee ChangHo.JPG', 'Lee Changho'),
+    ('January 2006', 'Gu Li', 'Gu Li 2024.jpg', 'Gu Li'),
+    ('July 2006', 'Lee Sedol', 'Lee Se-Dol - 2016 (cropped).jpg', 'Lee Sedol'),
+    ('July 2011', 'Park Junghwan', '(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg', 'Park Junghwan'),
+    ('May 2015', 'Ke Jie', 'Ke Jie (柯洁) 2019 (cropped).png', 'Ke Jie'),
+]
+for _d, _t, _f, _c in IMAGES:       # a typo here would silently drop a picture
     assert any(d == _d and _t in t for _, evs in SECTIONS for d, t, *_ in evs), (_d, _t)
 
 # Which country's solo timeline an event belongs to: (date, part of the text, letters C = China, K = Korea, J = Japan)
@@ -351,16 +428,19 @@ def outline(select, pictures, headings=True, order=None):
             if headings:
                 lines.append('== %s ==' % title)
             last = title
-        text = link(text.replace('{i}', "''").replace('{/i}', "''"), local)
+        raw = text
+        text = link(text.replace('{i}', "''").replace('{/i}', "''"), local, date)
         refs = ref_text(phrase) if phrase and 'HOG' in src else ''
         if 'SL' in src:
             refs += ref_text(None, named=':11')
         if 'VID' in src:
             refs += VIDEO + GORATINGS
         if pictures and (pictures != 'vid' or 'VID' in src):      # 'vid': only the world no. 1 events have their picture
-            for d, t, f in IMAGES:
-                if d == date and t in text:
-                    lines.append('[[File:%s|200px]]' % f)
+            shown = [(f, c) for d, t, f, c in IMAGES if d == date and t in raw]
+            for k, (f, c) in enumerate(shown):
+                if (f, c) in shown[:k]:
+                    continue
+                lines.append('[[File:%s|%s|%s]]' % (f, '150px' if len(shown) > 1 else '200px', c))
         lines.append("* '''%s''' %s%s" % (date, text, refs))
     return lines
 

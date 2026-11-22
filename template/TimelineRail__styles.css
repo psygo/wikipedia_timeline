@@ -145,6 +145,12 @@
 	text-align: left;
 }
 
+.wt-timeline__images {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0 0.5em;
+}
+
 .wt-timeline__image img {
 	display: block;
 	max-width: 100%;

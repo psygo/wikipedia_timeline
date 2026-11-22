@@ -43,7 +43,11 @@ end
 
 local function plainImage( ch )
 	if not ch.image then return '' end
-	return '[[File:' .. ch.image .. '|thumb|none|' .. ( ch.imagesize or '220px' ) .. '|' .. ( ch.caption or '' ) .. ']]'
+	local out = {}
+	for _, f in ipairs( ch.images or { { ch.image, ch.caption, ch.imagesize } } ) do
+		out[ #out + 1 ] = '[[File:' .. f[ 1 ] .. '|thumb|none|' .. ( f[ 3 ] or '220px' ) .. '|' .. ( f[ 2 ] or '' ) .. ']]'
+	end
+	return table.concat( out, ' ' )
 end
 
 function p.table( frame )
