@@ -272,18 +272,21 @@ LINKS = [
 ]
 
 def link(text, seen, date=''):
-    """Link the first mention of each LINKS entry (once per `seen`, which is per timeline) and add its dates."""
+    """Link each LINKS entry in the event (once per event) and add its dates the first time on a timeline (`seen`)."""
     toks = []
+    here = set()
     def put(piece):
         toks.append(piece)
         return '\x02%d\x03' % (len(toks) - 1)
     text = re.sub(r'\[\[[^\]]*\]\]|\{\{[^{}]*\}\}', lambda m: put(m.group(0)), text)      # what is already a link or a template
     for name, target, paren in LINKS:
-        if target in seen:
+        if target in here:
             continue
         m = re.search(r'(?<![\w\x02\x03])' + re.escape(name) + r'(?![\w\x02\x03])', text)
         if not m:
             continue
+        here.add(target)
+        first = target not in seen
         seen.add(target)
         shown = name
         if target.startswith('http'):
@@ -291,7 +294,7 @@ def link(text, seen, date=''):
         else:
             piece = '[[%s]]' % shown if target == shown else '[[%s|%s]]' % (target, shown)
         after = text[m.end():m.end() + 2]
-        if paren and paren not in date and not after.startswith((' (', '(')):
+        if first and paren and paren not in date and not after.startswith((' (', '(')):
             piece += ' (%s)' % paren
         text = text[:m.start()] + put(piece) + text[m.end():]
     return re.sub('\x02(\\d+)\x03', lambda m: toks[int(m.group(1))], text)
@@ -368,7 +371,6 @@ IMAGES = [
     ('1988', 'Takemiya', 'Takemiya Masaki.jpg', 'Takemiya Masaki'),
     ('1989', 'Cho Hunhyun', 'Chohunhyun1.jpg', 'Cho Hunhyun'),
     ('1989', 'Nie Weiping', 'Nie Weiping 2023.jpg', 'Nie Weiping'),
-    ('1996', 'Lee Changho', 'Lee ChangHo.JPG', 'Lee Changho'),
     ('1996', 'Barry', 'Daniel Thomas Barry.jpg', 'Daniel Barry'),
     ('1996', 'Wakata', 'Koichi_Wakata_Official_Portrait_(cropped)_2.jpg', 'Koichi Wakata'),
     ('2000', 'Rui Naiwei', '圍棋九段選手芮迺偉女士 (cropped).jpg', 'Rui Naiwei'),
