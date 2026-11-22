@@ -118,25 +118,26 @@ __TOC__
 * '''2011–2014''' The American Go Association signs an agreement with the Korean Baduk Association to promote its own professional system (2011); the European Go Federation creates its own (2014).<ref name=":11" />
 * '''July 2011''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1.<ref name="gomagic" />
 * '''2012''' The program Zen beats Takemiya Masaki in games with 5 and 4 handicap stones.<ref name=":11" />
-== The AI era ==
 * '''May 2015''' {{Flag icon|China}} [[Ke Jie]] becomes the world no. 1.<ref name="gomagic" />
+== The AI era ==
 [[File:AlphaGo_computer_rack.jpg|200px]]
 * '''October 2015''' [[AlphaGo]], made by Google, beats the European champion Fan Hui (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
 [[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|200px]]
 * '''2016''' Google's AlphaGo beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
-* '''May 2017''' A new and much improved AlphaGo plays Ke Jie and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''May 2017''' A new and much improved AlphaGo plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
 * '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1 for the second time.<ref name="gomagic" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]], whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" />
 [[File:KataGoanalisis.png|200px]]
-* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7">{{Cite web |title=AlphaGo: Dawn of a New Era in Human-Machine Partnership |url=https://baduk.news/s/alphago-dawn-of-a-new-era-in-human-machine-partnership |access-date=2025-08-24 |website=Baduk News |language=en}}</ref><ref name=":8">Lee, Hajin. ''[https://hajinlee.medium.com/impact-of-go-ai-on-the-professional-go-world-f14cf201c7c2 Impact of Go AI on the professional Go world],'' 2020.</ref><ref name=":9">{{Cite web |title=Impact of Go AI on the Professional Go World – Response |url=https://www.nordicgodojo.eu/post/276/impact-of-go-ai-on-the-professional-go-world-response |access-date=2025-08-24 |website=Nordic Go Dojo}}</ref>
+* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
+* '''2019''' Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7">{{Cite web |title=AlphaGo: Dawn of a New Era in Human-Machine Partnership |url=https://baduk.news/s/alphago-dawn-of-a-new-era-in-human-machine-partnership |access-date=2025-08-24 |website=Baduk News |language=en}}</ref><ref name=":8">Lee, Hajin. ''[https://hajinlee.medium.com/impact-of-go-ai-on-the-professional-go-world-f14cf201c7c2 Impact of Go AI on the professional Go world],'' 2020.</ref><ref name=":9">{{Cite web |title=Impact of Go AI on the Professional Go World – Response |url=https://www.nordicgodojo.eu/post/276/impact-of-go-ai-on-the-professional-go-world-response |access-date=2025-08-24 |website=Nordic Go Dojo}}</ref>
 * '''2026''' Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 
 
 == World no. 1 players ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=gon
+|id=gon |toc=no
 |text=
 [[File:Go_Seigen_01.jpg|200px]]
 * '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} [[Go Seigen]] becomes the world no. 1.<ref name="gomagic" />
@@ -165,7 +166,7 @@ __TOC__
 
 == Go in China ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=goc
+|id=goc |toc=no
 |text=
 == Legends and first records ==
 * '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in Zhejiang watches deities playing a mysterious game and loses track of time.
@@ -208,7 +209,7 @@ __TOC__
 
 == Go in Korea ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=gok
+|id=gok |toc=no
 |text=
 == Ancient and medieval East Asia ==
 * '''475''' In the rivalry between Goguryeo and Baekje, the Goguryeo priest To-lim uses the game of Go to spy on King Yogyong; the invasion of Baekje follows.
@@ -231,13 +232,13 @@ __TOC__
 * '''2011–2014''' The American Go Association signs an agreement with the Korean Baduk Association to promote its own professional system (2011); the European Go Federation creates its own (2014).<ref name=":11" />
 == The AI era ==
 * '''2016''' Google's [[AlphaGo]] beats Lee Sedol 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
-* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
-* '''2026''' Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
+* '''2019''' Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
+* '''2026''' Shin Jinseo defeats a new version of [[KataGo]] on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 
 == Go in Japan ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=goj
+|id=goj |toc=no
 |text=
 == Ancient and medieval East Asia ==
 * '''Early 7th century''' Chinese chronicles (the Records of the Sui) report that the Japanese enjoy Go.<ref name=":11" />
@@ -292,7 +293,7 @@ __TOC__
 
 == Go in non-Asian countries ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=gow
+|id=gow |toc=no
 |text=
 == Go in the West and in space ==
 * '''1615''' Nicolas Trigault publishes in Augsburg the diaries of the Jesuit Matteo Ricci, which explain the game of weiqi; the book goes through at least 16 editions in European languages.<ref name=":11" />
@@ -310,7 +311,7 @@ __TOC__
 
 == Internet Go ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=goi
+|id=goi |toc=no
 |text=
 == Go online and computer Go ==
 * '''19 December 1976''' A friendship match between Taiwan and the United States is played by teletype; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
@@ -322,7 +323,7 @@ __TOC__
 
 == Computer Go ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=gop
+|id=gop |toc=no
 |text=
 == Go online and computer Go ==
 * '''1968''' Albert Zobrist writes the first program that plays complete games of Go.<ref name=":11" />
@@ -339,20 +340,21 @@ __TOC__
 * '''2016''' Google's AlphaGo beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
 * '''May 2017''' A new and much improved AlphaGo plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
-* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
+* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
 * '''2026''' [[Shin Jin-seo|Shin Jinseo]] defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 
 == The AI era ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=goa
+|id=goa |toc=no
 |text=
 == The AI era ==
 * '''October 2015''' [[AlphaGo]], made by Google, beats the European champion Fan Hui (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
 * '''2016''' Google's AlphaGo beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
 * '''May 2017''' A new and much improved AlphaGo plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
-* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
+* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu.
+* '''2019''' Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
 * '''2026''' [[Shin Jin-seo|Shin Jinseo]] defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 

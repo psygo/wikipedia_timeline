@@ -9,7 +9,8 @@
 --   item      {{#invoke:TimelineRail|item}}      one dot with a date and events
 --   section   {{#invoke:TimelineRail|section}}   a titled, collapsible, nestable group
 --   gap       {{#invoke:TimelineRail|gap}}       an empty slot to line up grouped columns
---   outline   {{#invoke:TimelineRail|outline}}   a whole timeline from one text (see the doc page)
+--   outline   {{#invoke:TimelineRail|outline}}   a whole timeline from one text (see the doc page);
+--             its sections are headings of the page (table of contents) unless |toc=no, level |toclevel= (3)
 --
 -- "outline" is the one that scales: the content is passed once and built once, so a timeline of
 -- hundreds of items stays far below the post-expand include size limit that item-by-item
@@ -108,7 +109,8 @@ local function renderItem( it )
 	return table.concat( out )
 end
 
--- section: { title, id, collapsed, text, image, imagesize, imagealt, caption, body (rendered children) }
+-- section: { title, id, collapsed, text, image, imagesize, imagealt, caption, body (rendered children),
+--             level (2-6: the title is then a real <hN> heading, so the page's table of contents lists it) }
 local function renderSection( sec )
 	local id = sec.toggleId or sec.id or anchor( 'section_' .. ( sec.title or '' ) )
 	local rowId = sec.id or anchor( sec.title or '' )
@@ -120,8 +122,13 @@ local function renderSection( sec )
 	end
 	return '<li class="wt-timeline__item wt-timeline__item--section mw-collapsible'
 		.. ( sec.collapsed and ' mw-collapsed' or '' ) .. '" id="mw-customcollapsible-' .. esc( id ) .. '">'
-		.. '<div class="wt-timeline__row mw-customtoggle-' .. esc( id ) .. '" id="' .. esc( rowId ) .. '">'
-		.. '<span class="wt-timeline__section-title">' .. ( sec.title or '' ) .. '</span>' .. extra .. '</div>'
+		.. '<div class="wt-timeline__row mw-customtoggle-' .. esc( id ) .. '"'
+		-- a heading gets its own anchor from MediaWiki (the same words, _2 for a repeat): no id twice
+		.. ( sec.level and '' or ' id="' .. esc( rowId ) .. '"' ) .. '>'
+		.. ( sec.level
+			and ( '<h' .. sec.level .. ' class="wt-timeline__section-title">' .. ( sec.title or '' ) .. '</h' .. sec.level .. '>' )
+			or ( '<span class="wt-timeline__section-title">' .. ( sec.title or '' ) .. '</span>' ) )
+		.. extra .. '</div>'
 		.. '<div class="wt-timeline__body mw-collapsible-content"><ol class="wt-timeline wt-timeline--section">'
 		.. ( sec.body or '' ) .. '</ol></div></li>'
 end
@@ -293,7 +300,8 @@ local used = {}      -- anchors already given to a section (within this module i
 local uid = 0        -- counts outlines; NOTE: Scribunto may load the module afresh for every #invoke,
                      -- so this alone does not keep ids unique on a page: give each outline an |id=
 
-local function buildOutline( node, opts, prefix, counter )
+local function buildOutline( node, opts, prefix, counter, depth )
+	depth = depth or 0
 	local out = {}
 	for _, ch in ipairs( node.children ) do
 		if ch.section then
@@ -301,11 +309,12 @@ local function buildOutline( node, opts, prefix, counter )
 			local base = anchor( ch.title )
 			local rowId, k = base, 1
 			while used[ rowId ] do k = k + 1; rowId = base .. '_' .. k end
-			used[ rowId ] = true
+			if not opts.tocLevel then used[ rowId ] = true end   -- a heading's anchor is MediaWiki's
 			out[ #out + 1 ] = renderSection( {
 				title = ch.title, id = rowId, toggleId = prefix .. '_s' .. counter.s, collapsed = opts.collapseSections,
+				level = opts.tocLevel and math.min( opts.tocLevel + depth, 6 ) or nil,
 				text = trim( table.concat( ch.intro, ' ' ) ),
-				body = buildOutline( ch, opts, prefix, counter ),
+				body = buildOutline( ch, opts, prefix, counter, depth + 1 ),
 			} )
 		else
 			counter.i = counter.i + 1
@@ -334,6 +343,10 @@ function p.outline( frame )
 	local opts = {
 		collapseSections = collapsed == 'sections' or collapsed == 'all',
 		collapseItems = collapsed == 'items' or collapsed == 'all',
+		-- |toc=no: the section titles are plain text; otherwise they are headings (level |toclevel=, 3 by
+		-- default: a timeline usually sits under a == Timeline == heading) and show in the table of contents
+		tocLevel = not ( { no = 1, off = 1, ['false'] = 1, ['0'] = 1 } )[ ( a.toc or '' ):lower() ]
+			and math.max( 2, math.min( tonumber( a.toclevel ) or 3, 6 ) ) or nil,
 	}
 	-- Without |id=, the prefix comes from the text itself: two different outlines on a page never
 	-- share it (Scribunto does not keep a counter between #invoke calls).

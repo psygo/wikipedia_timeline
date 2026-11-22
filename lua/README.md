@@ -21,6 +21,7 @@ lua/
   does not fit). `{{TimelineRail/outline|text=…}}` takes the whole timeline once and builds it once.
   Measured on the live parser: see the table below.
 * **Readability.** The markup is built in one place, in Lua, instead of `#if` chains with `&#32;` workarounds.
+* **Table of contents.** `outline` makes the title of each section a real `<h3>` heading (nested sections one level deeper), so the page's table of contents lists them. `|toclevel=2` to `6` sets the top level (default 3); `|toc=no` gives plain titles again. Needs the new `Module:TimelineRail` and the new `Template:TimelineRail/styles.css` (the heading reset); the switcher and the List and Table modules are unchanged.
 * **Testing.** `luajit lua/test/test.lua` runs 50+ checks locally (HTML shape, balanced tags, unique ids, outline parsing).
 
 ## Entry points

@@ -510,6 +510,23 @@
 	color: var( --color-destructive, #d33 );
 }
 
+/* The outline module makes the title a real heading (h2-h6) so the page's table of contents lists
+   it (|toc=no turns that off): take back what the skin gives headings. */
+h2.wt-timeline__section-title,
+h3.wt-timeline__section-title,
+h4.wt-timeline__section-title,
+h5.wt-timeline__section-title,
+h6.wt-timeline__section-title {
+	display: inline;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	overflow: visible;
+}
+
 /* Optional text and image under (or, when wide, beside) the section title; the same
    markup as an event, so it is styled like one. Selectable, though a click still toggles. */
 .wt-timeline__section-extra {

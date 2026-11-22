@@ -211,7 +211,8 @@ SECTIONS = [
   ('2016', 'Google\'s AlphaGo beats Lee Sedol 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.', '4-1 victory', 'HOG+HOF+SL'),
   ('Late 2016 – early 2017', 'A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.', None, 'HOF'),
   ('May 2017', 'A new and much improved AlphaGo plays Ke Jie and wins all three games; Ke Jie says its play is "like a god of Go".', None, 'HOF+SL'),
-  ('2019', 'The open-source Go AI KataGo is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".', 'retirement announcement in 2019', 'HOG+HOF'),
+  ('2019', 'The open-source Go AI KataGo is created by David Wu.', None, 'HOF'),
+  ('2019', 'Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".', 'retirement announcement in 2019', 'HOG+HOF'),
   ('2026', 'Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.', None, 'HOF'),
  ]),
 ]
@@ -360,7 +361,7 @@ eras['The AI era'] = []
 extra = sorted((i for i, e in enumerate(EVENTS) if e[0] in SPLICED), key=lambda i: year_key(EVENTS[i][1]))
 def era_of(i):
     y = year_key(EVENTS[i][1])
-    return 'The AI era' if y >= 2015 else ERAS[2] if y < 1868 else ERAS[3]          # Edo-period / Modern professional Go / AI era
+    return 'The AI era' if y >= 2015.6 else ERAS[2] if y < 1868 else ERAS[3]          # Edo-period / Modern professional Go / AI era
 for i in extra:                                       # splice by year: before the first event of the era that is later
     lst = eras[era_of(i)]
     pos = next((j for j, o in enumerate(lst) if year_key(EVENTS[o][1]) > year_key(EVENTS[i][1])), len(lst))
@@ -377,7 +378,9 @@ for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'),
     ls = outline(lambda i, c=code: c in tag_of.get(i, ''), code == 'N', headings=(code != 'N'))
     cnt = sum(1 for l in ls if l.startswith('*'))
     print(name, cnt, 'events')
-    solo += '\n\n== %s ==\n%s' % (TITLES[code], invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original']))
+    call = invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original'])
+    # the eras inside a solo timeline are not headings of the page (they would repeat the main timeline's in the table of contents)
+    solo += '\n\n== %s ==\n%s' % (TITLES[code], call.replace('\n|id=go%s\n' % code.lower(), '\n|id=go%s |toc=no\n' % code.lower(), 1))
 
 # Sensei's Library: its own timeline (section 7 of its Go History page, facts in new words) and the list of timelines elsewhere (section 8)
 SL_EVENTS = [

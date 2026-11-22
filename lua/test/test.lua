@@ -145,7 +145,17 @@ has( 'styles first', html, '<templatestyles src="Template:TimelineRail/styles.cs
 local withId = p.outline( mw.frame( {}, { id = 'inv7', text = "== Zed ==\n* '''1''' one\n" } ) )
 has( 'id prefix on items', withId, 'id="mw-customcollapsible-inv7_i1"' )
 has( 'id prefix on sections', withId, 'id="mw-customcollapsible-inv7_s1"' )
-has( 'row id stays the anchor', withId, 'id="Zed"' )
+has( 'sections are headings by default (table of contents)', withId, '<h3 class="wt-timeline__section-title">Zed</h3>' )
+check( 'a heading has no row id of its own', not withId:find( 'id="Zed"', 1, true ) )
+local plain = p.outline( mw.frame( {}, { id = 'inv8', toc = 'no', text = "== Zed ==\n* '''1''' one\n" } ) )
+has( 'toc=no: row id stays the anchor', plain, 'id="Zed"' )
+has( 'toc=no: the title is a span', plain, '<span class="wt-timeline__section-title">Zed</span>' )
+check( 'toc=no: no heading', not plain:find( '<h%d' ) )
+local lvl = p.outline( mw.frame( {}, { id = 'inv9', toclevel = '2', text = "== A ==\n=== B ===\n==== C ====\n===== D =====\n====== E ======\n* '''1''' x\n" } ) )
+has( 'toclevel=2: top section h2', lvl, '<h2 class="wt-timeline__section-title">A</h2>' )
+has( 'nested section one level deeper', lvl, '<h3 class="wt-timeline__section-title">B</h3>' )
+has( 'level is capped at 6', lvl, '<h6 class="wt-timeline__section-title">E</h6>' )
+wellFormed( 'headings', lvl )
 
 -- without |id=, different texts get different prefixes and equal texts the same one
 local function firstId( text ) return p.outline( mw.frame( {}, { text = text } ) ):match( 'mw%-collapsible" id="mw%-customcollapsible%-([^"]+)"' ) end
@@ -153,7 +163,7 @@ check( 'default prefix differs per text', firstId( "* '''1''' a\n" ) ~= firstId(
 eq( 'default prefix is stable', firstId( "* '''1''' a\n" ), firstId( "* '''1''' a\n" ) )
 
 -- section anchors come from the visible words of a title with links
-local linked = p.outline( mw.frame( {}, { id = 'k', text = "== [[V-2 rocket|V-2]] and [[Moon]] ==\n* '''1''' one\n" } ) )
+local linked = p.outline( mw.frame( {}, { id = 'k', toc = 'no', text = "== [[V-2 rocket|V-2]] and [[Moon]] ==\n* '''1''' one\n" } ) )
 has( 'anchor from a linked title', linked, 'id="V-2_and_Moon"' )
 
 -- ids are unique, also between two outlines on the page
