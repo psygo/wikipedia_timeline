@@ -360,6 +360,19 @@ This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''
 * '''2026''' [[Shin Jin-seo|Shin Jinseo]] defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 
+== Sensei's Library ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=gosl
+|text=
+* '''21 October 2000''' Two enthusiasts, Arno and Morten, start a [[wiki]] meant as an online repository of all Go knowledge: [[Sensei's Library]].<ref name=":11" />
+* '''5 January 2001''' Sensei's Library opens to the public, announced on the Usenet group rec.games.go.<ref name=":11" />
+* '''11 January 2004''' A French version, EncyGoPédie, is released.<ref name=":11" />
+* '''11 November 2004''' The 10,000th page is added.<ref name=":11" />
+* '''3 November 2007''' The first full-board (19×19) position search.<ref name=":11" />
+* '''22 April 2009''' A customised board search is added.<ref name=":11" />
+* '''28 May 2010''' The 20,000th page is created, by Dave Sigaty.<ref name=":11" />
+}}
+
 == See also ==
 * [[History of Go]]
 * [[Go (game)]]
@@ -378,5 +391,12 @@ This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''
 * {{Cite journal|title=One Giant Leap For Go |url=http://homepage.mac.com/bjornwendsjo/go/2-96.pdf |journal=Svensk Gotidning |volume=96 |issue=2 |year=1996 |pages=7–8 |last1=Peng |first1=Mike |last2=Hall |first2=Mark |access-date=2007-11-12 |url-status=dead |archive-url=https://web.archive.org/web/20120304121705/http://homepage.mac.com/bjornwendsjo/go/2-96.pdf |archive-date=2012-03-04 }}
 * {{Cite web | last = Shotwell | first = Peter | date = 3 April 2003 | title = The Game of Go in Ancient and Modern Tibet |url=https://www.usgo.org/sites/default/files/bh_library/go_in_tibet.pdf | access-date = 23 September 2021 | url-status = dead | archive-url=https://web.archive.org/web/20230131142827/https://www.usgo.org/sites/default/files/bh_library/go_in_tibet.pdf | archive-date = 31 January 2023}} Revision of {{cite magazine | last = Shotwell | first = Peter | title=Go in the Snow |magazine=GoWorld |number=69 |date=1993}}
 * Shotwell, Peter (2011). ''Go! More Than a Game''. Tuttle Publishing. ISBN 9781462900060
+
+== Timelines elsewhere ==
+* Milton N. Bradley, [http://users.eniinternet.com/bradleym/America.html "How Go came to America"]
+* Jan van der Steen's [http://gobase.org/history/ history pages] on GoBase
+* Extensive timelines are included on the GoGoD CD (Go Game Database)
+* [https://senseis.xmp.net/?HistoryOfGoInFrance19652007 "History of Go in France 1965–2007"] at Sensei's Library
+* The book ''Eurogo''
 
 [[:Category:Go (game)]]

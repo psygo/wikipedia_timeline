@@ -351,6 +351,27 @@ for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-As
     print(name, cnt, 'events')
     solo += '\n\n== %s ==\n%s' % (TITLES[code], invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original']))
 
+# Sensei's Library: its own timeline (section 7 of its Go History page, facts in new words) and the list of timelines elsewhere (section 8)
+SL_EVENTS = [
+ ('21 October 2000', 'Two enthusiasts, Arno and Morten, start a [[wiki]] meant as an online repository of all Go knowledge: [[Sensei\'s Library]].'),
+ ('5 January 2001', 'Sensei\'s Library opens to the public, announced on the Usenet group rec.games.go.'),
+ ('11 January 2004', 'A French version, EncyGoPédie, is released.'),
+ ('11 November 2004', 'The 10,000th page is added.'),
+ ('3 November 2007', 'The first full-board (19×19) position search.'),
+ ('22 April 2009', 'A customised board search is added.'),
+ ('28 May 2010', 'The 20,000th page is created, by Dave Sigaty.'),
+]
+sl_lines = ["* \'\'\'%s\'\'\' %s%s" % (d, t, ref_text(None, named=':11')) for d, t in SL_EVENTS]
+solo += '\n\n== Sensei\'s Library ==\n' + invoke(MODULE, 'gosl', '\n'.join(sl_lines), flags=['--switcher', '--no-original'])
+ELSEWHERE = (
+ '\n== Timelines elsewhere ==\n'
+ '* Milton N. Bradley, [http://users.eniinternet.com/bradleym/America.html "How Go came to America"]\n'
+ '* Jan van der Steen\'s [http://gobase.org/history/ history pages] on GoBase\n'
+ '* Extensive timelines are included on the GoGoD CD (Go Game Database)\n'
+ '* [https://senseis.xmp.net/?HistoryOfGoInFrance19652007 "History of Go in France 1965–2007"] at Sensei\'s Library\n'
+ '* The book \'\'Eurogo\'\'\n'
+)
+
 sources = re.search(r'^== ?Sources ?==\n(.*?)(?=^==)', hog, re.S | re.M)
 sources = sources.group(1).strip() if sources else ''
 lead = ("This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''weiqi'', Korean ''baduk''), "
@@ -367,7 +388,7 @@ page = (
     '\n\n== See also ==\n* [[History of Go]]\n* [[Go (game)]]\n* [[Timeline of artificial intelligence]]\n'
     '\n== References ==\n'
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
-    '\n[[:Category:Go (game)]]\n'
+    + ELSEWHERE + '\n[[:Category:Go (game)]]\n'
 )
 out.parent.mkdir(exist_ok=True)
 page = dedupe(page)
