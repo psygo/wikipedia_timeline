@@ -66,24 +66,37 @@ def refs_after(phrase):
         print('NO REF:', phrase)
     return found[:3]
 
-used = set()
+VIDEO = ('<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who Was the Strongest Go Player Every Year? (1950–2026) {{!}} Bar Chart Race '
+         '|url=https://www.youtube.com/watch?v=oY50_IKnsMs |medium=Video |publisher=YouTube |access-date=22 November 2026}}</ref>')
+
 def ref_text(phrase, named=None):
+    """Full footnotes; `dedupe` later turns repeats into <ref name="..." />."""
     out = []
     for r in ([FULL[named]] if named else refs_after(phrase)):
-        if r.startswith('{{sfn'):
-            out.append(r)
-            continue
-        nm = re.match(r'<ref\s+name\s*=\s*"?([^">/\s]+)"?\s*(/?)>', r)
-        if nm:
-            name = nm.group(1)
-            if name in used:
-                out.append('<ref name="%s" />' % name)
-            else:
-                used.add(name)
-                out.append(FULL.get(name, r))
-        else:
-            out.append(r)
+        nm = re.match(r'<ref\s+name\s*=\s*"?([^">/\s]+)"?\s*/>', r)
+        out.append(FULL.get(nm.group(1), r) if nm else r)     # a reuse in History of Go: bring the definition
     return ''.join(out)
+
+def dedupe(text):
+    """The same footnote, wherever it is repeated (the country timelines repeat events), is defined once:
+    unnamed ones get a name, later uses are <ref name="..." />."""
+    seen, by_body, k = set(), {}, [0]
+    def one(m):
+        tag, body = m.group(0), None
+        nm = re.match(r'<ref\s+name\s*=\s*"?([^">/\s]+)"?\s*(/?)>', tag)
+        if nm and nm.group(2):
+            return tag
+        body = re.sub(r'^<ref[^>]*>|</ref>$', '', tag)
+        name = nm.group(1) if nm else by_body.get(body)
+        if not name:
+            k[0] += 1
+            name = by_body[body] = 'go%d' % k[0]
+        by_body.setdefault(body, name)
+        if name in seen:
+            return '<ref name="%s" />' % name
+        seen.add(name)
+        return '<ref name="%s">%s</ref>' % (name, body)
+    return re.sub(r'<ref(?:\s[^>]*)?/>|<ref(?:\s[^>]*)?>.*?</ref>', one, text, flags=re.S)
 
 # ---------------------------------------------------------------- the events
 # (date, text, phrase of History of Go whose footnote is used or None, source)
@@ -142,19 +155,32 @@ SECTIONS = [
   ('1950', 'Go Seigen is awarded 9 dan, and becomes the world\'s best player; he wins his ten-game matches against all top rivals until 1956.', 'In 1950', 'HOG+HOF'),
   ('1954', 'The Korea Baduk Association (Hankuk Kiwon) is established, on 28 January. The first NHK Cup is broadcast on radio; it moves to television in 1962.', 'January 28, 1954', 'HOG+SL'),
   ('1956', 'The first professional tournament in Korea, the Kuksu Cup, starts.', None, 'SL'),
-  ('1959', 'Sakata Eio 9p takes the first place from Go Seigen.', None, 'HOF'),
   ('1960', 'The China–Japan Go Friendship Match starts; it is held every year until 1991.', 'Starting in 1960', 'HOG'),
   ('1962', 'Fujisawa Shūkō wins the first Meijin title tournament.', None, 'HOG+SL'),
   ('1976', 'After the "Meijin Incident" of 1974, the Tengen (1975), Kisei and Gosei (1976) titles complete the seven major Japanese titles. Fujisawa Shūkō wins the first Kisei in 1977.', 'Meijin Incident', 'HOG+SL'),
   ('1984', 'Nie Weiping leads China to victory over Japan in the first China–Japan Super Go Matches, a national triumph.', 'first China-Japan Supermatches', 'HOG+HOF'),
   ('1988', 'Takemiya Masaki wins the first Fujitsu Cup, one of the first international tournaments.', None, 'SL'),
   ('1989', 'Cho Hunhyun, the only Korean entrant, wins the first Ing Cup, the "Olympics of Go", beating Nie Weiping.', 'inaugural [[Ing Cup]]', 'HOG+HOF+SL'),
-  ('1990', 'Lee Changho, a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.', None, 'HOF'),
   ('1995', 'Ma Xiaochun is the first Chinese player to win an international tournament, taking both the Fujitsu Cup and the Tongyang Securities Cup.', None, 'SL'),
   ('1996', 'Lee Changho wins the first LG Cup.', None, 'SL'),
   ('1998–2003', 'The manga {i}Hikaru no Go{/i} (later also an anime) sparks a Go boom among young players in Japan.', 'Hikaru no Go', 'HOG+SL'),
   ('2000', 'Rui Naiwei, playing for Korea, wins the 43rd Kuksu in February and becomes the first woman to win a major title.', 'Rui Naiwei', 'HOG+SL'),
   ('2003', 'The Oteai promotion system is discontinued in Japan and a new one introduced.', None, 'SL'),
+ ]),
+ ('World no. 1 players', [
+  ('January 1950', '{{Flag icon|China}}{{Flag icon|Japan}} Go Seigen becomes the world no. 1.', None, 'VID'),
+  ('January 1959', '{{Flag icon|Japan}} Sakata Eio becomes the world no. 1.', None, 'VID'),
+  ('January 1969', '{{Flag icon|Japan}} Rin Kaiho becomes the world no. 1.', None, 'VID'),
+  ('June 1975', '{{Flag icon|Japan}} Kato Masao becomes the world no. 1.', None, 'VID'),
+  ('November 1979', '{{Flag icon|South Korea}}{{Flag icon|Japan}} Cho Chikun becomes the world no. 1.', None, 'VID'),
+  ('July 1982', '{{Flag icon|South Korea}} Cho Hunhyun becomes the world no. 1.', None, 'VID'),
+  ('October 1990', '{{Flag icon|South Korea}} Lee Changho, a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.', None, 'VID+HOF'),
+  ('January 2006', '{{Flag icon|China}} Gu Li becomes the world no. 1.', None, 'VID'),
+  ('July 2006', '{{Flag icon|South Korea}} Lee Sedol becomes the world no. 1.', None, 'VID'),
+  ('July 2011', '{{Flag icon|South Korea}} Park Junghwan becomes the world no. 1.', None, 'VID'),
+  ('May 2015', '{{Flag icon|China}} Ke Jie becomes the world no. 1.', None, 'VID'),
+  ('May 2018', '{{Flag icon|South Korea}} Shin Jinseo, whose style resembles that of the AIs, becomes the world no. 1.', None, 'VID+HOF'),
+  ('August 2018', '{{Flag icon|South Korea}} Park Junghwan becomes the world no. 1 for the second time.', None, 'VID'),
  ]),
  ('Go in the West and in space', [
   ('1615', 'Nicolas Trigault publishes in Augsburg the diaries of the Jesuit Matteo Ricci, which explain the game of weiqi; the book goes through at least 16 editions in European languages.', None, 'SL'),
@@ -185,7 +211,6 @@ SECTIONS = [
   ('2016', 'Google\'s AlphaGo beats Lee Sedol 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.', '4-1 victory', 'HOG+HOF+SL'),
   ('Late 2016 – early 2017', 'A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.', None, 'HOF'),
   ('May 2017', 'A new and much improved AlphaGo plays Ke Jie and wins all three games; Ke Jie says its play is "like a god of Go".', None, 'HOF+SL'),
-  ('June 2018', 'Shin Jinseo 9p, whose style resembles that of the AIs, becomes the world no. 1.', None, 'HOF'),
   ('2019', 'The open-source Go AI KataGo is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".', 'retirement announcement in 2019', 'HOG+HOF'),
   ('2026', 'Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.', None, 'HOF'),
  ]),
@@ -199,10 +224,10 @@ LINKS = {
     'Shin Jinseo': 'Shin Jin-seo|Shin Jinseo', 'AlphaGo': 'AlphaGo', 'KataGo': 'KataGo', 'Ke Jie': 'Ke Jie',
     'Michael Redmond': 'Michael Redmond', 'Rui Naiwei': 'Rui Naiwei', 'Huang Longshi': 'Huang Longshi',
     'Oskar Korschelt': 'Oskar Korschelt', 'Thomas Hyde': 'Thomas Hyde', 'Kibi no Makibi': 'Kibi no Makibi',
-    'Ing Cup': 'Ing Cup', 'Lee Sedol': 'Lee Sedol', 'Nihon Ki-in': 'Nihon Ki-in',
+    'Ing Cup': 'Ing Cup', 'Rin Kaiho': 'Rin Kaiho', 'Kato Masao': 'Kato Masao', 'Cho Chikun': 'Cho Chikun', 'Gu Li': 'Gu Li', 'Park Junghwan': 'Park Junghwan', 'Lee Sedol': 'Lee Sedol', 'Nihon Ki-in': 'Nihon Ki-in',
 }
 linked = set()
-def link(text):
+def link(text, linked=linked):
     for name, target in LINKS.items():
         if name in linked or '[[%s' % name in text or ('[[' + target.split('|')[0]) in text:
             continue
@@ -227,7 +252,7 @@ IMAGES = [
     ('1933', 'Game of the Century', 'Game_of_the_Century_-_Honinbo_Shusai_(W)_vs_Go_Seigen_(B)_no_text.svg'),
     ('1936–1938', 'Shūsai', 'Honinbo Shusai.jpg'),
     ('1950', 'Go Seigen', 'Go_Seigen_and_Kitani_Minoru.jpg'),
-    ('1959', 'Sakata', 'Sakata-Eio-1.jpg'),
+    ('January 1959', 'Sakata', 'Sakata-Eio-1.jpg'),
     ('2000', 'Redmond', 'Michael Redmond in 2018.png'),
     ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg'),
     ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg'),
@@ -236,21 +261,71 @@ IMAGES = [
 for _d, _t, _f in IMAGES:       # a typo here would silently drop a picture
     assert any(d == _d and _t in t for _, evs in SECTIONS for d, t, *_ in evs), (_d, _t)
 
-lines, n = [], 0
-for title, events in SECTIONS:
-    lines.append('== %s ==' % title)
-    for date, text, phrase, src in events:
-        n += 1
-        text = link(text.replace('{i}', "''").replace('{/i}', "''"))
+# Which country's solo timeline an event belongs to: (date, part of the text, letters C = China, K = Korea, J = Japan)
+TAGS = [
+ ('Unknown', 'Rotten', 'C'), ('c. 2356–2255 BCE', 'Yao', 'C'), ('548 BCE', 'Zuo', 'C'), ('3rd century BCE', 'Yi Qiu', 'C'),
+ ('206 BCE – 24 CE', 'Han', 'C'), ('1st–3rd century', 'Ban Gu', 'C'), ('c. 250', 'Wu Diagrams', 'C'),
+ ('3rd–6th century', 'Dunhuang', 'C'), ('475', 'To-lim', 'K'), ('Around 500', 'Wu of Liang', 'C'),
+ ('Early 7th century', 'Japanese', 'J'), ('618–907', 'Tang', 'C'), ('Early 8th century', 'Tibet', 'C'),
+ ('8th century', 'Kibi', 'J'), ('737', 'Yang Jiying', 'CK'), ('c. 1050', 'Classic of Go', 'C'), ('c. 1100', 'Wangyou', 'C'),
+ ('1349', 'Xuanxuan', 'C'), ('Ming dynasty', 'Hongwu', 'C'), ('1582', 'Sansa', 'J'), ('1588', 'Hideyoshi', 'J'),
+ ('1603', 'Sansa', 'J'), ('1612', 'Tokugawa', 'J'), ('1626–1628', 'castle', 'J'), ('1645–1653', 'Sanetsu', 'J'),
+ ('c. 1650', 'Huang Longshi', 'C'), ('Late 17th century', 'Dōsaku', 'J'), ('1713', 'Hatsuyoron', 'J'),
+ ('1739', 'Danghu', 'C'), ('1840', 'blood', 'J'), ('1846', 'ear-reddening', 'J'), ('1863', 'castle', 'J'),
+ ('1868', 'Meiji', 'J'), ('1878', 'newspaper', 'J'), ('1909–1910', 'Takabe', 'JC'), ('1924', 'Nihon Ki-in', 'J'),
+ ('1933', 'Game of the Century', 'J'), ('1935', 'radio', 'J'), ('1936–1938', 'Shūsai', 'J'), ('1941', 'Sekiyama', 'J'),
+ ('1945', 'Atomic', 'J'), ('1949', 'Fujisawa', 'J'), ('1950', 'Go Seigen is awarded', 'JC'),
+ ('1954', 'Korea Baduk', 'KJ'), ('1956', 'Kuksu', 'K'), ('1960', 'Friendship', 'CJ'), ('1962', 'Meijin', 'J'),
+ ('1976', 'Tengen', 'J'), ('1984', 'Nie Weiping', 'CJ'), ('1988', 'Fujitsu', 'J'), ('1989', 'Ing Cup', 'KC'),
+ ('1995', 'Ma Xiaochun', 'C'), ('1996', 'LG Cup', 'K'), ('1998–2003', 'Hikaru', 'J'), ('2000', 'Rui Naiwei', 'KC'),
+ ('2003', 'Oteai', 'J'), ('1615', 'Ricci', 'C'), ('1872', 'Kido', 'J'), ('1880', 'Korschelt', 'J'),
+ ('1978', 'Wimmer', 'J'), ('1996', 'Wakata', 'J'), ('2000', 'Redmond', 'J'), ('2011–2014', 'Korean', 'K'),
+ ('2016', 'Lee Sedol 4', 'KJ'), ('May 2017', 'Ke Jie', 'C'), ('2019', 'Lee Sedol announces', 'K'), ('2026', 'Shin Jinseo defeats', 'K'),
+ ('January 1950', 'Go Seigen', 'CJ'), ('January 1959', 'Sakata', 'J'), ('January 1969', 'Rin', 'J'), ('June 1975', 'Kato', 'J'),
+ ('November 1979', 'Cho Chikun', 'KJ'), ('July 1982', 'Cho Hunhyun', 'K'), ('October 1990', 'Lee Changho', 'K'),
+ ('January 2006', 'Gu Li', 'C'), ('July 2006', 'Lee Sedol', 'K'), ('July 2011', 'Park', 'K'), ('May 2015', 'Ke Jie', 'C'),
+ ('May 2018', 'Shin', 'K'), ('August 2018', 'Park', 'K'),
+]
+EVENTS = [(t, d, tx, ph, sr) for t, evs in SECTIONS for d, tx, ph, sr in evs]
+tag_of = {}
+for d, frag, letters in TAGS:
+    hits = [i for i, (t, dd, tx, ph, sr) in enumerate(EVENTS) if dd == d and frag in tx]
+    if len(hits) != 1:
+        print('TAG', d, frag, 'matches', len(hits))
+        continue
+    tag_of.setdefault(hits[0], '')
+    tag_of[hits[0]] += letters
+
+def outline(select, pictures):
+    """Outline lines of the selected events (indices), grouped by section."""
+    lines, last, mine = [], None, set()
+    local = set()
+    for i, (title, date, text, phrase, src) in enumerate(EVENTS):
+        if not select(i):
+            continue
+        if title != last:
+            lines.append('== %s ==' % title); last = title
+        text = link(text.replace('{i}', "''").replace('{/i}', "''"), local)
         refs = ref_text(phrase) if phrase and 'HOG' in src else ''
         if 'SL' in src:
             refs += ref_text(None, named=':11')
-        for d, t, f in IMAGES:
-            if d == date and t in text:
-                lines.append('[[File:%s|200px]]' % f)
+        if 'VID' in src:
+            refs += VIDEO
+        if pictures:
+            for d, t, f in IMAGES:
+                if d == date and t in text:
+                    lines.append('[[File:%s|200px]]' % f)
         lines.append("* '''%s''' %s%s" % (date, text, refs))
+    return lines
 
-body = invoke(MODULE, 'go', '\n'.join(lines), flags=['--switcher', '--no-original'])
+n = len(EVENTS)
+body = invoke(MODULE, 'go', '\n'.join(outline(lambda i: True, True)), flags=['--switcher', '--no-original'])
+solo = ''
+for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan')):
+    ls = outline(lambda i, c=code: c in tag_of.get(i, ''), False)
+    cnt = sum(1 for l in ls if l.startswith('*'))
+    print(name, cnt, 'events')
+    solo += '\n\n== Go in %s ==\n%s' % (name, invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original']))
 
 sources = re.search(r'^== ?Sources ?==\n(.*?)(?=^==)', hog, re.S | re.M)
 sources = sources.group(1).strip() if sources else ''
@@ -264,12 +339,13 @@ page = (
     '{{Short description|Chronology of the board game Go}}\n'
     '{{Use dmy dates|date=November 2026}}\n\n'
     + "[[File:MET DP135836.jpg|thumb|right|upright=1.3|''Outfit for the Go Game'', woodblock print (''surimono''), 19th century, [[Metropolitan Museum of Art]].]]\n"
-    + lead + '\n{{clear}}\n\n== Timeline ==\n' + body +
+    + lead + '\n{{clear}}\n\n== Timeline ==\n' + body + solo +
     '\n\n== See also ==\n* [[History of Go]]\n* [[Go (game)]]\n* [[Timeline of artificial intelligence]]\n'
     '\n== References ==\n'
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
     '\n[[:Category:Go (game)]]\n'
 )
 out.parent.mkdir(exist_ok=True)
+page = dedupe(page)
 out.write_text(page)
 print('%d events -> %s (%d bytes)' % (n, out, len(page)))
