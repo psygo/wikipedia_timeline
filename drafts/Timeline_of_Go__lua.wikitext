@@ -106,17 +106,26 @@ This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
 |id=go5
 |text=
+[[File:Go_Seigen_01.jpg|200px]]
 * '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} [[Go Seigen]] becomes the world no. 1.<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who Was the Strongest Go Player Every Year? (1950–2026) {{!}} Bar Chart Race |url=https://www.youtube.com/watch?v=oY50_IKnsMs |medium=Video |publisher=YouTube |access-date=22 November 2026}}</ref>
 [[File:Sakata-Eio-1.jpg|200px]]
 * '''January 1959''' {{Flag icon|Japan}} [[Sakata Eio]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Go Seigen teaching to a young Rin Kaiho.jpg|200px]]
 * '''January 1969''' {{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
 * '''June 1975''' {{Flag icon|Japan}} [[Kato Masao]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Cho Chikun at World Go Festival20190630.jpg|200px]]
 * '''November 1979''' {{Flag icon|South Korea}}{{Flag icon|Japan}} [[Cho Chikun]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Chohunhyun1.jpg|200px]]
 * '''July 1982''' {{Flag icon|South Korea}} [[Cho Hun-hyun|Cho Hunhyun]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Lee ChangHo.JPG|200px]]
 * '''October 1990''' {{Flag icon|South Korea}} [[Lee Chang-ho|Lee Changho]], a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.<ref name="gomagic" />
+[[File:Gu Li 2024.jpg|200px]]
 * '''January 2006''' {{Flag icon|China}} [[Gu Li]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Lee Se-Dol - 2016 (cropped).jpg|200px]]
 * '''July 2006''' {{Flag icon|South Korea}} [[Lee Sedol]] becomes the world no. 1.<ref name="gomagic" />
+[[File:(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg|200px]]
 * '''July 2011''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1.<ref name="gomagic" />
+[[File:Ke Jie (柯洁) 2019 (cropped).png|200px]]
 * '''May 2015''' {{Flag icon|China}} [[Ke Jie]] becomes the world no. 1.<ref name="gomagic" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]], whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" />
 * '''August 2018''' {{Flag icon|South Korea}} Park Junghwan becomes the world no. 1 for the second time.<ref name="gomagic" />
@@ -296,6 +305,59 @@ This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''
 * '''2000''' The American [[Michael Redmond]] is the first Westerner to reach 9 dan.<ref name="go7" /><ref name=":11" />
 == The AI era ==
 * '''2016''' Google's [[AlphaGo]] beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
+}}
+
+== Go in non-Asian countries ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=gow
+|text=
+== Go in the West and in space ==
+* '''1615''' Nicolas Trigault publishes in Augsburg the diaries of the Jesuit Matteo Ricci, which explain the game of weiqi; the book goes through at least 16 editions in European languages.<ref name=":11" />
+* '''1694''' [[Thomas Hyde]] writes the first detailed description of Go in a European language, in his treatise on oriental board games.<ref name=":11" /><ref name=":11" />
+* '''17th–18th century''' The philosopher Leibniz publishes an article on Go with a picture of a game, saying he does not know all the rules.<ref name=":11" /><ref name=":11" />
+* '''1872''' The first recorded game of Go in Europe is played between Kido Takayoshi and Ōkubo Toshimichi of the Iwakura Mission.
+* '''1880''' [[Oskar Korschelt]], who learned the game in Japan from Murase Shūho, publishes ''Das Go Spiel'': the first systematic description in a Western language.<ref name="go5" /><ref name=":11" />
+* '''1905–1908''' Edward Lasker learns Go in Berlin (1905) and later founds the New York Go Club; in 1908 Arthur Smith publishes the first Go book in English, ''The Game of Go''.<ref name="agahbk95" /><ref name=":11" />
+* '''1934–1937''' Lasker's ''Go and Go-moku'' (1934) helps popularize the game in the US; the American Go Association is formed in 1935 and the German Go Association in 1937.<ref name="agahbk95" /><ref name=":11" />
+* '''1978''' Manfred Wimmer becomes the first Westerner to receive a professional certificate from an East Asian Go association (Kansai Ki-in); James Kerwin is the first at the [[Nihon Ki-in]].<ref name="go6" /><ref name=":11" />
+* '''1996''' Astronauts Daniel Barry and Koichi Wakata become the first people to play Go in space.{{sfn|Peng|Hall|1996}}
+* '''2000''' The American [[Michael Redmond]] is the first Westerner to reach 9 dan.<ref name="go7" /><ref name=":11" />
+* '''2011–2014''' The American Go Association signs an agreement with the Korean Baduk Association to promote its own professional system (2011); the European Go Federation creates its own (2014).<ref name=":11" />
+}}
+
+== Internet Go ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=goi
+|text=
+== Go online and computer Go ==
+* '''19 December 1976''' A friendship match between Taiwan and the United States is played by teletype; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
+* '''1984''' The first computer Go event, the Acornsoft tournament for the BBC Micro, is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
+* '''2 February 1992''' The Internet Go Server (IGS), the first server dedicated to Go, starts.<ref name=":11" />
+== The AI era ==
+* '''Late 2016 – early 2017''' A stronger [[AlphaGo]] ("Master") wins 60 games in a row, anonymously, online against top professionals.
+}}
+
+== Computer Go ==
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=gop
+|text=
+== Go online and computer Go ==
+* '''1968''' Albert Zobrist writes the first program that plays complete games of Go.<ref name=":11" />
+* '''19 December 1976''' A friendship match between Taiwan and the United States is played by teletype; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
+* '''1984''' The first computer Go event, the Acornsoft tournament for the BBC Micro, is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
+* '''1985''' The Ing Prize for computer programs starts; it expires in 2000, when the last challenge was won by HandTalk at an 11-stone handicap against a young professional.<ref name=":11" />
+* '''2 February 1992''' The Internet Go Server (IGS), the first server dedicated to Go, starts.<ref name=":11" />
+* '''1993''' Bruegmann's Gobble is the first Go program based on random playouts (Monte Carlo).<ref name=":11" />
+* '''2006''' The UCT algorithm, a Monte Carlo tree search, is developed; a program using it, CrazyStone, wins the Computer Olympiad 9×9 Go event the same year.<ref name=":11" />
+* '''2008''' MoGo wins one of three games against the professional Catalin Taranu on 9×9 and later beats an 8-dan Korean professional on 19×19 with a 9-stone handicap.<ref name=":11" />
+* '''2012''' The program Zen beats Takemiya Masaki in games with 5 and 4 handicap stones.<ref name=":11" />
+== The AI era ==
+* '''October 2015''' [[AlphaGo]], made by Google, beats the European champion Fan Hui (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
+* '''2016''' Google's AlphaGo beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
+* '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
+* '''May 2017''' A new and much improved AlphaGo plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7" /><ref name=":8" /><ref name=":9" />
+* '''2026''' [[Shin Jin-seo|Shin Jinseo]] defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 
 == See also ==

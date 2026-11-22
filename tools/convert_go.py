@@ -257,6 +257,15 @@ IMAGES = [
     ('October 2015', 'AlphaGo', 'AlphaGo_computer_rack.jpg'),
     ('2016', 'Lee Sedol', 'LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg'),
     ('2019', 'KataGo', 'KataGoanalisis.png'),
+    ('January 1950', 'Go Seigen', 'Go_Seigen_01.jpg'),
+    ('January 1969', 'Rin Kaiho', 'Go Seigen teaching to a young Rin Kaiho.jpg'),
+    ('November 1979', 'Cho Chikun', 'Cho Chikun at World Go Festival20190630.jpg'),
+    ('July 1982', 'Cho Hunhyun', 'Chohunhyun1.jpg'),
+    ('October 1990', 'Lee Changho', 'Lee ChangHo.JPG'),
+    ('January 2006', 'Gu Li', 'Gu Li 2024.jpg'),
+    ('July 2006', 'Lee Sedol', 'Lee Se-Dol - 2016 (cropped).jpg'),
+    ('July 2011', 'Park Junghwan', '(청주MBC뉴스) 청남대 바둑전쟁 박정환 9단 웃다.jpg'),
+    ('May 2015', 'Ke Jie', 'Ke Jie (柯洁) 2019 (cropped).png'),
 ]
 for _d, _t, _f in IMAGES:       # a typo here would silently drop a picture
     assert any(d == _d and _t in t for _, evs in SECTIONS for d, t, *_ in evs), (_d, _t)
@@ -285,6 +294,9 @@ TAGS = [
  ('November 1979', 'Cho Chikun', 'KJ'), ('July 1982', 'Cho Hunhyun', 'K'), ('October 1990', 'Lee Changho', 'K'),
  ('January 2006', 'Gu Li', 'C'), ('July 2006', 'Lee Sedol', 'K'), ('July 2011', 'Park', 'K'), ('May 2015', 'Ke Jie', 'C'),
  ('May 2018', 'Shin', 'K'), ('August 2018', 'Park', 'K'),
+ ('October 2015', 'AlphaGo', 'P'), ('2016', 'Lee Sedol 4', 'P'), ('Late 2016 – early 2017', 'Master', 'PI'), ('May 2017', 'Ke Jie', 'P'),
+ ('2019', 'KataGo', 'P'), ('2026', 'Shin Jinseo defeats', 'P'), ('19 December 1976', 'teletype', 'I'), ('1984', 'inetgo', 'I'),
+ ('2 February 1992', 'Internet Go Server', 'I'),
 ]
 EVENTS = [(t, d, tx, ph, sr) for t, evs in SECTIONS for d, tx, ph, sr in evs]
 tag_of = {}
@@ -295,6 +307,11 @@ for d, frag, letters in TAGS:
         continue
     tag_of.setdefault(hits[0], '')
     tag_of[hits[0]] += letters
+
+AUTO = {'Go in the West and in space': 'W', 'Go online and computer Go': 'P'}      # whole sections
+for i, ev in enumerate(EVENTS):
+    if ev[0] in AUTO:
+        tag_of[i] = tag_of.get(i, '') + AUTO[ev[0]]
 
 def outline(select, pictures, headings=True):
     """Outline lines of the selected events (indices), grouped by section."""
@@ -327,11 +344,12 @@ for k, (title, _evs) in enumerate(SECTIONS, 1):
     ls = outline(lambda i, t=title: EVENTS[i][0] == t, True, headings=False)
     body += '\n=== %s ===\n%s\n' % (title, invoke(MODULE, 'go%d' % k, '\n'.join(ls), flags=['--switcher', '--no-original']))
 solo = ''
-for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan')):
+TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go'}
+for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go')):
     ls = outline(lambda i, c=code: c in tag_of.get(i, ''), False)
     cnt = sum(1 for l in ls if l.startswith('*'))
     print(name, cnt, 'events')
-    solo += '\n\n== Go in %s ==\n%s' % (name, invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original']))
+    solo += '\n\n== %s ==\n%s' % (TITLES[code], invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original']))
 
 sources = re.search(r'^== ?Sources ?==\n(.*?)(?=^==)', hog, re.S | re.M)
 sources = sources.group(1).strip() if sources else ''
