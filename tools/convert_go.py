@@ -296,7 +296,7 @@ for d, frag, letters in TAGS:
     tag_of.setdefault(hits[0], '')
     tag_of[hits[0]] += letters
 
-def outline(select, pictures):
+def outline(select, pictures, headings=True):
     """Outline lines of the selected events (indices), grouped by section."""
     lines, last, mine = [], None, set()
     local = set()
@@ -304,7 +304,9 @@ def outline(select, pictures):
         if not select(i):
             continue
         if title != last:
-            lines.append('== %s ==' % title); last = title
+            if headings:
+                lines.append('== %s ==' % title)
+            last = title
         text = link(text.replace('{i}', "''").replace('{/i}', "''"), local)
         refs = ref_text(phrase) if phrase and 'HOG' in src else ''
         if 'SL' in src:
@@ -319,7 +321,11 @@ def outline(select, pictures):
     return lines
 
 n = len(EVENTS)
-body = invoke(MODULE, 'go', '\n'.join(outline(lambda i: True, True)), flags=['--switcher', '--no-original'])
+# the main timeline: one wiki heading per era (so each shows in the table of contents), each a timeline of its own
+body = ''
+for k, (title, _evs) in enumerate(SECTIONS, 1):
+    ls = outline(lambda i, t=title: EVENTS[i][0] == t, True, headings=False)
+    body += '\n=== %s ===\n%s\n' % (title, invoke(MODULE, 'go%d' % k, '\n'.join(ls), flags=['--switcher', '--no-original']))
 solo = ''
 for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan')):
     ls = outline(lambda i, c=code: c in tag_of.get(i, ''), False)
@@ -339,7 +345,7 @@ page = (
     '{{Short description|Chronology of the board game Go}}\n'
     '{{Use dmy dates|date=November 2026}}\n\n'
     + "[[File:MET DP135836.jpg|thumb|right|upright=1.3|''Outfit for the Go Game'', woodblock print (''surimono''), 19th century, [[Metropolitan Museum of Art]].]]\n"
-    + lead + '\n{{clear}}\n\n== Timeline ==\n' + body + solo +
+    + lead + '\n{{clear}}\n\n== Timeline ==' + body + solo +
     '\n\n== See also ==\n* [[History of Go]]\n* [[Go (game)]]\n* [[Timeline of artificial intelligence]]\n'
     '\n== References ==\n'
     '{{Reflist|30em}}\n\n== Sources ==\n' + sources + '\n'
