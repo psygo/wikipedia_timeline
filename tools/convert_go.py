@@ -308,7 +308,7 @@ for d, frag, letters in TAGS:
     tag_of.setdefault(hits[0], '')
     tag_of[hits[0]] += letters
 
-AUTO = {'Go in the West and in space': 'W', 'Go online and computer Go': 'P', 'The AI era': 'A'}      # whole sections
+AUTO = {'Go in the West and in space': 'W', 'Go online and computer Go': 'P', 'The AI era': 'A', 'World no. 1 players': 'N'}      # whole sections
 for i, ev in enumerate(EVENTS):
     if ev[0] in AUTO:
         tag_of[i] = tag_of.get(i, '') + AUTO[ev[0]]
@@ -331,7 +331,7 @@ def outline(select, pictures, headings=True, order=None):
             refs += ref_text(None, named=':11')
         if 'VID' in src:
             refs += VIDEO
-        if pictures:
+        if pictures and not (pictures == 'main' and 'VID' in src):      # the no. 1 pictures are in their own page section
             for d, t, f in IMAGES:
                 if d == date and t in text:
                     lines.append('[[File:%s|200px]]' % f)
@@ -339,7 +339,6 @@ def outline(select, pictures, headings=True, order=None):
     return lines
 
 n = len(EVENTS)
-# the main timeline: one wiki heading per era (so each shows in the table of contents), each a timeline of its own
 def year_key(date):
     """Rough year of a date label, to place the events of the West / online / computer / AI sections among the eras."""
     d = date
@@ -351,28 +350,31 @@ def year_key(date):
     if 'Unknown' in d: return -9999
     if 'Ming' in d: return 1368
     m = re.search(r'\b(\d{3,4})\b', d)
-    return (-1 if 'BCE' in d else 1) * int(m.group(1)) if m else 0
+    mo = next((k for k, name in enumerate(['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']) if name in d), 0)
+    return (-1 if 'BCE' in d else 1) * int(m.group(1)) + mo / 13 if m else 0
 
-SPLICED = ('Go in the West and in space', 'Go online and computer Go', 'The AI era')
+SPLICED = ('Go in the West and in space', 'Go online and computer Go', 'The AI era', 'World no. 1 players')
 ERAS = [t for t, _ in SECTIONS if t not in SPLICED]
 eras = {t: [i for i, e in enumerate(EVENTS) if e[0] == t] for t in ERAS}
+eras['The AI era'] = []
 extra = sorted((i for i, e in enumerate(EVENTS) if e[0] in SPLICED), key=lambda i: year_key(EVENTS[i][1]))
 def era_of(i):
     y = year_key(EVENTS[i][1])
-    return ERAS[2] if y < 1868 else ERAS[3]          # Edo-period / Modern professional Go
+    return 'The AI era' if y >= 2015 else ERAS[2] if y < 1868 else ERAS[3]          # Edo-period / Modern professional Go / AI era
 for i in extra:                                       # splice by year: before the first event of the era that is later
     lst = eras[era_of(i)]
     pos = next((j for j, o in enumerate(lst) if year_key(EVENTS[o][1]) > year_key(EVENTS[i][1])), len(lst))
     lst.insert(pos, i)
-# the main timeline: one wiki heading per era (so each shows in the table of contents), each a timeline of its own
-body = ''
-for k, title in enumerate(ERAS, 1):
-    ls = outline(lambda i: True, True, headings=False, order=eras[title])
-    body += '\n=== %s ===\n%s\n' % (title, invoke(MODULE, 'go%d' % k, '\n'.join(ls), flags=['--switcher', '--no-original']))
+# the main timeline: one timeline whose sections (TimelineRail sections, not wiki headings) are the eras
+ls = []
+for title in ERAS + ['The AI era']:
+    ls.append('== %s ==' % title)
+    ls += outline(lambda i: True, 'main', headings=False, order=eras[title])
+body = '\n' + invoke(MODULE, 'go', '\n'.join(ls), flags=['--switcher', '--no-original']) + '\n'
 solo = ''
-TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era'}
-for code, name in (('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go'), ('A', 'the AI era')):
-    ls = outline(lambda i, c=code: c in tag_of.get(i, ''), False)
+TITLES = {'C': 'Go in China', 'K': 'Go in Korea', 'J': 'Go in Japan', 'W': 'Go in non-Asian countries', 'I': 'Internet Go', 'P': 'Computer Go', 'A': 'The AI era', 'N': 'World no. 1 players'}
+for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'), ('J', 'Japan'), ('W', 'non-Asian countries'), ('I', 'internet Go'), ('P', 'computer Go'), ('A', 'the AI era')):
+    ls = outline(lambda i, c=code: c in tag_of.get(i, ''), code == 'N', headings=(code != 'N'))
     cnt = sum(1 for l in ls if l.startswith('*'))
     print(name, cnt, 'events')
     solo += '\n\n== %s ==\n%s' % (TITLES[code], invoke(MODULE, 'go' + code.lower(), '\n'.join(ls), flags=['--switcher', '--no-original']))

@@ -10,10 +10,10 @@ This is a timeline of the history of the board game [[Go (game)|Go]] (Chinese ''
 __TOC__
 
 == Timeline ==
-=== Legends and first records ===
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=go1
+|id=go
 |text=
+== Legends and first records ==
 * '''Unknown''' The "Rotten Handle" legend of the origin of the game: a carpenter in Zhejiang watches deities playing a mysterious game and loses track of time.
 * '''c. 2356–2255 BCE''' According to legend, [[Emperor Yao]] creates the game to teach discipline and balance to his son Danzhu. Another legend has Shun, his successor, invent it for his own son.<ref name="Berge-Becker">{{Cite book |last=Berge-Becker |first=Zach |title=Games & Play in Chinese & Sinophone Cultures |date=2024 |publisher=[[University of Washington Press]] |isbn=9780295752402 |editor-last=Guo |editor-first=Li |location=Seattle, WA |pages= |chapter=Groups on the Grid: Weiqi Cultures in Song-Yuan-Ming China |editor-last2=Eyman |editor-first2=Douglas |editor-last3=Sun |editor-first3=Hongmei}}</ref><ref name=":11">{{Cite web |title=Go History at Sensei's Library |url=https://senseis.xmp.net/?GoHistory |access-date=2025-08-24 |website=senseis.xmp.net}}</ref>
 * '''548 BCE''' The earliest written reference to the game is usually taken to be the historical annal [[Zuo Zhuan]], about an event of this year; it is also mentioned in the [[Analects]] of Confucius and in the books of [[Mencius]].{{sfn|Potter|1985}}{{sfn|Fairbairn|1995}}
@@ -22,12 +22,7 @@ __TOC__
 [[File:Go Board Han dynasty.JPG|200px]]
 * '''1st–3rd century''' Eastern Han: Ban Gu writes ''Yì Zhǐ'' ("The Essentials of Go"), the oldest surviving text devoted to Go, and boards have 17 × 17 lines.<ref name=":11" /><ref name=":11" />
 * '''c. 250''' The "Wu Diagrams" record the earliest known game of Go.<ref name=":11" />
-}}
-
-=== Ancient and medieval East Asia ===
-{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=go2
-|text=
+== Ancient and medieval East Asia ==
 [[File:British Library Dunhuang Go Manual.jpg|200px]]
 * '''3rd–6th century''' The board grows from 17 × 17 to 19 × 19 lines. The ''Dunhuang Go Manual'', the first book devoted to Go on the larger board, dates to this period.
 [[File:Baekje Game of Baduk (Copy) (30079340202).jpg|200px]]
@@ -49,12 +44,7 @@ __TOC__
 * '''1582''' [[Hon'inbō Sansa|Honinbo Sansa]] plays a triple ko against Kashio Rigen at a monastery in Kyoto in the presence of Oda Nobunaga; the game is suspended. The next day Nobunaga is killed, and a triple ko is considered bad luck ever after.
 [[File:Go board Hideyoshi Ieyasu Ryogenin M1868.jpg|200px]]
 * '''1588''' Toyotomi Hideyoshi organizes the first Japanese Go tournament; Hon'inbō (Sansa) wins and is granted a salary.<ref name=":5" />
-}}
-
-=== Edo-period Japan and Qing China ===
-{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=go3
-|text=
+== Edo-period Japan and Qing China ==
 [[File:Sansa.jpg|200px]]
 * '''1603''' [[Hon'inbō Sansa|Honinbo Sansa]] is appointed by Shogun Tokugawa Ieyasu as head of the Go world (Meijin Godokoro): the major Japanese Go school system begins.<ref name=":5" /><ref name=":11" />
 * '''1612''' The Tokugawa shogunate establishes four hereditary Go houses (Hon'inbō, Inoue, Yasui and Hayashi) and pays them stipends; they compete for 250–300 years.<ref name=":5" /><ref name=":11" />
@@ -72,12 +62,7 @@ __TOC__
 [[File:Kulak_kizartan_go.png|200px]]
 * '''1846''' The "ear-reddening game": [[Hon'inbō Shūsaku|Honinbo Shusaku]]'s move 127 stuns Gennan Inseki, and becomes one of the best moves of all time.<ref name=":5" />
 * '''1863''' The last castle games are played as the crisis of the shogunate disrupts the ceremonies.<ref name=":11" />
-}}
-
-=== Modern professional Go ===
-{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=go4
-|text=
+== Modern professional Go ==
 * '''1868''' The Meiji Restoration ends the official stipends of the Go houses; Go loses its patrons and the masters struggle.<ref name=":11" />
 * '''1872''' The first recorded game of Go in Europe is played between Kido Takayoshi and Ōkubo Toshimichi of the Iwakura Mission.
 * '''1878''' The first newspaper Go column appears in Japan, on 1 April. In 1879 the Hoensha society forms; its journal ''Igo Shinpo'' is the first Go magazine.<ref name=":11" />
@@ -96,50 +81,65 @@ __TOC__
 * '''1949''' Fujisawa Hōsai becomes the first player to reach 9 dan under the Oteai promotion system.<ref name=":11" />
 [[File:Go_Seigen_and_Kitani_Minoru.jpg|200px]]
 * '''1950''' Go Seigen is awarded 9 dan, and becomes the world's best player; he wins his ten-game matches against all top rivals until 1956.<ref name=":5" />
+* '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} Go Seigen becomes the world no. 1.<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who Was the Strongest Go Player Every Year? (1950–2026) {{!}} Bar Chart Race |url=https://www.youtube.com/watch?v=oY50_IKnsMs |medium=Video |publisher=YouTube |access-date=22 November 2026}}</ref>
 * '''1954''' The Korea Baduk Association (Hankuk Kiwon) is established, on 28 January. The first NHK Cup is broadcast on radio; it moves to television in 1962.<ref name=":5" /><ref name=":11" />
 * '''1956''' The first professional tournament in Korea, the Kuksu Cup, starts.<ref name=":11" />
+* '''January 1959''' {{Flag icon|Japan}} [[Sakata Eio]] becomes the world no. 1.<ref name="gomagic" />
 * '''1960''' The China–Japan Go Friendship Match starts; it is held every year until 1991.
 * '''1962''' Fujisawa Shūkō wins the first Meijin title tournament.<ref name=":11" />
 * '''1968''' Albert Zobrist writes the first program that plays complete games of Go.<ref name=":11" />
+* '''January 1969''' {{Flag icon|Taiwan}}{{Flag icon|Japan}} [[Rin Kaiho]] becomes the world no. 1.<ref name="gomagic" />
+* '''June 1975''' {{Flag icon|Japan}} [[Kato Masao]] becomes the world no. 1.<ref name="gomagic" />
 * '''1976''' After the "Meijin Incident" of 1974, the Tengen (1975), Kisei and Gosei (1976) titles complete the seven major Japanese titles. Fujisawa Shūkō wins the first Kisei in 1977.<ref name=":11" />
 * '''19 December 1976''' A friendship match between Taiwan and the United States is played by teletype; in 1978 the UK and the USSR play one by telephone.<ref name=":11" />
 * '''1978''' Manfred Wimmer becomes the first Westerner to receive a professional certificate from an East Asian Go association (Kansai Ki-in); James Kerwin is the first at the Nihon Ki-in.<ref name="go6">[http://pokspace.goverband.at/essays/wimmer_e.htm Manfred Wimmer]</ref><ref name=":11" />
+* '''November 1979''' {{Flag icon|South Korea}}{{Flag icon|Japan}} [[Cho Chikun]] becomes the world no. 1.<ref name="gomagic" />
+* '''July 1982''' {{Flag icon|South Korea}} [[Cho Hun-hyun|Cho Hunhyun]] becomes the world no. 1.<ref name="gomagic" />
 * '''1984''' [[Nie Weiping]] leads China to victory over Japan in the first China–Japan Super Go Matches, a national triumph.<ref name=":6">{{Cite news |title=China's Hero of the Game 'Go' |url=https://www.csmonitor.com/1992/0306/06141.html |access-date=2025-08-24 |work=Christian Science Monitor |issn=0882-7729}}</ref><ref name=":5" />
 * '''1984''' The first computer Go event, the Acornsoft tournament for the BBC Micro, is held. Greg Hale writes ''inetgo'', probably the first program to play Go over the internet.<ref name=":11" />
 * '''1985''' The Ing Prize for computer programs starts; it expires in 2000, when the last challenge was won by HandTalk at an 11-stone handicap against a young professional.<ref name=":11" />
 * '''1988''' Takemiya Masaki wins the first Fujitsu Cup, one of the first international tournaments.<ref name=":11" />
-* '''1989''' [[Cho Hun-hyun|Cho Hunhyun]], the only Korean entrant, wins the first [[Ing Cup]], the "Olympics of Go", beating Nie Weiping.<ref name=":5" /><ref name=":11" />
+* '''1989''' Cho Hunhyun, the only Korean entrant, wins the first [[Ing Cup]], the "Olympics of Go", beating Nie Weiping.<ref name=":5" /><ref name=":11" />
+* '''October 1990''' {{Flag icon|South Korea}} [[Lee Chang-ho|Lee Changho]], a student of Cho Hunhyun, becomes the world no. 1 at 15 years old.<ref name="gomagic" />
 * '''2 February 1992''' The Internet Go Server (IGS), the first server dedicated to Go, starts.<ref name=":11" />
 * '''1993''' Bruegmann's Gobble is the first Go program based on random playouts (Monte Carlo).<ref name=":11" />
 * '''1995''' Ma Xiaochun is the first Chinese player to win an international tournament, taking both the Fujitsu Cup and the Tongyang Securities Cup.<ref name=":11" />
-* '''1996''' [[Lee Chang-ho|Lee Changho]] wins the first LG Cup.<ref name=":11" />
+* '''1996''' Lee Changho wins the first LG Cup.<ref name=":11" />
 * '''1996''' Astronauts Daniel Barry and Koichi Wakata become the first people to play Go in space.{{sfn|Peng|Hall|1996}}
 * '''1998–2003''' The manga ''Hikaru no Go'' (later also an anime) sparks a Go boom among young players in Japan.<ref name=":5" /><ref name=":11" />
 * '''2000''' [[Rui Naiwei]], playing for Korea, wins the 43rd Kuksu in February and becomes the first woman to win a major title.<ref name=":3">{{Cite web |title=Korean History - All About Go |url=http://www.allaboutgo.com/history/korea-history.html |access-date=2025-08-23 |website=www.allaboutgo.com}}</ref><ref name=":11" />
 [[File:Michael Redmond in 2018.png|200px]]
 * '''2000''' The American [[Michael Redmond]] is the first Westerner to reach 9 dan.<ref name="go7">{{cite web |url=http://shinbo.free.fr/TheMagicOfGo/index.php?tmog=40 |title=The Magic of Go – 40. Go in Europe |author=Richard Bozulich |access-date=2008-04-28 |archive-url=https://web.archive.org/web/20070730222854/http://shinbo.free.fr/TheMagicOfGo/index.php?tmog=40 |archive-date=2007-07-30 |url-status=dead}}</ref><ref name=":11" />
 * '''2003''' The Oteai promotion system is discontinued in Japan and a new one introduced.<ref name=":11" />
+* '''January 2006''' {{Flag icon|China}} [[Gu Li]] becomes the world no. 1.<ref name="gomagic" />
 * '''2006''' The UCT algorithm, a Monte Carlo tree search, is developed; a program using it, CrazyStone, wins the Computer Olympiad 9×9 Go event the same year.<ref name=":11" />
+* '''July 2006''' {{Flag icon|South Korea}} [[Lee Sedol]] becomes the world no. 1.<ref name="gomagic" />
 * '''2008''' MoGo wins one of three games against the professional Catalin Taranu on 9×9 and later beats an 8-dan Korean professional on 19×19 with a 9-stone handicap.<ref name=":11" />
 * '''2011–2014''' The American Go Association signs an agreement with the Korean Baduk Association to promote its own professional system (2011); the European Go Federation creates its own (2014).<ref name=":11" />
+* '''July 2011''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1.<ref name="gomagic" />
 * '''2012''' The program Zen beats Takemiya Masaki in games with 5 and 4 handicap stones.<ref name=":11" />
+== The AI era ==
+* '''May 2015''' {{Flag icon|China}} [[Ke Jie]] becomes the world no. 1.<ref name="gomagic" />
 [[File:AlphaGo_computer_rack.jpg|200px]]
 * '''October 2015''' [[AlphaGo]], made by Google, beats the European champion Fan Hui (2p) 5–0 in even games: the first time a program beats a professional.<ref name=":11" />
 [[File:LG전자, 이세돌 9단과 함께 학생들의 꿈 그린다.jpg|200px]]
 * '''2016''' Google's AlphaGo beats [[Lee Sedol]] 4–1 in Seoul, the first time an AI beats a top professional. The same year, Iyama Yūta holds all seven Japanese major titles at once.<ref name=":11" />
 * '''Late 2016 – early 2017''' A stronger AlphaGo ("Master") wins 60 games in a row, anonymously, online against top professionals.
-* '''May 2017''' A new and much improved AlphaGo plays [[Ke Jie]] and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''May 2017''' A new and much improved AlphaGo plays Ke Jie and wins all three games; Ke Jie says its play is "like a god of Go".<ref name=":11" />
+* '''August 2017''' {{Flag icon|South Korea}} [[Park Junghwan]] becomes the world no. 1 for the second time.<ref name="gomagic" />
+* '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]], whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" />
 [[File:KataGoanalisis.png|200px]]
 * '''2019''' The open-source Go AI [[KataGo]] is created by David Wu. Lee Sedol announces his retirement, citing AlphaGo as "an entity that cannot be defeated".<ref name=":7">{{Cite web |title=AlphaGo: Dawn of a New Era in Human-Machine Partnership |url=https://baduk.news/s/alphago-dawn-of-a-new-era-in-human-machine-partnership |access-date=2025-08-24 |website=Baduk News |language=en}}</ref><ref name=":8">Lee, Hajin. ''[https://hajinlee.medium.com/impact-of-go-ai-on-the-professional-go-world-f14cf201c7c2 Impact of Go AI on the professional Go world],'' 2020.</ref><ref name=":9">{{Cite web |title=Impact of Go AI on the Professional Go World – Response |url=https://www.nordicgodojo.eu/post/276/impact-of-go-ai-on-the-professional-go-world-response |access-date=2025-08-24 |website=Nordic Go Dojo}}</ref>
-* '''2026''' [[Shin Jin-seo|Shin Jinseo]] defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
+* '''2026''' Shin Jinseo defeats a new version of KataGo on a 2-stone handicap, coming back from a first-game defeat to win the next two.
 }}
 
-=== World no. 1 players ===
+
+== World no. 1 players ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
-|id=go5
+|id=gon
 |text=
 [[File:Go_Seigen_01.jpg|200px]]
-* '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} [[Go Seigen]] becomes the world no. 1.<ref name="gomagic">{{cite AV media |people=Go Magic |date= |title=Who Was the Strongest Go Player Every Year? (1950–2026) {{!}} Bar Chart Race |url=https://www.youtube.com/watch?v=oY50_IKnsMs |medium=Video |publisher=YouTube |access-date=22 November 2026}}</ref>
+* '''January 1950''' {{Flag icon|China}}{{Flag icon|Japan}} [[Go Seigen]] becomes the world no. 1.<ref name="gomagic" />
 [[File:Sakata-Eio-1.jpg|200px]]
 * '''January 1959''' {{Flag icon|Japan}} [[Sakata Eio]] becomes the world no. 1.<ref name="gomagic" />
 [[File:Go Seigen teaching to a young Rin Kaiho.jpg|200px]]
@@ -162,7 +162,6 @@ __TOC__
 * '''August 2017''' {{Flag icon|South Korea}} Park Junghwan becomes the world no. 1 for the second time.<ref name="gomagic" />
 * '''May 2018''' {{Flag icon|South Korea}} [[Shin Jin-seo|Shin Jinseo]], whose style resembles that of the AIs, becomes the world no. 1.<ref name="gomagic" />
 }}
-
 
 == Go in China ==
 {{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
