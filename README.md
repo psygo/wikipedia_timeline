@@ -41,17 +41,58 @@ The prototype is also published with GitHub Pages (see `.github/workflows/pages.
 Needs TemplateStyles and ParserFunctions. The templates are the `TimelineRail` family. `template/` holds one
 paste-ready file per wiki page:
 
-| Page                                                              | File                                        | Edit by hand?                        |
-| ----------------------------------------------------------------- | ------------------------------------------- | ------------------------------------ |
-| `Template:TimelineRail/styles.css` (content model: Sanitized CSS) | `template/TimelineRail__styles.css`         | no: copy of `prototype/timeline.css` |
-| `Template:TimelineRail/event`                                     | `template/TimelineRail__event.wikitext`     | yes                                  |
-| `Template:TimelineRail/gap`                                       | `template/TimelineRail__gap.wikitext`       | yes                                  |
-| `Template:TimelineRail/item`                                      | `template/TimelineRail__item.wikitext`      | yes                                  |
-| `Template:TimelineRail/section`                                   | `template/TimelineRail__section.wikitext`   | yes                                  |
-| `Template:TimelineRail/parallel`                                  | `template/TimelineRail__parallel.wikitext`  | yes                                  |
-| `Template:TimelineRail`                                           | `template/TimelineRail.wikitext`            | yes                                  |
-| `Template:TimelineRail/doc`                                       | `template/TimelineRail__doc.wikitext`       | no: from `tools/doc_source.wikitext` |
-| `Template:TimelineRail/testcases`                                 | `template/TimelineRail__testcases.wikitext` | no: demo text in `tools/build.py`    |
+<table>
+  <thead>
+    <tr><th>Page</th><th>File</th><th>Edit by hand?</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Template:TimelineRail/styles.css</code> (content model: Sanitized CSS)</td>
+      <td><code>template/TimelineRail__styles.css</code></td>
+      <td>no: copy of <code>prototype/timeline.css</code></td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/event</code></td>
+      <td><code>template/TimelineRail__event.wikitext</code></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/gap</code></td>
+      <td><code>template/TimelineRail__gap.wikitext</code></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/item</code></td>
+      <td><code>template/TimelineRail__item.wikitext</code></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/section</code></td>
+      <td><code>template/TimelineRail__section.wikitext</code></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/parallel</code></td>
+      <td><code>template/TimelineRail__parallel.wikitext</code></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail</code></td>
+      <td><code>template/TimelineRail.wikitext</code></td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/doc</code></td>
+      <td><code>template/TimelineRail__doc.wikitext</code></td>
+      <td>no: from <code>tools/doc_source.wikitext</code></td>
+    </tr>
+    <tr>
+      <td><code>Template:TimelineRail/testcases</code></td>
+      <td><code>template/TimelineRail__testcases.wikitext</code></td>
+      <td>no: demo text in <code>tools/build.py</code></td>
+    </tr>
+  </tbody>
+</table>
 
 After changing the stylesheet, the doc or the demo, run `python3 tools/build.py` to regenerate the three generated files.
 Usage for one event per dot, several events per dot, nested timelines, collapsible items, sections and parallel timelines is in
@@ -75,22 +116,97 @@ The same stylesheet, class names and behaviour, outside Wikipedia (the styleshee
 Every page the project creates on a wiki, with the file to paste into it. Name a module `.../sandbox` to try it first (the converters
 write drafts for the sandbox names); `lua/README.md` has the step by step, and the draft pages are in `drafts/`.
 
-| Page (edit link)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Paste from                                                                                                                             | What it is                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Sandbox copy?                        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ----------------------------- |
-| [Module:TimelineRail](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [`lua/Module_TimelineRail.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail.lua)                     | The timeline: `item`, `section`, `event`, `gap`, `rail`, `parallel`, and `outline` (one outline text becomes a whole timeline).                                                                                                                                                                                                                                                                                                                                                                                        | yes                                  |
-| [Module:TimelineRail/doc](https://en.wikipedia.org/w/index.php?title=Module:TimelineRail/doc&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [`lua/Module_TimelineRail__doc.wikitext`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail__doc.wikitext) | Its documentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | -                                    |
-| [Module:ViewSwitcher](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [`lua/Module_ViewSwitcher.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_ViewSwitcher.lua)                     | `{{#invoke:ViewSwitcher                                                                                                                                                                                                                                                                                                                    \| switch ...}}`: several views of one content in a box; `\*`or`default=`marks the default view;`@arg` shows an argument as it is; footnotes kept in the default view only. | yes                                  |
-| [Module:ViewSwitcher/styles.css](https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher/styles.css&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [`lua/ViewSwitcher__styles.css`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/ViewSwitcher__styles.css)                   | The button and menu of the switcher (TemplateStyles).                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | no (the module names this page)      |
-| [Module:OutlineList](https://en.wikipedia.org/w/index.php?title=Module:OutlineList&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [`lua/Module_OutlineList.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineList.lua)                       | The outline as a plain bulleted list (a view for the switcher, or alone).                                                                                                                                                                                                                                                                                                                                                                                                                                              | yes                                  |
-| [Module:OutlineTable](https://en.wikipedia.org/w/index.php?title=Module:OutlineTable&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [`lua/Module_OutlineTable.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineTable.lua)                     | The outline as a `wikitable` (a view for the switcher, or alone).                                                                                                                                                                                                                                                                                                                                                                                                                                                      | yes                                  |
-| [Template:TimelineRail/styles.css](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/styles.css&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [`template/TimelineRail__styles.css`](https://github.com/psygo/wikipedia_timeline/blob/main/template/TimelineRail__styles.css)         | The look of the timeline (TemplateStyles); shared by the template and the module.                                                                                                                                                                                                                                                                                                                                                                                                                                      | no                                   |
-| [Template:TimelineRail](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail&action=edit), [Template:TimelineRail/item](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/item&action=edit), [Template:TimelineRail/section](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/section&action=edit), [Template:TimelineRail/event](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/event&action=edit), [Template:TimelineRail/gap](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/gap&action=edit), [Template:TimelineRail/parallel](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/parallel&action=edit), [Template:TimelineRail/outline](https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/outline&action=edit) | [`lua/template/TimelineRail*.wikitext`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/template) (7 files)                  | One-line `{{#invoke:TimelineRail                                                                                                                                                                                                                                                                                                           \| ...}}`wrappers, so articles keep the template names. Same page names as the pure-template family in`template/`: use one family or the other.                             | no                                   |
-| [User:Fanaro009/ViewSwitcher.js](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/ViewSwitcher.js&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [`userscript/ViewSwitcher.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js)                       | The View button for your account only, on its own page (try it here before asking for the gadget). Then add one line, `importScript( 'User:Fanaro009/ViewSwitcher.js' );`, to [User:Fanaro009/common.js](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&action=edit), the page Wikipedia loads for you automatically.                                                                                                                                                                             | no                                   |
-| [User:Fanaro009/Timeline-toolbar.js](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline-toolbar.js&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [`userscript/Timeline-toolbar.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/Timeline-toolbar.js)               | A **Timeline** drop-down in the edit toolbar that inserts skeletons for the templates. Own page, loaded by `importScript( 'User:Fanaro009/Timeline-toolbar.js' );` in `common.js`.                                                                                                                                                                                                                                                                                                                                     | no                                   |
-| [User:Fanaro009/Timeline-collapse-all.js](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline-collapse-all.js&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [`userscript/Timeline-collapse-all.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/Timeline-collapse-all.js)     | Double-click a dot to collapse or expand the whole timeline. Same way: own page, one `importScript` line in `common.js`.                                                                                                                                                                                                                                                                                                                                                                                               | no                                   |
-| [User:Fanaro009/common.js](https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [`userscript/common.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/common.js)                                   | The three `importScript` lines that load the user scripts above (add them to the page; keep what is already there).                                                                                                                                                                                                                                                                                                                                                                                                    | no                                   |
-| [MediaWiki:Gadget-ViewSwitcher.js](https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadget-ViewSwitcher.js&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | [`userscript/ViewSwitcher.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js)                       | The View button. For one account: `User:<name>/common.js`.                                                                                                                                                                                                                                                                                                                                                                                                                                                             | no (interface administrators)        |
-| [MediaWiki:Gadgets-definition](https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadgets-definition&action=edit)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | (one line: `\* ViewSwitcher[default]\\                                                                                                 | ViewSwitcher.js`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Switches the gadget on for everyone. | no (interface administrators) |
+<table>
+  <thead>
+    <tr><th>Page (edit link)</th><th>Paste from</th><th>What it is</th><th>Sandbox copy?</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:TimelineRail&amp;action=edit">Module:TimelineRail</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail.lua"><code>lua/Module_TimelineRail.lua</code></a></td>
+      <td>The timeline: <code>item</code>, <code>section</code>, <code>event</code>, <code>gap</code>, <code>rail</code>, <code>parallel</code>, and <code>outline</code> (one outline text becomes a whole timeline).</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:TimelineRail/doc&amp;action=edit">Module:TimelineRail/doc</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail__doc.wikitext"><code>lua/Module_TimelineRail__doc.wikitext</code></a></td>
+      <td>Its documentation.</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher&amp;action=edit">Module:ViewSwitcher</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_ViewSwitcher.lua"><code>lua/Module_ViewSwitcher.lua</code></a></td>
+      <td><code>{{#invoke:ViewSwitcher                                                                                                                                                                                                                                                                                                                    \| switch ...}}</code>: several views of one content in a box; <code>\*</code>or<code>default=</code>marks the default view;<code>@arg</code> shows an argument as it is; footnotes kept in the default view only.</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher/styles.css&amp;action=edit">Module:ViewSwitcher/styles.css</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/ViewSwitcher__styles.css"><code>lua/ViewSwitcher__styles.css</code></a></td>
+      <td>The button and menu of the switcher (TemplateStyles).</td>
+      <td>no (the module names this page)</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:OutlineList&amp;action=edit">Module:OutlineList</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineList.lua"><code>lua/Module_OutlineList.lua</code></a></td>
+      <td>The outline as a plain bulleted list (a view for the switcher, or alone).</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:OutlineTable&amp;action=edit">Module:OutlineTable</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineTable.lua"><code>lua/Module_OutlineTable.lua</code></a></td>
+      <td>The outline as a <code>wikitable</code> (a view for the switcher, or alone).</td>
+      <td>yes</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/styles.css&amp;action=edit">Template:TimelineRail/styles.css</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/template/TimelineRail__styles.css"><code>template/TimelineRail__styles.css</code></a></td>
+      <td>The look of the timeline (TemplateStyles); shared by the template and the module.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail&amp;action=edit">Template:TimelineRail</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/item&amp;action=edit">Template:TimelineRail/item</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/section&amp;action=edit">Template:TimelineRail/section</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/event&amp;action=edit">Template:TimelineRail/event</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/gap&amp;action=edit">Template:TimelineRail/gap</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/parallel&amp;action=edit">Template:TimelineRail/parallel</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/outline&amp;action=edit">Template:TimelineRail/outline</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/template"><code>lua/template/TimelineRail*.wikitext</code></a> (7 files)</td>
+      <td>One-line <code>{{#invoke:TimelineRail                                                                                                                                                                                                                                                                                                           \| ...}}</code>wrappers, so articles keep the template names. Same page names as the pure-template family in<code>template/</code>: use one family or the other.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=User:Fanaro009/ViewSwitcher.js&amp;action=edit">User:Fanaro009/ViewSwitcher.js</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js"><code>userscript/ViewSwitcher.js</code></a></td>
+      <td>The View button for your account only, on its own page (try it here before asking for the gadget). Then add one line, <code>importScript( 'User:Fanaro009/ViewSwitcher.js' );</code>, to <a href="https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&amp;action=edit">User:Fanaro009/common.js</a>, the page Wikipedia loads for you automatically.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline-toolbar.js&amp;action=edit">User:Fanaro009/Timeline-toolbar.js</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/Timeline-toolbar.js"><code>userscript/Timeline-toolbar.js</code></a></td>
+      <td>A **Timeline** drop-down in the edit toolbar that inserts skeletons for the templates. Own page, loaded by <code>importScript( 'User:Fanaro009/Timeline-toolbar.js' );</code> in <code>common.js</code>.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline-collapse-all.js&amp;action=edit">User:Fanaro009/Timeline-collapse-all.js</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/Timeline-collapse-all.js"><code>userscript/Timeline-collapse-all.js</code></a></td>
+      <td>Double-click a dot to collapse or expand the whole timeline. Same way: own page, one <code>importScript</code> line in <code>common.js</code>.</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=User:Fanaro009/common.js&amp;action=edit">User:Fanaro009/common.js</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/common.js"><code>userscript/common.js</code></a></td>
+      <td>The three <code>importScript</code> lines that load the user scripts above (add them to the page; keep what is already there).</td>
+      <td>no</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadget-ViewSwitcher.js&amp;action=edit">MediaWiki:Gadget-ViewSwitcher.js</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js"><code>userscript/ViewSwitcher.js</code></a></td>
+      <td>The View button. For one account: <code>User:<name>/common.js</code>.</td>
+      <td>no (interface administrators)</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadgets-definition&amp;action=edit">MediaWiki:Gadgets-definition</a></td>
+      <td>(one line: <code>\* ViewSwitcher[default]\\                                                                                                 | ViewSwitcher.js</code>)</td>
+      <td>Switches the gadget on for everyone.</td>
+      <td>no (interface administrators)</td>
+    </tr>
+  </tbody>
+</table>
 
 The test page `lua/Module_TimelineRail__test.wikitext` goes on any user subpage (it calls the sandbox module).
 
@@ -99,16 +215,53 @@ The test page `lua/Module_TimelineRail__test.wikitext` goes on any user subpage 
 The same modules and styles, copied to the Portuguese Wikipedia (each wiki has its own copy: modules cannot be called across wikis).
 `Module:` and `Template:` also work there as `Módulo:` and `Predefinição:`. Paste in this order; the article comes last.
 
-| Page on pt.wikipedia.org (edit link)                                                                                                          | Paste from                                                                                                                                   | What it is                                                                                                                                                                               |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Módulo:TimelineRail](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:TimelineRail&action=edit)                                        | [`lua/Module_TimelineRail.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail.lua)                           | The timeline                                                                                                                                                                             |
-| [Predefinição:TimelineRail/styles.css](https://pt.wikipedia.org/w/index.php?title=Predefini%C3%A7%C3%A3o:TimelineRail/styles.css&action=edit) | [`template/TimelineRail__styles.css`](https://github.com/psygo/wikipedia_timeline/blob/main/template/TimelineRail__styles.css)               | Its look                                                                                                                                                                                 |
-| [Módulo:OutlineList](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:OutlineList&action=edit)                                          | [`lua/Module_OutlineList.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineList.lua)                             | The List view                                                                                                                                                                            |
-| [Módulo:OutlineTable](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:OutlineTable&action=edit)                                        | [`lua/Module_OutlineTable.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineTable.lua)                           | The Table view                                                                                                                                                                           |
-| [Módulo:ViewSwitcher](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:ViewSwitcher&action=edit)                                        | [`lua/Module_ViewSwitcher.lua`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_ViewSwitcher.lua)                           | The views and their dropdown                                                                                                                                                             |
-| [Módulo:ViewSwitcher/styles.css](https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:ViewSwitcher/styles.css&action=edit)                  | [`lua/ViewSwitcher__styles.css`](https://github.com/psygo/wikipedia_timeline/blob/main/lua/ViewSwitcher__styles.css)                         | The dropdown's look                                                                                                                                                                      |
-| [Linha do tempo do Go](https://pt.wikipedia.org/w/index.php?title=Linha_do_tempo_do_Go&action=edit)                                           | [`drafts/Linha_do_tempo_do_Go__pt.wikitext`](https://github.com/psygo/wikipedia_timeline/blob/main/drafts/Linha_do_tempo_do_Go__pt.wikitext) | The Portuguese (Brazil) Timeline of Go. `python3 tools/convert_go.py --lang=pt` makes it; `--no-youtube` leaves out the YouTube reference (a new account cannot add YouTube links there) |
-| [Usuário:SEU_NOME/ViewSwitcher.js](https://pt.wikipedia.org/w/index.php?title=Usu%C3%A1rio:SEU_NOME/ViewSwitcher.js&action=edit) (optional)   | [`userscript/ViewSwitcher.js`](https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js)                             | The View button, for you only (replace `SEU_NOME` with your username, then `importScript` it from your `common.js`)                                                                      |
+<table>
+  <thead>
+    <tr><th>Page on pt.wikipedia.org (edit link)</th><th>Paste from</th><th>What it is</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:TimelineRail&amp;action=edit">Módulo:TimelineRail</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineRail.lua"><code>lua/Module_TimelineRail.lua</code></a></td>
+      <td>The timeline</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=Predefini%C3%A7%C3%A3o:TimelineRail/styles.css&amp;action=edit">Predefinição:TimelineRail/styles.css</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/template/TimelineRail__styles.css"><code>template/TimelineRail__styles.css</code></a></td>
+      <td>Its look</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:OutlineList&amp;action=edit">Módulo:OutlineList</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineList.lua"><code>lua/Module_OutlineList.lua</code></a></td>
+      <td>The List view</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:OutlineTable&amp;action=edit">Módulo:OutlineTable</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_OutlineTable.lua"><code>lua/Module_OutlineTable.lua</code></a></td>
+      <td>The Table view</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:ViewSwitcher&amp;action=edit">Módulo:ViewSwitcher</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_ViewSwitcher.lua"><code>lua/Module_ViewSwitcher.lua</code></a></td>
+      <td>The views and their dropdown</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=M%C3%B3dulo:ViewSwitcher/styles.css&amp;action=edit">Módulo:ViewSwitcher/styles.css</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/ViewSwitcher__styles.css"><code>lua/ViewSwitcher__styles.css</code></a></td>
+      <td>The dropdown's look</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=Linha_do_tempo_do_Go&amp;action=edit">Linha do tempo do Go</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/drafts/Linha_do_tempo_do_Go__pt.wikitext"><code>drafts/Linha_do_tempo_do_Go__pt.wikitext</code></a></td>
+      <td>The Portuguese (Brazil) Timeline of Go. <code>python3 tools/convert_go.py --lang=pt</code> makes it; <code>--no-youtube</code> leaves out the YouTube reference (a new account cannot add YouTube links there)</td>
+    </tr>
+    <tr>
+      <td><a href="https://pt.wikipedia.org/w/index.php?title=Usu%C3%A1rio:SEU_NOME/ViewSwitcher.js&amp;action=edit">Usuário:SEU_NOME/ViewSwitcher.js</a> (optional)</td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/ViewSwitcher.js"><code>userscript/ViewSwitcher.js</code></a></td>
+      <td>The View button, for you only (replace <code>SEU_NOME</code> with your username, then <code>importScript</code> it from your <code>common.js</code>)</td>
+    </tr>
+  </tbody>
+</table>
 
 ## User script (optional)
 
