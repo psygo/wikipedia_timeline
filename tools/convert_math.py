@@ -29,7 +29,7 @@ MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / 'Timeline_of_mathematics__lua.wikitext'
 
 def fetch(title):
-    return subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0',
+    return subprocess.run(['curl', '-sL', '--max-time', '60', '-A', 'timeline-draft/1.0',
                            'https://en.wikipedia.org/w/index.php?action=raw&title=' + title.replace(' ', '_')],
                           capture_output=True, text=True).stdout
 

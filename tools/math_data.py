@@ -5,7 +5,7 @@ import json, pathlib, subprocess, time
 CACHE = pathlib.Path(__file__).resolve().parent / '.cache' / 'math_info.json'
 
 def _api(params):
-    args = ['curl', '-s', '-A', 'timeline-draft/1.0', 'https://en.wikipedia.org/w/api.php']
+    args = ['curl', '-s', '--max-time', '60', '-A', 'timeline-draft/1.0', 'https://en.wikipedia.org/w/api.php']
     for k, v in params.items():
         args += ['--data-urlencode', '%s=%s' % (k, v)]
     for _ in range(5):

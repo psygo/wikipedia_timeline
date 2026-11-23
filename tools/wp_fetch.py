@@ -9,7 +9,7 @@ UA = 'timeline-draft/1.0'
 API = 'https://en.wikipedia.org/w/api.php'
 
 def _curl(args):
-    return subprocess.run(['curl', '-sL', '-A', UA] + args, capture_output=True, text=True).stdout
+    return subprocess.run(['curl', '-sL', '--max-time', '60', '-A', UA] + args, capture_output=True, text=True).stdout
 
 def fetch_article(title):
     page = urllib.parse.quote(title.replace(' ', '_'))

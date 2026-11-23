@@ -33,7 +33,7 @@ out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ',
 BASE = 'TimelineRail'
 
 url = 'https://en.wikipedia.org/w/index.php?action=raw&title=' + urllib.parse.quote(ARTICLE.replace(' ', '_'))
-wt = subprocess.run(['curl', '-s', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+wt = subprocess.run(['curl', '-s', '--max-time', '60', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
 if '==Paleolithic==' not in wt:
     sys.exit('Could not fetch the article wikitext')
 

@@ -110,7 +110,7 @@
 	}
 	window.addEventListener( 'hashchange', function () { goTo( location.hash ); notify(); } );
 	window.addEventListener( 'message', function ( e ) {
-		if ( e.data && typeof e.data.wtGoto === 'string' && e.data.wtGoto !== location.hash ) {
+		if ( e.source === window.parent && e.data && typeof e.data.wtGoto === 'string' && e.data.wtGoto !== location.hash ) {
 			location.hash = e.data.wtGoto;
 		}
 	} );

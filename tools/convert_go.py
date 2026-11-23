@@ -28,7 +28,7 @@ NO_VIDEO = '--no-youtube' in FLAGS   # leave out the YouTube reference (a new ac
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (('Linha_do_tempo_do_Go__pt' if PT else 'Timeline_of_Go__lua') + ('_sem_youtube' if NO_VIDEO else '') + '.wikitext')
 
 url = 'https://en.wikipedia.org/w/index.php?action=raw&title=History_of_Go'
-hog = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
+hog = subprocess.run(['curl', '-sL', '--max-time', '60', '-A', 'timeline-draft/1.0', url], capture_output=True, text=True).stdout
 if 'Weiqi' not in hog:
     sys.exit('Could not fetch History of Go')
 

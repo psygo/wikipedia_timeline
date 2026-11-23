@@ -64,7 +64,7 @@ def parse_timeline(wt):
 
 if __name__ == '__main__':
     import subprocess, sys, collections
-    wt = subprocess.run(['curl', '-sL', '-A', 'timeline-draft/1.0', 'https://en.wikipedia.org/w/index.php?action=raw&title=Timeline_of_mathematics'], capture_output=True, text=True).stdout
+    wt = subprocess.run(['curl', '-sL', '--max-time', '60', '-A', 'timeline-draft/1.0', 'https://en.wikipedia.org/w/index.php?action=raw&title=Timeline_of_mathematics'], capture_output=True, text=True).stdout
     ev = parse_timeline(wt)
     print(len(ev))
     print(collections.Counter((e['stage'], e['period'], e['sub']) for e in ev))
