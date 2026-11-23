@@ -136,7 +136,7 @@ write drafts for the sandbox names); `lua/README.md` has the step by step, and t
     <tr>
       <td><a href="https://en.wikipedia.org/w/index.php?title=Module:ViewSwitcher&amp;action=edit">Module:ViewSwitcher</a></td>
       <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_ViewSwitcher.lua"><code>lua/Module_ViewSwitcher.lua</code></a></td>
-      <td><code>{{#invoke:ViewSwitcher                                                                                                                                                                                                                                                                                                                    \| switch ...}}</code>: several views of one content in a box; <code>\*</code>or<code>default=</code>marks the default view;<code>@arg</code> shows an argument as it is; footnotes kept in the default view only.</td>
+      <td><code>{{#invoke:ViewSwitcher | switch ...}}</code>: several views of one content in a box; <code>\*</code> or <code>default=</code> marks the default view;<code>@arg</code> shows an argument as it is; footnotes kept in the default view only.</td>
       <td>yes</td>
     </tr>
     <tr>
@@ -166,7 +166,7 @@ write drafts for the sandbox names); `lua/README.md` has the step by step, and t
     <tr>
       <td><a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail&amp;action=edit">Template:TimelineRail</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/item&amp;action=edit">Template:TimelineRail/item</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/section&amp;action=edit">Template:TimelineRail/section</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/event&amp;action=edit">Template:TimelineRail/event</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/gap&amp;action=edit">Template:TimelineRail/gap</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/parallel&amp;action=edit">Template:TimelineRail/parallel</a>, <a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/outline&amp;action=edit">Template:TimelineRail/outline</a></td>
       <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/template"><code>lua/template/TimelineRail*.wikitext</code></a> (7 files)</td>
-      <td>One-line <code>{{#invoke:TimelineRail                                                                                                                                                                                                                                                                                                           \| ...}}</code>wrappers, so articles keep the template names. Same page names as the pure-template family in<code>template/</code>: use one family or the other.</td>
+      <td>One-line <code>{{#invoke:TimelineRail | ...}}</code> wrappers, so articles keep the template names. Same page names as the pure-template family in <code>template/</code>: use one family or the other.</td>
       <td>no</td>
     </tr>
     <tr>
@@ -178,7 +178,7 @@ write drafts for the sandbox names); `lua/README.md` has the step by step, and t
     <tr>
       <td><a href="https://en.wikipedia.org/w/index.php?title=User:Fanaro009/Timeline-toolbar.js&amp;action=edit">User:Fanaro009/Timeline-toolbar.js</a></td>
       <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/userscript/Timeline-toolbar.js"><code>userscript/Timeline-toolbar.js</code></a></td>
-      <td>A **Timeline** drop-down in the edit toolbar that inserts skeletons for the templates. Own page, loaded by <code>importScript( 'User:Fanaro009/Timeline-toolbar.js' );</code> in <code>common.js</code>.</td>
+      <td>A <b>Timeline</b> drop-down in the edit toolbar that inserts skeletons for the templates. Own page, loaded by <code>importScript( 'User:Fanaro009/Timeline-toolbar.js' );</code> in <code>common.js</code>.</td>
       <td>no</td>
     </tr>
     <tr>
@@ -201,7 +201,7 @@ write drafts for the sandbox names); `lua/README.md` has the step by step, and t
     </tr>
     <tr>
       <td><a href="https://en.wikipedia.org/w/index.php?title=MediaWiki:Gadgets-definition&amp;action=edit">MediaWiki:Gadgets-definition</a></td>
-      <td>(one line: <code>\* ViewSwitcher[default]\\                                                                                                 | ViewSwitcher.js</code>)</td>
+      <td>(one line: <code>\* ViewSwitcher[default]\\ | ViewSwitcher.js</code>)</td>
       <td>Switches the gadget on for everyone.</td>
       <td>no (interface administrators)</td>
     </tr>
