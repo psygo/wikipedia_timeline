@@ -13,7 +13,7 @@ The '''timeline of historic inventions''' is a chronological list of particularl
 
 The dates listed in this section refer to the earliest evidence of an invention found and dated by [[Archaeology|archaeologists]] (or in a few cases, suggested by indirect evidence). Dates are often approximate and change as more research is done, reported and seen. Older examples of any given technology are often found. The locations listed are where the earliest solid evidence has been found, but for earlier inventions, there is little certainty about how close that is to where the invention took place.
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv1
+{{#invoke:TimelineRail|outline |id=inv1
 |text=
 !!== Lower Paleolithic ==
 The Lower Palaeolithic period lasted over 3 million years, during which many human-like species [[Human evolution|evolved]], including, toward the end of this period, ''Homo sapiens''. The original divergence between humans and [[chimpanzee]]s occurred 13 [[Year#SI prefix multipliers|Mya]]; however, interbreeding continued until as recently as 4 Mya, with the first species clearly belonging to the human (and not chimpanzee) lineage being ''[[Australopithecus anamensis]]''.  Some species are controversial among paleoanthropologists, who disagree on whether they are species on their own or not. Here [[Homo ergaster]] is included under [[Homo erectus]], while [[Homo rhodesiensis]] is included under [[Homo heidelbergensis]].
@@ -76,7 +76,7 @@ The evolution of [[early modern humans]] around 300 kya coincides with the start
 
 The end of the [[Last Glacial Period]] ("ice age") and the beginning of the [[Holocene]] around 11.7 ka coincide with the [[Neolithic Revolution|Agricultural Revolution]], marking the beginning of the agricultural era, which persisted there until the industrial revolution.<ref>{{Cite journal |last1=Rasmussen |first1=S. O. |last2=Andersen |first2=K. K. |last3=Svensson |first3=A. M. |last4=Steffensen |first4=J. P. |last5=Vinther |first5=B. M. |last6=Clausen |first6=H. B. |last7=Siggaard-Andersen |first7=M.-L. |last8=Johnsen |first8=S. J. |last9=Larsen |first9=L. B. |last10=Dahl-Jensen |first10=D. |last11=Bigler |first11=M. |date=2006 |title=A new Greenland ice core chronology for the last glacial termination |journal=Journal of Geophysical Research |language=en |volume=111 |issue=D6 |pages=D06102 |doi=10.1029/2005JD006079 |bibcode=2006JGRD..111.6102R |issn=0148-0227 |url=https://epic.awi.de/id/eprint/12532/1/Ras2005a.pdf }}</ref>
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv2
+{{#invoke:TimelineRail|outline |id=inv2
 |text=
 !!== Neolithic and Late Mesolithic ==
 {{further|Outline of prehistoric technology}}
@@ -184,7 +184,7 @@ The [[Late Bronze Age collapse]] occurs around 1200 BC,<ref>{{Cite journal |last
 
 ===Classical antiquity and medieval era===
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv3
+{{#invoke:TimelineRail|outline |id=inv3
 |text=
 !!== 5th century BC ==
 !!* '''500 – 200 BC''' [[Stirrup#Precursors|Toe stirrup]], depicted in 2nd century Buddhist art, of the Sanchi and Bhaja Caves, of the Deccan [[Satavahana dynasty|Satavahana empire]] (modern-day India)<ref>[https://archive.org/details/saddles00beat/page/28 ''Saddles'', Author Russel H. Beatie, Publisher University of Oklahoma Press, 1981], {{ISBN|080611584X}}, 9780806115849 P.28</ref><ref>[https://books.google.com/books?id=xa7zPNkxswQC&pg=PA14 White, Lynn Townsend. ''Medieval Technology and Social Change'', Publisher Oxford University Press, 1964], {{ISBN|0195002660}}, 9780195002669 P.14</ref> although may have originated as early as 500 BC.<ref>Chamberlin, J. Edward (2007). ''Horse: How the Horse Has Shaped Civilizations''. [[Moscow]]: Olma Media Group. {{ISBN|1-904955-36-3}}.</ref>
@@ -320,7 +320,7 @@ The [[Late Bronze Age collapse]] occurs around 1200 BC,<ref>{{Cite journal |last
 
 ==Early modern era==
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv4
+{{#invoke:TimelineRail|outline |id=inv4
 |text=
 !!== 16th century ==
 !!* '''16th century''' [[Chintz]] or [[Woodblock printing|printed]] clothing in [[Qutb Shahi dynasty|Golconda]], India<ref name="Allen G. Noble">{{cite book |last=Noble |first=Allen G. |title=India: Cultural Patterns And Processes |publisher=Routledge |year=2019 |isbn=978-0-429-72463-3 |page=1 |jstor=44148394}}</ref>
@@ -376,7 +376,7 @@ The [[Late Bronze Age collapse]] occurs around 1200 BC,<ref>{{Cite journal |last
 
 ===19th century===
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv5
+{{#invoke:TimelineRail|outline |id=inv5
 |text=
 !!== 1800s ==
 !!* '''1800''' [[Alessandro Volta]] invents the [[voltaic pile]], an early form of [[Battery (electricity)|battery]] in [[Italy]], based on previous works by [[Luigi Galvani]].
@@ -518,7 +518,7 @@ The [[Late Bronze Age collapse]] occurs around 1200 BC,<ref>{{Cite journal |last
 
 ===20th century===
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv6
+{{#invoke:TimelineRail|outline |id=inv6
 |text=
 !!== 1900s ==
 !!* '''1901''' The first motorized cleaner using suction, a powered "[[vacuum cleaner]]", is patented independently by [[Hubert Cecil Booth]] and [[David T. Kenney]].<ref>Gantz, Carroll (21 September 2012). The Vacuum Cleaner: A History. McFarland. p. 49</ref>
@@ -571,7 +571,7 @@ The [[Late Bronze Age collapse]] occurs around 1200 BC,<ref>{{Cite journal |last
 
 ==Contemporary history==
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv7
+{{#invoke:TimelineRail|outline |id=inv7
 |text=
 !!== 1945-1950 ==
 !!* '''1945''' The atomic bomb is developed by the [[Manhattan Project]] and swiftly used in August 1945 in the [[atomic bombings of Hiroshima and Nagasaki]].
@@ -669,7 +669,7 @@ The [[Late Bronze Age collapse]] occurs around 1200 BC,<ref>{{Cite journal |last
 
 ===21st century===
 
-{{#invoke:TimelineRail/sandbox|outline |id=inv8
+{{#invoke:TimelineRail|outline |id=inv8
 |text=
 !!== 2000s ==
 !!* '''2001''' The [[Food and Drug Administration]] approved the first [[contraceptive patch]]<ref name=":10" /><ref name=":8" />

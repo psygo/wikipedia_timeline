@@ -4,7 +4,7 @@
 Usage: python3 tools/convert_inventions.py [--outline [--module=NAME]] [out.wikitext [level-2 heading ...]]
 
 With --outline the timelines are written for the Lua module (one {{#invoke:NAME|outline|text=...}} per
-run of sections; the whole article can be converted that way). NAME is TimelineRail/sandbox until the
+run of sections; the whole article can be converted that way). NAME defaults to the live TimelineRail until the
 module is live as Module:TimelineRail. Without it, the template family is used.
 
 Fetches the current wikitext of the article from English Wikipedia. The headings that
@@ -28,7 +28,7 @@ FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
 from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 OUTLINE = '--outline' in FLAGS
-MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail/sandbox')
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 

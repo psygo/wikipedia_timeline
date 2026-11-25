@@ -41,7 +41,8 @@ Sofware Engineer and [[Go (board game)]] player and teacher from Brazil.
 
 =Wikipedia contributions=
 
-{{#invoke:TimelineRail|outline |id=fanaro009 |toc=no
+{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
+|id=fanaro009 |toc=no
 |text=
 !!* August 7, 2012 ;; Wikipedia account creation ;; The Fanaro009 account is created.
 !!* November 2026 ;; The <code>TimelineRail</code> component

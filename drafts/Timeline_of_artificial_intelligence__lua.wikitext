@@ -10,7 +10,7 @@ This is a timeline of [[artificial intelligence]] (AI), also known as [[syntheti
 {{clear}}
 
 ==Antiquity, Classical and Medieval eras==
-{{#invoke:TimelineRail/sandbox|outline |id=ai1
+{{#invoke:TimelineRail|outline |id=ai1
 |text=
 !!* '''Antiquity''' Greek myths of [[Hephaestus]] and [[Pygmalion (mythology)|Pygmalion]] incorporated the idea of intelligent [[automata]] (such as [[Talos]]) and artificial beings (such as [[Galatea (mythological statue)|Galatea]] and [[Pandora]]).{{sfn|McCorduck|2004|pp=4–5}}
 !!* '''Antiquity''' [[Cult image|Sacred mechanical statues]] built in [[ancient Egypt|Egypt]] and [[ancient Greece|Greece]] were believed to be capable of wisdom and emotion. [[Hermes Trismegistus]] would write, "They have 'sensus' and 'spiritus'... by discovering the true nature of the gods, man has been able to reproduce it."{{sfn|McCorduck|2004|pp=4–5}}
@@ -29,7 +29,7 @@ This is a timeline of [[artificial intelligence]] (AI), also known as [[syntheti
 }}
 
 == 1600–1900 ==
-{{#invoke:TimelineRail/sandbox|outline |id=ai2
+{{#invoke:TimelineRail|outline |id=ai2
 |text=
 !!* '''1620''' [[Francis Bacon]] developed empirical theory of knowledge and introduced inductive logic in his work [[Novum Organum]], a play on [[Aristotle]]'s title [[Organon]].<ref>{{Cite book|title=The New Organon: Novem Organum Scientiarum |year=1620 |author=Sir [[Francis Bacon]]}}</ref><ref>{{Cite book|title=Francis Bacon: The New Organon (Cambridge Texts in the History of Philosophy) |year=2000 |author=Sir [[Francis Bacon]] |publisher=Cambridge University Press}}</ref>{{sfn|Russell|Norvig|2021|p=6}}
 !!* '''1623''' [[Wilhelm Schickard]] drew a calculating clock on a letter to [[Kepler]]. This will be the first of five unsuccessful attempts at designing a ''direct entry'' calculating clock in the 17th century (including the designs of [[Tito Livio Burattini|Tito Burattini]], [[Samuel Morland]] and [[René Grillet de Roven|René Grillet]]).{{efn|Please see [[Mechanical calculator#Other calculating machines]].}}
@@ -56,7 +56,7 @@ This is a timeline of [[artificial intelligence]] (AI), also known as [[syntheti
 }}
 
 ==20th century==
-{{#invoke:TimelineRail/sandbox|outline |id=ai3
+{{#invoke:TimelineRail|outline |id=ai3
 |text=
 !!== 1901–1950 ==
 {{More citations needed section|date=February 2018}}
@@ -208,7 +208,7 @@ This is a timeline of [[artificial intelligence]] (AI), also known as [[syntheti
 }}
 
 ==21st century==
-{{#invoke:TimelineRail/sandbox|outline |id=ai4
+{{#invoke:TimelineRail|outline |id=ai4
 |text=
 !!== 2000s ==
 {{More citations needed section|date=March 2007}}

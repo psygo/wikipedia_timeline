@@ -6,7 +6,8 @@ from the original syntax to the !! syntax:
   *        (an event)      becomes !!*
   **       (a list in it)  becomes *    ***  becomes **   and so on: one * less, as plain wikitext lists
   [[File:  (a picture)     becomes !![[File:
-A page already in the !! syntax is left as it is. Writes drafts/User_Fanaro009__lua.wikitext.
+A page already in the !! syntax is left as it is.
+The timeline is wrapped in Module:ViewSwitcher (the View button): Timeline (default), List and Table. Writes drafts/User_Fanaro009__lua.wikitext.
 """
 import pathlib, re, subprocess
 
@@ -34,6 +35,9 @@ def fix(m):
     return m.group(1) + convert(m.group(2)) + m.group(3)
 
 
+SWITCH = '{{#invoke:ViewSwitcher|switch |views=*Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table\n|id='
+cur = re.sub(r'\{\{#invoke:TimelineRail\|outline \|id=', lambda m: SWITCH, cur)
+
 # the text of each outline: from "|text=" to the closing }} on a line of its own
-page = re.sub(r'(\{\{#invoke:TimelineRail\|outline[^\n]*\n\|text=\n)(.*?)(\n\}\})', fix, cur, flags=re.S)
+page = re.sub(r'(\{\{#invoke:(?:TimelineRail\|outline|ViewSwitcher\|switch)[^\n]*\n(?:\|[^\n]*\n)*?\|text=\n)(.*?)(\n\}\})', fix, cur, flags=re.S)
 (root / 'drafts' / 'User_Fanaro009__lua.wikitext').write_text(page.rstrip('\n') + '\n')

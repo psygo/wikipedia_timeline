@@ -15,7 +15,7 @@ stays a heading, and its subsections become the sections of one {{#invoke:NAME|o
 (the notices and pictures between a subsection heading and its table become the section's text).
 A level-2 heading with a table of its own just gets the timeline. The lead, See also, Notes,
 References and Sources stay exactly as they are.
-NAME is TimelineRail/sandbox until Module:TimelineRail is live.
+NAME defaults to the live TimelineRail (use TimelineRail/sandbox to try a change).
 
 The text is copied from Wikipedia (CC BY-SA 4.0): say so in the edit summary.
 """
@@ -29,7 +29,7 @@ if ARTICLE_MODE and not any(a.startswith('--switcher') for a in sys.argv):
 FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
 from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
-MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail' if ARTICLE_MODE else 'TimelineRail/sandbox')
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__article' if ARTICLE_MODE else '__lua') + '.wikitext')
 
 from wp_fetch import fetch_article

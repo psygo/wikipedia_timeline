@@ -9,7 +9,7 @@ Module:ViewSwitcher (not the /sandbox ones), the article's own table as the List
 drafts/Timeline_of_first_images_of_Earth_from_space__article.wikitext.
 
 With --outline the timeline is written for the Lua module: one {{#invoke:NAME|outline|text=...}}
-(NAME is TimelineRail/sandbox until Module:TimelineRail is live) instead of the template family.
+(NAME defaults to the live TimelineRail (use TimelineRail/sandbox to try a change)) instead of the template family.
 
 Fetches the current wikitext of the article from English Wikipedia, turns its table
 (image | date | craft or mission | event) into {{TimelineRail}}: one section per craft or mission, with one item per row, and keeps the
@@ -30,7 +30,7 @@ FLAGS = [a for a in sys.argv[1:] if a.startswith('--')]
 from outline_call import invoke
 ARGS = [a for a in sys.argv[1:] if not a.startswith('--')]
 OUTLINE = '--outline' in FLAGS
-MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail' if ARTICLE_MODE else 'TimelineRail/sandbox')
+MODULE = next((f.split('=', 1)[1] for f in FLAGS if f.startswith('--module=')), 'TimelineRail')
 out = pathlib.Path(ARGS[0]) if ARGS else root / 'drafts' / (ARTICLE.replace(' ', '_') + ('__article' if ARTICLE_MODE else '__lua' if OUTLINE else '') + '.wikitext')
 BASE = 'TimelineRail'
 

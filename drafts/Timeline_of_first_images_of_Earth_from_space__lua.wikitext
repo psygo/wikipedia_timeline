@@ -11,7 +11,7 @@ Photography and other imagery of planet [[Earth]] from [[outer space]]{{efn|With
 == Timeline ==
 Each section on the following timeline refers to a craft or a mission.
 
-{{#invoke:TimelineRail/sandbox|outline |id=img
+{{#invoke:TimelineRail|outline |id=img
 |text=
 !!== [[V-2]] ==
 !![[File:First photo from space.jpg|200px]]
