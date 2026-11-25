@@ -1,6 +1,6 @@
 /*
  * Timeline: double-click any dot to collapse or expand every item of that timeline;
- * clicking a section puts its anchor in the address bar.
+ * clicking a section's dot puts its anchor in the address bar.
  *
  * Optional user script (or gadget). The collapsible items themselves need no script:
  * they use MediaWiki's built-in collapsible module. This only adds the shortcut.
@@ -18,8 +18,13 @@
 ( function () {
 	'use strict';
 	var ROW = '.wt-timeline__row';
+	// A section is folded by its dot only (an empty span over the red dot); an item by its whole row.
+	var DOT = '.wt-timeline__dot';
+	function toggler( $item ) {
+		return $item.hasClass( 'wt-timeline__item--section' ) ? $item.children( ROW ).children( DOT ) : $item.children( ROW );
+	}
 
-	// A real click on a section's red dot or title adds #Section_title to the URL, so the
+	// A real click on a section's red dot adds #Section_title to the URL, so the
 	// address can be shared; it opens collapsed parents and scrolls there when visited.
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		$content.find( '.wt-timeline__item--section > ' + ROW ).each( function () {
@@ -28,7 +33,7 @@
 			if ( !id || $row.data( 'wtAnchor' ) ) {
 				return;
 			}
-			$row.data( 'wtAnchor', true ).on( 'click', function ( e ) {
+			$row.data( 'wtAnchor', true ).on( 'click', DOT, function ( e ) {
 				if ( e.originalEvent && e.originalEvent.detail > 0 ) {
 					history.replaceState( null, '', location.pathname + location.search + '#' + id );
 				}
@@ -44,8 +49,12 @@
 				return;
 			}
 			$row.data( 'wtCollapseAll', true ).on( 'dblclick', function ( e ) {
-				e.preventDefault();
 				var $self = $row.parent();
+				// a section reacts to a double-click on its dot only
+				if ( $self.hasClass( 'wt-timeline__item--section' ) && !$( e.target ).closest( DOT ).length ) {
+					return;
+				}
+				e.preventDefault();
 				if ( $self.hasClass( 'wt-timeline__item--section' ) ) {
 					// A section dot: keep this section open and close the other sections of its
 					// list; if they are all closed already, open them all.
@@ -53,11 +62,11 @@
 					var someOpen = $others.not( '.mw-collapsed' ).length > 0;
 					$others.each( function () {
 						if ( $( this ).hasClass( 'mw-collapsed' ) === !someOpen ) {
-							$( this ).children( ROW ).trigger( 'click' );
+							toggler( $( this ) ).trigger( 'click' );
 						}
 					} );
 					if ( $self.hasClass( 'mw-collapsed' ) ) {
-						$row.trigger( 'click' );
+						toggler( $self ).trigger( 'click' );
 					}
 					return;
 				}
@@ -68,7 +77,7 @@
 					var open = !$( this ).hasClass( 'mw-collapsed' );
 					if ( open === anyOpen ) {
 						// What the real module does when the toggler is clicked.
-						$( this ).children( ROW ).trigger( 'click' );
+						toggler( $( this ) ).trigger( 'click' );
 					}
 				} );
 			} );
