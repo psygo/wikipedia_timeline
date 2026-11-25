@@ -10,6 +10,10 @@ every wiki page and the file to paste into it; `lua/README.md` has the step by s
 - Push whenever you commit.
 - README tables are HTML (`<table>`), because formatters break Markdown tables. Copy an existing `<tr>` to add a row.
 - Run the Lua tests with `luajit lua/test/test.lua` before committing changes to `lua/`.
+- Every push triggers the GitHub Pages deploy (`.github/workflows/pages.yml`). After each push, check it:
+  `gh run list --limit 1` (wait with `gh run watch`). If it failed, read `gh run view <id> --log-failed`: a
+  transient GitHub error (HTTP 5xx from `deploy-pages`) gets `gh run rerun <id> --failed`; anything else is
+  fixed in a new commit. Do not report a task as done while the latest run is red, and say so if it stays red.
 - Drafts in `drafts/` are generated: change the converter in `tools/` and regenerate, do not edit them by hand.
 
 ## Audit every 20 commits

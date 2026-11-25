@@ -137,9 +137,11 @@ local function renderSection( sec )
 	end
 	return '<li class="wt-timeline__item wt-timeline__item--section mw-collapsible'
 		.. ( sec.collapsed and ' mw-collapsed' or '' ) .. '" id="mw-customcollapsible-' .. esc( id ) .. '">'
-		.. '<div class="wt-timeline__row mw-customtoggle-' .. esc( id ) .. '"'
+		.. '<div class="wt-timeline__row"'
 		-- a heading gets its own anchor from MediaWiki (the same words, _2 for a repeat): no id twice
 		.. ( sec.level and '' or ' id="' .. esc( rowId ) .. '"' ) .. '>'
+		-- only the dot toggles the section (an empty span laid over the drawn dot)
+		.. '<span class="wt-timeline__dot mw-customtoggle-' .. esc( id ) .. '"></span>'
 		.. ( sec.level
 			and ( '<h' .. sec.level .. ' class="wt-timeline__section-title">' .. ( sec.title or '' ) .. '</h' .. sec.level .. '>' )
 			or ( '<span class="wt-timeline__section-title">' .. ( sec.title or '' ) .. '</span>' ) )

@@ -179,7 +179,7 @@ export class TimelineRail extends HTMLElement {
 		const extra = ev.text || ev.nodes.length || ev.image
 			? h( 'div', 'wt-timeline__section-extra', null, this.#event( { ...ev, title: '' } ) ) : null;
 		const row = h( 'div', 'wt-timeline__row', { ...this.#rowAttrs( node ), id: node.id || null },
-			h( 'span', 'wt-timeline__section-title', null, node.title ), extra );
+			h( 'span', 'wt-timeline__dot', { 'aria-hidden': 'true' } ), h( 'span', 'wt-timeline__section-title', null, node.title ), extra );
 		li.append( row, h( 'div', 'wt-timeline__body', null,
 			this.#list( node.children, 'wt-timeline wt-timeline--section' ) ) );
 		this.#apply( li, this.#open.has( node.key ) ? this.#open.get( node.key ) : !node.collapsed );
@@ -237,6 +237,8 @@ export class TimelineRail extends HTMLElement {
 		const row = e.target.closest( '.wt-timeline__row' );
 		if ( !row || ( e.type === 'click' && e.target.closest( 'a[href]' ) ) ) { return; }
 		if ( e.target.closest( '.wt-timeline__section-extra' ) && e.type === 'click' ) { return; }   // select the text
+		// a section reacts to its dot only (the keyboard still works on the row)
+		if ( e.type === 'click' && row.parentElement.classList.contains( 'wt-timeline__item--section' ) && !e.target.closest( '.wt-timeline__dot' ) ) { return; }
 		e.preventDefault();
 		const li = row.parentElement;
 		this.#setOpen( li, li.classList.contains( 'mw-collapsed' ) );
@@ -244,6 +246,7 @@ export class TimelineRail extends HTMLElement {
 	#onDouble( e ) {
 		const row = e.target.closest( '.wt-timeline__row' );
 		if ( !row ) { return; }
+		if ( row.parentElement.classList.contains( 'wt-timeline__item--section' ) && !e.target.closest( '.wt-timeline__dot' ) ) { return; }
 		e.preventDefault();
 		const self = row.parentElement, list = self.parentElement;
 		if ( self.classList.contains( 'wt-timeline__item--section' ) ) {

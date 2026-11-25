@@ -88,11 +88,12 @@ export function TimelineEvent({ title, text, children, image, imageAlt = '', ima
 }
 
 // ---------------------------------------------------------------- rows
-function useRowHandlers(toggle: () => void, onDouble: () => void) {
+function useRowHandlers(toggle: () => void, onDouble: () => void, dotOnly = false) {
   return {
     onClick: (e: MouseEvent) => {
       const t = e.target as HTMLElement;
       if (t.closest('a[href]') || t.closest('.wt-timeline__section-extra')) return;
+      if (dotOnly && !t.closest('.wt-timeline__dot')) return;   // a section reacts to its dot only
       toggle();
     },
     onKeyDown: (e: KeyboardEvent) => {
@@ -101,7 +102,11 @@ function useRowHandlers(toggle: () => void, onDouble: () => void) {
       e.preventDefault();
       toggle();
     },
-    onDoubleClick: (e: MouseEvent) => { e.preventDefault(); onDouble(); },
+    onDoubleClick: (e: MouseEvent) => {
+      if (dotOnly && !(e.target as HTMLElement).closest('.wt-timeline__dot')) return;
+      e.preventDefault();
+      onDouble();
+    },
   };
 }
 
@@ -217,7 +222,7 @@ export function TimelineSection({ title, collapsed, open: controlled, onOpenChan
     if (!list) return;
     const someOpen = [...list.states].some(([k, v]) => k !== me && v);
     list.send({ kind: 'only', keep: me, open: !someOpen });
-  });
+  }, true);
 
   const extraBody = text ?? intro;
   const extra = extraBody || image
@@ -226,6 +231,7 @@ export function TimelineSection({ title, collapsed, open: controlled, onOpenChan
   return (
     <li className={'wt-timeline__item wt-timeline__item--section mw-collapsible' + (open ? '' : ' mw-collapsed')}>
       <div className="wt-timeline__row" id={id} role="button" tabIndex={0} aria-expanded={open} {...h}>
+        <span className="wt-timeline__dot" aria-hidden="true" />
         <span className="wt-timeline__section-title">{title}</span>
         {extra}
       </div>

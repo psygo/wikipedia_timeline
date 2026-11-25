@@ -32,8 +32,8 @@
 				e.preventDefault();
 				toggle( target, !target.classList.contains( 'mw-collapsed' ) );
 				// A real click on a section puts its anchor in the URL (bulk toggles do not).
-				if ( target.classList.contains( 'wt-timeline__item--section' ) && toggler.id && ( e.detail > 0 || e.type === 'keydown' ) ) {
-					setHash( toggler.id );
+				if ( target.classList.contains( 'wt-timeline__item--section' ) && ( toggler.id || toggler.parentElement.id ) && ( e.detail > 0 || e.type === 'keydown' ) ) {
+					setHash( toggler.id || toggler.parentElement.id );
 				}
 			};
 			toggler.addEventListener( 'click', act );
@@ -53,8 +53,10 @@
 		var list = row.closest( '.wt-timeline' );
 		if ( !list ) { return; }
 		row.addEventListener( 'dblclick', function ( e ) {
-			e.preventDefault();
 			var self = row.parentElement;
+			// a section reacts to its dot only
+			if ( self.classList.contains( 'wt-timeline__item--section' ) && !e.target.closest( '.wt-timeline__dot' ) ) { return; }
+			e.preventDefault();
 			if ( self.classList.contains( 'wt-timeline__item--section' ) ) {
 				// A section dot: keep this section open and close the other sections of its
 				// list; if they are all closed already, open them all.

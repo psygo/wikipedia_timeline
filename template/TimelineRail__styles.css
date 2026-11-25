@@ -367,8 +367,7 @@
 }
 
 .wt-timeline__row::before,
-.wt-timeline__peek,
-.wt-timeline__section-title {
+.wt-timeline__peek {
 	cursor: pointer;
 }
 
@@ -540,8 +539,31 @@
 	font-weight: bold;
 }
 
-.wt-timeline__section-title:hover {
-	color: var( --color-destructive, #d33 );
+/* A section reacts to its dot only: an empty span over the drawn dot is the toggler (the row is not),
+   so the title, the text and the rest of the line can be selected and clicked without folding it. */
+.wt-timeline__dot {
+	position: absolute;
+	z-index: 3;
+	top: calc( 0.8em - 10px );
+	left: -5px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.wt-timeline__item--section > .wt-timeline__row .wt-timeline__section-title {
+	cursor: default;
+}
+
+@media ( min-width: 640px ) {
+	.wt-timeline__dot {
+		left: calc( 8.75em - 10px );
+	}
+
+	.wt-timelines .wt-timeline__dot,
+	.wt-timeline--sub .wt-timeline__dot {
+		left: -5px;
+	}
 }
 
 /* The outline module makes the title a real heading (h2-h6) so the page's table of contents lists
