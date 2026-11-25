@@ -34,10 +34,11 @@ local function parse( text, parser ) return require( 'Module:' .. ( parser or 'T
 local function itemText( ch )
 	local text = trim( table.concat( ch.text, ' ' ) )
 	if #ch.subs > 0 then
-		local list = ch.subhtml      -- nested lists, from a parser that makes them
+		-- the sub-points are wikitext lists (made by the parser); an older parser gave HTML ones
+		local list = ch.subtext
 		if not list then
 			local lis = {}
-			for _, s in ipairs( ch.subs ) do lis[ #lis + 1 ] = '<li>' .. s .. '</li>' end
+			for _, x in ipairs( ch.subs ) do lis[ #lis + 1 ] = '<li>' .. x .. '</li>' end
 			list = '<ul>' .. table.concat( lis ) .. '</ul>'
 		end
 		text = ( text and ( text .. ' ' ) or '' ) .. list

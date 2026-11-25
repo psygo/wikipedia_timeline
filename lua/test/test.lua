@@ -196,11 +196,11 @@ for _ in collapsedHtml:gmatch( 'mw%-collapsed' ) do c = c + 1 end
 eq( 'collapsed=all', c, 2 )
 
 local withSubs = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n** b\n" } ) )
-has( 'sub-bullets become a list', withSubs, 'one <ul><li>a</li><li>b</li></ul>' )
+has( 'sub-bullets are a wikitext list', withSubs, 'one \n* a\n* b\n' )
 wellFormed( 'subs', withSubs )
 
 local nested = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n*** a1\n*** a2\n**** a2x\n** b\n*** b1\n" } ) )
-has( 'nested sub-bullets', nested, 'one <ul><li>a<ul><li>a1</li><li>a2<ul><li>a2x</li></ul></li></ul></li><li>b<ul><li>b1</li></ul></li></ul>' )
+has( 'nested sub-bullets (one * less)', nested, '\n* a\n** a1\n** a2\n*** a2x\n* b\n** b1\n' )
 wellFormed( 'nested subs', nested )
 
 -- the text is passed through untouched: links, refs, templates

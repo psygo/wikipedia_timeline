@@ -30,8 +30,8 @@ Item-by-item templates repeat each item's text in every template that wraps it, 
 The first tools. This line is the section's introduction.
 * '''3.3 mya''' Oldest known stone tools.
 * '''1.8 mya''' Acheulean hand axes. <ref>...</ref>
-** a sub-point, shown as a list
-*** a point inside it (<code>***</code>, <code>****</code>, and so on nest further)
+** a list inside the event: from here down it is ordinary wikitext, one <code>*</code> less
+*** a nested list (<code>***</code> is a <code>**</code> list; links, templates and refs work as anywhere)
 [[File:Hand axe.jpg|thumb|A hand axe]]
 * 400 kya ;; Fire ;; Controlled use of fire.
 === A section inside it ===

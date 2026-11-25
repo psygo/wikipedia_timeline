@@ -204,7 +204,7 @@ end
 --   Text on the next lines                 the section's introduction, shown beside its dot
 --   * '''3.3 mya''' Oldest stone tools.    an item: bold date, then the text
 --   * 1612 ;; The Go academy ;; Text       an item with a title: date ;; title ;; text
---   ** a sub-point                         becomes a list in the item's text
+--   ** a sub-point                         from ** down, lines are ordinary wikitext lists in the item (one * less)
 --   [[File:X.jpg|thumb|Caption]]           the picture of the next item (several lines: several pictures, in a row that wraps)
 --   a continuation line                    goes on the text of the item above
 
@@ -266,24 +266,6 @@ end
 
 -- Returns a tree: { children = { node, ... } }; node is a section ({ section = true, title, level,
 -- intro = {...}, children }) or an item ({ date, title, text, subs, image, caption }).
--- The sub-points of an item as one (nested) <ul>: ** is the first level, *** the second, and so on.
-local function subList( subs, depths )
-	local out, cur = {}, 0
-	for i, s in ipairs( subs ) do
-		local lvl = ( depths and depths[ i ] ) or 1
-		if lvl > cur then
-			for _ = cur + 1, lvl do out[ #out + 1 ] = '<ul>' end
-		else
-			for _ = cur, lvl + 1, -1 do out[ #out + 1 ] = '</li></ul>' end
-			out[ #out + 1 ] = '</li>'
-		end
-		cur = lvl
-		out[ #out + 1 ] = '<li>' .. s
-	end
-	for _ = cur, 1, -1 do out[ #out + 1 ] = '</li></ul>' end
-	return table.concat( out )
-end
-
 function p.parseOutline( text )
 	local root = { children = {}, level = 0 }
 	local stack = { root }
@@ -302,10 +284,10 @@ function p.parseOutline( text )
 			stack[ #stack + 1 ] = node
 			cur, lastItem = node.intro, nil
 		elseif l:match( '^%*%*' ) then
+			-- the lines below an event that start with ** or more are ordinary wikitext lists inside it:
+			-- one * less (** is a * list, *** a ** list), so they are written as on any Wikipedia page
 			if lastItem then
-				lastItem.subs[ #lastItem.subs + 1 ] = trim( l:gsub( '^%*+%s*', '' ) )
-				lastItem.subdepth = lastItem.subdepth or {}
-				lastItem.subdepth[ #lastItem.subs ] = #l:match( '^%*+' ) - 1      -- ** is level 1, *** level 2, ...
+				lastItem.subs[ #lastItem.subs + 1 ] = trim( l:sub( 2 ) )
 				cur = lastItem.subs; cur.sub = true
 			end
 		elseif l:match( '^%*' ) then
@@ -333,7 +315,7 @@ function p.parseOutline( text )
 	end
 	local function finish( node )
 		for _, ch in ipairs( node.children ) do
-			if ch.section then finish( ch ) elseif #ch.subs > 0 then ch.subhtml = subList( ch.subs, ch.subdepth ) end
+			if ch.section then finish( ch ) elseif #ch.subs > 0 then ch.subtext = '\n' .. table.concat( ch.subs, '\n' ) .. '\n' end
 		end
 	end
 	finish( root )
@@ -364,7 +346,7 @@ local function buildOutline( node, opts, prefix, counter, depth )
 			counter.i = counter.i + 1
 			local text = trim( table.concat( ch.text, ' ' ) )
 			if #ch.subs > 0 then
-				text = ( text and ( text .. ' ' ) or '' ) .. ch.subhtml
+				text = ( text and ( text .. ' ' ) or '' ) .. ch.subtext
 			end
 			local images
 			if ch.images then
