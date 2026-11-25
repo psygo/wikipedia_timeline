@@ -38,8 +38,11 @@
  * Narrow layout:  o--- date / events, rail on the left
  */
 
+/* display: flow-root: the list sits beside a floated box (an infobox, a picture) instead of
+   passing over it; a positioned block painted over a float would swallow clicks on its links. */
 .wt-timeline {
 	position: relative;
+	display: flow-root;
 	margin: 0.5em 0 1em;
 	padding: 0;
 	list-style: none;
