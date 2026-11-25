@@ -473,7 +473,7 @@ def outline(select, pictures, headings=True, order=None, seen=None):
             continue
         if title != last:
             if headings:
-                lines.append('== %s ==' % T(title))
+                lines.append('!!== %s ==' % T(title))
             last = title
         raw = text
         shown_date = go_pt.pt_date(date) if PT else date
@@ -490,8 +490,8 @@ def outline(select, pictures, headings=True, order=None, seen=None):
             for k, (f, c) in enumerate(shown):
                 if (f, c) in shown[:k]:
                     continue
-                lines.append('[[File:%s|%s|%s]]' % (f, '200px', cap_link(go_pt.CAPTIONS.get(c, c) if PT else c)))
-        lines.append("* '''%s''' %s%s" % (shown_date, text, refs))
+                lines.append('!![[File:%s|%s|%s]]' % (f, '200px', cap_link(go_pt.CAPTIONS.get(c, c) if PT else c)))
+        lines.append("!!* '''%s''' %s%s" % (shown_date, text, refs))
     return lines
 
 n = len(EVENTS)
@@ -525,7 +525,7 @@ LABELS = go_pt.LABELS if PT else ('Timeline', 'List', 'Table')
 # the main timeline: one timeline whose sections (TimelineRail sections, not wiki headings) are the eras
 ls, main_seen = [], set()
 for title in ERAS + ['The AI era']:
-    ls.append('== %s ==' % T(title))
+    ls.append('!!== %s ==' % T(title))
     ls += outline(lambda i: True, 'main', headings=False, order=eras[title], seen=main_seen)
 body = '\n' + invoke(MODULE, 'go', '\n'.join(ls), flags=['--switcher', '--no-original'], labels=LABELS) + '\n'
 solo = ''
@@ -539,7 +539,7 @@ for code, name in (('N', 'world no. 1 players'), ('C', 'China'), ('K', 'Korea'),
         for title in ERAS:
             idx = [i for i in eras[title] if pick(i)] + ([i for i in eras['The AI era'] if pick(i)] if title == ERAS[-1] else [])
             if idx:
-                ls.append('== %s ==' % T(title))
+                ls.append('!!== %s ==' % T(title))
                 ls += outline(pick, pics, headings=False, order=idx)
     else:
         # a subject: one flat chronology, the heading of the page names it
@@ -565,7 +565,7 @@ SL_EVENTS = [
 ]
 if PT:
     SL_EVENTS = go_pt.SL_EVENTS
-sl_lines = ["* \'\'\'%s\'\'\' %s%s" % (d, t, ref_text(None, named=':11')) for d, t in SL_EVENTS]
+sl_lines = ["!!* \'\'\'%s\'\'\' %s%s" % (d, t, ref_text(None, named=':11')) for d, t in SL_EVENTS]
 solo += '\n\n== Sensei\'s Library ==\n' + invoke(MODULE, 'gosl', '\n'.join(sl_lines), flags=['--switcher', '--no-original'], labels=LABELS)
 ELSEWHERE = (
  '\n== Timelines elsewhere ==\n'

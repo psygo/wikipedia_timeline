@@ -169,11 +169,11 @@ timeline = '{{%s\n|%s\n}}' % (BASE, '\n'.join(blocks))
 if OUTLINE:
     lines = []
     for craft, rows_ in sections:
-        lines.append('== %s ==' % craft)
+        lines.append('!!== %s ==' % craft)
         for date, text, image, others in rows_:
             for f in ([image] if image else []) + others:
-                lines.append('[[File:%s|200px]]' % f)
-            lines.append("* '''%s''' %s" % (date, text))
+                lines.append('!![[File:%s|200px]]' % f)
+            lines.append("!!* '''%s''' %s" % (date, text))
     stray = [l[:70] for l in lines if bare_pipes(l)]
     if stray:
         print('WARNING: a bare | would cut the text off in these lines:', *stray, sep='\n  ')

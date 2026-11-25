@@ -4,17 +4,17 @@ Test page for [[Module:TimelineRail/sandbox]]. It calls the module directly with
 == Outline ==
 {{#invoke:TimelineRail/sandbox|outline
 |text=
-== Lower Paleolithic ==
+!!== Lower Paleolithic ==
 The first tools. This line is the section's introduction.
-* '''3.3 mya''' Oldest known stone tools.
-* '''1.8 mya''' Acheulean hand axes.
-** a sub-point, shown as a list
-** another one
-* 400 kya ;; Fire ;; Controlled use of fire.
-=== A section inside it ===
-* '''300 kya''' Wooden spears.
-== Middle Paleolithic ==
-* '''160 kya''' Homo sapiens appears.
+!!* '''3.3 mya''' Oldest known stone tools.
+!!* '''1.8 mya''' Acheulean hand axes.
+* a sub-point, shown as a list
+* another one
+!!* 400 kya ;; Fire ;; Controlled use of fire.
+!!=== A section inside it ===
+!!* '''300 kya''' Wooden spears.
+!!== Middle Paleolithic ==
+!!* '''160 kya''' Homo sapiens appears.
 }}
 
 == Items, as with the templates ==

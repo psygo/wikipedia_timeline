@@ -265,8 +265,8 @@ def outline_item(bullet, subs, file_line):
     if file_line:
         lines.append(file_line)
         stats['images'] += 1
-    lines.append(("* '''%s''' %s" % (date, text)) if date else ('* ;; ;; ' + text))
-    lines += ['** ' + one_line(x) for x in subs]
+    lines.append(("!!* '''%s''' %s" % (date, text)) if date else ('!!* ;; ;; ' + text))
+    lines += ['* ' + one_line(x) for x in subs]
     for l in lines:
         if bare_pipes(l):
             anomalies.append('bare | in outline line: ' + l[:80])
@@ -274,7 +274,7 @@ def outline_item(bullet, subs, file_line):
 
 def outline_section(sec):
     stats['sections'] += 1
-    lines = ['== %s ==' % sec.title]
+    lines = ['!!== %s ==' % sec.title]
     if sec.prose:
         lines.append('\n'.join(sec.prose))
     pending = None

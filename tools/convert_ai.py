@@ -115,7 +115,7 @@ def table_items(table_text):
         text = one_line(text) + refs
         if not date or not text:
             warnings.append('empty date or text: %r / %r' % (date[:40], text[:40]))
-        items.append(("* '''%s''' %s" % (date, text)))
+        items.append(("!!* '''%s''' %s" % (date, text)))
         stats['rows'] += 1
         for l in items[-1:]:
             if bare_pipes(l):
@@ -173,7 +173,7 @@ for i, m in enumerate(l2):
         before, after = sub[len(sm.group(0)):t.start()], sub[t.end():]
         if after.strip():
             warnings.append('text after the table of ' + title + ': ' + after.strip()[:60])
-        lines.append('== %s ==' % title)
+        lines.append('!!== %s ==' % title)
         lines += intro_lines(before)
         lines += table_items(t.group(0))
     n += 1

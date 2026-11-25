@@ -16,6 +16,8 @@ lua/
 
 ## Why a module
 
+> **Syntax change.** Every line of the outline's own syntax now starts with `!!` (`!!==` sections, `!!*` events, `!!**` nested events, `!![[File:…]]` pictures); `*` lines are ordinary wikitext lists inside the event. To migrate an old text: `python3 tools/migrate_outline.py FILE...`.
+
 * **Size.** The templates pass each item's text through `item` → `section` → `TimelineRail`, and the post-expand
   include size counts it at every level (about 3× the text, which is why the whole *Timeline of historic inventions*
   does not fit). `{{TimelineRail/outline|text=…}}` takes the whole timeline once and builds it once.
@@ -32,9 +34,9 @@ lua/
 ```wikitext
 {{TimelineRail/outline
 |text=
-== Lower Paleolithic ==
-* '''3.3 mya''' Oldest known stone tools.
-* 400 kya ;; Fire ;; Controlled use of fire.
+!!== Lower Paleolithic ==
+!!* '''3.3 mya''' Oldest known stone tools.
+!!* 400 kya ;; Fire ;; Controlled use of fire.
 }}
 ```
 
@@ -96,8 +98,8 @@ in the page source.
 |views=Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable.table
 |id=inv1
 |text=
-== 3.3 Mya - 1 Mya ==
-* '''3.3 Mya''' Stone tools ...
+!!== 3.3 Mya - 1 Mya ==
+!!* '''3.3 Mya''' Stone tools ...
 }}
 ```
 

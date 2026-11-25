@@ -335,9 +335,9 @@ def event_lines(es, seen, with_pictures):
         text = add_dates(text, seen, e['date'])
         if with_pictures:
             for f, cap in pictures(text, e['date']):
-                lines.append('[[File:%s|200px|%s]]' % (f, cap))
+                lines.append('!![[File:%s|200px|%s]]' % (f, cap))
         d = e['date'].strip()
-        lines.append("* '''%s''' %s" % (d, text))
+        lines.append("!!* '''%s''' %s" % (d, text))
     return lines
 
 STAGE_INTRO = {
@@ -351,8 +351,8 @@ for per in PERIODS:
     st = STAGE_OF.get(per, 'Symbolic stage')
     if st != stage:
         stage = st
-        lines += ['== %s ==' % st, STAGE_INTRO[st]]
-    lines.append('=== %s ===' % per)
+        lines += ['!!== %s ==' % st, STAGE_INTRO[st]]
+    lines.append('!!=== %s ===' % per)
     lines += event_lines(es, seen_main, True)
 body = '\n' + invoke(MODULE, 'math', '\n'.join(lines), flags=['--switcher', '--no-original']) + '\n'
 

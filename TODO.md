@@ -9,8 +9,11 @@
 - [x] Before and after in the demo: `web-component/demo/views.html`, and every example in `prototype/article.html` has the View button.
 - [x] Web component and React: the same split (`<view-switcher>`, `<outline-list>`, `<outline-table>`; `ViewSwitcher`, `OutlineList`, `OutlineTable`).
 
+- [ ] Improve syntax: use something else instead of `*` for the timeline, otherwise it collides with regular lists.
+  - And it's conflicting for doing nested timelines...
+
 ## Articles
 
-- Timeline of Go
-  - Add events for Western players becoming pro (Hans Pietsch, James Kerwin, Diana Koszegi, etc.)
-  - Add events for professional systems in the West.
+- [x] Timeline of Go
+  - [ ] Add events for Western players becoming pro (Hans Pietsch, James Kerwin, Diana Koszegi, etc.)
+  - [ ] Add events for professional systems in the West.
