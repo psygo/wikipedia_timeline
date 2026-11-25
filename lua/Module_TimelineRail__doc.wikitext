@@ -22,63 +22,49 @@ Normally the module is used through the templates that call it:
 The first six take the same parameters as the original templates, so the two families can be swapped.
 
 == Outline: one text, one timeline ==
-Item-by-item templates repeat each item's text in every template that wraps it, and a long timeline then exceeds the [[Wikipedia:Template limits|post-expand include size limit]]. <code>outline</code> receives the whole timeline once and builds it once.
+Item-by-item templates repeat each item's text in every template that wraps it, and a long timeline then exceeds the [[Wikipedia:Template limits|post-expand include size limit]]. <code>outline</code> receives the whole timeline once and builds it once. Every line of its own syntax starts with <code>!!</code>, which nothing else in wikitext does, so it never collides with lists, headings or tables.
 <syntaxhighlight lang="wikitext">
 {{TimelineRail/outline
 |text=
-== Lower Paleolithic ==
+!!== Lower Paleolithic ==
 The first tools. This line is the section's introduction.
-* '''3.3 mya''' Oldest known stone tools.
-* '''1.8 mya''' Acheulean hand axes. <ref>...</ref>
-** a list inside the event: from here down it is ordinary wikitext, one <code>*</code> less
-*** a nested list (<code>***</code> is a <code>**</code> list; links, templates and refs work as anywhere)
-[[File:Hand axe.jpg|thumb|A hand axe]]
-* 400 kya ;; Fire ;; Controlled use of fire.
-=== A section inside it ===
-* '''300 kya''' Wooden spears.
-== Middle Paleolithic ==
-* '''160 kya''' Homo sapiens.
+!!* '''3.3 mya''' Oldest known stone tools.
+!!* '''1.8 mya''' Acheulean hand axes. <ref>...</ref>
+* an ordinary list inside the event
+** nested as on any page
+!![[File:Hand axe.jpg|thumb|A hand axe]]
+!!* 400 kya ;; Fire ;; Controlled use of fire.
+!!** '''c. 400 kya''' an event of a timeline nested inside the one above
+!!=== A section inside it ===
+!!* '''300 kya''' Wooden spears.
+!!== Middle Paleolithic ==
+!!* '''160 kya''' Homo sapiens.
 }}
 </syntaxhighlight>
 {| class="wikitable"
 ! Line !! Meaning
 |-
-| <code>== Title ==</code> || a section; <code>===</code> inside it makes a section inside the section, and so on
+| <code>!!== Title ==</code> || a section; <code>!!===</code> inside it makes a section inside the section, and so on (the closing <code>==</code> is optional)
 |-
-| plain lines after a heading || the section's introduction, beside its dot
+| plain lines after a section line || the section's introduction, beside its dot
 |-
-| <code>* '''date''' text</code> || an item: bold date (the usual bullet-list style of articles), then the text
+| <code>!!* '''date''' text</code> || an event: bold date (the usual bullet-list style of articles), then the text
 |-
-| <code>* date ;; title ;; text</code> || an item with a title; the text may be left out
+| <code>!!* date ;; title ;; text</code> || an event with a title; the text may be left out
 |-
-| <code>**</code> lines || a list inside the item's text (original style, see below)
+| <code>!!** …</code>, <code>!!*** …</code> || an event of a timeline nested inside the event above it
+|-
+| lines starting with <code>*</code>, <code>#</code>, <code>:</code> or <code>;</code> || ordinary wikitext inside the event above, exactly as written (lists nest as on any page)
 |-
 | a line with no marker || continues the line above
 |-
-| <code>[[File:…]]</code> alone on a line || the picture of the next item
+| <code>!![[File:…]]</code> alone on a line || the picture of the next event
 |}
-=== The <code>!*</code> style ===
-The original style uses <code>*</code> for events, which collides with ordinary bullet lists. If any line starts with <code>!*</code>, the outline is read in this style instead:
-<syntaxhighlight lang="wikitext">
-== Edo period ==
-!* '''1603''' Tokugawa shogunate founded.
-* an ordinary list inside the event
-** nested as on any page
-!** '''1612''' an event of a timeline nested inside the one above
-!* '''1868''' Meiji Restoration.
-</syntaxhighlight>
-{| class="wikitable"
-! Line !! Meaning
-|-
-| <code>!* …</code> || an event (the same forms as <code>*</code> above: date, ;; title, ;; text)
-|-
-| <code>!** …</code>, <code>!*** …</code> || an event of a timeline nested inside the event above it
-|-
-| lines starting with <code>*</code>, <code>#</code>, <code>:</code> or <code>;</code> || ordinary wikitext inside the event above, exactly as written
-|}
-Sections, pictures and continuation lines work as before. The List and Table views read both styles (a nested timeline is a nested list, or the rows that follow its event).
+The List and Table views read the same text (a nested timeline is a nested list, or the rows that follow its event).
 
-Several <code>[[File:...|caption]]</code> lines before an item put all the pictures on that item, in one row that wraps.
+'''Changed:''' the earlier syntax (<code>==</code> sections, <code>*</code> events, <code>[[File:…]]</code> lines) is no longer read. Put <code>!!</code> in front of every section, event and picture line, and take one <code>*</code> off each old <code>**</code> list line.
+
+Several <code>!![[File:...|caption]]</code> lines before an event put all the pictures on that event, in one row that wraps.
 
 Parameters: <code>open=yes</code>: the rail fades out below the last dot instead of ending there, for a list that is not finished; <code>toc</code>, <code>toclevel</code>: the titles of the sections are real headings of the page, so the table of contents lists them (nested sections one level deeper); <code>toclevel</code> is the level of the top ones (default <code>3</code>, for a timeline under a <code>== Timeline ==</code> heading; 2 to 6) and <code>toc=no</code> makes the titles plain text again; <code>text</code> (or <code>|1=</code>); <code>id</code>, a short prefix for the ids of the items and sections (<code>id=inv2</code> gives <code>inv2_i1</code>, <code>inv2_s1</code>, ...); '''give each outline on a page a different <code>id</code>''' when there is more than one, or their toggles will clash; <code>collapsed=sections</code>, <code>items</code> or <code>all</code> to start closed; <code>title</code> to make it a column of a parallel group. Use <code>|text=</code> when the text contains <code>=</code>; wrap a literal pipe in <code>{{tl|!}}</code>.
 

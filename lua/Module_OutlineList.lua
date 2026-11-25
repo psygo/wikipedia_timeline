@@ -1,7 +1,7 @@
 -- Module:OutlineList
 -- The outline syntax of Module:TimelineRail drawn as a plain bulleted list: the list the article has
 -- today. A view for Module:ViewSwitcher, but it works on its own:
---   {{#invoke:OutlineList|list |text= == Section == ... * '''1612''' text }}
+--   {{#invoke:OutlineList|list |text= !!== Section == ... !!* '''1612''' text }}
 -- No styles, no ids.
 local p = {}
 

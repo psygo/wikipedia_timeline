@@ -198,15 +198,16 @@ function p.parallel( frame )
 end
 
 -- ------------------------------------------------------------------ outline
--- One text in, one timeline out:
+-- One text in, one timeline out. Every line of the syntax starts with !! (nothing else in wikitext does):
 --
---   == Section ==                        a section (== is the top level; === inside it, and so on)
---   Text on the next lines                 the section's introduction, shown beside its dot
---   * '''3.3 mya''' Oldest stone tools.    an item: bold date, then the text
---   * 1612 ;; The Go academy ;; Text       an item with a title: date ;; title ;; text
---   ** a sub-point                         from ** down, lines are ordinary wikitext lists in the item (one * less)
---   [[File:X.jpg|thumb|Caption]]           the picture of the next item (several lines: several pictures, in a row that wraps)
---   a continuation line                    goes on the text of the item above
+--   !!== Section ==                        a section (!!=== inside it, and so on; the closing == is optional)
+--   Text on the next lines                   the section's introduction, shown beside its dot
+--   !!* '''3.3 mya''' Oldest stone tools.    an event: bold date, then the text
+--   !!* 1612 ;; The Go academy ;; Text       an event with a title: date ;; title ;; text
+--   !!** '''1603''' ...                      an event of a timeline nested inside the event above (!!*** deeper)
+--   * a list                                 a line starting with * # : or ; is ordinary wikitext inside the event
+--   !![[File:X.jpg|thumb|Caption]]           the picture of the next event (several lines: several pictures, in a row that wraps)
+--   a continuation line                      goes on the text of the event above
 
 local OPT = {
 	thumb = 1, thumbnail = 1, frame = 1, frameless = 1, border = 1, right = 1, left = 1, center = 1,
@@ -265,22 +266,24 @@ local function parseItem( body )
 end
 
 -- Returns a tree: { children = { node, ... } }; node is a section ({ section = true, title, level,
--- intro = {...}, children }) or an item ({ date, title, text, subs, image, caption }).
+-- intro = {...}, children }) or an item ({ date, title, text, subs, image, caption, children }).
+-- Every line of the outline's own syntax starts with !! (nothing else in wikitext does):
+--   !!== Title ==     a section (!!=== a section inside it, ...); the closing == is optional
+--   !!* ...           an event; !!** an event of a timeline nested inside the event above, !!*** deeper
+--   !![[File:...]]    the picture of the next event
+-- Every other line is ordinary wikitext: a line of a section's introduction, the continuation of the
+-- event above, or (a line starting with * # : or ;) a list inside it, kept exactly as written.
 function p.parseOutline( text )
 	local root = { children = {}, level = 0 }
 	local stack = { root }
 	local cur, lastItem, pendingFile = nil, nil, nil   -- cur: table receiving continuation lines
-	-- Two styles. With any line that starts with !* the events are marked !* (and !** for an event of a
-	-- nested timeline inside the one above, !*** one deeper), and every * line is ordinary wikitext
-	-- inside its event. Without one (the original style) * marks an event and ** a list inside it.
-	local bang = ( '\n' .. text ):find( '\n%s*!%*' ) ~= nil
-	local evs = {}      -- bang style: the latest event of each depth
+	local evs = {}      -- the latest event of each depth
 	for line in ( text .. '\n' ):gmatch( '(.-)\r?\n' ) do
 		local l = trim( line )
 		if not l then
 			-- a blank line (or a template that expands over several lines) does not end the text above
-		elseif l:match( '^=+.-=+$' ) and not l:match( '^=+$' ) then
-			local eq, title = l:match( '^(=+)%s*(.-)%s*=+$' )
+		elseif l:match( '^!!=' ) then
+			local eq, title = l:sub( 3 ):match( '^(=+)%s*(.-)%s*=*$' )
 			local level = #eq
 			while #stack > 1 and stack[ #stack ].level >= level do stack[ #stack ] = nil end
 			local node = { section = true, title = title, level = level, intro = {}, children = {} }
@@ -288,57 +291,37 @@ function p.parseOutline( text )
 			parent.children[ #parent.children + 1 ] = node
 			stack[ #stack + 1 ] = node
 			cur, lastItem, evs = node.intro, nil, {}
-		elseif bang and l:match( '^!%*' ) then
-			local stars, rest = l:match( '^!(%*+)%s*(.*)$' )
+		elseif l:match( '^!!%*' ) then
+			local stars, rest = l:match( '^!!(%*+)%s*(.*)$' )
 			local depth = #stars
-			local date, title, body = parseItem( rest ~= '' and rest or '' )
+			local date, title, body = parseItem( rest )
 			lastItem = { date = date, title = title, text = { body }, subs = {} }
 			if pendingFile then
 				lastItem.image, lastItem.caption, lastItem.imagesize = pendingFile[ 1 ][ 1 ], pendingFile[ 1 ][ 2 ], pendingFile[ 1 ][ 3 ]
 				lastItem.images = pendingFile
 				pendingFile = nil
 			end
-			local parent = depth > 1 and evs[ depth - 1 ] or stack[ #stack ]
-			if depth > 1 and not evs[ depth - 1 ] then parent = stack[ #stack ] end
+			local parent = ( depth > 1 and evs[ depth - 1 ] ) or stack[ #stack ]
 			parent.children = parent.children or {}
 			parent.children[ #parent.children + 1 ] = lastItem
 			for d = depth, #evs do evs[ d ] = nil end
 			evs[ depth ] = lastItem
 			cur = lastItem.text
-		elseif bang and l:match( '^[%*#:;]' ) then
-			-- ordinary wikitext (lists) inside the event above, exactly as written
-			if lastItem then
-				lastItem.subs[ #lastItem.subs + 1 ] = l
-				cur = lastItem.subs; cur.sub = true
-			end
-		elseif not bang and l:match( '^%*%*' ) then
-			-- the lines below an event that start with ** or more are ordinary wikitext lists inside it:
-			-- one * less (** is a * list, *** a ** list), so they are written as on any Wikipedia page
-			if lastItem then
-				lastItem.subs[ #lastItem.subs + 1 ] = trim( l:sub( 2 ) )
-				cur = lastItem.subs; cur.sub = true
-			end
-		elseif not bang and l:match( '^%*' ) then
-			local date, title, body = parseItem( trim( ( l:gsub( '^%*%s*', '' ) ) ) or '' )
-			lastItem = { date = date, title = title, text = { body }, subs = {} }
-			if pendingFile then
-				lastItem.image, lastItem.caption, lastItem.imagesize = pendingFile[ 1 ][ 1 ], pendingFile[ 1 ][ 2 ], pendingFile[ 1 ][ 3 ]
-				lastItem.images = pendingFile
-				pendingFile = nil
-			end
-			local parent = stack[ #stack ]
-			parent.children[ #parent.children + 1 ] = lastItem
-			cur = lastItem.text
-		elseif l:match( '^%[%[.*%]%]$' ) and ( l:lower():match( '^%[%[file:' ) or l:lower():match( '^%[%[image:' ) ) then
-			local name, caption, size = parseFile( l )
+		elseif l:match( '^!!%[%[.*%]%]$' ) then
+			local name, caption, size = parseFile( l:sub( 3 ) )
 			pendingFile = pendingFile or {}      -- a list: every picture line before an item belongs to it
 			pendingFile[ #pendingFile + 1 ] = { name, caption, size }
-		elseif cur then
-			if cur.sub then
-				cur[ #cur ] = cur[ #cur ] .. ' ' .. l
+		elseif lastItem and ( cur == lastItem.subs or ( cur == lastItem.text and l:match( '^[%*#:;]' ) ) ) then
+			-- ordinary wikitext (lists) inside the event above, exactly as written; a line without a
+			-- marker after one continues it
+			if l:match( '^[%*#:;]' ) then
+				lastItem.subs[ #lastItem.subs + 1 ] = l
+				cur = lastItem.subs; cur.sub = true
 			else
-				cur[ #cur + 1 ] = l
+				cur[ #cur ] = cur[ #cur ] .. ' ' .. l
 			end
+		elseif cur then
+			cur[ #cur + 1 ] = l
 		end
 	end
 	local function finish( node )

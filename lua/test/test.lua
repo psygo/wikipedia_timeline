@@ -89,19 +89,19 @@ eq( 'gap', p.gap(), '<li class="wt-timeline__item wt-timeline__item--gap" aria-h
 
 -- ---------------------------------------------------------------- outline: parsing
 local tree = p.parseOutline( [==[
-== Lower Paleolithic ==
+!!== Lower Paleolithic ==
 Intro line one
 intro line two
-* '''3.3 mya''': Oldest stone tools. <ref>r</ref>
+!!* '''3.3 mya''': Oldest stone tools. <ref>r</ref>
 continued text
-** a sub-point
-** another
-[[File:Hand axe.jpg|thumb|upright|A hand axe]]
-* 1.8 mya ;; Hand axe ;; Acheulean.
-=== Inner ===
-* 400 kya ;; Fire
-== Middle ==
-* '''Date''' x
+* a sub-point
+* another
+!![[File:Hand axe.jpg|thumb|upright|A hand axe]]
+!!* 1.8 mya ;; Hand axe ;; Acheulean.
+!!=== Inner ===
+!!* 400 kya ;; Fire
+!!== Middle ==
+!!* '''Date''' x
 ]==] )
 eq( 'two top sections', #tree.children, 2 )
 local lower = tree.children[ 1 ]
@@ -124,13 +124,13 @@ eq( 'sibling section pops the stack', tree.children[ 2 ].title, 'Middle' )
 
 -- ---------------------------------------------------------------- outline: rendering
 local html = p.outline( mw.frame( {}, { text = [[
-== A ==
-* '''1''' one
-* '''2''' two
-== B ==
-* '''3''' three
-=== B inside ===
-* '''4''' four
+!!== A ==
+!!* '''1''' one
+!!* '''2''' two
+!!== B ==
+!!* '''3''' three
+!!=== B inside ===
+!!* '''4''' four
 ]] } ) )
 wellFormed( 'outline', html )
 local n = 0
@@ -142,26 +142,26 @@ eq( 'four items', items, 4 )
 has( 'styles first', html, '<templatestyles src="Template:TimelineRail/styles.css" />' )
 
 -- an |id= prefix makes the generated ids independent of module state
-local withId = p.outline( mw.frame( {}, { id = 'inv7', text = "== Zed ==\n* '''1''' one\n" } ) )
+local withId = p.outline( mw.frame( {}, { id = 'inv7', text = "!!== Zed ==\n!!* '''1''' one\n" } ) )
 has( 'id prefix on items', withId, 'id="mw-customcollapsible-inv7_i1"' )
 has( 'id prefix on sections', withId, 'id="mw-customcollapsible-inv7_s1"' )
 has( 'sections are headings by default (table of contents)', withId, '<h3 class="wt-timeline__section-title">Zed</h3>' )
 check( 'a heading has no row id of its own', not withId:find( 'id="Zed"', 1, true ) )
-local plain = p.outline( mw.frame( {}, { id = 'inv8', toc = 'no', text = "== Zed ==\n* '''1''' one\n" } ) )
+local plain = p.outline( mw.frame( {}, { id = 'inv8', toc = 'no', text = "!!== Zed ==\n!!* '''1''' one\n" } ) )
 has( 'toc=no: row id stays the anchor', plain, 'id="Zed"' )
 has( 'toc=no: the title is a span', plain, '<span class="wt-timeline__section-title">Zed</span>' )
 check( 'toc=no: no heading', not plain:find( '<h%d' ) )
-local multi = p.outline( mw.frame( {}, { id = 'inv12', text = "[[File:A.jpg|150px|First]]\n[[File:B.jpg|150px|Second]]\n* '''1''' x\n" } ) )
+local multi = p.outline( mw.frame( {}, { id = 'inv12', text = "!![[File:A.jpg|150px|First]]\n!![[File:B.jpg|150px|Second]]\n!!* '''1''' x\n" } ) )
 has( 'several pictures: a wrapping row', multi, '<div class="wt-timeline__images"><span class="wt-timeline__image" style="width:158px">[[File:A.jpg|150px|alt=]]<span class="wt-timeline__caption">First</span></span><span class="wt-timeline__image" style="width:158px">[[File:B.jpg|150px|alt=]]<span class="wt-timeline__caption">Second</span></span></div>' )
 wellFormed( 'several pictures', multi )
-local one = p.outline( mw.frame( {}, { id = 'inv13', text = "[[File:A.jpg|150px|First]]\n* '''1''' x\n" } ) )
+local one = p.outline( mw.frame( {}, { id = 'inv13', text = "!![[File:A.jpg|150px|First]]\n!!* '''1''' x\n" } ) )
 check( 'one picture: no row', not one:find( 'wt-timeline__images', 1, true ) )
-local linkedCap = p.outline( mw.frame( {}, { id = 'inv14', text = "[[File:A.jpg|150px|A [[Han dynasty|Han]] board, [[British Library]]]]\n* '''1''' x\n" } ) )
+local linkedCap = p.outline( mw.frame( {}, { id = 'inv14', text = "!![[File:A.jpg|150px|A [[Han dynasty|Han]] board, [[British Library]]]]\n!!* '''1''' x\n" } ) )
 has( 'a link in a caption', linkedCap, '<span class="wt-timeline__caption">A [[Han dynasty|Han]] board, [[British Library]]</span>' )
-local openHtml = p.outline( mw.frame( {}, { id = 'inv10', open = 'yes', text = "* '''1''' x\n" } ) )
+local openHtml = p.outline( mw.frame( {}, { id = 'inv10', open = 'yes', text = "!!* '''1''' x\n" } ) )
 has( 'open=yes: open rail', openHtml, '<ol class="wt-timeline wt-timeline--open">' )
-has( 'closed by default', p.outline( mw.frame( {}, { id = 'inv11', text = "* '''1''' x\n" } ) ), '<ol class="wt-timeline">' )
-local lvl = p.outline( mw.frame( {}, { id = 'inv9', toclevel = '2', text = "== A ==\n=== B ===\n==== C ====\n===== D =====\n====== E ======\n* '''1''' x\n" } ) )
+has( 'closed by default', p.outline( mw.frame( {}, { id = 'inv11', text = "!!* '''1''' x\n" } ) ), '<ol class="wt-timeline">' )
+local lvl = p.outline( mw.frame( {}, { id = 'inv9', toclevel = '2', text = "!!== A ==\n!!=== B ===\n!!==== C ====\n!!===== D =====\n!!====== E ======\n!!* '''1''' x\n" } ) )
 has( 'toclevel=2: top section h2', lvl, '<h2 class="wt-timeline__section-title">A</h2>' )
 has( 'nested section one level deeper', lvl, '<h3 class="wt-timeline__section-title">B</h3>' )
 has( 'level is capped at 6', lvl, '<h6 class="wt-timeline__section-title">E</h6>' )
@@ -169,15 +169,15 @@ wellFormed( 'headings', lvl )
 
 -- without |id=, different texts get different prefixes and equal texts the same one
 local function firstId( text ) return p.outline( mw.frame( {}, { text = text } ) ):match( 'mw%-collapsible" id="mw%-customcollapsible%-([^"]+)"' ) end
-check( 'default prefix differs per text', firstId( "* '''1''' a\n" ) ~= firstId( "* '''1''' b\n" ) )
-eq( 'default prefix is stable', firstId( "* '''1''' a\n" ), firstId( "* '''1''' a\n" ) )
+check( 'default prefix differs per text', firstId( "!!* '''1''' a\n" ) ~= firstId( "!!* '''1''' b\n" ) )
+eq( 'default prefix is stable', firstId( "!!* '''1''' a\n" ), firstId( "!!* '''1''' a\n" ) )
 
 -- section anchors come from the visible words of a title with links
-local linked = p.outline( mw.frame( {}, { id = 'k', toc = 'no', text = "== [[V-2 rocket|V-2]] and [[Moon]] ==\n* '''1''' one\n" } ) )
+local linked = p.outline( mw.frame( {}, { id = 'k', toc = 'no', text = "!!== [[V-2 rocket|V-2]] and [[Moon]] ==\n!!* '''1''' one\n" } ) )
 has( 'anchor from a linked title', linked, 'id="V-2_and_Moon"' )
 
 -- ids are unique, also between two outlines on the page
-local html2 = p.outline( mw.frame( {}, { text = "== A ==\n* '''1''' one\n" } ) )
+local html2 = p.outline( mw.frame( {}, { text = "!!== A ==\n!!* '''1''' one\n" } ) )
 local ids, dup = {}, false
 for id in ( html .. html2 ):gmatch( ' id="([^"]+)"' ) do
 	if ids[ id ] then dup = true; print( '  duplicate id ' .. id ) end
@@ -190,21 +190,21 @@ for id in ( html .. html2 ):gmatch( 'mw%-customcollapsible%-([^"]+)"' ) do
 	check( 'toggler exists for ' .. id, t:find( 'mw-customtoggle-' .. id .. '"', 1, true ) ~= nil )
 end
 
-local collapsedHtml = p.outline( mw.frame( {}, { text = "== A ==\n* '''1''' one\n", collapsed = 'all' } ) )
+local collapsedHtml = p.outline( mw.frame( {}, { text = "!!== A ==\n!!* '''1''' one\n", collapsed = 'all' } ) )
 local c = 0
 for _ in collapsedHtml:gmatch( 'mw%-collapsed' ) do c = c + 1 end
 eq( 'collapsed=all', c, 2 )
 
-local withSubs = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n** b\n" } ) )
+local withSubs = p.outline( mw.frame( {}, { text = "!!* '''1''' one\n* a\n* b\n" } ) )
 has( 'sub-bullets are a wikitext list', withSubs, 'one \n* a\n* b\n' )
 wellFormed( 'subs', withSubs )
 
-local nested = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n*** a1\n*** a2\n**** a2x\n** b\n*** b1\n" } ) )
+local nested = p.outline( mw.frame( {}, { text = "!!* '''1''' one\n* a\n** a1\n** a2\n*** a2x\n* b\n** b1\n" } ) )
 has( 'nested sub-bullets (one * less)', nested, '\n* a\n** a1\n** a2\n*** a2x\n* b\n** b1\n' )
 wellFormed( 'nested subs', nested )
 
 -- the !* style: events are !*, a nested timeline is !**, every * line is plain wikitext
-local bangText = "== A ==\n!* '''1900''' one\n* a\n** a1\n!** '''1901''' inner\n!** 1902 ;; Title ;; inner two\n!* '''2000''' two\n"
+local bangText = "!!== A ==\n!!* '''1900''' one\n* a\n** a1\n!!** '''1901''' inner\n!!** 1902 ;; Title ;; inner two\n!!* '''2000''' two\n"
 local bangHtml = p.outline( mw.frame( {}, { text = bangText } ) )
 has( 'bang: list kept as written', bangHtml, 'one \n* a\n** a1\n' )
 has( 'bang: nested timeline', bangHtml, 'wt-timeline wt-timeline--sub' )
@@ -214,11 +214,11 @@ wellFormed( 'bang', bangHtml )
 local bangTree = p.parseOutline( bangText )
 eq( 'bang: two top events', #bangTree.children[ 1 ].children, 2 )
 eq( 'bang: two inner events', #bangTree.children[ 1 ].children[ 1 ].children, 2 )
-local legacy = p.parseOutline( "* '''1''' a\n* '''2''' b\n** c\n" )
+local legacy = p.parseOutline( "!!* '''1''' a\n!!* '''2''' b\n* c\n" )
 eq( 'legacy: * stays an event', #legacy.children, 2 )
 
 -- the text is passed through untouched: links, refs, templates
-local rich = p.outline( mw.frame( {}, { text = "* '''c. 1651''': [[Huang Longshi|Huang]] is born.<ref name=\"a\">x</ref>\n" } ) )
+local rich = p.outline( mw.frame( {}, { text = "!!* '''c. 1651''': [[Huang Longshi|Huang]] is born.<ref name=\"a\">x</ref>\n" } ) )
 has( 'wikilink preserved', rich, '[[Huang Longshi|Huang]] is born.<ref name="a">x</ref>' )
 
 print( string.format( '%d checks, %d failed', count, failures ) )

@@ -2,7 +2,7 @@
 -- The outline syntax of Module:TimelineRail drawn as a table (class="wikitable"): Date, Title,
 -- Description and Image columns, those that have data; sections are full-width rows. A view for
 -- Module:ViewSwitcher, but it works on its own:
---   {{#invoke:OutlineTable|table |text= == Section == ... * '''1612''' text }}
+--   {{#invoke:OutlineTable|table |text= !!== Section == ... !!* '''1612''' text }}
 -- No styles, no ids.
 local p = {}
 

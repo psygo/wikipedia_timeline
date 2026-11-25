@@ -37,7 +37,7 @@ has( 'template args', out, 'data-vs-label="Y"' )
 has( 'error without views', switcher.switch( mw.frame( {} ) ), 'class="error"' )
 
 -- views drawn from one set of data
-local text = "== Early ==\n* '''1612''' The Go academy opens\n* 1846 ;; The Ear-Reddening Game ;; Move 127 [[Shusaku]]\n** a sub point\n== Modern ==\n* '''2016''' AlphaGo wins"
+local text = "!!== Early ==\n!!* '''1612''' The Go academy opens\n!!* 1846 ;; The Ear-Reddening Game ;; Move 127 [[Shusaku]]\n* a sub point\n!!== Modern ==\n!!* '''2016''' AlphaGo wins"
 out = switcher.switch( mw.frame( {
 	views = 'Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable/sandbox.table',
 	id = 'demo', text = text } ) )
@@ -60,7 +60,7 @@ has( 'table link kept', out, '[[Shusaku]]' )
 lacks( 'no timeline ids in list view', out:match( 'data%-vs%-label="List".-</div>' ) or '', 'id="' )
 
 -- the !* style in the three views: a nested timeline is a nested list and following rows
-local bangText = "== A ==\n!* '''1900''' one\n* a\n!** '''1901''' inner\n!* '''2000''' two\n"
+local bangText = "!!== A ==\n!!* '''1900''' one\n* a\n!!** '''1901''' inner\n!!* '''2000''' two\n"
 local bout = switcher.switch( mw.frame( {
 	views = 'Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable/sandbox.table', id = 'b', text = bangText } ) )
 has( 'bang list: nested ul', bout, "'''1900''' – one \n* a\n<ul><li>'''1901''' – inner</li></ul></li>" )
@@ -87,9 +87,9 @@ check( 'at-arg not passed on to the functions', not out:find( 'the original</div
 
 -- references only in the default view
 local REF = "\127'\"`UNIQ--ref-0000000A-QINU`\"'\127"
-out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; List=OutlineList.list', text = '* one ' .. REF } ) )
+out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; List=OutlineList.list', text = '!!* one ' .. REF } ) )
 check( 'ref kept in the default view', count_of( out, 'UNIQ--ref-0000000A' ) == 1, 'count ' .. count_of( out, 'UNIQ--ref-0000000A' ) )
-out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; List=OutlineList.list', text = '* one ' .. REF, refs = 'all' } ) )
+out = switcher.switch( mw.frame( { views = '*Timeline=TimelineRail.outline; List=OutlineList.list', text = '!!* one ' .. REF, refs = 'all' } ) )
 check( 'refs=all keeps every one', count_of( out, 'UNIQ--ref-0000000A' ) == 2 )
 
 -- bad function name
@@ -97,11 +97,11 @@ local ok, err = pcall( switcher.switch, mw.frame( { views = 'X=OutlineList.nope'
 check( 'missing function is an error', not ok and tostring( err ):find( 'no function', 1, true ) ~= nil, tostring( err ) )
 
 -- images and untitled items
-out = otable.table( mw.frame( { text = "[[File:Moon.jpg|thumb|300px|The Moon]]\n* '''1968''' Earthrise" } ) )
+out = otable.table( mw.frame( { text = "!![[File:Moon.jpg|thumb|300px|The Moon]]\n!!* '''1968''' Earthrise" } ) )
 has( 'image column', out, '>Image<' )
 has( 'image', out, '[[File:Moon.jpg|thumb|none|300px|The Moon]]' )
 lacks( 'no title column', out, '>Title<' )
-out = olist.list( mw.frame( { text = "[[File:Moon.jpg|thumb|300px|The Moon]]\n* '''1968''' Earthrise" } ) )
+out = olist.list( mw.frame( { text = "!![[File:Moon.jpg|thumb|300px|The Moon]]\n!!* '''1968''' Earthrise" } ) )
 has( 'list image', out, '[[File:Moon.jpg|thumb|none|300px|The Moon]]' )
 has( 'list untitled', out, "<li>'''1968''' – Earthrise" )
 
