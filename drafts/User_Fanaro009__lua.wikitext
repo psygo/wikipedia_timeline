@@ -34,24 +34,28 @@ Sofware Engineer and [[Go (board game)]] player and teacher from Brazil.
 * [https://neofanaro.io neofanaro.io]
 * [https://github.com/psygo psygo on Github]
 * [https://www.instagram.com/fanaro009/ fanaro009 on Instagram]
+* YouTube
+** [https://www.youtube.com/@fanaro Philippe Fanaro]
+** [https://www.youtube.com/@gowithfanaro Go with Fanaro]
+** [https://www.youtube.com/@gocomfanaro Go com Fanaro]
 
-=Wikipedia timeline=
+=Wikipedia contributions=
 
 {{#invoke:TimelineRail|outline |id=fanaro009 |toc=no
 |text=
-* August 7, 2012 ;; Account created ;; I created the account Fanaro009.
-* November 2026 ;; Wikipedia software contributions ;; The <code>TimelineRail</code> component.
-** Documentation
-*** [https://github.com/psygo/wikipedia_timeline @psygo/wikipedia_timeline]
-*** [https://neofanaro.io/articles/wikipedia-timeline A Wikipedia Timeline Component {{!}} neofanaro.io]
-*** [[Module:TimelineRail|<code>TimelineRail</code> Lua Module]]
-*** [[Wikipedia:Village pump (proposals)#Timeline Visual Component|Timeline Component Proposal]]
-*** [[Wikipedia talk:Gadget#ViewSwitcher for Timelines|<code>ViewSwitcher</code> Gadget Proposal]]
-** Articles using it
-*** [[Timeline of first images of Earth from space]]
-*** [[Timeline of Go]]
-*** Drafts
-**** [[User:Fanaro009/Timeline of historic inventions|Timeline of historic inventions]]
-**** [[User:Fanaro009/Timeline of artificial intelligence|Timeline of artificial intelligence]]
-**** [[User:Fanaro009/Timeline of mathematics|Timeline of mathematics]]
+!* August 7, 2012 ;; Wikipedia account creation ;; The Fanaro009 account is created.
+!* November 2026 ;; The <code>TimelineRail</code> component
+* Documentation
+** [https://github.com/psygo/wikipedia_timeline @psygo/wikipedia_timeline]
+** [https://neofanaro.io/articles/wikipedia-timeline A Wikipedia Timeline Component {{!}} neofanaro.io]
+** [[Module:TimelineRail|<code>TimelineRail</code> Lua Module]]
+** [[Wikipedia:Village pump (proposals)#Timeline Visual Component|Timeline Component Proposal]]
+** [[Wikipedia talk:Gadget#ViewSwitcher for Timelines|<code>ViewSwitcher</code> Gadget Proposal]]
+* Articles using it
+** [[Timeline of first images of Earth from space]]
+** [[Timeline of Go]]
+** Drafts
+*** [[User:Fanaro009/Timeline of historic inventions|Timeline of historic inventions]]
+*** [[User:Fanaro009/Timeline of artificial intelligence|Timeline of artificial intelligence]]
+*** [[User:Fanaro009/Timeline of mathematics|Timeline of mathematics]]
 }}

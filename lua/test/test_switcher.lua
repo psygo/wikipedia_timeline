@@ -58,6 +58,14 @@ lacks( 'no image column without images', out, '>Image<' )
 has( 'table section row', out, 'colspan="3"' )
 has( 'table link kept', out, '[[Shusaku]]' )
 lacks( 'no timeline ids in list view', out:match( 'data%-vs%-label="List".-</div>' ) or '', 'id="' )
+
+-- the !* style in the three views: a nested timeline is a nested list and following rows
+local bangText = "== A ==\n!* '''1900''' one\n* a\n!** '''1901''' inner\n!* '''2000''' two\n"
+local bout = switcher.switch( mw.frame( {
+	views = 'Timeline=TimelineRail.outline; List=OutlineList.list; Table=OutlineTable/sandbox.table', id = 'b', text = bangText } ) )
+has( 'bang list: nested ul', bout, "'''1900''' – one \n* a\n<ul><li>'''1901''' – inner</li></ul></li>" )
+has( 'bang table: inner row', bout, '<td style="white-space:nowrap">1901</td>' )
+has( 'bang timeline: nested', bout, 'wt-timeline--sub' )
 lacks( 'views argument not passed on', out, 'views=' )
 
 

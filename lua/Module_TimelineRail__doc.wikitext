@@ -51,12 +51,33 @@ The first tools. This line is the section's introduction.
 |-
 | <code>* date ;; title ;; text</code> || an item with a title; the text may be left out
 |-
-| <code>**</code> lines || a list inside the item's text
+| <code>**</code> lines || a list inside the item's text (original style, see below)
 |-
 | a line with no marker || continues the line above
 |-
 | <code>[[File:…]]</code> alone on a line || the picture of the next item
 |}
+=== The <code>!*</code> style ===
+The original style uses <code>*</code> for events, which collides with ordinary bullet lists. If any line starts with <code>!*</code>, the outline is read in this style instead:
+<syntaxhighlight lang="wikitext">
+== Edo period ==
+!* '''1603''' Tokugawa shogunate founded.
+* an ordinary list inside the event
+** nested as on any page
+!** '''1612''' an event of a timeline nested inside the one above
+!* '''1868''' Meiji Restoration.
+</syntaxhighlight>
+{| class="wikitable"
+! Line !! Meaning
+|-
+| <code>!* …</code> || an event (the same forms as <code>*</code> above: date, ;; title, ;; text)
+|-
+| <code>!** …</code>, <code>!*** …</code> || an event of a timeline nested inside the event above it
+|-
+| lines starting with <code>*</code>, <code>#</code>, <code>:</code> or <code>;</code> || ordinary wikitext inside the event above, exactly as written
+|}
+Sections, pictures and continuation lines work as before. The List and Table views read both styles (a nested timeline is a nested list, or the rows that follow its event).
+
 Several <code>[[File:...|caption]]</code> lines before an item put all the pictures on that item, in one row that wraps.
 
 Parameters: <code>open=yes</code>: the rail fades out below the last dot instead of ending there, for a list that is not finished; <code>toc</code>, <code>toclevel</code>: the titles of the sections are real headings of the page, so the table of contents lists them (nested sections one level deeper); <code>toclevel</code> is the level of the top ones (default <code>3</code>, for a timeline under a <code>== Timeline ==</code> heading; 2 to 6) and <code>toc=no</code> makes the titles plain text again; <code>text</code> (or <code>|1=</code>); <code>id</code>, a short prefix for the ids of the items and sections (<code>id=inv2</code> gives <code>inv2_i1</code>, <code>inv2_s1</code>, ...); '''give each outline on a page a different <code>id</code>''' when there is more than one, or their toggles will clash; <code>collapsed=sections</code>, <code>items</code> or <code>all</code> to start closed; <code>title</code> to make it a column of a parallel group. Use <code>|text=</code> when the text contains <code>=</code>; wrap a literal pipe in <code>{{tl|!}}</code>.

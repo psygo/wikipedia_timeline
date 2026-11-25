@@ -270,6 +270,11 @@ function p.parseOutline( text )
 	local root = { children = {}, level = 0 }
 	local stack = { root }
 	local cur, lastItem, pendingFile = nil, nil, nil   -- cur: table receiving continuation lines
+	-- Two styles. With any line that starts with !* the events are marked !* (and !** for an event of a
+	-- nested timeline inside the one above, !*** one deeper), and every * line is ordinary wikitext
+	-- inside its event. Without one (the original style) * marks an event and ** a list inside it.
+	local bang = ( '\n' .. text ):find( '\n%s*!%*' ) ~= nil
+	local evs = {}      -- bang style: the latest event of each depth
 	for line in ( text .. '\n' ):gmatch( '(.-)\r?\n' ) do
 		local l = trim( line )
 		if not l then
@@ -282,15 +287,38 @@ function p.parseOutline( text )
 			local parent = stack[ #stack ]
 			parent.children[ #parent.children + 1 ] = node
 			stack[ #stack + 1 ] = node
-			cur, lastItem = node.intro, nil
-		elseif l:match( '^%*%*' ) then
+			cur, lastItem, evs = node.intro, nil, {}
+		elseif bang and l:match( '^!%*' ) then
+			local stars, rest = l:match( '^!(%*+)%s*(.*)$' )
+			local depth = #stars
+			local date, title, body = parseItem( rest ~= '' and rest or '' )
+			lastItem = { date = date, title = title, text = { body }, subs = {} }
+			if pendingFile then
+				lastItem.image, lastItem.caption, lastItem.imagesize = pendingFile[ 1 ][ 1 ], pendingFile[ 1 ][ 2 ], pendingFile[ 1 ][ 3 ]
+				lastItem.images = pendingFile
+				pendingFile = nil
+			end
+			local parent = depth > 1 and evs[ depth - 1 ] or stack[ #stack ]
+			if depth > 1 and not evs[ depth - 1 ] then parent = stack[ #stack ] end
+			parent.children = parent.children or {}
+			parent.children[ #parent.children + 1 ] = lastItem
+			for d = depth, #evs do evs[ d ] = nil end
+			evs[ depth ] = lastItem
+			cur = lastItem.text
+		elseif bang and l:match( '^[%*#:;]' ) then
+			-- ordinary wikitext (lists) inside the event above, exactly as written
+			if lastItem then
+				lastItem.subs[ #lastItem.subs + 1 ] = l
+				cur = lastItem.subs; cur.sub = true
+			end
+		elseif not bang and l:match( '^%*%*' ) then
 			-- the lines below an event that start with ** or more are ordinary wikitext lists inside it:
 			-- one * less (** is a * list, *** a ** list), so they are written as on any Wikipedia page
 			if lastItem then
 				lastItem.subs[ #lastItem.subs + 1 ] = trim( l:sub( 2 ) )
 				cur = lastItem.subs; cur.sub = true
 			end
-		elseif l:match( '^%*' ) then
+		elseif not bang and l:match( '^%*' ) then
 			local date, title, body = parseItem( trim( ( l:gsub( '^%*%s*', '' ) ) ) or '' )
 			lastItem = { date = date, title = title, text = { body }, subs = {} }
 			if pendingFile then
@@ -315,7 +343,11 @@ function p.parseOutline( text )
 	end
 	local function finish( node )
 		for _, ch in ipairs( node.children ) do
-			if ch.section then finish( ch ) elseif #ch.subs > 0 then ch.subtext = '\n' .. table.concat( ch.subs, '\n' ) .. '\n' end
+			if ch.section then finish( ch )
+			else
+				if #ch.subs > 0 then ch.subtext = '\n' .. table.concat( ch.subs, '\n' ) .. '\n' end
+				if ch.children then finish( ch ) end
+			end
 		end
 	end
 	finish( root )
@@ -357,6 +389,7 @@ local function buildOutline( node, opts, prefix, counter, depth )
 				date = ch.date, title = ch.title, text = text, image = ch.image, caption = ch.caption, images = images,
 				imagesize = ch.image and ( ch.imagesize or '220px' ) or nil,
 				id = prefix .. '_i' .. counter.i, collapsed = opts.collapseItems,
+				sub = ch.children and buildOutline( ch, opts, prefix, counter, depth ) or nil,
 			} )
 		end
 	end

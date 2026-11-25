@@ -73,7 +73,8 @@ local function listHtml( node )
 			local text = itemText( ch )
 			local line = table.concat( head, ' – ' )
 			if text then line = line .. ( ch.title and '. ' or ( ch.date and ' – ' or '' ) ) .. text end
-			run[ #run + 1 ] = '<li>' .. line .. ( ch.image and ( '<br />' .. plainImage( ch ) ) or '' ) .. '</li>'
+			run[ #run + 1 ] = '<li>' .. line .. ( ch.image and ( '<br />' .. plainImage( ch ) ) or '' )
+				.. ( ch.children and listHtml( ch ) or '' ) .. '</li>'
 		end
 	end
 	flush()

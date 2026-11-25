@@ -1,37 +1,35 @@
-"""Draft of User:Fanaro009 with a TimelineRail timeline (account creation, then the software contributions).
+"""Draft of User:Fanaro009: the live page with its timeline written in the !* style.
 
-Keeps the live page up to its "Wikipedia Software Contributions" section and replaces that list.
-Writes drafts/User_Fanaro009__lua.wikitext.
+The live page is the source (its wording and sections are the user's). Inside the TimelineRail outline:
+  *   (an event)           becomes  !*
+  **  (a list in it)       becomes  *
+  *** (a nested list)      becomes  **   and so on: one * less, as plain wikitext lists.
+A page already in the !* style is left as it is. Writes drafts/User_Fanaro009__lua.wikitext.
 """
-import pathlib, subprocess
+import pathlib, re, subprocess
 
 root = pathlib.Path(__file__).resolve().parent.parent
 cur = subprocess.run(['curl', '-s', '--max-time', '60', 'https://en.wikipedia.org/w/index.php?title=User:Fanaro009&action=raw'],
                      capture_output=True, text=True).stdout
-for marker in ('=Wikipedia Software Contributions=', '=Wikipedia timeline='):
-    cur = cur.split(marker)[0]
-head = cur.rstrip() + '\n\n'
 
-# Sub-points nest with ** and ***. A | inside the invoke would end the text argument: {{!}}.
-timeline = """=Wikipedia timeline=
 
-{{#invoke:TimelineRail|outline |id=fanaro009 |toc=no
-|text=
-* August 7, 2012 ;; Account created ;; I created the account Fanaro009.
-* November 2026 ;; Wikipedia software contributions ;; The <code>TimelineRail</code> component.
-** Documentation
-*** [https://github.com/psygo/wikipedia_timeline @psygo/wikipedia_timeline]
-*** [https://neofanaro.io/articles/wikipedia-timeline A Wikipedia Timeline Component {{!}} neofanaro.io]
-*** [[Module:TimelineRail|<code>TimelineRail</code> Lua Module]]
-*** [[Wikipedia:Village pump (proposals)#Timeline Visual Component|Timeline Component Proposal]]
-*** [[Wikipedia talk:Gadget#ViewSwitcher for Timelines|<code>ViewSwitcher</code> Gadget Proposal]]
-** Articles using it
-*** [[Timeline of first images of Earth from space]]
-*** [[Timeline of Go]]
-*** Drafts
-**** [[User:Fanaro009/Timeline of historic inventions|Timeline of historic inventions]]
-**** [[User:Fanaro009/Timeline of artificial intelligence|Timeline of artificial intelligence]]
-**** [[User:Fanaro009/Timeline of mathematics|Timeline of mathematics]]
-}}
-"""
-(root / 'drafts' / 'User_Fanaro009__lua.wikitext').write_text(head + timeline)
+def convert(block):
+    if re.search(r'^!\*', block, re.M):
+        return block
+    out = []
+    for line in block.split('\n'):
+        m = re.match(r'^(\*+)(.*)$', line)
+        if m:
+            stars = m.group(1)
+            line = '!*' + m.group(2) if len(stars) == 1 else stars[1:] + m.group(2)
+        out.append(line)
+    return '\n'.join(out)
+
+
+def fix(m):
+    return m.group(1) + convert(m.group(2)) + m.group(3)
+
+
+# the text of each outline: from "|text=" to the closing }} on a line of its own
+page = re.sub(r'(\{\{#invoke:TimelineRail\|outline[^\n]*\n\|text=\n)(.*?)(\n\}\})', fix, cur, flags=re.S)
+(root / 'drafts' / 'User_Fanaro009__lua.wikitext').write_text(page.rstrip('\n') + '\n')

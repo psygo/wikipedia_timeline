@@ -203,6 +203,20 @@ local nested = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n*** a1\n*
 has( 'nested sub-bullets (one * less)', nested, '\n* a\n** a1\n** a2\n*** a2x\n* b\n** b1\n' )
 wellFormed( 'nested subs', nested )
 
+-- the !* style: events are !*, a nested timeline is !**, every * line is plain wikitext
+local bangText = "== A ==\n!* '''1900''' one\n* a\n** a1\n!** '''1901''' inner\n!** 1902 ;; Title ;; inner two\n!* '''2000''' two\n"
+local bangHtml = p.outline( mw.frame( {}, { text = bangText } ) )
+has( 'bang: list kept as written', bangHtml, 'one \n* a\n** a1\n' )
+has( 'bang: nested timeline', bangHtml, 'wt-timeline wt-timeline--sub' )
+has( 'bang: inner event', bangHtml, 'inner' )
+has( 'bang: next event after the nested one', bangHtml, '2000' )
+wellFormed( 'bang', bangHtml )
+local bangTree = p.parseOutline( bangText )
+eq( 'bang: two top events', #bangTree.children[ 1 ].children, 2 )
+eq( 'bang: two inner events', #bangTree.children[ 1 ].children[ 1 ].children, 2 )
+local legacy = p.parseOutline( "* '''1''' a\n* '''2''' b\n** c\n" )
+eq( 'legacy: * stays an event', #legacy.children, 2 )
+
 -- the text is passed through untouched: links, refs, templates
 local rich = p.outline( mw.frame( {}, { text = "* '''c. 1651''': [[Huang Longshi|Huang]] is born.<ref name=\"a\">x</ref>\n" } ) )
 has( 'wikilink preserved', rich, '[[Huang Longshi|Huang]] is born.<ref name="a">x</ref>' )

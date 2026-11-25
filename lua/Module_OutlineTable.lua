@@ -69,6 +69,7 @@ function p.table( frame )
 				has.title = has.title or ch.title ~= nil
 				has.text = has.text or rows[ #rows ].text ~= nil
 				has.image = has.image or ch.image ~= nil
+				if ch.children then walk( ch, depth ) end      -- the events of a nested timeline follow it
 			end
 		end
 	end
