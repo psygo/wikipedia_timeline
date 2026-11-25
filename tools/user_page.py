@@ -7,7 +7,7 @@ from the original syntax to the !! syntax:
   **       (a list in it)  becomes *    ***  becomes **   and so on: one * less, as plain wikitext lists
   [[File:  (a picture)     becomes !![[File:
 A page already in the !! syntax is left as it is.
-The infobox gets an Education row (electrical engineering, USP) after the professions.
+The infobox gets Education (Electrical Engineering Bsc.) and University (USP) rows after the professions.
 The timeline is wrapped in Module:ViewSwitcher (the View button): Timeline (default), List and Table. Writes drafts/User_Fanaro009__lua.wikitext.
 """
 import pathlib, re, subprocess
@@ -39,16 +39,18 @@ def fix(m):
 
 
 def add_education(page):
-    """An Education row after Professions (row 6); the rows below it move down one number."""
+    """Education and University rows after Professions (row 6); the rows below them move down two numbers."""
     end = page.index('\n}}')
     box, rest = page[:end], page[end:]
     if 'Education' in box:
         return page
     box = re.sub(r'\| (header|label|data)(\d+)(\s*=)',
-                 lambda m: '| %s%d%s' % (m.group(1), int(m.group(2)) + (1 if int(m.group(2)) >= 7 else 0), m.group(3)), box)
+                 lambda m: '| %s%d%s' % (m.group(1), int(m.group(2)) + (2 if int(m.group(2)) >= 7 else 0), m.group(3)), box)
     row = ('| label7  = Education\n'
-           '| data7   = [[Electrical engineering]] graduate<br/>[[University of São Paulo|University of São Paulo (USP)]]\n')
-    box = box.replace('\n\n| header8', '\n' + row + '\n| header8', 1)
+           '| data7   = [[Electrical engineering|Electrical Engineering]] Bsc.\n'
+           '| label8  = University\n'
+           '| data8   = [[University of São Paulo|USP]]\n')
+    box = box.replace('\n\n| header9', '\n' + row + '\n| header9', 1)
     return box + rest
 
 

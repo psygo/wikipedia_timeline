@@ -17,15 +17,17 @@
 | label6  = Professions
 | data6   = Software Engineer<br/>Go (game) Teacher
 | label7  = Education
-| data7   = [[Electrical engineering]] graduate<br/>[[University of São Paulo|University of São Paulo (USP)]]
+| data7   = [[Electrical engineering|Electrical Engineering]] Bsc.
+| label8  = University
+| data8   = [[University of São Paulo|USP]]
 
-| header8 = On Wikipedia
-| label9  = Editing since
-| data9   = 2012
-| label10  = Interests
-| data10   = [[Go (game)|Go (game)]]<br/>[[Software|Software]]<br/>[[Timeline|Timelines]]<br/>[[Engineering|Engineering]]<br/>[[Mathematics|Mathematics]]
-| label11 = Projects
-| data11  = [[Module:TimelineRail|TimelineRail (Lua module)]]<br/>[[User:Fanaro009/Timeline of Go|Timeline of Go (article)]]
+| header9 = On Wikipedia
+| label10  = Editing since
+| data10   = 2012
+| label11  = Interests
+| data11   = [[Go (game)|Go (game)]]<br/>[[Software|Software]]<br/>[[Timeline|Timelines]]<br/>[[Engineering|Engineering]]<br/>[[Mathematics|Mathematics]]
+| label12 = Projects
+| data12  = [[Module:TimelineRail|TimelineRail (Lua module)]]<br/>[[User:Fanaro009/Timeline of Go|Timeline of Go (article)]]
 }}
 
 
