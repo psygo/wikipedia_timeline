@@ -266,6 +266,24 @@ end
 
 -- Returns a tree: { children = { node, ... } }; node is a section ({ section = true, title, level,
 -- intro = {...}, children }) or an item ({ date, title, text, subs, image, caption }).
+-- The sub-points of an item as one (nested) <ul>: ** is the first level, *** the second, and so on.
+local function subList( subs, depths )
+	local out, cur = {}, 0
+	for i, s in ipairs( subs ) do
+		local lvl = ( depths and depths[ i ] ) or 1
+		if lvl > cur then
+			for _ = cur + 1, lvl do out[ #out + 1 ] = '<ul>' end
+		else
+			for _ = cur, lvl + 1, -1 do out[ #out + 1 ] = '</li></ul>' end
+			out[ #out + 1 ] = '</li>'
+		end
+		cur = lvl
+		out[ #out + 1 ] = '<li>' .. s
+	end
+	for _ = cur, 1, -1 do out[ #out + 1 ] = '</li></ul>' end
+	return table.concat( out )
+end
+
 function p.parseOutline( text )
 	local root = { children = {}, level = 0 }
 	local stack = { root }
@@ -286,6 +304,8 @@ function p.parseOutline( text )
 		elseif l:match( '^%*%*' ) then
 			if lastItem then
 				lastItem.subs[ #lastItem.subs + 1 ] = trim( l:gsub( '^%*+%s*', '' ) )
+				lastItem.subdepth = lastItem.subdepth or {}
+				lastItem.subdepth[ #lastItem.subs ] = #l:match( '^%*+' ) - 1      -- ** is level 1, *** level 2, ...
 				cur = lastItem.subs; cur.sub = true
 			end
 		elseif l:match( '^%*' ) then
@@ -311,6 +331,12 @@ function p.parseOutline( text )
 			end
 		end
 	end
+	local function finish( node )
+		for _, ch in ipairs( node.children ) do
+			if ch.section then finish( ch ) elseif #ch.subs > 0 then ch.subhtml = subList( ch.subs, ch.subdepth ) end
+		end
+	end
+	finish( root )
 	return root
 end
 
@@ -338,9 +364,7 @@ local function buildOutline( node, opts, prefix, counter, depth )
 			counter.i = counter.i + 1
 			local text = trim( table.concat( ch.text, ' ' ) )
 			if #ch.subs > 0 then
-				local lis = {}
-				for _, s in ipairs( ch.subs ) do lis[ #lis + 1 ] = '<li>' .. s .. '</li>' end
-				text = ( text and ( text .. ' ' ) or '' ) .. '<ul>' .. table.concat( lis ) .. '</ul>'
+				text = ( text and ( text .. ' ' ) or '' ) .. ch.subhtml
 			end
 			local images
 			if ch.images then

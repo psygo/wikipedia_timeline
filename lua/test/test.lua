@@ -199,6 +199,10 @@ local withSubs = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n** b\n"
 has( 'sub-bullets become a list', withSubs, 'one <ul><li>a</li><li>b</li></ul>' )
 wellFormed( 'subs', withSubs )
 
+local nested = p.outline( mw.frame( {}, { text = "* '''1''' one\n** a\n*** a1\n*** a2\n**** a2x\n** b\n*** b1\n" } ) )
+has( 'nested sub-bullets', nested, 'one <ul><li>a<ul><li>a1</li><li>a2<ul><li>a2x</li></ul></li></ul></li><li>b<ul><li>b1</li></ul></li></ul>' )
+wellFormed( 'nested subs', nested )
+
 -- the text is passed through untouched: links, refs, templates
 local rich = p.outline( mw.frame( {}, { text = "* '''c. 1651''': [[Huang Longshi|Huang]] is born.<ref name=\"a\">x</ref>\n" } ) )
 has( 'wikilink preserved', rich, '[[Huang Longshi|Huang]] is born.<ref name="a">x</ref>' )
