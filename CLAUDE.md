@@ -14,6 +14,8 @@ every wiki page and the file to paste into it; `lua/README.md` has the step by s
   `gh run list --limit 1` (wait with `gh run watch`). If it failed, read `gh run view <id> --log-failed`: a
   transient GitHub error (HTTP 5xx from `deploy-pages`) gets `gh run rerun <id> --failed`; anything else is
   fixed in a new commit. Do not report a task as done while the latest run is red, and say so if it stays red.
+- Whenever you tell me which files to update on Wikipedia, give a table: one row per page, with a link to the
+  file in this repo to paste from and a link to the wiki page's edit form (and what changed in it).
 - Drafts in `drafts/` are generated: change the converter in `tools/` and regenerate, do not edit them by hand.
 
 ## Audit every 20 commits

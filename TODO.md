@@ -8,9 +8,9 @@
 - [ ] Not tried on a wiki yet: the modules and the scripts (see "Put it on a wiki" in `lua/README.md`).
 - [x] Before and after in the demo: `web-component/demo/views.html`, and every example in `prototype/article.html` has the View button.
 - [x] Web component and React: the same split (`<view-switcher>`, `<outline-list>`, `<outline-table>`; `ViewSwitcher`, `OutlineList`, `OutlineTable`).
-
-- [ ] Improve syntax: use something else instead of `*` for the timeline, otherwise it collides with regular lists.
+- [x] Improve syntax: use something else instead of `*` for the timeline, otherwise it collides with regular lists.
   - And it's conflicting for doing nested timelines...
+- [ ] Current behavior is not seen on the app version of Wikipedia.
 
 ## Articles
 
