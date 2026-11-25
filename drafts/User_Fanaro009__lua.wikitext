@@ -1,0 +1,47 @@
+{{Infobox
+| bodystyle  = width:22em; float:right; clear:right; margin:0 0 1em 1em;
+| title      = Fanaro009
+| image      = [[File:Philippe Fanaro.png|frameless]]
+| caption    = 
+| headerstyle = background:#cfe3ff;
+
+| header1 = About
+| label2  = Name
+| data2   = Philippe Fanaro
+| label3  = Location
+| data3   = São Paulo, Brazil
+| label4  = Age
+| data4   = {{Birth date and age|1992|6|27}}
+| label5  = Languages
+| data5   = {{Flag icon|Brazil}} Portuguese (native)<br/>{{Flag icon|United States}} English (fluent)<br/>{{Flag icon|France}} French (advanced)
+| label6  = Professions
+| data6   = Software Engineer<br/>Go (game) Teacher
+
+| header7 = On Wikipedia
+| label8  = Editing since
+| data8   = 2012
+| label9  = Interests
+| data9   = [[Go (game)|Go (game)]]<br/>[[Software|Software]]<br/>[[Timeline|Timelines]]<br/>[[Engineering|Engineering]]<br/>[[Mathematics|Mathematics]]
+| label10 = Projects
+| data10  = [[Module:TimelineRail|TimelineRail (Lua module)]]<br/>[[User:Fanaro009/Timeline of Go|Timeline of Go (article)]]
+}}
+
+
+=Summary=
+
+Sofware Engineer and [[Go (board game)]] player and teacher from Brazil.
+
+* [https://neofanaro.io neofanaro.io]
+* [https://github.com/psygo psygo on Github]
+* [https://www.instagram.com/fanaro009/ fanaro009 on Instagram]
+
+=Wikipedia timeline=
+
+{{#invoke:TimelineRail|outline |id=fanaro009 |toc=no
+|text=
+* August 7, 2012 ;; Account created ;; I created the account Fanaro009.
+* November 2026 ;; Wikipedia software contributions ;; The <code>TimelineRail</code> component.
+** '''Documentation:''' [https://github.com/psygo/wikipedia_timeline @psygo/wikipedia_timeline] · [https://neofanaro.io/articles/wikipedia-timeline A Wikipedia Timeline Component {{!}} neofanaro.io] · [[Module:TimelineRail|<code>TimelineRail</code> Lua Module]] · [[Wikipedia:Village pump (proposals)#Timeline Visual Component|Timeline Component Proposal]] · [[Wikipedia talk:Gadget#ViewSwitcher for Timelines|<code>ViewSwitcher</code> Gadget Proposal]]
+** '''Articles using it:''' [[Timeline of first images of Earth from space]] · [[Timeline of Go]]
+** '''Drafts:''' [[User:Fanaro009/Timeline of historic inventions|Timeline of historic inventions]] · [[User:Fanaro009/Timeline of artificial intelligence|Timeline of artificial intelligence]] · [[User:Fanaro009/Timeline of mathematics|Timeline of mathematics]]
+}}
