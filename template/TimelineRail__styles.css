@@ -99,6 +99,9 @@
 
 .wt-timeline__date {
 	display: block;
+	/* a word is never cut in the middle (the skin may allow it): the line wraps between words */
+	overflow-wrap: normal;
+	word-break: normal;
 	color: var( --color-base, #202122 );
 	font-weight: bold;
 	line-height: 1.6;
@@ -220,25 +223,25 @@
 	}
 
 	.wt-timeline::before {
-		left: 6.5em;
+		left: 7.5em;
 		margin-left: -1px;
 	}
 
 	.wt-timeline__item {
 		display: flow-root;
-		padding-left: 7.5em;
+		padding-left: 8.5em;
 	}
 
 	.wt-timeline__item::before {
-		left: calc( 6.5em - 5px );
+		left: calc( 7.5em - 5px );
 	}
 
 	/* A float in the padding area (not absolute), so a date that wraps onto two
 	   lines still makes the item tall enough. */
 	.wt-timeline__date {
 		float: left;
-		width: 5.5em;
-		margin-left: -7.5em;
+		width: 6.5em;
+		margin-left: -8.5em;
 		text-align: right;
 	}
 
@@ -459,7 +462,7 @@
 @media ( min-width: 640px ) {
 	/* Collapsible items: the dot sits on the row, so it has to move here too. */
 	.wt-timeline__row::before {
-		left: calc( 6.5em - 5px );
+		left: calc( 7.5em - 5px );
 	}
 
 	.wt-timelines .wt-timeline__row::before,
@@ -495,7 +498,7 @@
 
 @media ( min-width: 640px ) {
 	.wt-timeline__item--last::after {
-		left: calc( 6.5em - 2px );
+		left: calc( 7.5em - 2px );
 	}
 
 	.wt-timelines .wt-timeline__item--last::after,
@@ -542,6 +545,8 @@
 }
 
 .wt-timeline__section-title {
+	overflow-wrap: normal;
+	word-break: normal;
 	color: var( --color-base, #202122 );
 	font-weight: bold;
 }
@@ -564,7 +569,7 @@
 
 @media ( min-width: 640px ) {
 	.wt-timeline__dot {
-		left: calc( 6.5em - 10px );
+		left: calc( 7.5em - 10px );
 	}
 
 	.wt-timelines .wt-timeline__dot,
@@ -633,7 +638,7 @@ h6.wt-timeline__section-title {
  * inner dots, and curves back to the outer rail just above the next dot. Four small
  * boxes make the two S-bends (corner radius 6px, line 2px); each corner box has 2px of straight
  * line past its curve, overlapping the rail it meets, so no seam shows between them. Values below are for the compact layout (rail 4px from the left edge);
- * the wide layout (rail 6.5em from it) follows in the media query. The inner rail is
+ * the wide layout (rail 7.5em from it) follows in the media query. The inner rail is
  * 1.5em to the right of the outer one.
  *   A  row::after          outer rail down from the dot, round corner, across
  *   B  body::before        across, round corner, down onto the inner rail
@@ -702,15 +707,15 @@ h6.wt-timeline__section-title {
 @media ( min-width: 640px ) {
 	.wt-timeline__item--section > .wt-timeline__row {
 		display: flow-root;
-		padding-left: 7.5em;
+		padding-left: 8.5em;
 	}
 
 	/* Like a date: the title goes in the left column, right-aligned, and the optional
 	   text and image sit to the right of the dot. */
 	.wt-timeline__section-title {
 		float: left;
-		width: 5.5em;
-		margin-left: -7.5em;
+		width: 6.5em;
+		margin-left: -8.5em;
 		text-align: right;
 	}
 
@@ -729,15 +734,15 @@ h6.wt-timeline__section-title {
 
 	.wt-timeline__item--section:not( .mw-collapsed ) > .wt-timeline__row::after,
 	.wt-timeline__item--section > .wt-timeline__body::after {
-		left: calc( 6.5em - 1px );
+		left: calc( 7.5em - 1px );
 	}
 
 	.wt-timeline__item--section > .wt-timeline__body::before {
-		left: calc( 8em - 5px );
+		left: calc( 9em - 5px );
 	}
 
 	.wt-timeline--section::after {
-		left: calc( 6.5em - 5px );
+		left: calc( 7.5em - 5px );
 	}
 
 	.wt-timelines .wt-timeline__item--section:not( .mw-collapsed ) > .wt-timeline__row::after,
