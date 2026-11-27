@@ -158,6 +158,18 @@ write drafts for the sandbox names); `lua/README.md` has the step by step, and t
       <td>yes</td>
     </tr>
     <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:TimelineGantt&amp;action=edit">Module:TimelineGantt</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/Module_TimelineGantt.lua"><code>lua/Module_TimelineGantt.lua</code></a></td>
+      <td><code>{{#invoke:TimelineGantt | gantt |text=...}}</code>: the outline as a Gantt chart, one bar per event on a shared time scale (a view for the switcher, or alone).</td>
+      <td>optional</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/w/index.php?title=Module:TimelineGantt/styles.css&amp;action=edit">Module:TimelineGantt/styles.css</a></td>
+      <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/lua/TimelineGantt__styles.css"><code>lua/TimelineGantt__styles.css</code></a></td>
+      <td>The look of the chart (TemplateStyles).</td>
+      <td>no (the module names this page)</td>
+    </tr>
+    <tr>
       <td><a href="https://en.wikipedia.org/w/index.php?title=Template:TimelineRail/styles.css&amp;action=edit">Template:TimelineRail/styles.css</a></td>
       <td><a href="https://github.com/psygo/wikipedia_timeline/blob/main/template/TimelineRail__styles.css"><code>template/TimelineRail__styles.css</code></a></td>
       <td>The look of the timeline (TemplateStyles); shared by the template and the module.</td>

@@ -11,6 +11,7 @@
 - [x] Improve syntax: use something else instead of `*` for the timeline, otherwise it collides with regular lists.
   - And it's conflicting for doing nested timelines...
 - [ ] Current behavior is not seen on the app version of Wikipedia.
+- [ ] Develop a companion Gantt chart visualization component for timelines.
 
 ## Articles
 

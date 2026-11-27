@@ -86,6 +86,8 @@ button that switches between them, are other components. Each works alone.
 | the button itself | the script that builds the dropdown (MediaWiki:Gadget-ViewSwitcher.js, or User:Fanaro009/ViewSwitcher.js loaded from your common.js to try it) | `userscript/ViewSwitcher.js` |
 | `Module:OutlineList` (optional) | `{{#invoke:OutlineList\|list \|text=...}}`: the outline as a plain bulleted list | `lua/Module_OutlineList.lua` |
 | `Module:OutlineTable` (optional) | `{{#invoke:OutlineTable\|table \|text=...}}`: the outline as a `wikitable` | `lua/Module_OutlineTable.lua` |
+| `Module:TimelineGantt` (optional) | `{{#invoke:TimelineGantt\|gantt \|text=...}}`: the outline as a Gantt chart; events with a date range (`!!* 3000 BC – 500 BC ;; Egyptian`) become bars, a single year a dot; add it to the switcher as `Gantt=TimelineGantt.gantt` | `lua/Module_TimelineGantt.lua` |
+| `Module:TimelineGantt/styles.css` | the chart's look (passes the TemplateStyles sanitizer) | `lua/TimelineGantt__styles.css` |
 
 **The list and table modules are optional.** They add no styling: they write a plain `<ul>` and a
 `class="wikitable"`, the default Wikipedia elements. All they do is write them from the same outline, so the
