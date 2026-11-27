@@ -99,9 +99,10 @@
 
 .wt-timeline__date {
 	display: block;
-	/* a word is never cut in the middle (the skin may allow it): the line wraps between words */
-	overflow-wrap: normal;
-	word-break: normal;
+	/* long words are hyphenated (the page language decides where); only a word that cannot be
+	   hyphenated is cut, as a last resort */
+	hyphens: auto;
+	overflow-wrap: break-word;
 	color: var( --color-base, #202122 );
 	font-weight: bold;
 	line-height: 1.6;
@@ -125,6 +126,8 @@
 
 .wt-timeline__title {
 	display: block;
+	hyphens: auto;
+	overflow-wrap: break-word;
 	color: var( --color-base, #202122 );
 	font-weight: bold;
 }
@@ -216,10 +219,11 @@
 
 /* Wide: date column on the left, rail after it, content on the right. */
 @media ( min-width: 640px ) {
-	/* the date column already leaves room on the left: no extra margin there, so the white space
-	   on both sides looks the same */
+	/* more room at the sides on medium and wide screens; the right margin is a little larger because the
+	   date column already leaves some white space on the left, so both sides look about the same */
 	.wt-timeline:not( .wt-timeline--sub ):not( .wt-timeline--section ) {
-		margin-left: 0;
+		margin-right: 2em;
+		margin-left: 1.25em;
 	}
 
 	.wt-timeline::before {
@@ -545,8 +549,10 @@
 }
 
 .wt-timeline__section-title {
-	overflow-wrap: normal;
-	word-break: normal;
+	/* long words are hyphenated (the page language decides where); only a word that cannot be
+	   hyphenated is cut, as a last resort */
+	hyphens: auto;
+	overflow-wrap: break-word;
 	color: var( --color-base, #202122 );
 	font-weight: bold;
 }
